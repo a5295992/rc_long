@@ -38,13 +38,14 @@ public class SqlCreate {
 	 * 查询数量
 	 * @return
 	 */
-	public static StringBuilder generateQueryCountSql(Class<?> clazz,StringBuilder sb){
+	public static StringBuilder generateQueryCountSql(Class<?> clazz,StringBuilder sb,String obj[]){
 		String tableName=clazz.getSimpleName();
 		//先将其首字母变为小写 添加
 		tableName=deleWithTableName(tableName, sb);
-		sb.append("select count(*) from ");
+		sb.append("select ");
+		parseArray(obj, sb);
+		sb.append(" count(*) from ");
 		sb.append(tableName);
-		
 		return sb;
 	}
 	/**
@@ -96,7 +97,6 @@ public class SqlCreate {
 		return sb;
 	}
 	public static StringBuilder having(String [] obj,StringBuilder sb){
-		parseArray(obj, sb);
 		sb.append(" having ");
 		parseArray(obj, sb);
 		return sb;
