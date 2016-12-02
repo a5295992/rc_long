@@ -10,9 +10,10 @@ public class SqlCreate {
 	 * @param clazz
 	 * @return 1
 	 */
+	public static String tableName=null;
 	public static void generateQuerySql(Class<?> clazz,StringBuilder sb){
 		sb.append("select *from ");
-		String tableName=clazz.getSimpleName();
+		 tableName=clazz.getSimpleName();
 		//将class名字变为 table 名
 		deleWithTableName(tableName, sb);
 	}
@@ -24,7 +25,7 @@ public class SqlCreate {
 	 */
 	public static void generateQuerySql(Class<?> clazz,String []obj,StringBuilder sb){
 		sb.append("select ");
-		String tableName=clazz.getSimpleName();
+		tableName=clazz.getSimpleName();
 		//先将其首字母变为小写 添加
 		for (int i = 0; i < obj.length; i++) {
 			sb.append(obj[i]);
@@ -40,7 +41,7 @@ public class SqlCreate {
 	 * @return
 	 */
 	public static void generateQueryCountSql(Class<?> clazz,StringBuilder sb,Map<String, Object> obj){
-		String tableName=clazz.getSimpleName();
+		tableName=clazz.getSimpleName();
 		sb.append("select ");
 		parseArray(obj, sb);
 		sb.append(" count(*) from ");
@@ -58,7 +59,7 @@ public class SqlCreate {
 		StringBuilder sbx=new StringBuilder();
 		sbx.append(" from ");
 		for (int i = 0; i < list.size(); i++) {
-			String tableName=list.get(i).getSimpleName();
+			tableName=list.get(i).getSimpleName();
 			sbx.append(tableName.charAt(0));
 			for (int j = 1; j < tableName.length(); j++) {
 				//其后 如果是大写字母 就将其变小写
@@ -185,5 +186,46 @@ public class SqlCreate {
 		sb.append(clum);
 		sb.append(" like ");
 		sb.append("'"+'%'+""+like+""+'%'+"'");
+	}
+	/**
+	 * 插入
+	 * @param sb
+	 */
+	private static String dealWithName(String tableName){
+		StringBuilder sbx=new StringBuilder();
+		sbx.append((tableName.charAt(0)+"").toLowerCase());
+		//先将其首字母变为小写 添加
+		for (int i = 1; i < tableName.length(); i++) {
+			//其后 如果是大写字母 就将其变小写
+			if(tableName.charAt(i)<97&&tableName.charAt(i)>65){
+				sbx.append("_"+(tableName.charAt(i)+"".toLowerCase()));
+			}else{
+				sbx.append(tableName.charAt(i));
+			}
+		}
+		
+		return tableName=sbx.toString();
+	}
+	public static void insertSql(StringBuilder sb,Class<?> clazz,String[] parameters){
+		String tableName=clazz.getSimpleName();
+		tableName=dealWithName(tableName);
+		sb.append("insert into ");
+		sb.append(tableName);
+		StringBuilder sbs=new StringBuilder();
+		if(parameters!=null){
+			sb.append("(");
+			for (int i = 0; i < parameters.length; i++) {
+				sb.append(parameters[i]);
+				sbs.append(" ? ");
+				if(parameters.length-i>1){
+					sb.append(",");
+					sbs.append(",");
+				}
+			}
+			sb.append(")");
+			sb.append(" values(");
+			sb.append(sbs);
+			sb.append(")");
+		}
 	}
 }
