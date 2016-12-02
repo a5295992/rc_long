@@ -1,5 +1,6 @@
 package com.rc_long.dao;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -52,18 +53,55 @@ public class SqlCreate {
 	 * @param classArr
 	 * @param condition
 	 */
-	public static void genenrateLeftJoinQuerySql(Map<String, Object> obj){
+	public static void genenrateLeftJoinQuerySql(List<Class> list,List<String[]> searchList,List<String> condition,StringBuilder sb){
+		sb.append("select ");
 		StringBuilder sbx=new StringBuilder();
-		
+		sbx.append(" from ");
+		for (int i = 0; i < list.size(); i++) {
+			String tableName=list.get(i).getSimpleName();
+			sbx.append(tableName.charAt(0));
+			for (int j = 1; j < tableName.length(); j++) {
+				//其后 如果是大写字母 就将其变小写
+				if(tableName.charAt(j)<97&&tableName.charAt(j)>65){
+					sbx.append("_"+(tableName.charAt(j)+"".toLowerCase()));
+				}else{
+					sbx.append(tableName.charAt(j));
+				}
+			}
+			sbx.append(" t"+i+" ");
+			if(list.size()-i>1){
+				sbx.append(",");
+			}
+			//要查找的字段
+			if(searchList!=null){
+				for(int z=0;z<searchList.get(i).length;z++){
+					sb.append(" t"+i);
+					sb.append(".");
+					sb.append(searchList.get(i)[z]);
+					if(list.size()-i>1){
+						sb.append(",");
+					}
+				}
+			}
+			//关联条件
+		}
+		sb.append(sbx);
+	for (int i = 0; i < condition.size(); i++) {
+		sb.append(" where ");
+		sb.append(condition.get(i));
 	}
-	
+	}
 	/**
 	 * 添加条件 生成预编译语句
 	 * @param obj
 	 * @param sb
 	 */
 	public static void setConditions(Map<String,Object>map,StringBuilder sb){
-		sb.append(" where ");
+		if(sb.toString().contains("where")){
+			sb.append(" and ");
+		}else{
+			sb.append(" where ");
+		}
 		parseArray(map,sb);
 	}
 	//用来解析数组 组装成为语句
@@ -138,7 +176,6 @@ public class SqlCreate {
 		sb.append(end);
 		sb.append(" ");
 	}
-	
 	public static void like(StringBuilder sb,String clum,Object like){
 		if(sb.toString().contains("where")){
 			sb.append(" and ");
@@ -149,6 +186,4 @@ public class SqlCreate {
 		sb.append(" like ");
 		sb.append("'"+'%'+""+like+""+'%'+"'");
 	}
-	
-	
 }
