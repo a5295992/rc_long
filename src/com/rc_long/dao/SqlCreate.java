@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.rc_long.Entity.SysUser;
+
 public class SqlCreate {
 	/**
 	 * 查询所有
@@ -206,6 +208,12 @@ public class SqlCreate {
 		
 		return tableName=sbx.toString();
 	}
+	/**
+	 * 
+	 * @param sb
+	 * @param clazz
+	 * @param parameters
+	 */
 	public static void insertSql(StringBuilder sb,Class<?> clazz,String[] parameters){
 		String tableName=clazz.getSimpleName();
 		tableName=dealWithName(tableName);
@@ -226,6 +234,64 @@ public class SqlCreate {
 			sb.append(" values(");
 			sb.append(sbs);
 			sb.append(")");
+		}else{
+			int lenth=clazz.getDeclaredFields().length-1;
+			sb.append(" values(");
+			for (int i = 0; i < lenth; i++) {
+				sb.append(" ? ");
+				if(isLastIndex(lenth,i)){
+					sb.append(",");
+				}
+			}
+			sb.append(")");
 		}
 	}
+	/**
+	 * 查詢操作
+	 * @param clazz
+	 * @param sb
+	 * @param parameters
+	 */
+	public static void generateUpdateSql(Class<?> clazz,StringBuilder sb,String []parameters){
+		String tableName=clazz.getSimpleName();
+		tableName=dealWithName(tableName);
+		sb.append("update ");
+		sb.append(tableName);
+		sb.append(" set ");
+		sb.append(parameters[0]);
+		sb.append(" = ?");
+		for (int i = 1; i < parameters.length; i++) {
+			sb.append(" and ");
+			sb.append(parameters[i]);
+			sb.append("= ?");
+		}
+	}
+	/**
+	 * 判斷是不是最後一位
+	 * @param index
+	 * @param last
+	 * @return
+	 */
+	private static boolean isLastIndex(int index,int last){
+		return (index-last>1);
+	}
+	/**
+	 * 刪除操作
+	 * @param sb
+	 * @param clazz
+	 * @param parameters
+	 */
+	public static void generateDelete(StringBuilder sb,Class<?> clazz,String []parameters){
+		String tableName=clazz.getSimpleName();
+		tableName=dealWithName(tableName);
+		sb.append("delete ");
+		sb.append("from ");
+		sb.append(tableName);
+		if(parameters!=null){
+			for (int i = 0; i < parameters.length; i++) {
+				sb.append(parameters[i]+" = ?");
+			}
+		}
+	}
+	
 }
