@@ -1,4 +1,413 @@
-/* ≤¬ƒ„œ≤ª∂—˘ Ω…Ë÷√ */
+@charset "UTF-8";
+header{
+    width: 100%;
+}
+header .login{
+    width: 100%;
+    height: 86px;
+}
+header .login .main{
+    width: 1120px;
+  /*  height: 86px;*/
+    margin: 0 auto;
+    background-color: white;
+}
+header .login .main .login_img{
+     float: left;
+     width: 112px;
+     height: 38px;
+     margin-top: 24px;
+    margin-right: 4px;
+ }
+header .login .main .login_img a{
+    display: block;
+    width: 112px;
+    height: 38px;
+}
+header .login .main .login_img a{
+    width: 112px;
+    height: 38px;
+}
+header .login .main .login_img a img{
+    width: 112px;
+    height: 38px;
+}
+header .login .main .login_date{
+    float: left;
+    width: 100px;
+    height: 40px;
+    margin-top: 24px;
+    margin-right: 109px;
+}
+header .login .main .login_date a{
+   display: block;
+    width: 100px;
+    height: 40px;
+}
+header .login .main .login_date a img{
+    display: block;
+    width: 100px;
+    height: 40px;
+}
+header .login .main .login_second {
+    float: left;
+    width: 462px;
+    margin-top: 22px;
+}
+header .login .main .login_second .login_secondF{
+    width: 462px;
+    height: 34px;
+    border: 1px solid #cccccc;
+}
+header .login .main .login_second .login_secondF .in{
+    float: left;
+    width: 382px;
+    height: 26px;
+   padding: 3px;
+    border: 0;
+    line-height: 34px;
+    color: #000;
+    font-size: 16px;
+    outline: none;
+}
+header .login .main .login_second .login_secondF .sub{
+    float: left;
+    width: 74px;
+    height: 34px;
+    background-color: red;
+    text-align: center;
+    font-size: 16px;
+    line-height: 34px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-family: "Microsoft YaHei";
+}
+header .login .main .login_second .login_secondS{
+    width: 462px;
+    height: 18px;
+   padding: 4px 0 0 0;
+}
+header .login .main .login_second .login_secondS li{
+    float: left;
+    padding-right: 10px;
+    color: #888;
+    font-size: 14px;
+}
+header .login .main .login_second .login_secondS li a{
+
+    color: #888;
+    font-size: 14px;
+}
+header .login .main .login_second .login_secondS li a:hover{
+    color: red;
+}
+
+
+header .login .main .login_third {
+     float: right;
+     width: 256px;
+     height: 90px;
+    font-size: 12px;
+ }
+header .login .main .login_third li{
+    float: left;
+    width: 54px;
+    margin-top: 18px;
+    margin-left: 8px;
+}
+header .login .main .login_third li a{
+    display: block;
+    width: 54px;
+    font-size: 12px;
+
+}
+
+header .login .main .login_third li .img{
+    width: 54px;
+    height: 36px;
+
+}
+header .login .main .login_third li .login_thirdDiv{
+    width: 54px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: #333;
+    font-size: 12px;
+
+}
+header .login .main .login_third li.first{
+    width: 54px;
+    margin-top: 18px;
+    margin-left: 8px;
+    font-size: 14px;
+    color: #333;
+}
+header .login .main .login_third li.first .img{
+    width: 54px;
+    height: 36px;
+}
+header .login .main .login_third li.first .login_thirdDiv{
+    width: 54px;
+    height: 20px;
+}
+header .login .main .login_third li .login_thirdDiv:hover{
+    color: red;
+}
+header .login .main .login_third li.first .login_thirdDiv:hover{
+    color: #333;
+}
+header .login .main .login_third li.first .login_thirdDiv .span1:hover{
+    color: red;
+}
+header .login .main .login_third li.first .login_thirdDiv .span2:hover{
+    color: red;
+}
+header .nav{
+     width: 100%;
+    background-color: red;
+ }
+header .nav .center{
+     width: 1120px;
+    height: 32px;
+     margin: 0 auto;
+    border-top: 2px solid red;
+
+ }
+header .nav .center li {
+    float: left;
+
+}
+header .nav .center li a{
+     display: block;
+     font-size: 14px;
+     line-height: 32px;
+     color: white;
+     padding-right: 20px;
+     padding-left: 20px;
+     cursor: pointer;
+ }
+header .nav .center li a:hover{
+    color: #dddddd;
+    opacity: 0.5;
+}
+header .nav .center li.first a{
+    color: red;
+    background-color: white;
+}
+/*ÂÜÖÂÆπÂå∫ÂüüÊ†∑ÂºèËÆæÁΩÆÂºÄÂßã*/
+.content{
+    width: 1120px;
+    margin: 20px auto;
+}
+.content .section1{
+    width: 1120px;
+    overflow: hidden;
+
+}
+.content .section1 .sec_F{
+    float: left;
+    width: 610px;
+    height: 485px;
+    margin-right: 20px;
+
+}
+
+
+
+.content .section1 .sec_F .sec_Fbox{
+    width: 610px;
+    height: 312px;
+    position: relative;
+
+}
+.content .section1 .sec_F .sec_Fbox a{
+    display: block;
+    width: 610px;
+    height: 312px;
+
+}
+.content .section1 .sec_F .sec_Fbox a img{
+    width: 610px;
+    height: 312px;
+}
+.content .section1 .sec_F .sec_Fbox .small{
+    width: 590px;
+    height: 48px;
+    padding-top: 12px;
+    padding-left: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    background-color: #333333;
+}
+.content .section1 .sec_F .sec_Fbox .small span{
+    height: 35px;
+    font-size: 16px;
+    line-height: 35px;
+}
+.content .section1 .sec_F .sec_Fbox .small img{
+    width: 42px;
+    height: 35px;
+}
+.content .section1 .sec_F .sec_Ful{
+    width: 610px;
+   margin-top: 20px;
+    height: 153px;
+}
+.content .section1 .sec_F .sec_Ful li{
+     float: left;
+     margin-right: 20px;
+     width: 190px;
+     height: 153px;
+ }
+.content .section1 .sec_F .sec_Ful li.last{
+    margin-right: 0px;
+}
+.content .section1 .sec_F .sec_Ful li .liF{
+    width: 190px;
+    height: 123px;
+    position: relative;
+}
+.content .section1 .sec_F .sec_Ful li .liF a{
+    display: block;
+    width: 190px;
+    height: 123px;
+}
+.content .section1 .sec_F .sec_Ful li .liF a img{
+    width: 190px;
+    height: 123px;
+
+}
+.content .section1 .sec_F .sec_Ful li .liF .liS{
+    width: 80px;
+    padding-left: 110px;
+    height: 24px;
+  background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.content .section1 .sec_F .sec_Ful li .liF .liS span{
+    height: 24px;
+    line-height: 24px;
+}
+.content .section1 .sec_F .sec_Ful li .title{
+    width: 180px;
+    padding-left: 10px;
+    height: 30px;
+   line-height: 30px;
+    color: #888;
+    font-weight: 600;
+}
+.content .section1 .sec_S{
+    float: left;
+    width: 470px;
+    height: 485px;
+}
+.content .section1 .sec_S .sec_sbig{
+    float: left;
+    width: 190px;
+    height: 485px;
+    margin-right: 20px;
+}
+.content .section1 .sec_S .sec_sbig li{
+    width: 190px;
+    height: 153px;
+    margin-bottom: 13px;
+}
+.content .section1 .sec_S .sec_sbig li.last{
+    margin-bottom: 0;
+}
+.content .section1 .sec_S .sec_sbig li .liF{
+    width: 190px;
+    height: 123px;
+    position: relative;
+}
+.content .section1 .sec_S .sec_sbig li .liF a{
+    display: block;
+    width: 190px;
+    height: 123px;
+}
+.content .section1 .sec_S .sec_sbig li .liF a img{
+    width: 190px;
+    height: 123px;
+
+}
+.content .section1 .sec_S .sec_sbig li .liF .liS{
+    width: 80px;
+    padding-left: 110px;
+    height: 24px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.content .section1 .sec_S  .sec_sbig li .liF .liS span{
+    height: 24px;
+    line-height: 24px;
+}
+.content .section1 .sec_S .sec_sbig li .title{
+    width: 180px;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    color: #888;
+    font-weight: 600;
+}
+.content .section1 .sec_S .sec_ssmal{
+    float: right;
+    width: 260px;
+    height: 485px;
+}
+.content .section1 .sec_S .sec_ssmal li{
+    width: 260px;
+    height: 153px;
+    margin-bottom: 13px;
+}
+.content .section1 .sec_S .sec_ssmal li.last{
+    margin-bottom: 0;
+}
+.content .section1 .sec_S .sec_ssmal li .liF{
+    width: 260px;
+    height: 123px;
+    position: relative;
+}
+.content .section1 .sec_S .sec_ssmal li .liF a{
+    display: block;
+    width: 260px;
+    height: 123px;
+}
+.content .section1 .sec_S .sec_ssmal li .liF a img{
+    width: 260px;
+    height: 123px;
+
+}
+.content .section1 .sec_S .sec_ssmal li .liF .liS{
+    width: 80px;
+    padding-left: 180px;
+    height: 24px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.content .section1 .sec_S  .sec_ssmal li .liF .liS span{
+    height: 24px;
+    line-height: 24px;
+}
+.content .section1 .sec_S  .sec_ssmal li .title{
+    width: 250px;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    color: #888;
+    font-weight: 600;
+}
+
+/* Áåú‰Ω†ÂñúÊ¨¢Ê†∑ÂºèËÆæÁΩÆ */
 .section2{
     width: 100%;
     height:420px;
@@ -118,8 +527,8 @@
 }
 
 
-/* µÁ”∞—˘ Ω…Ë÷√ */
-.section3,.section4,.section5 {
+/* ÁîµÂΩ±Ê†∑ÂºèËÆæÁΩÆ */
+.section3,.section4 {
     margin-top: 30px;
     width: 100%;
     height: 230px;
@@ -214,7 +623,7 @@
 }
 
 
-/* µÁ ”æÁ—˘ Ω…Ë÷√ */
+/* ÁîµËßÜÂâßÊ†∑ÂºèËÆæÁΩÆ */
 .side-left .item ul li .picBox{
     width: 190px;
     height: 120px;
@@ -261,5 +670,38 @@
     height: 36px;
     color: #000;
 }
+
+.section5 {
+    margin-top: 30px;
+    width: 100%;
+    height: 230px;
+}
+.section5 .item{
+    width: 100%;
+}
+/*Â∫ïÈÉ®Ê†∑ÂºèËÆæÁΩÆÂºÄÂßã*/
+footer{
+    width: 100%;
+}
+
+footer div{
+    width: 100%;
+}
+footer div img{
+    width: calc(100% - 50%);
+    padding-left: 25%;
+    padding-right: 25%;
+    height: 60px;
+    margin: 0 auto;
+}
+footer div p{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+}
+/*Â∫ïÈÉ®Ê†∑ÂºèËÆæÁΩÆÁªìÊùü*/
+
 
 

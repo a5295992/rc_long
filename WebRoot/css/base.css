@@ -1,21 +1,33 @@
-html,head,body,div,span,h1,h2,h3,h4,h5,h6,p,ul,li,ol,i,a,img,footer{
+@charset "UTF-8";
+
+header,main,footer,section,aside,body,span,h1,h2,svg,p,html,div,ul,li,a,img{
     margin: 0;
     padding: 0;
-    font-size: 12px;
-    font-family: arial, "Microsoft YaHei", simsun, sans-serif;
+  /*  font-size: 12px;
+    font-family: arial, "Microsoft YaHei", simsun, sans-serif;*/
 }
+
+body{
+    background-color: white;
+}
+li{
+    list-style: none;
+}
+
 a{
     text-decoration: none;
 }
-ol,ul,li{
-    list-style: none;
+
+
+img{
+    vertical-align: middle;
 }
-i{
-    font-style: normal;
+
+.section1{
+    font-size: 12px;
+    color: #fff;
 }
-body{
-    background-color: #f5f5f5;
-}
+
 .fl{
     float: left;
 }
