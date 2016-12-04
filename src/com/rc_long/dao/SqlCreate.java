@@ -27,13 +27,17 @@ public class SqlCreate {
 		sb.append("select ");
 		tableName=clazz.getSimpleName();
 		//先将其首字母变为小写 添加
-		for (int i = 0; i < obj.length; i++) {
-			sb.append(obj[i]);
-			if(obj.length-i>1){
-				sb.append(",");
+		if(obj!=null){
+			for (int i = 0; i < obj.length; i++) {
+				sb.append(obj[i]);
+				if(obj.length-i>1){
+					sb.append(",");
+				}
 			}
+		}else{
+			sb.append("*");
 		}
-		sb.append(" from ");
+		sb.append("from ");
 		deleWithTableName(tableName, sb);
 	}
 	/**

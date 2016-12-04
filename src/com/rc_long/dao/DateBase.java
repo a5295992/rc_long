@@ -170,8 +170,10 @@ public class DateBase {
 		connecion = C3P0UTils.getConnection();
 		StringBuilder sql = new StringBuilder();
 		// 创建查询基础语句
-		String[] queryThing = query.split(",");
-
+		String[] queryThing = null;
+		if(query!=null){
+			queryThing=query.split(",");
+		}
 		SqlCreate.generateQuerySql(clazz, queryThing, sql);
 		JSONObject json = null;
 		if (!conditionJson.isEmpty()) {
