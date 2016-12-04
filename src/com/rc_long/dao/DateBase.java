@@ -287,6 +287,50 @@ public class DateBase {
 		return 0;
 	}
 	/**
+	 * 关联查询单个指定对象
+	 * @param sql 指定的查询语句
+	 * @return 返回指定对象的单个实例
+	 */
+	public static <T> T getBeanRunsql(Class<T> clazz,String sql){
+		connecion=C3P0UTils.getConnection();
+		
+		try {
+			return queryRunner.query(connecion, sql, new BeanHandler<T>(clazz));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			printSql(sql);
+			try {
+				connecion.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	/**
+	 * 查询关联查询多个结果集
+	 * @param clazz 目标字节码文件
+	 * @param sql 自拟查询语句
+	 * @return 返回结果集对象
+	 */
+	public static <T>List<T> getBeanListRunsql(Class<T> clazz,String sql){
+		connecion=C3P0UTils.getConnection();
+		try {
+			return queryRunner.query(connecion, sql, new BeanListHandler<T>(clazz));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			printSql(sql);
+			try {
+				connecion.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	/**
 	 * 打印操作的sql语句 方便 改错开发
 	 * @param sql
 	 */
