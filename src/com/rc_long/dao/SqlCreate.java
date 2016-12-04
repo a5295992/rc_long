@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.rc_long.Entity.SysUser;
-
 public class SqlCreate {
 	/**
 	 * 查询所有
@@ -42,10 +40,9 @@ public class SqlCreate {
 	 * 查询数量
 	 * @return
 	 */
-	public static void generateQueryCountSql(Class<?> clazz,StringBuilder sb,Map<String, Object> obj){
+	public static void generateQueryCountSql(Class<?> clazz,StringBuilder sb){
 		tableName=clazz.getSimpleName();
 		sb.append("select ");
-		parseArray(obj, sb);
 		sb.append(" count(*) from ");
 		//先将其首字母变为小写 添加
 		deleWithTableName(tableName, sb);
@@ -214,7 +211,7 @@ public class SqlCreate {
 	 * @param clazz
 	 * @param parameters
 	 */
-	public static void insertSql(StringBuilder sb,Class<?> clazz,String[] parameters){
+	public static void insertSql(StringBuilder sb,Class<?> clazz,Object[] parameters){
 		String tableName=clazz.getSimpleName();
 		tableName=dealWithName(tableName);
 		sb.append("insert into ");
@@ -249,21 +246,23 @@ public class SqlCreate {
 	/**
 	 * 查詢操作
 	 * @param clazz
-	 * @param sb
+	 * @param sql
 	 * @param parameters
+	 * @return 
+	 * @return 
 	 */
-	public static void generateUpdateSql(Class<?> clazz,StringBuilder sb,String []parameters){
+	public static  void generateUpdateSql(Class<?> clazz,StringBuilder sql,Object[] parameters){
 		String tableName=clazz.getSimpleName();
 		tableName=dealWithName(tableName);
-		sb.append("update ");
-		sb.append(tableName);
-		sb.append(" set ");
-		sb.append(parameters[0]);
-		sb.append(" = ?");
+		sql.append("update ");
+		sql.append(tableName);
+		sql.append(" set ");
+		sql.append(parameters[0]);
+		sql.append(" = ?");
 		for (int i = 1; i < parameters.length; i++) {
-			sb.append(" and ");
-			sb.append(parameters[i]);
-			sb.append("= ?");
+			sql.append(" and ");
+			sql.append(parameters[i]);
+			sql.append("= ? ");
 		}
 	}
 	/**
@@ -281,16 +280,14 @@ public class SqlCreate {
 	 * @param clazz
 	 * @param parameters
 	 */
-	public static void generateDelete(StringBuilder sb,Class<?> clazz,String []parameters){
+	public static void generateDelete(StringBuilder sb,Class<?> clazz,Map<String, Object> parameters){
 		String tableName=clazz.getSimpleName();
 		tableName=dealWithName(tableName);
 		sb.append("delete ");
 		sb.append("from ");
 		sb.append(tableName);
-		if(parameters!=null){
-			for (int i = 0; i < parameters.length; i++) {
-				sb.append(parameters[i]+" = ?");
-			}
+		if(!parameters.isEmpty()||parameters!=null){
+			setConditions(parameters, sb);
 		}
 	}
 	
