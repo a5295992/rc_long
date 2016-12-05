@@ -17,7 +17,7 @@ public class VideoAction {
 	
 	@RequestMapping(value=AnRequest.sys_video_init)
 	public ModelAndView init(){
-		Pager<SysVideo> videoPager=videoService.getVideoPager();
+		Pager<SysVideo> videoPager=videoService.getVideoPager(null);
 		return new ModelAndView("index/index").addObject("videoPager",videoPager);
 	}
 	

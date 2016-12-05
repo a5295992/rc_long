@@ -146,11 +146,11 @@ public class SysUserBean {
 	}
 
 	public String getUse_id() {
-		return use_id;
+		return getUser_id();
 	}
 
 	public void setUse_id(String use_id) {
-		this.use_id = use_id;
+		this.user_ssid = use_id;
 	}
 
 	public long getUser_phone() {
