@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 
 /**
- * 用户详细信息实体�?
+ * 用户详细信息实体�?
  * @author longge
  *
  */
@@ -19,13 +19,13 @@ public class SysUserInfor extends EntitiBaseBean<SysUserInfor>{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	private String use_id;
+	private String user_id;
 	
 	private long user_phone;
 	
 	private String user_email;//邮箱
 	
-	private String user_addr;//地ס�?
+	private String user_addr;//地ס�?
 	
 	private  char user_sex;
 	
@@ -35,12 +35,12 @@ public class SysUserInfor extends EntitiBaseBean<SysUserInfor>{
 	
 	private String user_attr1;//特点 
 
-	public String getUse_id() {
-		return use_id;
+	public String getUser_id() {
+		return user_id;
 	}
 
 	public void setUse_id(String use_id) {
-		this.use_id = use_id;
+		this.user_id = use_id;
 	}
 
 	public long getUser_phone() {

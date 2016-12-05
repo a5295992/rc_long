@@ -28,5 +28,12 @@ public class C3P0UTils {
 		}
 		return null;
 	}
+	public static void  closeCon(Connection conn){
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
