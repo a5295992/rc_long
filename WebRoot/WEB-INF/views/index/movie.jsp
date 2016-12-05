@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
+    <title>电影首页</title>
     <!--<link rel="stylesheet" href="css/index.css"/>-->
     <script src="../www/jquery-1.11.1.min.js"></script>
     <style>
@@ -559,9 +561,9 @@
     <nav class="nav">
         <div class="center">
             <ul>
-                <li><a href="#">首页</a></li>
+                <li><a href="../sys/video">首页</a></li>
                 <li><a href="#">电视剧</a></li>
-                <li class="first"><a href="#">电影</a></li>
+                <li class="first"><a href="../sys/movie">电影</a></li>
                 <li><a href="#">综艺</a></li>
                 <li><a href="#">搞笑</a></li>
                 <li><a href="#">直播</a></li>

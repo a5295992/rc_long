@@ -1,7 +1,9 @@
 package com.rc_long.Anrequest;
 
 public class AnRequest {
-
+	//2016-12-5 22.06
+	public static final String sys_movie_init="/sys/movie";
+	
 	//2016-12-4 17.17
 	//video Action 地址管理
 	public static final String sys_video_init="/sys/video";
