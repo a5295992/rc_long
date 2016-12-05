@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/index.css"/>
+<link rel="stylesheet" href="/www/css/base.css"/>
+<link rel="stylesheet" href="/www/css/index.css"/>
 <title>56网</title>
 </head>
 <body>
@@ -16,11 +16,11 @@
         <div class="main">
                 <div class="login_img">
                     <a href="#">
-                        <img src="images/007.PNG" alt="图标"/>
+                        <img src="/www/resources/images/007.PNG" alt="图标"/>
                     </a>
                 </div>
                 <div class="login_date">
-                    <a href="#"><img  src="images/date.gif" alt="动图"></a>
+                    <a href="#"><img  src="/www/resources/images/date.gif" alt="动图"></a>
                 </div>
 
             <div class="login_second">
@@ -42,7 +42,7 @@
                 <ul>
                     <li class="first">
                         <a href="#">
-                            <div class="img"><img src="images/001.PNG" alt=""/></div>
+                            <div class="img"><img src="/www/resources/images/001.PNG" alt=""/></div>
                             <div class="login_thirdDiv">
                                 <span class="span1">登陆</span>
                                <span class="span2">注册</span>
@@ -51,7 +51,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="img"><img src="images/002.PNG" alt=""/></div>
+                            <div class="img"><img src="/www/resources/images/002.PNG" alt=""/></div>
 
                             <div class="login_thirdDiv">
                                 上传
@@ -60,7 +60,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="img"><img src="images/003.PNG" alt=""/></div>
+                            <div class="img"><img src="/www/resources/images/003.PNG" alt=""/></div>
                             <div class="login_thirdDiv">
                                 消息
                             </div>
@@ -68,7 +68,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="img"><img src="images/003.PNG" alt=""/></div>
+                            <div class="img"><img src="/www/resources/images/003.PNG" alt=""/></div>
                             <div class="login_thirdDiv">
                                看过
                             </div>
@@ -104,9 +104,9 @@
         <div class="sec_F">
 
            <div class="sec_Fbox">
-                <a href="#"><img src="images/0023.jpg" alt=""/></a>
+                <a href="#"><img src="/www/resources/images/0023.jpg" alt=""/></a>
                 <div class="small">
-                    <span><img src="images/008.PNG" alt=""/></span>
+                    <span><img src="/www/resources/images/008.PNG" alt=""/></span>
                     <span>速来围观逆天颜值！气质女神完美娃娃脸</span>
                 </div>
             </div>
@@ -114,9 +114,9 @@
                 <ul>
                     <li>
                         <div class="liF">
-                            <a href="#"><img src="images/0024.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0024.jpg" alt=""/></a>
                            <div class="liS">
-                               <span><img src="images/009.PNG" alt=""/></span>
+                               <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                <span>154133</span>
                            </div>
                         </div>
@@ -124,9 +124,9 @@
                     </li>
                     <li>
                         <div class="liF">
-                            <a href="#"><img src="images/0025.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0025.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -134,9 +134,9 @@
                     </li>
                     <li class="last">
                         <div class="liF">
-                            <a href="#"><img src="images/0026.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0026.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -150,9 +150,9 @@
                 <ul>
                     <li>
                         <div class="liF">
-                            <a href="#"><img src="images/0027.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0027.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -161,9 +161,9 @@
 
                     <li>
                         <div class="liF">
-                            <a href="#"><img src="images/0028.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0028.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -172,9 +172,9 @@
 
                     <li class="last">
                         <div class="liF">
-                            <a href="#"><img src="images/0029.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0029.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -186,9 +186,9 @@
                 <ul>
                     <li>
                         <div class="liF">
-                            <a href="#"><img src="images/0030.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0030.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -197,9 +197,9 @@
 
                     <li>
                         <div class="liF">
-                            <a href="#"><img src="images/0031.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0031.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -208,9 +208,9 @@
 
                     <li>
                         <div class="liF">
-                            <a href="#"><img src="images/0032.jpg" alt=""/></a>
+                            <a href="#"><img src="/www/resources/images/0032.jpg" alt=""/></a>
                             <div class="liS">
-                                <span><img src="images/009.PNG" alt=""/></span>
+                                <span><img src="/www/resources/images/009.PNG" alt=""/></span>
                                 <span>154133</span>
                             </div>
                         </div>
@@ -229,13 +229,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like1.jpg" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like1.jpg" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>2345</span>
                                 </div>
                             </div>
-                            <img src="images/likes1.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes1.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">枣集娱乐传媒</span>
                         </div>
                     </div>
@@ -244,13 +244,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like2.jpg" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like2.jpg" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>2164</span>
                                 </div>
                             </div>
-                            <img src="images/likes2.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes2.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">好丹娱乐</span>
                         </div>
                     </div>
@@ -259,13 +259,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like3.jpg" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like3.jpg" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>106</span>
                                 </div>
                             </div>
-                            <img src="images/likes3.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes3.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">美拍明星制造</span>
                         </div>
                     </div>
@@ -274,13 +274,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like4.jpg" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like4.jpg" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>2568</span>
                                 </div>
                             </div>
-                            <img src="images/likes4.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes4.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">飞鹰传媒</span>
                         </div>
                     </div>
@@ -289,13 +289,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like5.png" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like5.png" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>142</span>
                                 </div>
                             </div>
-                            <img src="images/likes5.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes5.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">中视彩华</span>
                         </div>
                     </div>
@@ -304,13 +304,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like6.jpg" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like6.jpg" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>48万</span>
                                 </div>
                             </div>
-                            <img src="images/likes6.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes6.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">棒呼Bongho</span>
                         </div>
                     </div>
@@ -319,13 +319,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like7.png" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like7.png" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>43</span>
                                 </div>
                             </div>
-                            <img src="images/likes7.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes7.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">视频绝活</span>
                         </div>
                     </div>
@@ -334,13 +334,13 @@
                 <div class="item-like">
                     <div class="pic-list">
                         <div class="pic">
-                            <img src="images/like8.jpg" alt="" class="pic-big"/>
+                            <img src="/www/resources/images/like8.jpg" alt="" class="pic-big"/>
                             <div class="list">
                                 <div class="vid">
                                     <span></span><span>341</span>
                                 </div>
                             </div>
-                            <img src="images/likes8.jpg" alt="" class="pic-small"/>
+                            <img src="/www/resources/images/likes8.jpg" alt="" class="pic-small"/>
                             <span class="list-tit">大话风水脱口秀</span>
                         </div>
                     </div>
@@ -354,32 +354,32 @@
             <div class="">
                 <ul class="culm">
                     <li class="culm-list">
-                        <img src="images/jplm1.jpg" alt=""/>
+                        <img src="/www/resources/images/jplm1.jpg" alt=""/>
                         <span class="tit">囧闻一箩筐</span>
                         <span class="time">11-28更新597集</span>
                     </li>
                     <li class="culm-list">
-                        <img src="images/jplm2.jpg" alt=""/>
+                        <img src="/www/resources/images/jplm2.jpg" alt=""/>
                         <span class="tit">二更人物</span>
                         <span class="time">11-28更新307集</span>
                     </li>
                     <li class="culm-list">
-                        <img src="images/jplm3.jpg" alt=""/>
+                        <img src="/www/resources/images/jplm3.jpg" alt=""/>
                         <span class="tit">山下智博</span>
                         <span class="time">11-28更新642集</span>
                     </li>
                     <li class="culm-list">
-                        <img src="images/jplm4.jpg" alt=""/>
+                        <img src="/www/resources/images/jplm4.jpg" alt=""/>
                         <span class="tit">暴走大事件</span>
                         <span class="time">11-28更新39集</span>
                     </li>
                     <li class="culm-list">
-                        <img src="images/jplm5.jpg" alt=""/>
+                        <img src="/www/resources/images/jplm5.jpg" alt=""/>
                         <span class="tit">飞碟说第二季</span>
                         <span class="time">11-28更新98集</span>
                     </li>
                     <li class="culm-list">
-                        <img src="images/jp_06.jpg" alt=""/>
+                        <img src="/www/resources/images/jp_06.jpg" alt=""/>
                         <span class="tit">电影速放室</span>
                         <span class="time">11-28更新61集</span>
                     </li>
@@ -407,22 +407,22 @@
             <div class="item">
                 <ul>
                     <li>
-                        <img src="images/dy1.jpg" alt=""/>
+                        <img src="/www/resources/images/dy1.jpg" alt=""/>
                         <div class="pic-tit">战斗民族的动漫展</div>
                         <div class="smalltit">最真实漫展记录</div>
                     </li>
                     <li>
-                        <img src="images/dy2.jpg" alt=""/>
+                        <img src="/www/resources/images/dy2.jpg" alt=""/>
                         <div class="pic-tit">女人要的就是这种惊喜</div>
                         <div class="smalltit">男人的觉悟</div>
                     </li>
                     <li>
-                        <img src="images/dy3.jpg" alt=""/>
+                        <img src="/www/resources/images/dy3.jpg" alt=""/>
                         <div class="pic-tit">漫威超萌小剧场</div>
                         <div class="smalltit">当打斗变成过家家</div>
                     </li>
                     <li>
-                        <img src="images/dy4.jpg" alt=""/>
+                        <img src="/www/resources/images/dy4.jpg" alt=""/>
                         <div class="pic-tit">一碗泡面成就一个梦想</div>
                         <div class="smalltit">总会有闪耀的一天</div>
                     </li>
@@ -434,11 +434,11 @@
             <h3>每周精选</h3>
             <ul>
                 <li>
-                    <img src="images/dy5.jpg" alt=""/>
+                    <img src="/www/resources/images/dy5.jpg" alt=""/>
                     <span>男人临死前始终绕不过这一生最爱的女人</span>
                 </li>
                 <li>
-                    <img src="images/dy6.jpg" alt=""/>
+                    <img src="/www/resources/images/dy6.jpg" alt=""/>
                     <span>踏雪寻梅《曾经我也想过一了百了》</span>
                 </li>
             </ul>
@@ -467,7 +467,7 @@
                 <ul>
                     <li>
                         <div class="picBox">
-                            <img src="images/dsj1.jpg" alt=""/>
+                            <img src="/www/resources/images/dsj1.jpg" alt=""/>
                             <span class="bg"><span class="count">更新至第16集</span></span>
                         </div>
                         <div class="pic-tit">秦明父亲的谜题终要解开</div>
@@ -475,7 +475,7 @@
                     </li>
                     <li>
                         <div class="picBox">
-                            <img src="images/dsj2.jpg" alt=""/>
+                            <img src="/www/resources/images/dsj2.jpg" alt=""/>
                             <span class="bg"><span class="count">更新至第6集</span></span>
                         </div>
                         <div class="pic-tit">爆笑 ！全家一起学英语</div>
@@ -483,7 +483,7 @@
                     </li>
                     <li>
                         <div class="picBox">
-                            <img src="images/dsj3.jpg" alt=""/>
+                            <img src="/www/resources/images/dsj3.jpg" alt=""/>
                             <span class="bg"><span class="count">更新至第20集</span></span>
                         </div>
                         <div class="pic-tit">一边是爱情一边是信仰</div>
@@ -491,7 +491,7 @@
                     </li>
                     <li>
                         <div class="picBox">
-                            <img src="images/dsj5.jpg" alt=""/>
+                            <img src="/www/resources/images/dsj5.jpg" alt=""/>
                             <span class="bg"><span class="count">45集全</span></span>
                         </div>
                         <div class="pic-tit">"流氓头儿"于震的抗日故事</div>
@@ -570,27 +570,27 @@
             <div class="item">
                 <ul>
                     <li>
-                        <img src="images/zy1.jpg" alt=""/>
+                        <img src="/www/resources/images/zy1.jpg" alt=""/>
                         <div class="pic-tit">辛颖CP穿越50年扮老</div>
                         <div class="smalltit">如果爱</div>
                     </li>
                     <li>
-                        <img src="images/zy2.jpg" alt=""/>
+                        <img src="/www/resources/images/zy2.jpg" alt=""/>
                         <div class="pic-tit">孟非口误惹谢以霖罢录</div>
                         <div class="smalltit">四大名助</div>
                     </li>
                     <li>
-                        <img src="images/zy3.jpg" alt=""/>
+                        <img src="/www/resources/images/zy3.jpg" alt=""/>
                         <div class="pic-tit">池子深夜放歌遭毒打</div>
                         <div class="smalltit">今晚80后脱口秀</div>
                     </li>
                     <li>
-                        <img src="images/zy4.jpg" alt=""/>
+                        <img src="/www/resources/images/zy4.jpg" alt=""/>
                         <div class="pic-tit">本世纪最人性化的发明</div>
                         <div class="smalltit">Lady聊聊时尚圈</div>
                     </li>
                     <li class="last">
-                        <img src="images/zy5.jpg" alt=""/>
+                        <img src="/www/resources/images/zy5.jpg" alt=""/>
                         <div class="pic-tit">我陪你长大陪你变老</div>
                         <div class="smalltit">一个六十年的约定</div>
                     </li>
@@ -603,7 +603,7 @@
 <!--底部区域开始-->
 <footer>
     <div>
-        <img src="images/footer.jpg" alt=""/>
+        <img src="/www/resources/images/footer.jpg" alt=""/>
         <p>不良信息举报电话：020-85533243举报邮箱：56kf#sohu-inc.com (使用时将#号改为@)</p>
         <p>网络视听许可证1908336中国互联网诚信联盟粤通管BBS【2009】第175号粤ICP备05006774号-1粤ICP证粤B2-20041027穗公网监备案证号：4401060102823</p>
         <p>增值电信业务经营许可证B2-20090492互联网药品信息服务资格证(粤)-非经营性-2014-0018节目制作经营许可证粤第735号粤网文[2013]0244-094</p>
