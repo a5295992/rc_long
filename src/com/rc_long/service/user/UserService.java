@@ -2,13 +2,11 @@ package com.rc_long.service.user;
 
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
 import com.rc_long.Entity.SysUser;
 import com.rc_long.Entity.SysUserBean;
 import com.rc_long.Entity.SysUserInfor;
 import com.rc_long.utils.Pager;
-@Service
+
 public interface UserService {
 	/**
 	 * 初始化

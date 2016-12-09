@@ -1,6 +1,8 @@
 package com.rc_long.Anrequest;
 
 public class AnRequest {
+	//2016.12-8 20.07 
+	public static final String sys_init="/rc";
 	//2016-12-5 22.06
 	public static final String sys_movie_init="/sys/movie";
 	
@@ -15,10 +17,12 @@ public class AnRequest {
 	//2016-12-4 17.17
 	//user Action 地址管理
 	public static final String sys_user_init="/sys/user";
+	public static final String sys_user_page="/user/login";
 	public static final String sys_user_create="/sys/video/create";
 	public static final String sys_user_update="/sys/user/update";
 	public static final String sys_user_delete="/sys/user/delete";
 	public static final String sys_user_search="/sys/user/search";
+	public static final String sys_user_login="/sys/user/login";
 	
 	//2016-12-4 17.17
 		//user Action 地址管理

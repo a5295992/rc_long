@@ -232,7 +232,7 @@ public class DateBase {
 			SqlCreate.setConditions(map, sql);
 		}
 		try {
-			return queryRunner.query(connecion, sql.toString(),
+			return queryRunner.query(connecion, sql.toString().toLowerCase(),
 					new BeanHandler<T>(clazz));
 		} catch (SQLException e) {
 			e.printStackTrace();

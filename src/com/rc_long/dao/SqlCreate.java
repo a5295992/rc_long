@@ -34,10 +34,11 @@ public class SqlCreate {
 					sb.append(",");
 				}
 			}
+			sb.append(" from ");
 		}else{
 			sb.append("*");
+			sb.append("from ");
 		}
-		sb.append("from ");
 		deleWithTableName(tableName, sb);
 	}
 	/**

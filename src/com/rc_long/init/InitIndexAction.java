@@ -12,4 +12,5 @@ public class InitIndexAction {
 	public ModelAndView initMovie(){
 		return new ModelAndView("index/movie");
 	}
+	
 }

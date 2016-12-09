@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,13 +42,29 @@
             <div class="login_third">
                 <ul>
                     <li class="first">
-                        <a href="#">
+                    <c:choose >
+                    	<c:when test="${shiUser eq null}">
+                    	<a href="../user/login">
                             <div class="img"><img src="../www/resources/images/001.PNG" alt=""/></div>
                             <div class="login_thirdDiv">
                                 <span class="span1">登陆</span>
                                <span class="span2">注册</span>
                             </div>
                         </a>
+                    	
+                    	</c:when>
+                    	<c:otherwise>
+                    	<a href="#">
+                    		<div class="img"><img src="../www/resources/images/user_img/${shiUser.user_img }"></div>
+                    		<div class=login_thirdDiv>
+                    			<span class="span1">${shiUser.user_name }</span>
+                    		</div>
+                    	</a>
+                    		  
+                    	</c:otherwise>
+                    	
+                    </c:choose>
+                      
                     </li>
                     <li>
                         <a href="#">

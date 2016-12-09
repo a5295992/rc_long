@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public SysUser login(Map<String,Object> map) {
 		
-		return DateBase.querySingle(SysUser.class, "user_name,user_img,user_last_time", "{user_flag:'1'}");
+		return DateBase.querySingle(SysUser.class, "user_name,user_ssid,user_id,user_flag,user_staut,user_type,user_img,user_last_time", "{user_ssid:'"+map.get("user_ssid")+"',user_key='"+map.get("user_key")+"'}");
 	}
 
 	@Override
