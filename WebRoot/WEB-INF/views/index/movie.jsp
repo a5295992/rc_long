@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <c:set var="base" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
@@ -518,13 +520,28 @@
             <div class="login_third">
                 <ul>
                     <li class="first">
-                        <a href="#">
-                            <div class="img"><img src="../www/resources/images/001.PNG" alt=""/></div>
+                      <c:choose >
+                    	<c:when test="${ShiroUser eq null}">
+                    	<a href="${base }/user/login">
+                            <div class="img"><img src="${base }/www/resources/images/001.PNG" alt=""/></div>
                             <div class="login_thirdDiv">
                                 <span class="span1">登陆</span>
-                                <span class="span2">注册</span>
+                               <span class="span2">注册</span>
                             </div>
                         </a>
+                    	
+                    	</c:when>
+                    	<c:otherwise>
+                    	<a href="#">
+                    		 <div class="img"><img src="${base }/www/resources/images/001.PNG" alt=""/></div>
+                    		<div class=login_thirdDiv>
+                    			<span class="span1"><font color="black" size="2px">${ShiroUser.user_name }</font></span>
+                    		</div>
+                    	</a>
+                    	</c:otherwise>
+                    	
+                    </c:choose>
+                 
                     </li>
                     <li>
                         <a href="#">

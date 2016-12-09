@@ -1,5 +1,6 @@
 package com.rc_long.action.user;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +39,9 @@ public class UserAction {
 		String user_ssid=req.getParameter("user_ssid");
 		//用户密码
 		String user_key=req.getParameter("user_key");
+		if(user_ssid==null||user_ssid.trim().isEmpty()){
+			return new ModelAndView("index/loginAndregist");
+		}
 		Map<String, Object> map=new HashMap<String,Object>();
 		map.put("user_ssid", user_ssid);
 		map.put("user_key", user_key);
@@ -52,12 +56,59 @@ public class UserAction {
 			shiUser.setUser_staut(user.getUser_type());
 			shiUser.setUser_staut(user.getUser_staut());
 			new CurrentSession(req).setShiroUser(shiUser);
-			System.out.println("=============");
 			String userCurrentPage=req.getParameter("userCurrentPage");
 			//返回用户前页
-			return new ModelAndView("index/index");
+			return new ModelAndView("index/index").addObject("shiUser", shiUser);
 		}else{
 			return new ModelAndView("index/loginAndregist").addObject("erroMessage", "密码或账号错误");
+		}
+	}
+	/**
+	 * 登出
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value=AnRequest.sys_user_loginout)
+	public ModelAndView logout(HttpServletRequest req){
+		//移除session
+		new CurrentSession(req).remove();
+		return new ModelAndView("index/index");
+	}
+	/**
+	 * 
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value=AnRequest.sys_user_create)
+	public ModelAndView regist(HttpServletRequest req){
+		String user_ssid=req.getParameter("user_ssid");
+		if(user_ssid.trim().isEmpty()){
+			return new ModelAndView("index/loginAndregist").addObject("error","用户名为空");
+		}
+		String user_key=req.getParameter("user_key");
+		String user_name=req.getParameter("user_name");
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("user_ssid", user_ssid);
+		map.put("user_key", user_key);
+		map.put("user_name", user_name);
+		//无组织
+		map.put("user_group", 0);
+		//默认 普通用户
+		map.put("user_type",1 );
+		map.put("user_staut", 1);
+		//用户标志
+		map.put("user_flag", 1);
+		//默认值
+		map.put("user_attr1", "1");
+		map.put("user_attr2", "1");
+		map.put("session_id", req.getSession().getId());
+		map.put("user_last_time", new java.sql.Date(new Date().getTime()));
+		map.put("user_regist_time", new java.sql.Date(new Date().getTime()));
+		int index=userService.createUser(map);
+		if(index<0){
+			return new ModelAndView("index/loginAndregist").addObject("error", "用户名已存在");
+		}else{
+			return new ModelAndView("user/success");
 		}
 	}
 }

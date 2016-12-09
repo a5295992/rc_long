@@ -23,6 +23,7 @@ public class AnRequest {
 	public static final String sys_user_delete="/sys/user/delete";
 	public static final String sys_user_search="/sys/user/search";
 	public static final String sys_user_login="/sys/user/login";
+	public static final String sys_user_loginout="/sys/user/logout";
 	
 	//2016-12-4 17.17
 		//user Action 地址管理

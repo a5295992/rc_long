@@ -1,6 +1,7 @@
 package com.rc_long.service.user.Impl;
 
 import java.util.Map;
+import java.util.UUID;
 
 import com.rc_long.Entity.SysUser;
 import com.rc_long.Entity.SysUserBean;
@@ -20,8 +21,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int createUser(Map<String,Object> map) {
-		
-			return DateBase.insert(SysUser.class, map);
+			SysUser su=getUser("user_name", "{user_name:"+map.get("user_name")+"}");
+			if(su!=null){
+				return -1;
+			}else{
+				map.put("user_id", UUID.randomUUID().toString());
+				return DateBase.insert(SysUser.class, map);
+			}
 	}
 
 	@Override

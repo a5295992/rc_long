@@ -24,4 +24,9 @@ public class CurrentSession {
 	public void setShiroUser (ShiroUser shiroUser){
 		req.getSession().setAttribute("ShiroUser", shiroUser);
 	}
+	//移除session
+	public void remove() {
+		req.getSession().removeAttribute("ShiroUser");
+		
+	}
 }
