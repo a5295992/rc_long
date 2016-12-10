@@ -1,15 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<c:set var="base" value="${pageContext.request.contextPath }"></c:set>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
 
 <title>登录注册页面</title>
 
@@ -18,14 +13,13 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<link rel="stylesheet" href="www/resources/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${base }/www/resources/assets/css/bootstrap.min.css" />
 <link rel="stylesheet"
-	href="www/resources/assets/font-awesome/4.2.0/css/font-awesome.min.css" />
+	href="${base }/www/resources/assets/font-awesome/4.2.0/css/font-awesome.min.css" />
 <link rel="stylesheet"
-	href="www/resources/assets/fonts/fonts.googleapis.com.css" />
-<link rel="stylesheet" href="www/resources/assets/css/ace.min.css" />
-<link rel="stylesheet" href="www/resources/assets/css/ace-rtl.min.css" />
-<script type="text/javascript" src="www/js/loginAndRegist/login.js"></script>
+	href="${base }/www/resources/assets/fonts/fonts.googleapis.com.css" />
+<link rel="stylesheet" href="${base }/www/resources/assets/css/ace.min.css" />
+<link rel="stylesheet" href="${base }/www/resources/assets/css/ace-rtl.min.css" />
 </head>
 
 <body class="login-layout">
@@ -180,26 +174,26 @@
 										<div class="space-6"></div>
 										<p>填写信息:</p>
 
-										<form>
+										<form id="exe_form_regist">
 											<fieldset>
 												<label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input
-														type="email" class="form-control" placeholder="邮箱" /> <i
+														type="email" class="form-control" placeholder="你的昵称" name="user_name"/> <i
 														class="ace-icon fa fa-envelope"></i>
 												</span>
 												</label> <label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input
-														type="text" class="form-control" placeholder="用户名" /> <i
+														type="text" class="form-control" placeholder="用户名"  name="user_ssid"/> <i
 														class="ace-icon fa fa-user"></i>
 												</span>
 												</label> <label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input
-														type="password" class="form-control" placeholder="密码" />
+														type="password" class="form-control" placeholder="密码"  name="user_key"/>
 														<i class="ace-icon fa fa-lock"></i>
 												</span>
 												</label> <label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input
-														type="password" class="form-control" placeholder="确认密码" />
+														type="password" class="form-control" placeholder="确认密码"  name="user_key1"/>
 														<i class="ace-icon fa fa-retweet"></i>
 												</span>
 												</label> <label class="block"> <input type="checkbox"
@@ -216,7 +210,7 @@
 													</button>
 
 													<button type="button"
-														class="width-65 pull-right btn btn-sm btn-success">
+														class="width-65 pull-right btn btn-sm btn-success" id="exe_button_re">
 														<span class="bigger-110">注册</span> <i
 															class="ace-icon fa fa-arrow-right icon-on-right"></i>
 													</button>
@@ -255,25 +249,26 @@
 	<!-- /.main-container -->
 
 
-	<script src="www/resources/assets/js/jquery.2.1.1.min.js"></script>
+	<script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
 
 
 	<script type="text/javascript">
 		window.jQuery
 				|| document
-						.write("<script src='www/resouces/assets/js/jquery.min.js'>"
+						.write("<script src='"${base }"/www/resouces/assets/js/jquery.min.js'>"
 								+ "<"+"/script>");
 	</script>
 
 	<script type="text/javascript">
 		if ('ontouchstart' in document.documentElement)
 			document
-					.write("<script src='www/resouces/assets/js/jquery.mobile.custom.min.js'>"
+					.write("<script src='"${base }"/www/resouces/assets/js/jquery.mobile.custom.min.js'>"
 							+ "<"+"/script>");
 	</script>
 
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
+		var base="${base}";
 		jQuery(function($) {
 			$(document).on('click', '.toolbar a[data-target]', function(e) {
 				e.preventDefault();
@@ -308,7 +303,7 @@
 
 		});
 		function login() {
-			$("#exe_form_login").attr("action", "sys/user/login");
+			$("#exe_form_login").attr("action", base+"/sys/user/login");
 			$("#exe_form_login").attr("method", "post");
 
 			$("#exe_form_login").submit();
@@ -316,4 +311,6 @@
 	</script>
 	<div style="text-align:center;"></div>
 </body>
+<script type="text/javascript" src="${base }/www/js/loginAndRegist/user/login.js"></script>
+
 </html>

@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${base }/www/css/base.css" />
 <link rel="stylesheet" href="${base }/www/css/index.css" />
+<script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
 
 <title>56网</title>
 </head>
@@ -55,7 +56,10 @@
 
 						</c:when>
 						<c:otherwise>
-							<a href="#">
+							<form id="exe_form_singepage">
+								<input type="hidden" name="user_id" value="${ShiroUser.user_id }"/>
+							</form>
+							<a href="${base }/sys/user/infor">
 								<div class="img">
 									<img src="${base }/www/resources/images/001.PNG" alt="" />
 								</div>
@@ -89,7 +93,7 @@
 						<c:when test="${ShiroUser eq null}">
 						</c:when>
 						<c:otherwise>
-							<a href="${base }/sys/user/logout">
+							<a href="#" id="href_butt_logout">
 								<div class="img">
 									<img src="${base }/www/resources/images/exit.jpg" alt=""
 										style="width: 30px;height: 30px;margin-top: -69px;margin-left: -34px" />
@@ -578,5 +582,8 @@
 	</footer>
 	<!--底部区域结束-->
 </body>
-<script type="text/javascript" src="${base }/www/js/user/login.js"></script>
+<script type="text/javascript">
+	var base="${base}";	
+</script>
+<script type="text/javascript" src="${base }/www/js/index/index.js"></script>
 </html>

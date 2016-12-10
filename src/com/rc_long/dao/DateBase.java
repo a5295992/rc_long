@@ -329,4 +329,17 @@ public class DateBase {
 	public static void printSql(String sql) {
 		System.out.println("Rc_long:" + sql);
 	}
+	/**
+	 * @param sql
+	 * return 
+	 */
+	public static <T>T  runSql(String sql,Class<T> clazz,Object[] obj) {
+		connecion =C3P0UTils.getConnection();
+		try {
+			return queryRunner.query(connecion, sql, new BeanHandler<T>(clazz), obj);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.rc_long.Anrequest.AnRequest;
 import com.rc_long.Entity.ShiroUser;
 import com.rc_long.Entity.SysUser;
+import com.rc_long.Entity.SysUserBean;
 import com.rc_long.service.user.UserService;
 import com.rc_long.service.user.Impl.UserServiceImpl;
 import com.rc_long.utils.CurrentSession;
@@ -82,7 +83,7 @@ public class UserAction {
 	@RequestMapping(value=AnRequest.sys_user_create)
 	public ModelAndView regist(HttpServletRequest req){
 		String user_ssid=req.getParameter("user_ssid");
-		if(user_ssid.trim().isEmpty()){
+		if(user_ssid==null||user_ssid.trim().isEmpty()){
 			return new ModelAndView("index/loginAndregist").addObject("error","用户名为空");
 		}
 		String user_key=req.getParameter("user_key");
@@ -108,7 +109,17 @@ public class UserAction {
 		if(index<0){
 			return new ModelAndView("index/loginAndregist").addObject("error", "用户名已存在");
 		}else{
-			return new ModelAndView("user/success");
+			return new ModelAndView("user/success").addObject("message", "注册");
 		}
+	}
+	/**
+	 * 加载个人信息界面
+	 * @return
+	 */
+	@RequestMapping(value=AnRequest.sys_user_infor)
+	public ModelAndView getUserInfor(HttpServletRequest req){
+		String user_id=req.getParameter("user_id");
+		SysUserBean userBean=userService.getBean(null);
+		return new ModelAndView("user/singepage").addObject("userBean", userBean);
 	}
 }
