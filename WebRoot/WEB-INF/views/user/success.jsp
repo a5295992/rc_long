@@ -7,7 +7,7 @@
   <head>
     
     
-    <title>My JSP 'success.jsp' starting page</title>
+    <title>操作成功！正在跳转..</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,7 +21,7 @@
   </head>
   
   <body style="color:aqua; ; background-color: gray ; height: 317px"> 
-    <h3>恭喜您,${message }成功,正在为您跳转..</h3>
+    <h3>恭喜您,${message }操作成功,正在为您跳转..</h3>
     
   </body>
   <script type="text/javascript">

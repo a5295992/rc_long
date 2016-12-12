@@ -24,7 +24,7 @@
 <script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 </head>
 
-<body class="login-layout">
+<body class="login-layout light-login">
 
 	<div class="main-container">
 		<div class="main-content">
@@ -34,7 +34,7 @@
 						<div class="center">
 							<h1>
 								<i class="ace-icon fa fa-leaf green"></i> <span class="red">尊敬的
-									,游客 请</span> <span class="white" id="id-text2">登录</span>
+									,游客 请</span> <span class="grey" id="id-text2">登录</span>
 							</h1>
 							<h4 class="blue" id="id-company-text">&copy; 登录注册新用户</h4>
 						</div>
@@ -56,7 +56,7 @@
 											<fieldset>
 												<label class="block clearfix"> <span
 													class="block input-icon input-icon-right">
-														<span><font color="red">${erroMessage }</font></span>
+														<span><font color="red" id="erroMessage"></font></span>
 													 <input
 														type="text" class="form-control" placeholder="用户名"
 														name="user_ssid" /> <i class="ace-icon fa fa-user"></i>

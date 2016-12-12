@@ -25,6 +25,7 @@ public class AnRequest {
 	public static final String sys_user_login="/sys/user/login";
 	public static final String sys_user_loginout="/sys/user/logout";
 	public static final String sys_user_infor="/sys/user/infor";
+	public static final String sys_user_do="/sys/user/do";
 	
 	//2016-12-4 17.17
 		//user Action 地址管理
@@ -33,4 +34,5 @@ public class AnRequest {
 	public static final String sys_friend_update="/sys/friend/update";
 	public static final String sys_friend_delete="/sys/friend/delete";
 	public static final String sys_friend_search="/sys/friend/search";
+	public static final String ajaxLogin = "/sys/user/ajax";
 }

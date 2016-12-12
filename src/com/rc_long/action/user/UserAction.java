@@ -1,10 +1,14 @@
 package com.rc_long.action.user;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,35 +38,9 @@ public class UserAction {
 	public ModelAndView loginAndRegist(){
 		return new ModelAndView("index/loginAndregist");
 	}
-	@RequestMapping(value=AnRequest.sys_user_login)
-	public ModelAndView login(HttpServletRequest req){
-		//返回用户当前页面
-		String user_ssid=req.getParameter("user_ssid");
-		//用户密码
-		String user_key=req.getParameter("user_key");
-		if(user_ssid==null||user_ssid.trim().isEmpty()){
-			return new ModelAndView("index/loginAndregist");
-		}
-		Map<String, Object> map=new HashMap<String,Object>();
-		map.put("user_ssid", user_ssid);
-		map.put("user_key", user_key);
-		SysUser user=userService.login(map);
-		ShiroUser shiUser=new ShiroUser();
-		if(user!=null){
-			shiUser.setUser_name(user.getUser_name());
-			shiUser.setUser_id(user.getUser_id());
-			shiUser.setUser_flag(user.getUser_flag());
-			shiUser.setUser_img(user.getUser_img());
-			shiUser.setUser_last_time(user.getUser_last_time());
-			shiUser.setUser_staut(user.getUser_type());
-			shiUser.setUser_staut(user.getUser_staut());
-			new CurrentSession(req).setShiroUser(shiUser);
-			String userCurrentPage=req.getParameter("userCurrentPage");
-			//返回用户前页
-			return new ModelAndView("index/loginAndregist").addObject("shiUser", shiUser);
-		}else{
-			return new ModelAndView("index/loginAndregist").addObject("erroMessage", "密码或账号错误");
-		}
+	@RequestMapping(value=AnRequest.sys_user_do)
+	public ModelAndView dispather(HttpServletRequest req){
+		return new ModelAndView("user/success");
 	}
 	/**
 	 * 登出
@@ -121,5 +99,34 @@ public class UserAction {
 		String user_id=req.getParameter("user_id");
 		SysUserBean userBean=userService.getBean(null);
 		return new ModelAndView("user/singepage").addObject("userBean", userBean);
+	}
+	@RequestMapping(value=AnRequest.ajaxLogin)
+	public void ajaxLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		//返回用户当前页面
+				PrintWriter writer=resp.getWriter();
+				String user_ssid=req.getParameter("user_ssid");
+				//用户密码
+				String user_key=req.getParameter("user_key");
+				if(user_ssid==null||user_ssid.trim().isEmpty()){
+					writer.print(0);
+				}
+				Map<String, Object> map=new HashMap<String,Object>();
+				map.put("user_ssid", user_ssid);
+				map.put("user_key", user_key);
+				SysUser user=userService.login(map);
+				ShiroUser shiUser=new ShiroUser();
+				if(user!=null){
+					shiUser.setUser_name(user.getUser_name());
+					shiUser.setUser_id(user.getUser_id());
+					shiUser.setUser_flag(user.getUser_flag());
+					shiUser.setUser_img(user.getUser_img());
+					shiUser.setUser_last_time(user.getUser_last_time());
+					shiUser.setUser_staut(user.getUser_type());
+					shiUser.setUser_staut(user.getUser_staut());
+					new CurrentSession(req).setShiroUser(shiUser);
+					writer.print(1);
+				}else{
+					writer.print(0);
+				}
 	}
 }
