@@ -20,9 +20,12 @@
 	href="${base }/www/resources/assets/fonts/fonts.googleapis.com.css" />
 <link rel="stylesheet" href="${base }/www/resources/assets/css/ace.min.css" />
 <link rel="stylesheet" href="${base }/www/resources/assets/css/ace-rtl.min.css" />
+<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
+<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 </head>
 
 <body class="login-layout">
+
 	<div class="main-container">
 		<div class="main-content">
 			<div class="row">
@@ -74,7 +77,7 @@
 
 													<button type="button"
 														class="width-35 pull-right btn btn-sm btn-primary"
-														onclick="login()">
+														 id="exe_login_button">
 														<i class="ace-icon fa fa-key"></i> <span
 															class="bigger-110">登录</span>
 													</button>
@@ -233,7 +236,9 @@
 						<!-- /.position-relative -->
 
 						<div class="navbar-fixed-top align-right">
-							<br /> &nbsp; <a id="btn-login-dark" href="#">Dark</a> &nbsp; <span
+							<br /> &nbsp; 
+								<a href="${base }/sys/video">返回主页</a>&nbsp;
+							<a id="btn-login-dark" href="#">Dark</a> &nbsp; <span
 								class="blue">/</span> &nbsp; <a id="btn-login-blur" href="#">Blur</a>
 							&nbsp; <span class="blue">/</span> &nbsp; <a id="btn-login-light"
 								href="#">Light</a> &nbsp; &nbsp; &nbsp;
@@ -269,6 +274,7 @@
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
 		var base="${base}";
+		var currentName="${ShiroUser.user_name}";
 		jQuery(function($) {
 			$(document).on('click', '.toolbar a[data-target]', function(e) {
 				e.preventDefault();
@@ -302,15 +308,10 @@
 			});
 
 		});
-		function login() {
-			$("#exe_form_login").attr("action", base+"/sys/user/login");
-			$("#exe_form_login").attr("method", "post");
-
-			$("#exe_form_login").submit();
-		}
 	</script>
 	<div style="text-align:center;"></div>
 </body>
 <script type="text/javascript" src="${base }/www/js/loginAndRegist/user/login.js"></script>
+<script type="text/javascript" src="${base }/www/js/index/user_single_page/loginAndRegist.js"></script>
 
 </html>

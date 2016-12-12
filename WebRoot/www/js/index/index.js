@@ -16,4 +16,30 @@ $(function(){
 	};
 	//点击个人头像 加载个人中心
 	$("#exe_form_singepage").click(loadSingel);
+	
+	
+	//登录注册弹出层
+	
+	var loginServer=function(){
+		var diag = new Dialog();
+
+		diag.Width = 400;
+
+		diag.Height = 520;
+
+		diag.Title = "内容页为外部连接的窗口";
+
+		diag.URL = base+"/user/login";
+		
+		diag.show();
+		if(diag.closed){
+			var form_login=diag.innerFrame.contentWindow.document.getElementById('#exe_form_login');
+			$(form_login).attr("action", base+"/sys/user/login");
+			$(form_login).attr("method", "post");
+			$(form_login).submit();
+		};
+		
+		
+	};
+	$("#exe_herf_login").click(loginServer);
 });

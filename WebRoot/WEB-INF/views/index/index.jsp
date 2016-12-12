@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="${base }/www/css/base.css" />
 <link rel="stylesheet" href="${base }/www/css/index.css" />
 <script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
+<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
+<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 
 <title>56网</title>
 </head>
@@ -43,14 +45,28 @@
 		</div>
 		<div class="login_third">
 			<ul>
+			<li><c:choose>
+						<c:when test="${ShiroUser eq null}">
+						</c:when>
+						<c:otherwise>
+							<a href="#" id="href_butt_logout">
+								<div class="img">
+									<img src="${base }/www/resources/images/exit.jpg" alt=""
+										 />
+								</div>
+								<div class="login_thirdDiv">
+									退出</div>
+							</a>
+						</c:otherwise>
+					</c:choose></li>
 				<li class="first"><c:choose>
 						<c:when test="${ShiroUser eq null}">
-							<a href="${base }/user/login">
+							<a href="#" id="exe_herf_login">
 								<div class="img">
 									<img src="${base }/www/resources/images/001.PNG" alt="" />
 								</div>
 								<div class="login_thirdDiv">
-									<span class="span1">登陆</span> <span class="span2">注册</span>
+									<span class="span1">登陆</span> 
 								</div>
 							</a>
 
@@ -64,7 +80,7 @@
 									<img src="${base }/www/resources/images/001.PNG" alt="" />
 								</div>
 								<div class=login_thirdDiv>
-									<span class="span1"><font color="black" size="2px">${ShiroUser.user_name }</font></span>
+									<span class="span1">${ShiroUser.user_name }</span>
 								</div>
 							</a>
 						</c:otherwise>
@@ -89,20 +105,7 @@
 						</div>
 						<div class="login_thirdDiv">看过</div>
 				</a></li>
-				<li><c:choose>
-						<c:when test="${ShiroUser eq null}">
-						</c:when>
-						<c:otherwise>
-							<a href="#" id="href_butt_logout">
-								<div class="img">
-									<img src="${base }/www/resources/images/exit.jpg" alt=""
-										style="width: 30px;height: 30px;margin-top: -69px;margin-left: -34px" />
-								</div>
-								<div style="margin-left: -34px;margin-top: -70px;color:black">
-									退出</div>
-							</a>
-						</c:otherwise>
-					</c:choose></li>
+				
 			</ul>
 
 		</div>
@@ -586,4 +589,5 @@
 	var base="${base}";	
 </script>
 <script type="text/javascript" src="${base }/www/js/index/index.js"></script>
+
 </html>

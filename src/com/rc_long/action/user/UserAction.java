@@ -59,7 +59,7 @@ public class UserAction {
 			new CurrentSession(req).setShiroUser(shiUser);
 			String userCurrentPage=req.getParameter("userCurrentPage");
 			//返回用户前页
-			return new ModelAndView("index/index").addObject("shiUser", shiUser);
+			return new ModelAndView("index/loginAndregist").addObject("shiUser", shiUser);
 		}else{
 			return new ModelAndView("index/loginAndregist").addObject("erroMessage", "密码或账号错误");
 		}

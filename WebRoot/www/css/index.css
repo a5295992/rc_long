@@ -37,7 +37,7 @@ header .login .main .login_date{
     width: 100px;
     height: 40px;
     margin-top: 24px;
-    margin-right: 109px;
+    margin-right: 84px;
 }
 header .login .main .login_date a{
    display: block;
@@ -106,30 +106,30 @@ header .login .main .login_second .login_secondS li a:hover{
 
 header .login .main .login_third {
      float: right;
-     width: 256px;
+     width: 281px;
      height: 90px;
     font-size: 12px;
  }
 header .login .main .login_third li{
     float: left;
-    width: 54px;
+    width: 48px;
     margin-top: 18px;
     margin-left: 8px;
 }
 header .login .main .login_third li a{
     display: block;
-    width: 54px;
+    width: 48px;
     font-size: 12px;
 
 }
 
-header .login .main .login_third li .img{
-    width: 54px;
+header .login .main .login_third li img{
+    width: 48px;
     height: 36px;
 
 }
 header .login .main .login_third li .login_thirdDiv{
-    width: 54px;
+    width: 48px;
     height: 20px;
     text-align: center;
     line-height: 20px;
@@ -138,32 +138,32 @@ header .login .main .login_third li .login_thirdDiv{
 
 }
 header .login .main .login_third li.first{
-    width: 54px;
+    width: 48px;
     margin-top: 18px;
     margin-left: 8px;
     font-size: 14px;
     color: #333;
 }
 header .login .main .login_third li.first .img{
-    width: 54px;
+    width: 48px;
     height: 36px;
 }
 header .login .main .login_third li.first .login_thirdDiv{
-    width: 54px;
+    width: 48px;
     height: 20px;
 }
 header .login .main .login_third li .login_thirdDiv:hover{
-    color: red;
+    color: red; 
 }
 header .login .main .login_third li.first .login_thirdDiv:hover{
-    color: #333;
+    color: red;
 }
-header .login .main .login_third li.first .login_thirdDiv .span1:hover{
+/*header .login .main .login_third li.first .login_thirdDiv .span1:hover{
     color: red;
 }
 header .login .main .login_third li.first .login_thirdDiv .span2:hover{
     color: red;
-}
+}*/
 header .nav{
      width: 100%;
     background-color: red;

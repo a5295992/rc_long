@@ -21,21 +21,22 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="${base }/sys/user/infor">首页</a>
+        <a class="blog-nav-item" href="${base }/sys/video">Rc_long首页</a>
+          <a class="blog-nav-item active" href="${base }/sys/user/infor">个人信息首页</a>
           <a class="blog-nav-item" href="#part1">看过</a>
           <a class="blog-nav-item" href="#part2">与我相关</a>
           <a class="blog-nav-item" href="#part3">上传的作品</a>
         </nav>
       </div>
     </div>
-	<div class="intr" style="background:url(${base }/www/resources/singlepage_img/2.jpg)">
-    	<span class="avtar" ></span>
-        <p class="peointr">${user_name}</p>
-		<p class="peointr">个人简介</p>
+	<div class="intr" >
+    	<span class="avtar" style="background:url(${base }/www/resources/singlepage_img/${ShiroUser.user_img });background-size:cover"></span>
+        <p class="peointr">${ShiroUser.user_name}</p>
+		<p class="peointr">账号:${ShiroUser.user_ssid }</p>
         <p class="peointr">热爱生活，爱编程。<a href="#">修改</p>
     </div>
     <div class="title" id="part1">看过</div>
-    <div class="content">
+    <div class="content"> 
     	<div class="pic pic1">
     		<img src="${base }/www/resources/singlepage_img/h1.jpg" alt="">
     		<p>笔锋塔下</p>
@@ -108,8 +109,8 @@
     </div>
     <a href="" class="btt">顶部</a>
     <!-- Js-->
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugin.js"></script>
+    <script src="${base }/www/js/index/user_single_page/jquery-1.9.1.min.js"></script>
+    <script src="${base }/www/js/index/user_single_page/bootstrap.min.js"></script>
+    <script src="${base }/www/js/index/user_single_page/plugin.js"></script>
   </body>
 </html>
