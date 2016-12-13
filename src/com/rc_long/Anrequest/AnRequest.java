@@ -13,6 +13,7 @@ public class AnRequest {
 	public static final String sys_video_update="/sys/video/update";
 	public static final String sys_video_delete="/sys/video/delete";
 	public static final String sys_video_search="/sys/video/search";
+	public static final String sys_video_play = "/sys/video/play";
 
 	//2016-12-4 17.17
 	//user Action 地址管理
@@ -35,4 +36,5 @@ public class AnRequest {
 	public static final String sys_friend_delete="/sys/friend/delete";
 	public static final String sys_friend_search="/sys/friend/search";
 	public static final String ajaxLogin = "/sys/user/ajax";
+	
 }

@@ -237,7 +237,7 @@
 
 						<div class="navbar-fixed-top align-right">
 							<br /> &nbsp; 
-								<a href="${base }/sys/video">返回主页</a>&nbsp;
+								<a href="#" id="return_to_back">返回主页</a>&nbsp;
 							<a id="btn-login-dark" href="#">Dark</a> &nbsp; <span
 								class="blue">/</span> &nbsp; <a id="btn-login-blur" href="#">Blur</a>
 							&nbsp; <span class="blue">/</span> &nbsp; <a id="btn-login-light"

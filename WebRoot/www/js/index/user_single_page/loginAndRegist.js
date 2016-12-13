@@ -21,4 +21,7 @@ var loginAjax=function login(){
     });
 };
 $("#exe_login_button").click(loginAjax);
-	
+
+$("#return_to_back").click(function(){
+	parentDialog.close();
+});

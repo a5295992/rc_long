@@ -20,5 +20,14 @@ public class VideoAction {
 		Pager<SysVideo> videoPager=videoService.getVideoPager(null);
 		return new ModelAndView("index/index").addObject("videoPager",videoPager);
 	}
+	/**
+	 * 视频播放
+	 * @return
+	 */
+	@RequestMapping(value=AnRequest.sys_video_play)
+	public ModelAndView video_play(){
+		System.out.println("====================");
+		return new ModelAndView("video/video_play");
+	}
 	
 }
