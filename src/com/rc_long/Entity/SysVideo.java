@@ -45,7 +45,10 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 	private int video_auth;// 0 代表审核  1.未审核
 	
 	private int video_share; //0 代表 公开观看，1 代表登录观看，2，代表Vip观看
-
+	
+	private String video_img;
+	
+	private String video_desc;
 	public String getVideo_id() {
 		return video_id;
 	}
@@ -156,6 +159,22 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 
 	public void setVideo_share(int video_share) {
 		this.video_share = video_share;
+	}
+
+	public String getVideo_img() {
+		return video_img;
+	}
+
+	public void setVideo_img(String video_img) {
+		this.video_img = video_img;
+	}
+
+	public String getVideo_desc() {
+		return video_desc;
+	}
+
+	public void setVideo_desc(String video_desc) {
+		this.video_desc = video_desc;
 	}
 	
 	

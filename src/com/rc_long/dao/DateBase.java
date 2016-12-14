@@ -49,6 +49,7 @@ public class DateBase {
 			i=queryRunner.update(connecion, sql.toString(), param);
 			connecion.commit();
 		} catch (SQLException e) {
+			printSql(sql.toString());
 			try {
 				connecion.rollback();
 			} catch (SQLException e1) {
@@ -56,7 +57,6 @@ public class DateBase {
 			}
 			e.printStackTrace();
 		} finally {
-				printSql(sql.toString());
 				C3P0UTils.closeCon(connecion);
 		}
 		return i;
@@ -103,6 +103,7 @@ public class DateBase {
 			i = queryRunner.update(connecion, sql.toString(), param);
 			connecion.commit();
 		} catch (SQLException e) {
+			printSql(sql.toString());
 			try {
 				connecion.rollback();
 			} catch (SQLException e1) {
@@ -110,7 +111,6 @@ public class DateBase {
 			}
 			e.printStackTrace();
 		} finally {
-			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return i;
@@ -141,11 +141,11 @@ public class DateBase {
 			try {
 				connecion.rollback();
 			} catch (SQLException e1) {
+				printSql(sql.toString());
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
 		} finally {
-			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return i;
@@ -198,9 +198,9 @@ public class DateBase {
 			list = queryRunner.query(connecion, sql.toString(),
 					new BeanListHandler<T>(clazz));
 		} catch (SQLException e) {
+			printSql(sql.toString());
 			e.printStackTrace();
 		} finally {
-			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		limit.setList(list);
@@ -235,9 +235,9 @@ public class DateBase {
 			return queryRunner.query(connecion, sql.toString().toLowerCase(),
 					new BeanHandler<T>(clazz));
 		} catch (SQLException e) {
+			printSql(sql.toString());
 			e.printStackTrace();
 		} finally {
-			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return null;
@@ -252,11 +252,18 @@ public class DateBase {
 	 *            json格式的 字符串
 	 * @return 返回所有记录的和
 	 */
-	public static int queryCount(Class clazz) {
+	public static int queryCount(Class clazz,String CondtionJson) {
 		connecion = C3P0UTils.getConnection();
 		StringBuilder sql = new StringBuilder();
 		SqlCreate.generateQueryCountSql(clazz, sql);
 		ResultSet rs = null;
+		
+		JSONObject json = null;
+		if (CondtionJson != null) {
+			json = JSONObject.fromObject(CondtionJson);
+			Map<String, Object> map = (Map) json;
+			SqlCreate.setConditions(map, sql);
+		}
 		try {
 			rs = connecion.prepareStatement(sql.toString()).executeQuery();
 			if (rs != null) {
@@ -269,9 +276,9 @@ public class DateBase {
 				}
 			}
 		} catch (SQLException e) {
+			printSql(sql.toString());
 			e.printStackTrace();
 		} finally {
-			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return 0;
@@ -284,15 +291,15 @@ public class DateBase {
 	 *            指定的查询语句
 	 * @return 返回指定对象的单个实例
 	 */
-	public static <T> T getBeanRunsql(Class<T> clazz, String sql) {
+	public static <T> List<T> getBeanRunsql(Class<T> clazz, String sql) {
 		connecion = C3P0UTils.getConnection();
 
 		try {
-			return queryRunner.query(connecion, sql, new BeanHandler<T>(clazz));
+			return queryRunner.query(connecion, sql, new BeanListHandler<T>(clazz));
 		} catch (SQLException e) {
+			printSql(sql);
 			e.printStackTrace();
 		} finally {
-			printSql(sql);
 			C3P0UTils.closeCon(connecion);
 		}
 		return null;
@@ -313,9 +320,9 @@ public class DateBase {
 			return queryRunner.query(connecion, sql, new BeanListHandler<T>(
 					clazz));
 		} catch (SQLException e) {
+			printSql(sql);
 			e.printStackTrace();
 		} finally {
-			printSql(sql);
 			C3P0UTils.closeCon(connecion);
 		}
 		return null;

@@ -2,6 +2,7 @@
     $.fn.extend({
         html5video:function(options) {
             var defaults = {
+            	autoplay : "autoplay" ,
                 width:720,               //Number型，播放器宽度。
                 height:480,              //Number型，播放器高度。
                 src:"",                  //String型，要播放的视频的 URL。
@@ -24,6 +25,7 @@
                         '<video src="'+o.src+'" width="'+o.width+'" poster="'+o.poster+'" height="'+o.height+'">'+
                         '<source src="'+o.src+'" type="video/ogg" />'+
                         '<source src="'+o.src+'" type="video/mp4" />'+o.notsuportmsg+
+                        'auto-play='+o.autoplay+
                         '</video>'+
                         '<div class="video_body">'+
                         '<div class="video_controls">'+
@@ -251,7 +253,7 @@
 
                     $(".video_file").on("change",function(){
                         //videos.attr("src",$(this).val());
-                        alert("呵呵，开个玩笑~");
+                        //alert("呵呵，开个玩笑~");
                         $(".video_window>i").click();
                     });
 

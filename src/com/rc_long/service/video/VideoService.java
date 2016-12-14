@@ -5,18 +5,21 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.rc_long.Entity.SysVideo;
+import com.rc_long.Entity.SysVideoBean;
 import com.rc_long.utils.Pager;
 
 @Service
 public interface VideoService {
 	
-	public Pager<SysVideo> getVideoPager(Map<String,Object> map);
+	public Pager<SysVideo> getVideoPager(String conditon,int pageCount,int pageNum);
 	
-	public SysVideo getVideo(Map<String,Object>map);
+	public SysVideo getVideo(String conditionJoson);
 	
 	public int updateVideo(Map<String,Object>map,Map<String,Object>conditon);
 	
 	public int deleteVideo(Map<String,Object>map);
+	
+	public Pager<SysVideoBean> getPargerBean();
 	/**
 	 * 创建视频信息
 	 * @param map 添加视频必须的字段

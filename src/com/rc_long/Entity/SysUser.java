@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 /**
  * 
- * @author 周湘�?
+ * @author 周湘龙
  *
  */
 @Entity

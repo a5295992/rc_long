@@ -1,128 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="base" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="${base }/www/css/base.css" />
-<link rel="stylesheet" href="${base }/www/css/index.css" />
-<script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
-
 <title>56网</title>
 </head>
 <body>
-	<!--头部开始-->
-	<header> <!--头部首导航开始--> <nav class="login">
-	<div class="main">
-		<div class="login_img">
-			<a href="#"> <img src="${base }/www/resources/images/007.PNG"
-				alt="图标" />
-			</a>
-		</div>
-		<div class="login_date">
-			<a href="#"><img src="${base }/www/resources/images/date.gif"
-				alt="动图"></a>
-		</div>
-
-		<div class="login_second">
-			<div class="login_secondF">
-				<input type="text" class="in" value="上课别看" /> <input type="submit"
-					class="sub" value="乐搜" />
-			</div>
-			<div class="login_secondS">
-				<ul>
-					<li><a href="#">上课别看</a></li>
-					<li><a href="#">赵薇资助希拉里</a></li>
-					<li><a href="#">56音乐下午茶</a></li>
-					<li><a href="#">微体兔菜谱</a></li>
-				</ul>
-			</div>
-
-		</div>
-		<div class="login_third">
-			<ul>
-			<li><c:choose>
-						<c:when test="${ShiroUser eq null}">
-						</c:when>
-						<c:otherwise>
-							<a href="#" id="href_butt_logout">
-								<div class="img">
-									<img src="${base }/www/resources/images/exit.jpg" alt=""
-										 />
-								</div>
-								<div class="login_thirdDiv">
-									退出</div>
-							</a>
-						</c:otherwise>
-					</c:choose></li>
-				<li class="first"><c:choose>
-						<c:when test="${ShiroUser eq null}">
-							<a href="#" id="exe_herf_login">
-								<div class="img">
-									<img src="${base }/www/resources/images/001.PNG" alt="" />
-								</div>
-								<div class="login_thirdDiv">
-									<span class="span1">登陆</span> 
-								</div>
-							</a>
-
-						</c:when>
-						<c:otherwise>
-							<form id="exe_form_singepage">
-								<input type="hidden" name="user_id" value="${ShiroUser.user_id }"/>
-							</form>
-							<a href="${base }/sys/user/infor">
-								<div class="img">
-									<img src="${base }/www/resources/images/001.PNG" alt="" />
-								</div>
-								<div class=login_thirdDiv>
-									<span class="span1">${ShiroUser.user_name }</span>
-								</div>
-							</a>
-						</c:otherwise>
-
-					</c:choose></li>
-				<li><a href="#">
-						<div class="img">
-							<img src="${base }/www/resources/images/002.PNG" alt="" />
-						</div>
-
-						<div class="login_thirdDiv">上传</div>
-				</a></li>
-				<li><a href="#">
-						<div class="img">
-							<img src="${base }/www/resources/images/003.PNG" alt="" />
-						</div>
-						<div class="login_thirdDiv">消息</div>
-				</a></li>
-				<li><a href="#">
-						<div class="img">
-							<img src="${base }/www/resources/images/003.PNG" alt="" />
-						</div>
-						<div class="login_thirdDiv">看过</div>
-				</a></li>
-				
-			</ul>
-
-		</div>
-
-	</div>
-	</nav> <!-- 头部首导航结束--> <!-- 头部子导航开始--> <nav class="nav">
-	<div class="center">
-		<ul>
-			<li class="first"><a href="${base }/sys/video">首页</a></li>
-			<li><a href="#">电视剧</a></li>
-			<li><a href="${base }/sys/movie">电影</a></li>
-			<li><a href="#">综艺</a></li>
-			<li><a href="#">搞笑</a></li>
-			<li><a href="#">直播</a></li>
-		</ul>
-	</div>
-	</nav> <!-- 头部子导航结束--> </header>
+	<%@include file="header.jsp"%>
 	<!--头部结束-->
 
 	<!--内容区域开始-->
@@ -130,121 +15,72 @@
 		<!-- 直播间-->
 		<section class="section1">
 		<div class="sec_F">
-
-			<div class="sec_Fbox">
-				<a href="#"><img src="${base }/www/resources/images/0023.jpg"
+			<c:forEach items="${recPager.list }" var="x">
+				<div class="sec_Fbox">
+				<a href="${base }/sys/video/play?vd=10001"><img src="${base }/www/resources/images/${x.video_img}"
 					alt="" /></a>
 				<div class="small">
 					<span><img src="${base }/www/resources/images/008.PNG"
-						alt="" /></span> <span>速来围观逆天颜值！气质女神完美娃娃脸</span>
+						alt="" /></span> <span>${x.video_name }</span>
 				</div>
 			</div>
+			</c:forEach>
+			
+			
 			<div class="sec_Ful">
 				<ul>
-					<li>
+				
+				<!--自编辑  -->
+				<c:forEach items="${editPager.list }" var="x">
+						<li>
 						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0024.jpg"
+							<a href="#"><img src="${base }/www/resources/images/${x.video_img}"
 								alt="" /></a>
 							<div class="liS">
 								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
+									alt="" /></span> <span>${x.video_wathers }</span>
 							</div>
-						</div> <span class="title">快评《吓死鬼》的死亡套路</span>
+						</div> <span class="title">${x.video_name }</span>
 					</li>
-					<li>
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0025.jpg"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
-							</div>
-						</div> <span class="title">[人物] 铁三角人老心不老</span>
-					</li>
-					<li class="last">
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0026.jpg"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
-							</div>
-						</div> <span class="title">[电影] 20分钟看懂李安</span>
-					</li>
+				</c:forEach> 
 				</ul>
 			</div>
 		</div>
 		<div class="sec_S">
 			<div class="sec_sbig">
 				<ul>
-					<li>
+					<c:forEach items="${commentPager.list }" var="x">
+						<li>
 						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0027.jpg"
+							<a href="${base }/sys/video/play?vd=10001"><img src="${base }/www/resources/images/${x.video_img}"
 								alt="" /></a>
 							<div class="liS">
 								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
+									alt="" /></span> <span>${x.video_wathers }</span>
 							</div>
-						</div> <span class="title">谁说一个人不能去旅行</span>
+						</div> <span class="title">${x.video_name }</span>
 					</li>
-
-					<li>
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0028.jpg"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
-							</div>
-						</div> <span class="title">男神周柏豪：我对henry很心动</span>
-					</li>
-
-					<li class="last">
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0029.jpg"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
-							</div>
-						</div> <span class="title">邓紫棋穿皮裤为谁站台</span>
-					</li>
+					
+					</c:forEach>
 				</ul>
 			</div>
 			<div class="sec_ssmal">
 				<ul>
+				
+				<c:forEach items="${newsPager.list }" var="x">
 					<li>
 						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0030.jpg"
+							<a href="#"><img src="${base }/www/resources/images/${x.video_img}"
 								alt="" /></a>
 							<div class="liS">
 								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
+									alt="" /></span> <span>${x.video_wathers}</span>
 							</div>
-						</div> <span class="title">欢迎加入搜狐视频自媒体</span>
+						</div> <span class="title">${x.video_name}</span>
 					</li>
-
-					<li>
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0031.jpg"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
-							</div>
-						</div> <span class="title">[特别推荐] 第三届搜狐视频出品人大会</span>
-					</li>
-
-					<li>
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/0032.jpg"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>154133</span>
-							</div>
-						</div> <span class="title">[千帆直播] 千帆直播年度盛典隆重启动</span>
-					</li>
+				
+				</c:forEach>
+					
 				</ul>
 			</div>
 		</div>
@@ -254,134 +90,24 @@
 		<div class="side-left fl">
 			<h2>猜你喜欢</h2>
 			<div class="like">
-				<div class="item-like">
+			<c:forEach items="${likePager.list }" var="x">
+					<div class="item-like">
 					<div class="pic-list">
 						<div class="pic">
-							<img src="${base }/www/resources/images/like1.jpg" alt=""
+							<img src="${base }/www/resources/images/${x.user_img}" alt=""
 								class="pic-big" />
 							<div class="list">
 								<div class="vid">
-									<span></span><span>2345</span>
+									<span></span><span>${x.video_wathers }</span>
 								</div>
 							</div>
-							<img src="${base }/www/resources/images/likes1.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">枣集娱乐传媒</span>
+							<img src="${base }/www/resources/images/${x.video_img}" alt=""
+								class="pic-small" /> <span class="list-tit">${x.user_name }</span>
 						</div>
 					</div>
-					<p>《闺蜜嫁到》夏晴出现疑似情</p>
+					<p>${x.video_cname }</p>
 				</div>
-				<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/like2.jpg" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>2164</span>
-								</div>
-							</div>
-							<img src="${base }/www/resources/images/likes2.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">好丹娱乐</span>
-						</div>
-					</div>
-					<p>王菲女儿窦静童出席盛典造型</p>
-				</div>
-				<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/like3.jpg" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>106</span>
-								</div>
-							</div>
-							<img src="${base }/www/resources/images/likes3.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">美拍明星制造</span>
-						</div>
-					</div>
-					<p>鲜肉咨询：以撩妹方式打开安</p>
-				</div>
-				<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/like4.jpg" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>2568</span>
-								</div>
-							</div>
-							<img src="${base }/www/resources/images/likes4.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">飞鹰传媒</span>
-						</div>
-					</div>
-					<p>权志龙同款昂贵项链竟被</p>
-				</div>
-				<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/like5.png" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>142</span>
-								</div>
-							</div>
-							<img src="${base }/www/resources/images/likes5.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">中视彩华</span>
-						</div>
-					</div>
-					<p>流浪猫</p>
-				</div>
-				<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/like6.jpg" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>48万</span>
-								</div>
-							</div>
-							<img src="${base }/www/resources/images/likes6.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">棒呼Bongho</span>
-						</div>
-					</div>
-					<p>【独播】科技龙卷风</p>
-				</div>
-				<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/like7.png" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>43</span>
-								</div>
-							</div>
-							<img src="${base }/www/resources/images/likes7.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">视频绝活</span>
-						</div>
-					</div>
-					<p>大爷公园秀球技引围观</p>
-				</div>
-				<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/like8.jpg" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>341</span>
-								</div>
-							</div>
-							<img src="${base }/www/resources/images/likes8.jpg" alt=""
-								class="pic-small" /> <span class="list-tit">大话风水脱口秀</span>
-						</div>
-					</div>
-					<p>《大话风水》第30集神秘的风</p>
-				</div>
+			</c:forEach>
 			</div>
 		</div>
 		<!-- 猜你喜欢右侧 -->
@@ -429,18 +155,11 @@
 			</div>
 			<div class="item">
 				<ul>
-					<li><img src="${base }/www/resources/images/dy1.jpg" alt="" />
-						<div class="pic-tit">战斗民族的动漫展</div>
-						<div class="smalltit">最真实漫展记录</div></li>
-					<li><img src="${base }/www/resources/images/dy2.jpg" alt="" />
-						<div class="pic-tit">女人要的就是这种惊喜</div>
-						<div class="smalltit">男人的觉悟</div></li>
-					<li><img src="${base }/www/resources/images/dy3.jpg" alt="" />
-						<div class="pic-tit">漫威超萌小剧场</div>
-						<div class="smalltit">当打斗变成过家家</div></li>
-					<li><img src="${base }/www/resources/images/dy4.jpg" alt="" />
-						<div class="pic-tit">一碗泡面成就一个梦想</div>
-						<div class="smalltit">总会有闪耀的一天</div></li>
+				<c:forEach  items="${videoPager.list }" var="x" >
+						<li><img src="${base }/www/resources/images/${x.video_img}" alt="" />
+						<div class="pic-tit">${x.video_name}</div>
+						<div class="smalltit">${x.video_cname}</div></li>
+				</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -476,38 +195,16 @@
 			</div>
 			<div class="item">
 				<ul>
+				<c:forEach items="${soapPager.list }" var="x">
 					<li>
 						<div class="picBox">
-							<img src="${base }/www/resources/images/dsj1.jpg" alt="" /> <span
-								class="bg"><span class="count">更新至第16集</span></span>
+							<img src="${base }/www/resources/images/${x.video_img}" alt="" /> <span
+								class="bg"><span class="count">${x.video_desc }</span></span>
 						</div>
-						<div class="pic-tit">秦明父亲的谜题终要解开</div>
-						<div class="smalltit">法医秦明</div>
+						<div class="pic-tit">${x.video_name }</div>
+						<div class="smalltit">${x.video_cname }</div>
 					</li>
-					<li>
-						<div class="picBox">
-							<img src="${base }/www/resources/images/dsj2.jpg" alt="" /> <span
-								class="bg"><span class="count">更新至第6集</span></span>
-						</div>
-						<div class="pic-tit">爆笑 ！全家一起学英语</div>
-						<div class="smalltit">心里的声音</div>
-					</li>
-					<li>
-						<div class="picBox">
-							<img src="${base }/www/resources/images/dsj3.jpg" alt="" /> <span
-								class="bg"><span class="count">更新至第20集</span></span>
-						</div>
-						<div class="pic-tit">一边是爱情一边是信仰</div>
-						<div class="smalltit">无名者</div>
-					</li>
-					<li>
-						<div class="picBox">
-							<img src="${base }/www/resources/images/dsj5.jpg" alt="" /> <span
-								class="bg"><span class="count">45集全</span></span>
-						</div>
-						<div class="pic-tit">"流氓头儿"于震的抗日故事</div>
-						<div class="smalltit">不可能完成的任务</div>
-					</li>
+				</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -550,22 +247,11 @@
 			</div>
 			<div class="item">
 				<ul>
-					<li><img src="${base }/www/resources/images/zy1.jpg" alt="" />
-						<div class="pic-tit">辛颖CP穿越50年扮老</div>
-						<div class="smalltit">如果爱</div></li>
-					<li><img src="${base }/www/resources/images/zy2.jpg" alt="" />
-						<div class="pic-tit">孟非口误惹谢以霖罢录</div>
-						<div class="smalltit">四大名助</div></li>
-					<li><img src="${base }/www/resources/images/zy3.jpg" alt="" />
-						<div class="pic-tit">池子深夜放歌遭毒打</div>
-						<div class="smalltit">今晚80后脱口秀</div></li>
-					<li><img src="${base }/www/resources/images/zy4.jpg" alt="" />
-						<div class="pic-tit">本世纪最人性化的发明</div>
-						<div class="smalltit">Lady聊聊时尚圈</div></li>
-					<li class="last"><img
-						src="${base }/www/resources/images/zy5.jpg" alt="" />
-						<div class="pic-tit">我陪你长大陪你变老</div>
-						<div class="smalltit">一个六十年的约定</div></li>
+				<c:forEach items="${lifePager.list }" var="x">
+					<li><img src="${base }/www/resources/images/${x.video_img}" alt="" />
+						<div class="pic-tit">${x.video_name }</div>
+						<div class="smalltit">${x.video_cname }</div></li>
+				</c:forEach>
 				</ul>
 			</div>
 		</div>

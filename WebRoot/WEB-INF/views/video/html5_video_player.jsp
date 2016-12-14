@@ -22,15 +22,19 @@
 <script type="text/javascript" src="${base }/www/html_player_resource/js/jquery.video.js"></script>
 <script type="text/javascript">
 	var base="${base}";
+	var url="${videoBean.video_path}";
 	$(function() {
 		$(".video_container").html5video({
-			width : 600, //Number型，播放器宽度。
-			height : 338, //Number型，播放器高度。
-			src : base+"/www/resources/data_data/57b1368741321.mp4", //String型，要播放的视频的 URL。
+			autoplay : "autoplay",
+			width : 1100, //Number型，播放器宽度。
+			height : 600, //Number型，播放器高度。
+			src : base+"/www/resources/data_data/"+url, //String型，要播放的视频的 URL。
 			poster : "html5video-preview.png", //String型，在视频播放之前所显示的图片的 URL。
 			loop : false, //Boolean型，则当媒介文件完成播放后再次开始播放。
 			preload : true, //Boolean型，如果出现该属性，则视频在页面加载时进行加载，并预备播放。
-			notsuportmsg : "您的浏览器不支持html5，无法使用该插件！" //String型，浏览器不支持video标签时的提示，可使用html标签。			
+			notsuportmsg : "您的浏览器不支持html5，无法使用该插件！"  
+			//String型，浏览器不支持video标签时的提示，可使用html标签。
+			
 		});
 	});
 </script>

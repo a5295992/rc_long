@@ -1,33 +1,83 @@
 package com.rc_long.action;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rc_long.Anrequest.AnRequest;
 import com.rc_long.Entity.SysVideo;
+import com.rc_long.Entity.SysVideoBean;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
 import com.rc_long.utils.Pager;
 
 @Controller
 public class VideoAction {
-	
+
 	public VideoService videoService = new VideoServiceImpl();
-	
-	@RequestMapping(value=AnRequest.sys_video_init)
-	public ModelAndView init(){
-		Pager<SysVideo> videoPager=videoService.getVideoPager(null);
-		return new ModelAndView("index/index").addObject("videoPager",videoPager);
+
+	@RequestMapping(value = AnRequest.sys_video_init)
+	public ModelAndView init() {
+		String conditionJson = "{video_type:'401'}";
+		// 电影 精选
+		Pager<SysVideo> videoPager = videoService.getVideoPager(conditionJson,
+				4, 0);
+		// 电视剧精选
+
+		conditionJson = "{video_type:'501'}";
+		Pager<SysVideo> soapPager = videoService.getVideoPager(conditionJson,
+				4, 0);
+		// 综艺精选
+		conditionJson = "{video_type:'601'}";
+		Pager<SysVideo> lifePager = videoService.getVideoPager(conditionJson,
+				5, 0);
+		// 猜你喜欢
+		Pager<SysVideoBean> likePager = videoService.getPargerBean();
+		// 直播
+		conditionJson = "{video_type:'801',is_recommend:'1'}";
+		Pager<SysVideo> recPager = videoService.getVideoPager(conditionJson, 1,
+				0);
+		// 自编辑
+		conditionJson = "{video_type:'103'}";
+		Pager<SysVideo> editPager = videoService.getVideoPager(conditionJson,
+				3, 0);
+		// 自影评
+		conditionJson = "{video_type:'102'}";
+		Pager<SysVideo> commentPager = videoService.getVideoPager(
+				conditionJson, 3, 0);
+		// 重大新闻
+		conditionJson = "{video_type:'101'}";
+		Pager<SysVideo> newsPager = videoService.getVideoPager(conditionJson,
+				3, 0);
+		return new ModelAndView("index/index")
+				.addObject("videoPager", videoPager)
+				.addObject("soapPager", soapPager)
+				.addObject("lifePager", lifePager)
+				.addObject("likePager", likePager)
+				.addObject("recPager", recPager)
+				.addObject("editPager", editPager)
+				.addObject("commentPager", commentPager)
+				.addObject("newsPager", newsPager)
+				;
+				
 	}
+
 	/**
 	 * 视频播放
+	 * 
 	 * @return
 	 */
-	@RequestMapping(value=AnRequest.sys_video_play)
-	public ModelAndView video_play(){
-		System.out.println("====================");
-		return new ModelAndView("video/video_play");
+	@RequestMapping(value = AnRequest.sys_video_play)
+	public ModelAndView video_play(HttpServletRequest req) {
+		String video_id = req.getParameter("vd");
+		System.out.println(video_id);
+		String conditionJson = "{video_id:" + video_id + "}";
+		SysVideo videoBean = videoService.getVideo(conditionJson);
+		return new ModelAndView("video/video_play").addObject("videoBean",
+				videoBean);
+
 	}
-	
+
 }
