@@ -59,7 +59,7 @@ public class DateBaseInsertTest {
 	 * @param args
 	 */
 	public static void getcount(){
-		int count =DateBase.queryCount(SysUser.class);
+		int count =DateBase.queryCount(SysUser.class,null);
 		System.out.println(count);
 	}
 	public static void main(String[] args) {
