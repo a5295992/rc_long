@@ -27,6 +27,8 @@ public class AnRequest {
 	public static final String sys_user_loginout="/sys/user/logout";
 	public static final String sys_user_infor="/sys/user/infor";
 	public static final String sys_user_do="/sys/user/do";
+	//2016-12-14
+	public static final String sys_back_user = "sys/back/user";
 	
 	//2016-12-4 17.17
 		//user Action 地址管理
@@ -40,5 +42,6 @@ public class AnRequest {
 	//2016--12-14日
 	//新增后台管理模块
 	public static final String sys_back="/sys/back";
+	
 	
 }
