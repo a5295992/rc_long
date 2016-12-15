@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 	public Pager<SysUser> getUserPager() {
 		int count =DateBase.queryCount(SysUser.class,null);
 		
-		return DateBase.queryList(SysUser.class, "user_id,user_name,user_img,user_staut,user_last_time,user_regist_time", "{user_flag:'1'}", "user_id,desc", new Pager<SysUser>(10,count,0), null);
+		return DateBase.queryList(SysUser.class, "user_ssid,user_id,user_name,user_img,user_staut,user_last_time,user_regist_time", "", "user_id,desc", new Pager<SysUser>(10,count,0), null);
 	}
 
 	@Override
