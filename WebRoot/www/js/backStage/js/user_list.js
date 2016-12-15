@@ -4,7 +4,7 @@ function changesearch(){
 }
 
 //单个删除
-function del(id,mid,iscid){
+function del(){
 	if(confirm("您确定要删除吗?")){
 		
 	}

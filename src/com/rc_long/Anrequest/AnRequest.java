@@ -45,5 +45,9 @@ public class AnRequest {
 	public static final String sys_back_user_update = "/sys/back/user/update";
 	public static final String sys_back_user_qupdate = "/sys/back/user/qupdate";
 	
+	public static final String sys_back_user_delete = "/sys/back/user/delete";
+	
+	public static final String sys_back_user_search = "/sys/back/user/search";
+	
 	
 }

@@ -12,7 +12,7 @@ public interface UserService {
 	 * 初始化
 	 * @return
 	 */
-	public Pager<SysUser> getUserPager();
+	public Pager<SysUser> getUserPager(String condition,Pager<SysUser> pager,String oder);
 	/**
 	 * 创建新用户
 	 * @param map

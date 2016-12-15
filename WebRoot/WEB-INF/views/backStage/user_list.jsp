@@ -81,19 +81,39 @@
           <td width="10%"><img src="${base }/www/userImg/${user.user_img}" alt="" width="70" height="50" /></td><!-- 用户头像 -->
           <td>${user.user_name }</td>
           <td><font color="#00CC99">
-          <c:if test=" ${user.user_type eq 0}">
-          	普通用户
+         <%-- <c:if test=" ${user.user_type==0}">
+          	${user.user_type }
           </c:if>
-          <c:if test=" ${user.user_type eq 1}">
+          <c:if test=" ${user.user_type eq '1'}">
+          	会员
+          </c:if>
+          <c:if test=" ${user.user_type eq '2'}">
           	管理员
           </c:if>
-          <c:if test=" ${user.user_type eq 2}">
-          	Vip
-          </c:if>
+          <c:if test=" ${user.user_type eq '3'}">
+          	超级管理员
+          </c:if> --%>
+          <c:choose>
+          	<c:when test="${user.user_type==0 }">
+          		普通用户
+          	</c:when>
+          		<c:when test="${user.user_type==1 }">
+          		会员
+          	</c:when>
+          		<c:when test="${user.user_type==2 }">
+          		管理员
+          	</c:when>
+          		<c:when test="${user.user_type==3 }">
+          		超级管理员
+          	</c:when>
+          	<c:otherwise>
+          		未知用户类型
+          	</c:otherwise>
+          </c:choose>
           </font></td>
           <td>${user.user_group }</td>
           <td>${user.user_last_time }</td>
-          <td><div class="button-group"> <a class="button border-main" href="${base }/sys/back/user/qupdate?user_id=${user.user_id}"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1,1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+          <td><div class="button-group"> <a class="button border-main" href="${base }/sys/back/user/qupdate?user_id=${user.user_id}"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="del('${user.user_id}')"><span class="icon-trash-o"></span> 删除</a> </div></td>
         </tr>
     
    	  </c:forEach>
@@ -144,6 +164,6 @@
 <script type="text/javascript">
 	var base="${base}";
 </script>
-<script type="text/javascript" src="${base }/www/js/backStage/user_list.js"></script>
+ <script type="text/javascript" src="${base }/www/js/backStage/js/user_list2.js"></script>
 </body>
 </html>

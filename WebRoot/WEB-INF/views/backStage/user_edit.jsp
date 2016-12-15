@@ -22,6 +22,7 @@
 		</div>
 		<div class="body-content">
 			<form class="form-x"  id="exe_form_login">
+				<input type="hidden" value="${user.user_id }" name="user_id"/>
 				<div class="form-group">
 					<div class="label">
 						<label for="sitename">用户账号：</label>
@@ -47,8 +48,8 @@
 						onchange="changecate(this)">
 						
 						<option value="" >请选择状态</option>
-						<option value="0"  <c:if test="${user.user_type eq '0' }">selected="selected"</c:if>>可用</option>
-						<option value="1" <c:if test="${user.user_type eq '1' }">selected="selected"</c:if>>封号</option>
+						<option value="0"  <c:if test="${user.user_flag eq '0' }">selected="selected"</c:if>>可用</option>
+						<option value="1" <c:if test="${user.user_flag eq '1' }">selected="selected"</c:if>>封号</option>
 					</select>
 				</div>
 				<div class="form-group">

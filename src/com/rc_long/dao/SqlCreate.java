@@ -265,7 +265,7 @@ public class SqlCreate {
 		sql.append(parameters[0]);
 		sql.append(" = ?");
 		for (int i = 1; i < parameters.length; i++) {
-			sql.append(" and ");
+			sql.append(" , ");
 			sql.append(parameters[i]);
 			sql.append("= ? ");
 		}

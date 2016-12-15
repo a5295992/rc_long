@@ -49,7 +49,6 @@ public class DateBase {
 			i=queryRunner.update(connecion, sql.toString(), param);
 			connecion.commit();
 		} catch (SQLException e) {
-			printSql(sql.toString());
 			try {
 				connecion.rollback();
 			} catch (SQLException e1) {
@@ -57,6 +56,7 @@ public class DateBase {
 			}
 			e.printStackTrace();
 		} finally {
+			printSql(sql.toString());
 				C3P0UTils.closeCon(connecion);
 		}
 		return i;
@@ -103,7 +103,6 @@ public class DateBase {
 			i = queryRunner.update(connecion, sql.toString(), param);
 			connecion.commit();
 		} catch (SQLException e) {
-			printSql(sql.toString());
 			try {
 				connecion.rollback();
 			} catch (SQLException e1) {
@@ -111,6 +110,7 @@ public class DateBase {
 			}
 			e.printStackTrace();
 		} finally {
+			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return i;
@@ -141,11 +141,11 @@ public class DateBase {
 			try {
 				connecion.rollback();
 			} catch (SQLException e1) {
-				printSql(sql.toString());
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
 		} finally {
+			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return i;
@@ -198,9 +198,9 @@ public class DateBase {
 			list = queryRunner.query(connecion, sql.toString(),
 					new BeanListHandler<T>(clazz));
 		} catch (SQLException e) {
-			printSql(sql.toString());
 			e.printStackTrace();
 		} finally {
+			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		limit.setList(list);
@@ -235,9 +235,9 @@ public class DateBase {
 			return queryRunner.query(connecion, sql.toString().toLowerCase(),
 					new BeanHandler<T>(clazz));
 		} catch (SQLException e) {
-			printSql(sql.toString());
 			e.printStackTrace();
 		} finally {
+			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return null;
@@ -276,9 +276,9 @@ public class DateBase {
 				}
 			}
 		} catch (SQLException e) {
-			printSql(sql.toString());
 			e.printStackTrace();
 		} finally {
+			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return 0;
@@ -297,9 +297,9 @@ public class DateBase {
 		try {
 			return queryRunner.query(connecion, sql, new BeanListHandler<T>(clazz));
 		} catch (SQLException e) {
-			printSql(sql);
 			e.printStackTrace();
 		} finally {
+			printSql(sql);
 			C3P0UTils.closeCon(connecion);
 		}
 		return null;
@@ -320,9 +320,9 @@ public class DateBase {
 			return queryRunner.query(connecion, sql, new BeanListHandler<T>(
 					clazz));
 		} catch (SQLException e) {
-			printSql(sql);
 			e.printStackTrace();
 		} finally {
+			printSql(sql);
 			C3P0UTils.closeCon(connecion);
 		}
 		return null;

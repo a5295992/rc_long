@@ -15,10 +15,10 @@ import com.rc_long.utils.Pager;
 public class UserServiceImpl implements UserService {
 
 	@Override
-	public Pager<SysUser> getUserPager() {
+	public Pager<SysUser> getUserPager(String condition,Pager<SysUser> pager,String oder) {
 		int count =DateBase.queryCount(SysUser.class,null);
-		
-		return DateBase.queryList(SysUser.class, "user_ssid,user_id,user_name,user_img,user_staut,user_last_time,user_regist_time,user_type", "", "user_id,desc", new Pager<SysUser>(10,count,0), null);
+		pager.setCount(count);
+		return DateBase.queryList(SysUser.class, "user_ssid,user_id,user_name,user_img,user_staut,user_last_time,user_regist_time,user_type", condition, oder, pager, null);
 	}
 
 	@Override
