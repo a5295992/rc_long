@@ -8,8 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="css/pintuer.css">
-<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
+<link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
 <script src="${base }/www/js/backStage/js/jquery.js"></script>
 <script src="${base }/www/js/backStage/js/pintuer.js"></script>
 </head>
@@ -60,7 +60,7 @@
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th width="100" style="text-align:left; padding-left:20px;">用户ID</th>
+        <th width="100" style="text-align:center; padding-left:20px;">用户ID</th>
         <th width="10%">排序</th>
         <th>用户头像</th>
         <th>用户姓名</th>
@@ -74,8 +74,8 @@
       <c:forEach items="${user_bean.list }" var="user">
     	<tr>
           <td style="text-align:left; padding-left:20px;"><input type="checkbox" name="id[]" value="" />
-           <%=i++ %></td>
-          <td><input type="text" name="sort[1]" value="1" style="width:50px; text-align:center; border:1px solid #ddd; padding:7px 0;" /></td>
+           ${user.user_ssid }</td>
+          <td><input type="text" name="sort[1]" value="<%=i++ %>" style="width:50px; text-align:center; border:1px solid #ddd; padding:7px 0;" /></td>
           <td width="10%"><img src="${base }/www/userImg/${user.user_img}" alt="" width="70" height="50" /></td><!-- 用户头像 -->
           <td>${user.user_name }</td>
           <td><font color="#00CC99">
@@ -90,7 +90,7 @@
           </c:if>
           </font></td>
           <td>${user.user_group }</td>
-          <td>${user.user_last }</td>
+          <td>${user.user_last_time }</td>
           <td><div class="button-group"> <a class="button border-main" href="add.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1,1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
         </tr>
     

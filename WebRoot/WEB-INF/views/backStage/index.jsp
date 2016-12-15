@@ -68,6 +68,5 @@ $(function(){
 <script type="text/javascript">
 	var base="${base}";
 </script>
-<script type="text/javascript" src="${base }/www/js/backStage/js/back_index.js"></script>
 </body>
 </html>
