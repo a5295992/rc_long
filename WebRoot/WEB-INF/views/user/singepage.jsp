@@ -33,7 +33,7 @@
     	<span class="avtar" style="background:url(${base }/www/resources/singlepage_img/${ShiroUser.user_img });background-size:cover"></span>
         <p class="peointr">${ShiroUser.user_name}</p>
 		<p class="peointr">账号:${ShiroUser.user_ssid }</p>
-        <p class="peointr">热爱生活，爱编程。<a href="#">修改</p>
+        <p class="peointr">热爱生活，爱编程。<a href="${base }/sys/back">后台管理</p>
     </div>
     <div class="title" id="part1">看过</div>
     <div class="content"> 

@@ -37,4 +37,8 @@ public class AnRequest {
 	public static final String sys_friend_search="/sys/friend/search";
 	public static final String ajaxLogin = "/sys/user/ajax";
 	
+	//2016--12-14日
+	//新增后台管理模块
+	public static final String sys_back="/sys/back";
+	
 }
