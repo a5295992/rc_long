@@ -42,6 +42,8 @@ public class AnRequest {
 	//2016--12-14日
 	//新增后台管理模块
 	public static final String sys_back="/sys/back";
+	public static final String sys_back_user_update = "/sys/back/user/update";
+	public static final String sys_back_user_qupdate = "/sys/back/user/qupdate";
 	
 	
 }

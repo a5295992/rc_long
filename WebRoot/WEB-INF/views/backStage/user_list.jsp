@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
 <script src="${base }/www/js/backStage/js/jquery.js"></script>
 <script src="${base }/www/js/backStage/js/pintuer.js"></script>
+<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
+<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 </head>
  <body>
 <form method="post" action="" id="listform">
@@ -91,7 +93,7 @@
           </font></td>
           <td>${user.user_group }</td>
           <td>${user.user_last_time }</td>
-          <td><div class="button-group"> <a class="button border-main" href="add.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1,1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+          <td><div class="button-group"> <a class="button border-main" href="${base }/sys/back/user/qupdate?user_id=${user.user_id}"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1,1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
         </tr>
     
    	  </c:forEach>
