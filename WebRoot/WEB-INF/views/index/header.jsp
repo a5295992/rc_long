@@ -117,12 +117,17 @@
 </nav> <!-- 头部首导航结束--> <!-- 头部子导航开始--> <nav class="nav">
 <div class="center">
 	<ul>
-		<li class="first"><a href="${base }/sys/video">首页</a></li>
-		<li><a href="#">电视剧</a></li>
-		<li><a href="${base }/sys/movie">电影</a></li>
-		<li><a href="#">综艺</a></li>
-		<li><a href="#">搞笑</a></li>
-		<li><a href="#">直播</a></li>
+	<!--菜单栏  -->
+	<c:forEach items="${menuList }" var="menu">
+	<c:choose>
+		<c:when test="${menu.menu_name eq '首页' }">
+			<li class="first"><a href="${base }${menu.menu_path }">首页</a></li>
+		</c:when>
+		<c:otherwise>
+			<li><a href="${base }${menu.menu_path }">${menu.menu_name}</a></li>				
+		</c:otherwise>
+	</c:choose>
+	</c:forEach>
 	</ul>
 </div>
 </nav> <!-- 头部子导航结束--> </header>

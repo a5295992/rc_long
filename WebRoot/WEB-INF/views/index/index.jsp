@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>56网</title>
+<title>REC视频网</title>
 </head>
 <body>
 	<%@include file="header.jsp"%>
@@ -17,32 +17,31 @@
 		<div class="sec_F">
 			<c:forEach items="${recPager.list }" var="x">
 				<div class="sec_Fbox">
-				<a href="${base }/sys/video/play?vd=10001"><img src="${base }/www/resources/images/${x.video_img}"
-					alt="" /></a>
-				<div class="small">
-					<span><img src="${base }/www/resources/images/008.PNG"
-						alt="" /></span> <span>${x.video_name }</span>
+					<a href="${base }/sys/video/play?vd=10001"><img
+						src="${base }/www/resources/images/${x.video_img}" alt="" /></a>
+					<div class="small">
+						<span><img src="${base }/www/resources/images/008.PNG"
+							alt="" /></span> <span>${x.video_name }</span>
+					</div>
 				</div>
-			</div>
 			</c:forEach>
-			
-			
+
 			<div class="sec_Ful">
 				<ul>
-				
-				<!--自编辑  -->
-				<c:forEach items="${editPager.list }" var="x">
+
+					<!--自编辑  -->
+					<c:forEach items="${editPager.list }" var="x">
 						<li>
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/${x.video_img}"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>${x.video_wathers }</span>
-							</div>
-						</div> <span class="title">${x.video_name }</span>
-					</li>
-				</c:forEach> 
+							<div class="liF">
+								<a href="#"><img
+									src="${base }/www/resources/images/${x.video_img}" alt="" /></a>
+								<div class="liS">
+									<span><img src="${base }/www/resources/images/009.PNG"
+										alt="" /></span> <span>${x.video_wathers }</span>
+								</div>
+							</div> <span class="title">${x.video_name }</span>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -51,36 +50,36 @@
 				<ul>
 					<c:forEach items="${commentPager.list }" var="x">
 						<li>
-						<div class="liF">
-							<a href="${base }/sys/video/play?vd=10001"><img src="${base }/www/resources/images/${x.video_img}"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>${x.video_wathers }</span>
-							</div>
-						</div> <span class="title">${x.video_name }</span>
-					</li>
-					
+							<div class="liF">
+								<a href="${base }/sys/video/play?vd=10001"><img
+									src="${base }/www/resources/images/${x.video_img}" alt="" /></a>
+								<div class="liS">
+									<span><img src="${base }/www/resources/images/009.PNG"
+										alt="" /></span> <span>${x.video_wathers }</span>
+								</div>
+							</div> <span class="title">${x.video_name }</span>
+						</li>
+
 					</c:forEach>
 				</ul>
 			</div>
 			<div class="sec_ssmal">
 				<ul>
-				
-				<c:forEach items="${newsPager.list }" var="x">
-					<li>
-						<div class="liF">
-							<a href="#"><img src="${base }/www/resources/images/${x.video_img}"
-								alt="" /></a>
-							<div class="liS">
-								<span><img src="${base }/www/resources/images/009.PNG"
-									alt="" /></span> <span>${x.video_wathers}</span>
-							</div>
-						</div> <span class="title">${x.video_name}</span>
-					</li>
-				
-				</c:forEach>
-					
+
+					<c:forEach items="${newsPager.list }" var="x">
+						<li>
+							<div class="liF">
+								<a href="#"><img
+									src="${base }/www/resources/images/${x.video_img}" alt="" /></a>
+								<div class="liS">
+									<span><img src="${base }/www/resources/images/009.PNG"
+										alt="" /></span> <span>${x.video_wathers}</span>
+								</div>
+							</div> <span class="title">${x.video_name}</span>
+						</li>
+
+					</c:forEach>
+
 				</ul>
 			</div>
 		</div>
@@ -90,24 +89,24 @@
 		<div class="side-left fl">
 			<h2>猜你喜欢</h2>
 			<div class="like">
-			<c:forEach items="${likePager.list }" var="x">
+				<c:forEach items="${likePager.list }" var="x">
 					<div class="item-like">
-					<div class="pic-list">
-						<div class="pic">
-							<img src="${base }/www/resources/images/${x.user_img}" alt=""
-								class="pic-big" />
-							<div class="list">
-								<div class="vid">
-									<span></span><span>${x.video_wathers }</span>
+						<div class="pic-list">
+							<div class="pic">
+								<img src="${base }/www/resources/images/${x.user_img}" alt=""
+									class="pic-big" />
+								<div class="list">
+									<div class="vid">
+										<span></span><span>${x.video_wathers }</span>
+									</div>
 								</div>
+								<img src="${base }/www/resources/images/${x.video_img}" alt=""
+									class="pic-small" /> <span class="list-tit">${x.user_name }</span>
 							</div>
-							<img src="${base }/www/resources/images/${x.video_img}" alt=""
-								class="pic-small" /> <span class="list-tit">${x.user_name }</span>
 						</div>
+						<p>${x.video_cname }</p>
 					</div>
-					<p>${x.video_cname }</p>
-				</div>
-			</c:forEach>
+				</c:forEach>
 			</div>
 		</div>
 		<!-- 猜你喜欢右侧 -->
@@ -155,11 +154,12 @@
 			</div>
 			<div class="item">
 				<ul>
-				<c:forEach  items="${videoPager.list }" var="x" >
-						<li><img src="${base }/www/resources/images/${x.video_img}" alt="" />
-						<div class="pic-tit">${x.video_name}</div>
-						<div class="smalltit">${x.video_cname}</div></li>
-				</c:forEach>
+					<c:forEach items="${videoPager.list }" var="x">
+						<li><img src="${base }/www/resources/images/${x.video_img}"
+							alt="" />
+							<div class="pic-tit">${x.video_name}</div>
+							<div class="smalltit">${x.video_cname}</div></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -195,16 +195,16 @@
 			</div>
 			<div class="item">
 				<ul>
-				<c:forEach items="${soapPager.list }" var="x">
-					<li>
-						<div class="picBox">
-							<img src="${base }/www/resources/images/${x.video_img}" alt="" /> <span
-								class="bg"><span class="count">${x.video_desc }</span></span>
-						</div>
-						<div class="pic-tit">${x.video_name }</div>
-						<div class="smalltit">${x.video_cname }</div>
-					</li>
-				</c:forEach>
+					<c:forEach items="${soapPager.list }" var="x">
+						<li>
+							<div class="picBox">
+								<img src="${base }/www/resources/images/${x.video_img}" alt="" />
+								<span class="bg"><span class="count">${x.video_desc }</span></span>
+							</div>
+							<div class="pic-tit">${x.video_name }</div>
+							<div class="smalltit">${x.video_cname }</div>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -247,11 +247,12 @@
 			</div>
 			<div class="item">
 				<ul>
-				<c:forEach items="${lifePager.list }" var="x">
-					<li><img src="${base }/www/resources/images/${x.video_img}" alt="" />
-						<div class="pic-tit">${x.video_name }</div>
-						<div class="smalltit">${x.video_cname }</div></li>
-				</c:forEach>
+					<c:forEach items="${lifePager.list }" var="x">
+						<li><img src="${base }/www/resources/images/${x.video_img}"
+							alt="" />
+							<div class="pic-tit">${x.video_name }</div>
+							<div class="smalltit">${x.video_cname }</div></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -272,7 +273,7 @@
 	<!--底部区域结束-->
 </body>
 <script type="text/javascript">
-	var base="${base}";	
+	var base = "${base}";
 </script>
 <script type="text/javascript" src="${base }/www/js/index/index.js"></script>
 

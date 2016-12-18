@@ -1,5 +1,7 @@
 package com.rc_long.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -7,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rc_long.Anrequest.AnRequest;
+import com.rc_long.Entity.SysMenu;
+import com.rc_long.Entity.SysRecommentSearch;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
+import com.rc_long.service.MenuService;
+import com.rc_long.service.RecommentService;
+import com.rc_long.service.Menu.Impl.MenuServiceImpl;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
 import com.rc_long.utils.Pager;
@@ -17,9 +24,17 @@ import com.rc_long.utils.Pager;
 public class VideoAction {
 
 	public VideoService videoService = new VideoServiceImpl();
-
+	public  MenuService menuService =new MenuServiceImpl();
 	@RequestMapping(value = AnRequest.sys_video_init)
 	public ModelAndView init() {
+		// 加载主页菜单
+		List<SysMenu> menuList = menuService.getMenu();
+		
+		//加载推荐内容
+		RecommentService recommentService =new RecommentServiceImpl();
+		
+		Pager<SysRecommentSearch> recomPager =recommentService .getRecomment(null);
+		
 		String conditionJson = "{video_type:'401'}";
 		// 电影 精选
 		Pager<SysVideo> videoPager = videoService.getVideoPager(conditionJson,
@@ -60,8 +75,8 @@ public class VideoAction {
 				.addObject("editPager", editPager)
 				.addObject("commentPager", commentPager)
 				.addObject("newsPager", newsPager)
-				;
-				
+				.addObject("menuList",menuList);
+
 	}
 
 	/**
