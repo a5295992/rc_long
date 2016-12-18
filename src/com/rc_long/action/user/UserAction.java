@@ -31,7 +31,7 @@ public class UserAction {
 	
 	@RequestMapping(value=AnRequest.sys_user_init)
 	public ModelAndView initUser(){
-		Pager<SysUser> userPager=userService.getUserPager();
+		Pager<SysUser> userPager=userService.getUserPager(null, userPager, null);
 		return new ModelAndView("index/index").addObject("userPager",userPager);
 	}
 	@RequestMapping(value=AnRequest.sys_user_page)
@@ -124,6 +124,11 @@ public class UserAction {
 					shiUser.setUser_staut(user.getUser_type());
 					shiUser.setUser_staut(user.getUser_staut());
 					new CurrentSession(req).setShiroUser(shiUser);
+					map.clear();
+					map.put("user_last_time", new java.sql.Date(new Date().getTime()));
+					Map<String,Object> condtion =new HashMap<String,Object>();
+					condtion.put("user_id", user.getUser_id());
+					userService.updateInfor(map, condtion);
 					writer.print(1);
 				}else{
 					writer.print(0);

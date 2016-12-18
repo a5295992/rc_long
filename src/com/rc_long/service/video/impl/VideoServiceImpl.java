@@ -14,7 +14,7 @@ public class VideoServiceImpl implements VideoService{
 	@Override
 	public Pager<SysVideo> getVideoPager(String conditionJson,int pageCount,int pageNum) {
 		String query="video_id,video_name,video_cname,video_path,video_type,user_id,create_time,video_wathers,video_img,video_desc";
-		int count =DateBase.queryCount(SysVideo.class, conditionJson);
+		int count =DateBase.queryCount(SysVideo.class, conditionJson, null);
 		Pager<SysVideo> limit=new Pager<SysVideo>(pageCount,count,pageNum);
 		return DateBase.queryList(SysVideo.class, query, conditionJson, null, limit, null);
 	}

@@ -69,4 +69,12 @@ public interface UserService {
 	 * @return
 	 */
 	public SysUserInfor getUserInfor(String queryThing,String condition);
+	
+	/**
+	 * 为了后台的业务逻辑能够只在service 层处理
+	 * 将后台获取的参数直接传递到后台来进行处理
+	 * @param map 根据request.getParammeters  获取的map
+	 * @return 返回用户对像的Pager
+	 */
+	public Pager<SysUser> getSysUserPager(Map<String,String> map);
 }

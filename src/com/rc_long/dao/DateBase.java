@@ -21,8 +21,8 @@ public class DateBase {
 	private static QueryRunner queryRunner = new QueryRunner();
 	private static Connection connecion;
 
-	public static <T> int  insert(Class<T> clazz, Map<String, Object> map) {
-		int i=-1;
+	public static <T> int insert(Class<T> clazz, Map<String, Object> map) {
+		int i = -1;
 		connecion = C3P0UTils.getConnection();
 		try {
 			connecion.setAutoCommit(false);
@@ -46,7 +46,7 @@ public class DateBase {
 
 		SqlCreate.insertSql(sql, clazz, parameters);
 		try {
-			i=queryRunner.update(connecion, sql.toString(), param);
+			i = queryRunner.update(connecion, sql.toString(), param);
 			connecion.commit();
 		} catch (SQLException e) {
 			try {
@@ -57,7 +57,7 @@ public class DateBase {
 			e.printStackTrace();
 		} finally {
 			printSql(sql.toString());
-				C3P0UTils.closeCon(connecion);
+			C3P0UTils.closeCon(connecion);
 		}
 		return i;
 	}
@@ -159,7 +159,7 @@ public class DateBase {
 	 */
 	public static <T> Pager<T> queryList(Class<T> clazz, String query,
 			String conditionJson, String orderJson, Pager<T> limit,
-			String[] like) {
+			String like) {
 		connecion = C3P0UTils.getConnection();
 		StringBuilder sql = new StringBuilder();
 		// 创建查询基础语句
@@ -169,7 +169,7 @@ public class DateBase {
 		}
 		SqlCreate.generateQuerySql(clazz, queryThing, sql);
 		JSONObject json = null;
-		if (!conditionJson.isEmpty()) {
+		if (conditionJson != null && !conditionJson.isEmpty()) {
 			json = JSONObject.fromObject(conditionJson);
 
 		}
@@ -183,7 +183,7 @@ public class DateBase {
 		}
 		// 模糊查询
 		if (like != null) {
-			SqlCreate.like(sql, like[0], like[1]);
+			SqlCreate.like(sql, like.split(",")[0], like.split(",")[1]);
 		}
 		if (orderJson != null) {
 			String[] arr = orderJson.split(",");
@@ -252,17 +252,21 @@ public class DateBase {
 	 *            json格式的 字符串
 	 * @return 返回所有记录的和
 	 */
-	public static int queryCount(Class clazz,String CondtionJson) {
+	public static int queryCount(Class clazz, String CondtionJson,String like) {
 		connecion = C3P0UTils.getConnection();
 		StringBuilder sql = new StringBuilder();
 		SqlCreate.generateQueryCountSql(clazz, sql);
 		ResultSet rs = null;
-		
+
 		JSONObject json = null;
 		if (CondtionJson != null) {
 			json = JSONObject.fromObject(CondtionJson);
 			Map<String, Object> map = (Map) json;
 			SqlCreate.setConditions(map, sql);
+		}
+		
+		if(like!=null&&(!like.trim().isEmpty())){
+			SqlCreate.like(sql, like.split(",")[0], like.split(",")[1]);
 		}
 		try {
 			rs = connecion.prepareStatement(sql.toString()).executeQuery();
@@ -295,7 +299,8 @@ public class DateBase {
 		connecion = C3P0UTils.getConnection();
 
 		try {
-			return queryRunner.query(connecion, sql, new BeanListHandler<T>(clazz));
+			return queryRunner.query(connecion, sql, new BeanListHandler<T>(
+					clazz));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -336,14 +341,16 @@ public class DateBase {
 	public static void printSql(String sql) {
 		System.out.println("Rc_long:" + sql);
 	}
+
 	/**
 	 * @param sql
-	 * return 
+	 *            return
 	 */
-	public static <T>T  runSql(String sql,Class<T> clazz,Object[] obj) {
-		connecion =C3P0UTils.getConnection();
+	public static <T> T runSql(String sql, Class<T> clazz, Object[] obj) {
+		connecion = C3P0UTils.getConnection();
 		try {
-			return queryRunner.query(connecion, sql, new BeanHandler<T>(clazz), obj);
+			return queryRunner.query(connecion, sql, new BeanHandler<T>(clazz),
+					obj);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
