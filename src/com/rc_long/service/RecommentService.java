@@ -1,10 +1,8 @@
 package com.rc_long.service;
 
-import java.util.Map;
-
 import com.rc_long.Entity.SysRecommentSearch;
-import com.rc_long.utils.Pager;
+import com.rc_long.action.base.BaseService;
 
-public interface RecommentService {
-	public  Pager<SysRecommentSearch> getRecomment(Map<String,String> map);
+public interface RecommentService extends BaseService<SysRecommentSearch> {
+	
 }

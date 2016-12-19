@@ -1,5 +1,8 @@
 package com.rc_long.action.base;
+import java.util.List;
 import java.util.Map;
+
+import net.sf.json.JSONObject;
 
 import org.apache.log4j.helpers.LogLog;
 
@@ -13,10 +16,15 @@ import com.rc_long.utils.Pager;
  * @param <T>
  */
 public class BaseServiceImpl<T> implements BaseService<T>{
-
+	
+	public Class<T> clazz;
+	public BaseServiceImpl(Class<T> clazz){
+		super();
+		this.clazz=clazz;
+	}
+	
 	@Override
 	public Pager<T> getPager(Map<String, String> map) {
-		Class<T> clazz=null;
 		//如果为空 则进行平常操做
 		if(map==null){
 			return DateBase.queryList(clazz, null, null, null, null, null);
@@ -76,26 +84,53 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 	
 	@Override
 	public T getSingle(Map<String, String> map) {
-		return null;
+		String queryThing=map.get("queryThing");
+		
+		if(StringUtils.isNullOrEmpty(queryThing)){
+			queryThing=null;
+		}
+		
+		String condition=map.get("condition");
+		if(StringUtils.isNullOrEmpty(condition)){
+			condition=null;
+		}
+		
+		return DateBase.querySingle(clazz, queryThing, condition);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public int updateSingle(Map<String, String> map) {
+		String condition = map.get("condition");
+		
+		String field=map.get("changeFiled");
+		Map<String,Object> condt=null;
+		if(StringUtils.isNullOrEmpty(condition)){
+			condition=null;
+		}else{
+			condt=JSONObject.fromObject(condition);
+		}
+		Map<String,Object> fileds=null;
+		if(StringUtils.isNullOrEmpty(field)){
+			condition=null;
+		}else{
+			fileds=JSONObject.fromObject(field);
+		}
+		return DateBase.update(clazz, fileds, condt);
+	}
+
+	@Override
+	public int updateWhole(List<T> all) {
 		return 0;
 	}
 
 	@Override
-	public int updateWhole(Map<String, String> map) {
+	public int insertSingle(T T) {
 		return 0;
 	}
 
 	@Override
-	public int insertSingle(Map<String, String> map) {
-		return 0;
-	}
-
-	@Override
-	public int insertWhole(Map<String, String> map) {
+	public int insertWhole(List<T> all) {
 		return 0;
 	}
 
@@ -105,7 +140,7 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 	}
 
 	@Override
-	public int deleteWhole(Map<String, String> map) {
+	public int deleteWhole(List<T> all) {
 		return 0;
 	}
 
