@@ -1,6 +1,8 @@
 package com.rc_long.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,8 +15,8 @@ import com.rc_long.Entity.SysMenu;
 import com.rc_long.Entity.SysRecommentSearch;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
-import com.rc_long.service.MenuService;
 import com.rc_long.service.RecommentService;
+import com.rc_long.service.Impl.RecommentServiceImpl;
 import com.rc_long.service.Menu.Impl.MenuServiceImpl;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
@@ -24,16 +26,18 @@ import com.rc_long.utils.Pager;
 public class VideoAction {
 
 	public VideoService videoService = new VideoServiceImpl();
-	public  MenuService menuService =new MenuServiceImpl();
+	public  MenuServiceImpl menuService =new MenuServiceImpl(SysMenu.class);
 	@RequestMapping(value = AnRequest.sys_video_init)
 	public ModelAndView init() {
 		// 加载主页菜单
-		List<SysMenu> menuList = menuService.getMenu();
-		
+		HashMap<String, String> map=new HashMap<String,String>();
+		List<SysMenu> menuList = menuService.getPager(map).getList();
 		//加载推荐内容
-		RecommentService recommentService =new RecommentServiceImpl();
-		
-		Pager<SysRecommentSearch> recomPager =recommentService .getRecomment(null);
+		RecommentService recommentService =new RecommentServiceImpl(SysRecommentSearch.class);
+		map.clear();
+		map.put("pageCount", "4");
+		map.put("pageNum", "0");
+		Pager<SysRecommentSearch> recomPager =recommentService .getPager(map);
 		
 		String conditionJson = "{video_type:'401'}";
 		// 电影 精选
@@ -75,7 +79,8 @@ public class VideoAction {
 				.addObject("editPager", editPager)
 				.addObject("commentPager", commentPager)
 				.addObject("newsPager", newsPager)
-				.addObject("menuList",menuList);
+				.addObject("menuList",menuList)
+				.addObject("recomPager", recomPager);
 
 	}
 
