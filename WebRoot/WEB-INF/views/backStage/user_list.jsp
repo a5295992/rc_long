@@ -48,7 +48,6 @@
 							<option value="0">否</option>
 					</select>
 					</li>
-					<if condition="$iscid eq 1">
 					<li><select id="likeName_serach" class="input"
 						style="width:200px; line-height:17px;">
 							<option value="">请选择查询条件</option>
@@ -61,7 +60,6 @@
 							<option value="user_flag"
 								<c:if test="${likeName eq 'user_flag' }">selected="selected"</c:if>>用户状态</option>
 					</select></li>
-					</if>
 					<li><input type="text" placeholder="请输入搜索关键字" id="likeSearch"
 						class="input"
 						style="width:250px; line-height:17px;display:inline-block" /> <a
@@ -115,6 +113,7 @@
 			</table>
 		</div>
 	</form>
+	
 	<script type="text/javascript">
 		var base = "${base}";
 		var pageNum = "${user_bean.pageNum}";
