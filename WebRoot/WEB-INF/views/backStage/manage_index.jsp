@@ -15,53 +15,29 @@
 <script src="${base }/www/js/backStage/js/jquery.js"></script>
 </head>
 <body style="background-color:#f2f9fd;">
-	<div class="header bg-main"
-		style="background:url(${base}/www/resources/backStage/images/bg.jpg)">
-		<div class="logo margin-big-left fadein-top">
-			<h1>
-				<img src="${base }/www/resources/backStage/images/y.jpg"
-					class="radius-circle rotate-hover" height="50" alt="" />后台管理中心
-			</h1>
-		</div>
-		<div class="head-l">
-			<a class="button button-little bg-green" href="${base }/sys/video"
-				target="_blank"><span class="icon-home"></span> 前台首页</a>
-			&nbsp;&nbsp;<a href="##" class="button button-little bg-blue"><span
-				class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a
-				class="button button-little bg-red" href="login.html"><span
-				class="icon-power-off"></span> 退出登录</a>
-		</div>
-	</div>
-	<div class="leftnav">
-		<div class="leftnav-title"
-			style="background:url(${base}/www/resources/backStage/images/bg.jpg) no-repeat 0 -1000px;">
-			<strong><span class="icon-list"></span>菜单列表</strong>
-		</div>
-		<h2>
-			<span class="icon-user"></span>基本设置
-		</h2>
-		<ul style="display:block">
+	<div class="leftnav" style="top: 0px">
+		<ul style="display:block;background-color:scrollbar; ;">
 			<li><a href="${base }/sys/back/infor" target="right"><span
-					class="icon-caret-right"></span>网站设置</a></li>
+					class="icon-caret-right"></span>首页管理</a></li>
 			<li><a href="${base }/www/html/pass.html" target="right"><span
-					class="icon-caret-right"></span>修改密码</a></li>
+					class="icon-caret-right"></span>电影页管理</a></li>
 			<li><a href="${base }/sys/back/index/manage" target="right"><span
-					class="icon-caret-right"></span>单页管理</a></li>
+					class="icon-caret-right"></span>电视剧管理</a></li>
 			<li><a href="${base }/www/html/adv.html" target="right"><span
-					class="icon-caret-right"></span>首页轮播</a></li>
-			<li><a href="${base }/www/html/book.html" target="right"><span
-					class="icon-caret-right"></span>留言管理</a></li>
-			<li><a href="${base }/www/html/column.html" target="right"><span
-					class="icon-caret-right"></span>栏目管理</a></li>
-			<li><a href="${base }/sys/back/video" target="right"><span
-					class="icon-caret-right"></span>视频管理</a></li>
-			<li><a href="${base }/www/html/column.html" target="right"><span
-					class="icon-caret-right"></span>直播管理</a></li>
-			<li><a href="${base }/sys/back/user" target="right"><span
-					class="icon-caret-right"></span>用户管理</a></li>
+					class="icon-caret-right"></span>个人主页</a></li>
+			<li><a href="${base }/www/html/book.html" target="right1"><span
+					class="icon-caret-right"></span>搞笑频道</a></li>
+			<li><a href="${base }/www/html/column.html" target="right1"><span
+					class="icon-caret-right"></span>直播页面</a></li>
+			<li><a href="${base }/sys/back/video" target="right1"><span
+					class="icon-caret-right"></span>视频播放</a></li>
+			<li><a href="${base }/www/html/column.html" target="right1"><span
+					class="icon-caret-right"></span>用户推荐</a></li>
+			<li><a href="${base }/sys/back/user" target="right1"><span
+					class="icon-caret-right"></span>娱乐频道</a></li>
 		</ul>
 		<h2>
-			<span class="icon-pencil-square-o"></span>栏目管理
+			<span class="icon-pencil-square-o"></span>功能添加
 		</h2>
 		<ul>
 			<li><a href="${base }/www/html/list.html" target="right"><span
@@ -85,17 +61,9 @@
 			})
 		});
 	</script>
-	<ul class="bread">
-		<li><a href="{:U('Index/info')}" target="right" class="icon-home">
-				首页</a></li>
-		<li><a href="##" id="a_leader_txt">网站信息</a></li>
-		<li><b>当前语言：</b><span style="color:red;">中文</php></span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a
-			href="##">英文</a></li>
-	</ul>
-	<div class="admin">
+	<div class="admin" style="top: 0px;padding: 0px">
 		<iframe scrolling="auto" rameborder="0" src="${base }/sys/back/infor"
-			name="right" width="100%" height="100%"></iframe>
+			name="right1" width="100%" height="100%"></iframe>
 	</div>
 	<div style="text-align:center;"></div>
 	<script type="text/javascript">

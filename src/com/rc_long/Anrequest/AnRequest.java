@@ -55,6 +55,10 @@ public class AnRequest {
 	
 	//后台视频管理
 	public static final String sys_back_video="/sys/back/video";
+	public static final String sys_back_video_search="/sys/back/video/search";
+	
+	//后台主页管理前台显示
+	public static final String sys_back_index_manage="/sys/back/index/manage";
 	
 	
 }

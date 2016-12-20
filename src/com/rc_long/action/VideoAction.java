@@ -25,7 +25,7 @@ import com.rc_long.utils.Pager;
 @Controller
 public class VideoAction {
 
-	public VideoService videoService = new VideoServiceImpl();
+	public VideoService videoService = new VideoServiceImpl<SysVideo>(SysVideo.class);
 	public  MenuServiceImpl menuService =new MenuServiceImpl(SysMenu.class);
 	@RequestMapping(value = AnRequest.sys_video_init)
 	public ModelAndView init() {

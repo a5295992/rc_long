@@ -353,6 +353,9 @@ public class DateBase {
 					obj);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			printSql(sql);
+			C3P0UTils.closeCon(connecion);
 		}
 		return null;
 	}
@@ -362,6 +365,9 @@ public class DateBase {
 			return queryRunner.query(connecion, sql, new BeanListHandler<T>(clazz));
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			printSql(sql);
+			C3P0UTils.closeCon(connecion);
 		}
 		return null;
 	}

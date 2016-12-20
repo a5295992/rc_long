@@ -69,9 +69,9 @@
 				<c:forEach items="${video_bean.list }" var="video">
 					<tr>
 						<td><input type="checkbox" name="id[]"
-							value="${video.video_id }" /> <%=i%></td>
+							value="${video.video_id }" /> <%=i++%></td>
 						<td>${video.video_auth }</td>
-						<td>13420925611</td>
+						<td>${video.user_name }</td>
 						<td>${video.video_cname }</td>
 						<td>${video.video_img }</td>
 						<td>${video.video_desc }</td>
@@ -90,8 +90,8 @@
 					<td>
 					<td>
 						<!--用来提交下查询的操作的表单  --> <input type="hidden" id="pageNum"
-						name="pageNum" value="0" /> <input type="hidden" id="pageCount"
-						name="pageCount" value="10" /> <input type="hidden" id="order"
+						name="pageNum" value="${video_bean.pageNum }" /> <input type="hidden" id="pageCount"
+						name="pageCount" value="${video_bean.pageCount }" /> <input type="hidden" id="order"
 						name="order" value="${map.order }" /> <input type="hidden"
 						id="orderBy" name="orderBy" value="${map.orderBy }" /> <input
 						type="hidden" id="condition" name="condition" value="" /> <input
@@ -105,38 +105,8 @@
 		</div>
 	</form>
 	<script type="text/javascript">
-		function del(id) {
-			if (confirm("您确定要删除吗?")) {
-
-			}
-		}
-
-		$("#checkall").click(function() {
-			$("input[name='id[]']").each(function() {
-				if (this.checked) {
-					this.checked = false;
-				} else {
-					this.checked = true;
-				}
-			});
-		});
-
-		function DelSelect() {
-			var Checkbox = false;
-			$("input[name='id[]']").each(function() {
-				if (this.checked == true) {
-					Checkbox = true;
-				}
-			});
-			if (Checkbox) {
-				var t = confirm("您确认要删除选中的内容吗？");
-				if (t == false)
-					return false;
-			} else {
-				alert("请选择您要删除的内容!");
-				return false;
-			}
-		}
+		var base="${base}";
 	</script>
+	<script type="text/javascript" src="${base }/www/js/backStage/video/video_list.js"></script>
 <body>
 </html>

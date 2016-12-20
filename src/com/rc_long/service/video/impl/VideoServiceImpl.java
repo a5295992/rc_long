@@ -58,13 +58,15 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 				sql.append("a.video_id,a.video_cname,a.video_auth,");
 				sql.append("a.create_time,a.user_id,b.user_name,");
 				sql.append("a.video_img,a.video_desc");
+				sql.append(" from sys_video a ");
+				sql.append("left join sys_user b");
 			}
-
+			
 			String oncondition = map.get("on");
 			if (!StringUtils.isNullOrEmpty(oncondition)) {
 				sql.append(oncondition);
 			}else{
-				sql.append("on a.user_id = b.user_id");
+				sql.append(" on a.user_id = b.user_id");
 			}
 
 			String orderBy = map.get("orderBy");
@@ -87,6 +89,7 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			List<SysVideoBean> list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);
 			int count = 0;
 			int pageCount;
+			System.out.println("--------list.size()-----------"+list.size());
 			try {
 				count = list.size();
 				pageCount = StringUtils.getInt(map.get("pageCount").getBytes());
@@ -97,24 +100,25 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 
 			int pageNum = 0;
 			try {
-				pageNum = StringUtils.getInt(map.get("pageCount").getBytes());
+				pageNum = StringUtils.getInt(map.get("pageNum").getBytes());
 			} catch (Exception e) {
 				pageNum = 0;
 				LogLog.error("当前页为0");
 			}
 
-			Pager<T> limit = new Pager<T>(pageCount, count, pageNum);
+			Pager<SysVideoBean> limit = new Pager<SysVideoBean>(pageCount, count, pageNum);
 			
 			try {
-				sql.append(" limit "+limit.getPageNum()+","+limit.getPageCount());
+				sql.append(" limit "+limit.getStart()+","+limit.getPageCount());
 			} catch (Exception e) {
 				LogLog.error(e.getMessage());
 			}
-			DateBase.runSqlJoin(sql.toString(), clazz);
+			System.out.println(sql.toString());
+			list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);
 			if (limit.getPage() == 0) {
 				limit.setPage(1);
 			}
-			
+			limit.setList( list);
 			return (Pager<SysVideoBean>) limit;
 		}
 	}

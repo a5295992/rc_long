@@ -6,10 +6,10 @@
 		<property name="user">scott</property>
 		<property name="password">m123</property>
 		
-		<property name="acquireIncrement">3</property>
-		<property name="initialPoolSize">5</property>
-		<property name="minPoolSize">2</property>
-		<property name="maxPoolSize">20</property>
+		<property name="acquireIncrement">10</property>
+		<property name="initialPoolSize">10</property>
+		<property name="minPoolSize">5</property>
+		<property name="maxPoolSize">40</property>
 		
 	</default-config>
 </c3p0-config>
