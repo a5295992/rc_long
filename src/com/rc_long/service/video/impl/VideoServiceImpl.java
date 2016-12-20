@@ -45,42 +45,50 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 	@SuppressWarnings("unchecked")
 	@Override
 	public Pager<SysVideoBean> getVideoBean(Map<String,String> map) {
+		StringBuilder sql=new StringBuilder();
+		sql.append("select ");
 		// 如果为空 则进行平常操做
 		if (map == null) {
 			return (Pager<SysVideoBean>) DateBase.queryList(clazz, null, null, null, null, null);
 		} else {
 			String queryThing = map.get("queryThing");// 查询字段
-			if (StringUtils.isNullOrEmpty(queryThing)) {
-				queryThing = null;
+			if (!StringUtils.isNullOrEmpty(queryThing)) {
+				sql.append(queryThing);
+			}else{
+				sql.append("a.video_id,a.video_cname,a.video_auth,");
+				sql.append("a.create_time,a.user_id,b.user_name,");
+				sql.append("a.video_img,a.video_desc");
 			}
 
-			String conditionJson = map.get("condition");
-			if (StringUtils.isNullOrEmpty(queryThing)) {
-				conditionJson = null;
+			String oncondition = map.get("on");
+			if (!StringUtils.isNullOrEmpty(oncondition)) {
+				sql.append(oncondition);
+			}else{
+				sql.append("on a.user_id = b.user_id");
 			}
 
 			String orderBy = map.get("orderBy");
 
 			String order = map.get("order");
-			String oder = null;
 			if ((!StringUtils.isNullOrEmpty(orderBy))
 					&& (!StringUtils.isNullOrEmpty(order))) {
-				oder = orderBy + "," + order;
+				sql.append("order by "+orderBy+" "+order);
 			}
 
 			String like = map.get("like");
 			String likeName = map.get("likeName");
-			String likeQ = null;
 
 			if ((!StringUtils.isNullOrEmpty(like))
 					&& (!StringUtils.isNullOrEmpty(likeName))) {
-				likeQ = likeName + "," + like;
+				if(sql.toString().contains("where")){
+					sql.append("and "+likeName+"like"+"%"+"'"+like+"'"+"%");
+				}
 			}
-
+			List<SysVideoBean> list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);
 			int count = 0;
 			int pageCount;
 			try {
-				count = DateBase.queryCount(clazz, conditionJson, likeQ);
+				count = list.size();
 				pageCount = StringUtils.getInt(map.get("pageCount").getBytes());
 			} catch (Exception e) {
 				pageCount = 10;
@@ -96,9 +104,13 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			}
 
 			Pager<T> limit = new Pager<T>(pageCount, count, pageNum);
-
-			DateBase.queryList(clazz, queryThing, conditionJson, oder, limit,
-					likeQ);
+			
+			try {
+				sql.append(" limit "+limit.getPageNum()+","+limit.getPageCount());
+			} catch (Exception e) {
+				LogLog.error(e.getMessage());
+			}
+			DateBase.runSqlJoin(sql.toString(), clazz);
 			if (limit.getPage() == 0) {
 				limit.setPage(1);
 			}

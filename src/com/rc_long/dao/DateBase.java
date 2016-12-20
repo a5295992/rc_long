@@ -356,4 +356,13 @@ public class DateBase {
 		}
 		return null;
 	}
+	public static <T> List<T> runSqlJoin(String sql, Class<T> clazz) {
+		connecion = C3P0UTils.getConnection();
+		try {
+			return queryRunner.query(connecion, sql, new BeanListHandler<T>(clazz));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -11,6 +11,7 @@ import com.rc_long.Anrequest.AnRequest;
 import com.rc_long.Entity.SysVideoBean;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
+import com.rc_long.utils.Pager;
 
 @Controller
 public class BackStageVideo {
@@ -24,8 +25,9 @@ public class BackStageVideo {
 	@RequestMapping(value=AnRequest.sys_back_video)
 	public ModelAndView init(){
 		Map<String,String> map=new HashMap<String,String>();
-		map.put("queryThing", "video_id,video_name,");
-		videoService.getVideoBean(map);
+		map.put("pageNum", "0");
+		map.put("pageCount", "10");
+		Pager<SysVideoBean> videoBean = videoService.getVideoBean(map);
 		return new ModelAndView("backStage/video_list").addObject("videoBean", videoBean);
 	}
 }
