@@ -48,6 +48,13 @@ public class AnRequest {
 	public static final String sys_back_user_delete = "/sys/back/user/delete";
 	
 	public static final String sys_back_user_search = "/sys/back/user/search";
+	//后台菜单关系
+	public static final String sys_back_menu="/sys/back/menu";
+	// 后台网站信息管理
+	public static final String sys_back_infor="/sys/back/infor";
+	
+	//后台视频管理
+	public static final String sys_back_video="/sys/back/video";
 	
 	
 }

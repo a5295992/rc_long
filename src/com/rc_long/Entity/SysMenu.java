@@ -47,11 +47,11 @@ public class SysMenu extends EntitiBaseBean<SysMenu>{
 		this.menu_pid = menu_pid;
 	}
 
-	public String getMenuName() {
+	public String getMenu_name() {
 		return menu_name;
 	}
 
-	public void setMenuName(String menu_name) {
+	public void setMenu_name(String menu_name) {
 		this.menu_name = menu_name;
 	}
 

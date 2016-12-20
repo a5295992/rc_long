@@ -60,7 +60,7 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 			try {
 				count = DateBase.queryCount(clazz, conditionJson, likeQ);
 				pageCount = StringUtils.getInt(map.get("pageCount").getBytes());
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				pageCount=10;
 				LogLog.error("类型转换异常");
 			}
@@ -68,7 +68,8 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 			int pageNum=0;
 			try {
 				pageNum = StringUtils.getInt(map.get("pageCount").getBytes());
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
+				pageNum=0;
 				LogLog.error("当前页为0");
 			}
 			

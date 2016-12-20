@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@include file="../../jsp/global.jsp"%>
-<%@taglib prefix="pager" uri="http://com.suse/jsp/jstl/sky"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -20,7 +20,7 @@
 	<form id="listform">
 		<div class="panel admin-panel">
 			<div class="panel-head">
-				<strong class="icon-reorder"> 用户列表</strong> <a href=""
+				<strong class="icon-reorder"> 视频列表</strong> <a href=""
 					style="float:right; display:none;">添加字段</a>
 			</div>
 			<div class="padding border-bottom">
@@ -70,49 +70,55 @@
 				</ul>
 			</div>
 			<table class="table table-hover text-center">
-				
-				<%@include file="user_list_date.jsp" %>
-				
 				<tr>
-					<td style="text-align:left; padding:19px 0;padding-left:20px;"><input
-						type="checkbox" id="checkall" /> 全选</td>
-					<td colspan="7" style="text-align:left;padding-left:20px;"><a
-						href="javascript:void(0)" class="button border-red icon-trash-o"
-						style="padding:5px 15px;" onclick="DelSelect()"> 删除</a> <a
-						href="#desc" style="padding:5px 15px; margin:0 10px;"
-						class="button border-blue icon-edit" onclick="sorts()"> <c:choose>
-								<c:when test="${map.oder eq 'desc' }">
-									<span>排序:升序</span>
+					<th width="100" style="text-align:center; padding-left:20px;">视频排序</th>
+					<th width="10%">审核状态</th>
+					<th width="10%">用户名</th>
+					<th>缩略图</th>
+					<th>用户姓名</th>
+					<th>视频分类</th>
+					<th>视频专辑</th>
+					<th width="10%">投稿时间</th>
+
+					<th width="310">操作</th>
+				</tr>
+
+					<div class="pagelist">
+							<!--用来提交下查询的操作的表单  -->
+							<input type="hidden" id="pageNum" name="pageNum" value="0" /> <input
+								type="hidden" id="pageCount" name="pageCount" value="10" /> <input
+								type="hidden" id="oder" name="oder" value="${map.oder }" /> <input
+								type="hidden" id="oderBy" name="oderBy" value="${map.oderBy }" />
+							    <input type="hidden" id="condtion" name="condtion" value="" /> <input
+								type="hidden" id="likeName" name="likeName" value="" /> <input
+								type="hidden" id="like" name="like" value="" />
+							<c:choose>
+								<c:when test="${user_bean.pageNum==0 }">
+									<span>上一页</span>
 								</c:when>
+
 								<c:otherwise>
-									<span>排序:降序</span>
+									<a href="#" onclick="lastVal()">上一页</a>
 								</c:otherwise>
 							</c:choose>
 
-
-					</a> 排序方式： <select name="ishome"
-						style="padding:5px 15px; border:1px solid #ddd;"
-						onchange="changgeThingOder()">
-							<option value="user_name">名字</option>
-							<option value="user_id">ID</option>
-							<option value="user_ssid">账号</option>
-							<option value="user_last_time">登录时间</option>
-					</select>
-				</tr>
-				<tr>
-					<td>
-						<!--用来提交下查询的操作的表单  --> <input type="hidden" id="pageNum"
-						name="pageNum" value="0" /> <input type="hidden" id="pageCount"
-						name="pageCount" value="10" /> <input type="hidden" id="oder"
-						name="oder" value="${map.oder }" /> <input type="hidden"
-						id="oderBy" name="oderBy" value="${map.oderBy }" /> <input
-						type="hidden" id="condtion" name="condtion" value="" /> <input
-						type="hidden" id="likeName" name="likeName" value="" /> <input
-						type="hidden" id="like" name="like" value="" />
-						
-						<pager:Pager pager="${user_bean }" path="${base }/sys/back/user/search" />
+							<c:choose>
+								<c:when test="${user_bean.pageNum==user_bean.page-1 }">
+									<span>下一页</span>
+								</c:when>
+								<c:otherwise>
+									<a href="#" onclick="nextVal()">下一页</a>
+								</c:otherwise>
+							</c:choose>
+							<a
+								href="${base }/sys/back/user/search?pageNum=${user_bean.page-1}">尾页</a>
+							<a href="">总共${user_bean.page }页</a><input type="text"
+								name="inputPageNum" value="${user_bean.pageNum }" size="2px" /><a
+								href="javascript:void(0)" onclick="turnPage()">GO</a>
+						</div></td>
 				</tr>
 			</table>
+			
 		</div>
 	</form>
 	<script type="text/javascript">
