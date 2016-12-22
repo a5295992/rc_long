@@ -17,13 +17,13 @@
 <body style="background-color:#f2f9fd;">
 	<div class="leftnav" style="top: 0px">
 		<ul style="display:block;background-color:scrollbar; ;">
-			<li><a href="${base }/sys/back/infor" target="right"><span
+			<li><a href="${base }/sys/back/manage/01" target="right1"><span
 					class="icon-caret-right"></span>首页管理</a></li>
-			<li><a href="${base }/www/html/pass.html" target="right"><span
+			<li><a href="${base }/www/html/pass.html" target="right1"><span
 					class="icon-caret-right"></span>电影页管理</a></li>
 			<li><a href="${base }/sys/back/index/manage" target="right"><span
 					class="icon-caret-right"></span>电视剧管理</a></li>
-			<li><a href="${base }/www/html/adv.html" target="right"><span
+			<li><a href="${base }/www/html/adv.html" target="right1"><span
 					class="icon-caret-right"></span>个人主页</a></li>
 			<li><a href="${base }/www/html/book.html" target="right1"><span
 					class="icon-caret-right"></span>搞笑频道</a></li>

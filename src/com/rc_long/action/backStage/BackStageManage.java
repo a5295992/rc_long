@@ -14,4 +14,11 @@ public class BackStageManage {
 		
 		return new ModelAndView("backStage/manage_index");
 	}
+	//首页
+	@RequestMapping(value=AnRequest.sys_back_index_manage_index_01)
+	public ModelAndView indexEdit(){
+		
+		return new ModelAndView("backStage/manage_index_main");
+	}
+	
 }

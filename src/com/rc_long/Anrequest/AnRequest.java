@@ -59,6 +59,8 @@ public class AnRequest {
 	
 	//后台主页管理前台显示
 	public static final String sys_back_index_manage="/sys/back/index/manage";
+	public static final String sys_back_index_manage_index="/sys/back//index/manage/index";
+	public static final String sys_back_index_manage_index_01="/sys/back/manage/01";
 	
 	
 }
