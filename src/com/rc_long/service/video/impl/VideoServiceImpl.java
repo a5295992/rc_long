@@ -133,10 +133,6 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 		return null;
 	}
 
-	@Override
-	public int updateSingle(Map<String, String> map) {
-		return 0;
-	}
 
 	@Override
 	public int updateWhole(List<SysVideo> all) {
@@ -160,6 +156,12 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 
 	@Override
 	public int deleteWhole(List<SysVideo> all) {
+		return 0;
+	}
+
+	@Override
+	public int updateSingle(SysVideo T) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 

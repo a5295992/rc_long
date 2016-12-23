@@ -61,6 +61,8 @@ public class AnRequest {
 	public static final String sys_back_index_manage="/sys/back/index/manage";
 	public static final String sys_back_index_manage_index="/sys/back//index/manage/index";
 	public static final String sys_back_index_manage_index_01="/sys/back/manage/01";
+	public static final String sys_back_live_room = "/sys/back/live/room";
+	public static final String sys_back_live_room_search = "/sys/back/live/room/search";
 	
 	
 }

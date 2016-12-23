@@ -23,7 +23,7 @@
 	</h2>
 	<div style="display: none" id="div_001">
 		<ul>
-			<li><a href="${base }/www/html/list.html" target="right2"><span
+			<li><a href="${base }/sys/back/live/room" target="right2"><span
 					class="icon-caret-right"></span>直播间推荐</a></li>
 			<li><a href="${base }/www/html/add.html" target="right"><span
 					class="icon-caret-right"></span>自编辑</a></li>

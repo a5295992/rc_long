@@ -11,7 +11,7 @@ public interface BaseService<T> {
 	
 	public  T getSingle(Map<String,String> map);
 
-	public int updateSingle(Map<String,String> map);
+	public int updateSingle(Map<String,Object> map);
 	
 	public int updateWhole(List<T> all);
 	

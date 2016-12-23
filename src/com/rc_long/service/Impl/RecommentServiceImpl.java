@@ -82,10 +82,6 @@ public class RecommentServiceImpl implements RecommentService {
 		return null;
 	}
 
-	@Override
-	public int updateSingle(Map<String, String> map) {
-		return 0;
-	}
 
 	@Override
 	public int updateWhole(List<SysRecommentSearch> all) {
@@ -109,6 +105,11 @@ public class RecommentServiceImpl implements RecommentService {
 
 	@Override
 	public int deleteWhole(List<SysRecommentSearch> all) {
+		return 0;
+	}
+	@Override
+	public int updateSingle(SysRecommentSearch T) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 

@@ -3,7 +3,7 @@ package com.rc_long.Entity;
 import java.io.Serializable;
 
 /**
- * base 实体类
+ * base 实锟斤拷锟斤拷
  * @author longge
  * @param <T>
  *
