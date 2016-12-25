@@ -6,11 +6,9 @@ import java.util.Map;
 import net.sf.json.JSONObject;
 
 import org.apache.log4j.helpers.LogLog;
-import org.junit.Test;
 
 import com.mysql.jdbc.StringUtils;
 import com.rc_long.Entity.LiveRoom;
-import com.rc_long.Entity.SysUser;
 import com.rc_long.dao.DateBase;
 import com.rc_long.service.LiveService;
 import com.rc_long.utils.Pager;
@@ -55,7 +53,7 @@ public class LiveServiceImpl implements LiveService {
 			try {
 				count = DateBase.queryCount(clazz, conditionJson, likeQ);
 				pageCount = StringUtils.getInt(map.get("pageCount").getBytes());
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				pageCount=10;
 				LogLog.error("类型转换异常");
 			}
@@ -63,7 +61,7 @@ public class LiveServiceImpl implements LiveService {
 			int pageNum=0;
 			try {
 				pageNum = StringUtils.getInt(map.get("pageCount").getBytes());
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				LogLog.error("当前页为0");
 			}
 			
@@ -95,7 +93,7 @@ public class LiveServiceImpl implements LiveService {
 		String queryThing = map.get("queryThing");
 
 		if (StringUtils.isNullOrEmpty(queryThing)) {
-			queryThing = "live_id,live_name,live_title,live_path,user_id";
+			queryThing = "live_id,live_name,live_title,live_path,user_id,live_img";
 		}
 
 		if (StringUtils.isNullOrEmpty(conditionjson)) {
@@ -140,37 +138,65 @@ public class LiveServiceImpl implements LiveService {
 		Class<Object> clazz = null;
 		String condition = (String) map.get("condition");
 		
+		String [] inCondition =(String[]) map.get("inCondition");
+		
 		Map<String,Object> conditions= null;
 		if(!StringUtils.isNullOrEmpty(condition)){
 			conditions= (Map<String, Object>)JSONObject.fromObject(condition);
 		}
 		map.remove("condition");
-		return DateBase.update(clazz, map, conditions);
+		map.remove("inCondition");
+		
+		return DateBase.update(clazz, map, conditions,inCondition);
 	}
 
 
 	@Override
-	public int updateWhole(List<LiveRoom> all) {
-		return 0;
+	public int updateWhole(List<Map<String,Object>> all) {
+		int result =0;
+		for (Map<String, Object> map : all) {
+			
+			try {
+				result = updateSingle(map);
+			} catch (Exception e) {
+				LogLog.error(e.getMessage());
+			}
+		}
+		return result;
+	}
+
+
+	@Override
+	public int deleteSingle(Map<String, Object> map) {
+		
+		String []inCondition = (String[]) map.get("inCondition");
+		map.remove("inCondition");
+		return DateBase.delete(LiveRoom.class, map,inCondition);
 	}
 
 	@Override
-	public int insertSingle(LiveRoom T) {
-		return 0;
+	public int deleteWhole(List<Map<String, Object>> all) {
+		int result =0; 
+		for (Map<String, Object> map : all) {
+			result = deleteSingle(map);
+		}
+		return result;
 	}
 
 	@Override
-	public int insertWhole(List<LiveRoom> all) {
-		return 0;
+	public int insertSingle(Map<String, Object> map) {
+		
+		return DateBase.insert(LiveRoom.class, map);
 	}
 
 	@Override
-	public int deleteSingle(Map<String, String> map) {
-		return 0;
+	public int insertWhole(List<Map<String, Object>> all) {
+		int result =0; 
+		for (Map<String, Object> map : all) {
+			result = insertSingle(map);
+		}
+		return result;
 	}
 
-	@Override
-	public int deleteWhole(List<LiveRoom> all) {
-		return 0;
-	}
+	
 }

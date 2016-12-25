@@ -20,7 +20,7 @@
 	<form id="listform">
 		<div class="panel admin-panel">
 			<div class="panel-head">
-				<strong class="icon-reorder"> 视频管理</strong>
+				<strong class="icon-reorder"> 直播列表</strong>
 			</div>
 			<div class="padding border-bottom">
 				<ul class="search">
@@ -69,13 +69,13 @@
 				<c:forEach items="${live_bean.list }" var="live">
 					<tr>
 						<td><input type="checkbox" name="id[]"
-							value="${live.video_id }" /> <%=i++%></td>
-						<td>${live.video_auth }</td>
-						<td>${live.user_name }</td>
-						<td>${live.video_cname }</td>
-						<td>${live.video_img }</td>
-						<td>${live.video_desc }</td>
-						<td>${live.create_time }</td>
+							value="${live.live_id }" /> <%=i++%></td>
+						<td>${live.live_id }</td>
+						<td>${live.live_name }</td>
+						<td>${live.live_title }</td>
+						<td>${live.live_img }</td>
+						<td>${live.user_id }</td>
+						<td>${live.live_path }</td>
 						<td><div class="button-group">
 								<a class="button border-main"
 									href="${base }/sys/back/user/qupdate?live_id=${live.user_id}">
@@ -107,6 +107,6 @@
 	<script type="text/javascript">
 		var base="${base}";
 	</script>
-	<script type="text/javascript" src="${base }/www/js/backStage/video/video_list.js"></script>
+	<script type="text/javascript" src="${base }/www/js/backStage/live/live_list.js"></script>
 <body>
 </html>

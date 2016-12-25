@@ -14,6 +14,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import com.rc_long.Entity.LiveRoom;
 import com.rc_long.utils.C3P0UTils;
 import com.rc_long.utils.Pager;
 
@@ -68,7 +69,7 @@ public class DateBase {
 	 * @param <T>
 	 */
 	public static <T> int update(Class<T> clazz, Map<String, Object> map,
-			Map<String, Object> condition) {
+			Map<String, Object> condition,String [] inCondition) {
 		connecion = C3P0UTils.getConnection();
 		// 开启事务
 		try {
@@ -97,6 +98,25 @@ public class DateBase {
 				list2.add(m.getValue());
 			}
 		}
+		//在某范围内
+		if(inCondition!=null&&inCondition.length>0){
+			
+			for (int i = 0; i < inCondition.length; i++) {
+				if(i==0){
+					if(sql.toString().contains("where")){
+						sql.append(" and "+inCondition[0]+" in (" );
+						break;
+					}
+					sql.append(inCondition[i]);
+					if(inCondition.length-i>1){
+						sql.append(",");
+					}
+					if(i==inCondition.length-1){
+						sql.append("");
+					}
+				}
+			}
+		}
 		// 执行更新操作
 		int i = -1;
 		try {
@@ -122,7 +142,7 @@ public class DateBase {
 	 * @param clazz
 	 * @param map
 	 */
-	public static <T> int delete(Class<T> clazz, Map<String, Object> condition) {
+	public static <T> int delete(Class<T> clazz, Map<String, Object> condition ,String []inCondition) {
 		connecion = C3P0UTils.getConnection();
 		int i = -1;
 		// 开启事务
@@ -134,6 +154,26 @@ public class DateBase {
 		StringBuilder sql = new StringBuilder();
 
 		SqlCreate.generateDelete(sql, clazz, condition);
+		
+		//在某范围内
+		if(inCondition!=null&&inCondition.length>0){
+			
+			for (int i1 = 0; i1 < inCondition.length; i1++) {
+				if(i1==0){
+					if(sql.toString().contains("where")){
+						sql.append(" and "+inCondition[0]+" in (" );
+						break;
+					}
+					sql.append(inCondition[i1]);
+					if(inCondition.length-i1>1){
+						sql.append(",");
+					}
+					if(i1==inCondition.length-1){
+						sql.append("");
+					}
+				}
+			}
+		}
 		try {
 			i = queryRunner.update(connecion, sql.toString());
 			connecion.commit();

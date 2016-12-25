@@ -12,7 +12,9 @@ public class LiveRoom extends EntitiBaseBean<LiveRoom> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	//直播首页图片
+	private String live_img;
+	
 	private String live_id;
 	
 	private String live_name;
@@ -111,6 +113,14 @@ public class LiveRoom extends EntitiBaseBean<LiveRoom> {
 
 	public void setIs_recoment(int is_recoment) {
 		this.is_recoment = is_recoment;
+	}
+
+	public String getLive_img() {
+		return live_img;
+	}
+
+	public void setLive_img(String live_img) {
+		this.live_img = live_img;
 	}
 	
 	/**

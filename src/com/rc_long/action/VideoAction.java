@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.helpers.LogLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -93,8 +94,14 @@ public class VideoAction {
 	public ModelAndView video_play(HttpServletRequest req) {
 		String video_id = req.getParameter("vd");
 		System.out.println(video_id);
-		String conditionJson = "{video_id:" + video_id + "}";
-		SysVideo videoBean = videoService.getVideo(conditionJson);
+		Map<String, String> map = new HashMap<String, String>();
+		SysVideoBean videoBean =null ;
+		try {
+			videoBean = videoService.getVideoBean(map).getList().get(0);
+		} catch (Exception e) {
+			LogLog.error("NULLPoint 数据查询异常");
+		}
+		
 		return new ModelAndView("video/video_play").addObject("videoBean",
 				videoBean);
 

@@ -1,24 +1,28 @@
 package com.rc_long.utils;
 
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
+import java.lang.reflect.Field;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.helpers.LogLog;
 
+import com.mysql.jdbc.StringUtils;
+import com.rc_long.Entity.LiveRoom;
+
 public class ReqUtils {
 
-	 public static  void Encoding(HttpServletRequest req){
-		 try {
+	public static void Encoding(HttpServletRequest req) {
+		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			LogLog.error("字符编码设置异常");
 		}
-	 }
+	}
 
-	public static Map<String, String> parseSearch(Map<String, String> map, HttpServletRequest req) {
+	public static Map<String, String> parseSearch(Map<String, String> map,
+			HttpServletRequest req) {
 		String pageCount = req.getParameter("pageCount");
 		String pageNum = req.getParameter("pageNum");
 		// 更新字段
@@ -37,9 +41,22 @@ public class ReqUtils {
 		return map;
 	}
 
-	public static Map<String, String> parseUpdate(Map<String, String> map,
-			HttpServletRequest req) {
-				return map;
+	public static <T> Map<String, Object> parseUpdate(Map<String, Object> map,
+			HttpServletRequest req, Class<LiveRoom> class1) {
+
+		Field[] f = class1.getFields();// 获取实体类参数
 		
+		if (f != null && f.length > 0) {
+			for (Field field : f) {
+				//获取实体类名
+				String fieldName = field.getName();
+				//从请求域获取值
+				String filedValue = req.getParameter(fieldName);
+				if (!StringUtils.isNullOrEmpty(filedValue)) {
+					map.put(fieldName, filedValue);
+				}
+			}
+		}
+		return map;
 	}
 }

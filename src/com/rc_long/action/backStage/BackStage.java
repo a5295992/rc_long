@@ -126,7 +126,6 @@ public class BackStage {
 		map.put("condition", condition);
 		map.put("likeName", likeName);
 		map.put("like", like);
-		map =ReqUtils.parse(map,req);
 		// 条件
 		Pager<SysUser> user_bean = userService.getSysUserPager(map);
 		if (oder==null || oder.trim().isEmpty()) {

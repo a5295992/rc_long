@@ -13,13 +13,13 @@ public interface BaseService<T> {
 
 	public int updateSingle(Map<String,Object> map);
 	
-	public int updateWhole(List<T> all);
+	public int updateWhole(List<Map<String,Object>> all);
 	
-	public int insertSingle(T T);
+	public int insertSingle(Map<String, Object> map);
 	
-	public int insertWhole(List<T> all);
+	public int insertWhole(List<Map<String, Object>> all);
 	
-	public int deleteSingle(Map<String,String> map);
+	public int deleteSingle(Map<String, Object> map);
 	
-	public int deleteWhole(List<T> all);
+	public int deleteWhole(List<Map<String, Object>> all);
 }

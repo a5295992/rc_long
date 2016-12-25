@@ -2,8 +2,6 @@ package com.rc_long.action.base;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.json.JSONObject;
-
 import org.apache.log4j.helpers.LogLog;
 
 import com.mysql.jdbc.StringUtils;
@@ -99,50 +97,43 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 		return DateBase.querySingle(clazz, queryThing, condition);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public int updateSingle(Map<String, String> map) {
-		String condition = map.get("condition");
-		
-		String field=map.get("changeFiled");
-		Map<String,Object> condt=null;
-		if(StringUtils.isNullOrEmpty(condition)){
-			condition=null;
-		}else{
-			condt=JSONObject.fromObject(condition);
-		}
-		Map<String,Object> fileds=null;
-		if(StringUtils.isNullOrEmpty(field)){
-			condition=null;
-		}else{
-			fileds=JSONObject.fromObject(field);
-		}
-		return DateBase.update(clazz, fileds, condt);
-	}
-
-	@Override
-	public int updateWhole(List<T> all) {
+	public int updateSingle(Map<String, Object> map) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int insertSingle(T T) {
+	public int updateWhole(List<Map<String, Object>> all) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int insertWhole(List<T> all) {
+	public int insertSingle(Map<String, Object> map) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteSingle(Map<String, String> map) {
+	public int insertWhole(List<Map<String, Object>> all) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteWhole(List<T> all) {
+	public int deleteSingle(Map<String, Object> map) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int deleteWhole(List<Map<String, Object>> all) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	
 
 }

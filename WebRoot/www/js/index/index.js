@@ -23,7 +23,6 @@ $(function(){
 	
 	var loginServer=function(){
 		var diag = new Dialog();
-
 		diag.Width = 400;
 
 		diag.Height = 520;

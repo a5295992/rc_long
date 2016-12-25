@@ -84,32 +84,27 @@ public class RecommentServiceImpl implements RecommentService {
 
 
 	@Override
-	public int updateWhole(List<SysRecommentSearch> all) {
-		return 0;
-	}
-
-	@Override
-	public int insertSingle(SysRecommentSearch T) {
-		return 0;
-	}
-
-	@Override
-	public int insertWhole(List<SysRecommentSearch> all) {
-		return 0;
-	}
-
-	@Override
-	public int deleteSingle(Map<String, String> map) {
-		return 0;
-	}
-
-	@Override
-	public int deleteWhole(List<SysRecommentSearch> all) {
+	public int updateSingle(Map<String, Object> map) {
 		return 0;
 	}
 	@Override
-	public int updateSingle(SysRecommentSearch T) {
-		// TODO Auto-generated method stub
+	public int updateWhole(List<Map<String, Object>> all) {
+		return 0;
+	}
+	@Override
+	public int insertSingle(Map<String, Object> map) {
+		return 0;
+	}
+	@Override
+	public int insertWhole(List<Map<String, Object>> all) {
+		return 0;
+	}
+	@Override
+	public int deleteSingle(Map<String, Object> map) {
+		return 0;
+	}
+	@Override
+	public int deleteWhole(List<Map<String, Object>> all) {
 		return 0;
 	}
 

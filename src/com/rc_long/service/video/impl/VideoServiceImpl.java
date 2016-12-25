@@ -89,7 +89,6 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			List<SysVideoBean> list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);
 			int count = 0;
 			int pageCount;
-			System.out.println("--------list.size()-----------"+list.size());
 			try {
 				count = list.size();
 				pageCount = StringUtils.getInt(map.get("pageCount").getBytes());
@@ -130,39 +129,44 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 
 	@Override
 	public SysVideo getSingle(Map<String, String> map) {
-		return null;
-	}
-
-
-	@Override
-	public int updateWhole(List<SysVideo> all) {
-		return 0;
-	}
-
-	@Override
-	public int insertSingle(SysVideo T) {
-		return 0;
+		String queryThing =map.get("queryThing");
+		if(StringUtils.isNullOrEmpty(queryThing)){
+			queryThing="video_id,video_name,video_cname,video_path,video_type,user_id,create_time,video_wathers,video_img,video_desc";
+		}
+		String condition =map.get("condition");
+		return DateBase.querySingle(SysVideo.class, queryThing, condition);
 	}
 
 	@Override
-	public int insertWhole(List<SysVideo> all) {
-		return 0;
-	}
-
-	@Override
-	public int deleteSingle(Map<String, String> map) {
-		return 0;
-	}
-
-	@Override
-	public int deleteWhole(List<SysVideo> all) {
-		return 0;
-	}
-
-	@Override
-	public int updateSingle(SysVideo T) {
+	public int updateSingle(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int updateWhole(List<Map<String, Object>> all) {
+		return 0;
+	}
+
+	@Override
+	public int insertSingle(Map<String, Object> map) {
+		return 0;
+	}
+
+	@Override
+	public int insertWhole(List<Map<String, Object>> all) {
+		return 0;
+	}
+
+	@Override
+	public int deleteSingle(Map<String, Object> map) {
+		return 0;
+	}
+
+	@Override
+	public int deleteWhole(List<Map<String, Object>> all) {
+		return 0;
+	}
+
 
 }
