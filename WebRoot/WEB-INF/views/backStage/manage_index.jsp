@@ -11,7 +11,6 @@
 <title>后台管理中心</title>
 <link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
-<script src="${base }/www/js/backStage/js/jquery.js"></script>
 </head>
 <body style="background-color:#f2f9fd;">
 	<div class="leftnav" style="top: 0px">

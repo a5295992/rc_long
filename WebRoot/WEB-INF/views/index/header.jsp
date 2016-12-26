@@ -1,7 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="base" value="${pageContext.request.contextPath }"></c:set>
+<%@include file="../../jsp/global.jsp" %>
 <html>
 <head>
 <title>头部</title>
@@ -13,9 +12,6 @@
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" href="${base }/www/css/base.css" />
 <link rel="stylesheet" href="${base }/www/css/index.css" />
-<script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->

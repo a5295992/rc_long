@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<c:set var="base" value="${pageContext.request.contextPath }"></c:set>
+<%@include file="../../jsp/global.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -20,8 +19,6 @@
 	href="${base }/www/resources/assets/fonts/fonts.googleapis.com.css" />
 <link rel="stylesheet" href="${base }/www/resources/assets/css/ace.min.css" />
 <link rel="stylesheet" href="${base }/www/resources/assets/css/ace-rtl.min.css" />
-<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 </head>
 
 <body class="login-layout light-login">

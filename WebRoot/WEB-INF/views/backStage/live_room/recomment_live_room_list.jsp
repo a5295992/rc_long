@@ -12,9 +12,6 @@
 <title>直播间管理</title>
 <link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
-<script src="${base }/www/js/backStage/js/jquery.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 </head>
 <body>
 	<form id="listform">
@@ -79,10 +76,10 @@
 						<td><div class="button-group">
 								<a class="button border-main"
 									href="${base }/sys/back/user/qupdate?live_id=${live.user_id}">
-									<span class="icon-edit"></span> 管理
+									<span class="icon-edit"></span>推荐
 								</a> <a class="button border-red" href="javascript:void(0)"
 									onclick="return del(1)"><span class="icon-trash-o"></span>
-									删除</a>
+									取消</a>
 							</div></td>
 					</tr>
 				</c:forEach>

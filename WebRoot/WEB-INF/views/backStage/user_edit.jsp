@@ -11,7 +11,6 @@
 <title></title>
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
 <link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
-<script src="${base }/www/js/backStage/js/jquery.js"></script>
 <script src="${base }/WebRoot/www/js/backStage/js/pintuer.js"></script>
 </head>
 

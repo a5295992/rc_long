@@ -12,9 +12,6 @@
 <title>视频后台管理</title>
 <link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
-<script src="${base }/www/js/backStage/js/jquery.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
-<script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 </head>
 <body>
 	<form id="listform">

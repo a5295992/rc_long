@@ -2,7 +2,6 @@ package com.rc_long.action.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +21,6 @@ import com.rc_long.service.user.UserService;
 import com.rc_long.service.user.Impl.UserServiceImpl;
 import com.rc_long.utils.CurrentSession;
 import com.rc_long.utils.Pager;
-
-
-
 @Controller
 public class UserAction {
 	public UserService userService = new UserServiceImpl();
@@ -46,12 +42,15 @@ public class UserAction {
 	 * 登出
 	 * @param req
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value=AnRequest.sys_user_loginout)
-	public ModelAndView logout(HttpServletRequest req){
+	public void logout(HttpServletRequest req,HttpServletResponse rep) throws IOException{
 		//移除session
+		PrintWriter write =rep.getWriter();
 		new CurrentSession(req).remove();
-		return new ModelAndView("index/index");
+		write.print(2);
+		write.close();
 	}
 	/**
 	 * 

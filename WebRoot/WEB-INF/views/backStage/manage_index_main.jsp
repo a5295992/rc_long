@@ -12,9 +12,6 @@
 <title>首页管理</title>
 <link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
-<link rel="stylesheet"
-	href="${base }/www/css/backStage/css/manage_index_main.css">
-<script src="${base }/www/js/backStage/js/jquery.js"></script>
 </head>
 
 <body>

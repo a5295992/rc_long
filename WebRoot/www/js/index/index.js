@@ -5,7 +5,24 @@ $(function(){
 	$("#href_butt_logout").click(function(){
 		var judge=window.confirm("确定要退出吗");
 		if(judge){
-			window.location.href=base+"/sys/user/logout";
+			$.ajax({
+				cache : true,
+				type : "GET",
+				url :base+"/sys/user/logout",
+				// data:$('#exe_form_login').serialize(),// 你的formid
+				async : false,
+				error : function(request) {
+					alert("Connection error");
+				},
+				success : function(data) {
+					if (data > 0) {
+						window.confirm("操作成功");
+						window.location.replace(base + "/sys/video");
+					} else {
+						window.confirm("操作失败");
+					}
+				}
+			});
 		}else{
 			
 		}
