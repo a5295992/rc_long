@@ -1,5 +1,6 @@
 package com.rc_long.service.video;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -22,5 +23,8 @@ public interface VideoService {
 	 * @return
 	 */
 	public Pager<SysVideoBean> getVideoBean(Map<String,String> map);
+	
+	
+	public List<SysVideoBean> getSysVideoBean(Map<String,String> map);
 	
 }

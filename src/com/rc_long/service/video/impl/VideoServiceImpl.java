@@ -83,7 +83,9 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			if ((!StringUtils.isNullOrEmpty(like))
 					&& (!StringUtils.isNullOrEmpty(likeName))) {
 				if(sql.toString().contains("where")){
-					sql.append("and "+likeName+"like"+"%"+"'"+like+"'"+"%");
+					sql.append(" and "+likeName+" like "+"%"+"'"+like+"'"+"%");
+				}else{
+					sql.append(" where "+likeName+" like "+"%"+"'"+like+"'"+"%");
 				}
 			}
 			List<SysVideoBean> list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);
@@ -166,6 +168,23 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 	@Override
 	public int deleteWhole(List<Map<String, Object>> all) {
 		return 0;
+	}
+
+	@Override
+	public List<SysVideoBean> getSysVideoBean(Map<String, String> map) {
+		String video_id=map.get("video_id");
+		StringBuilder sql = new StringBuilder();
+		sql.append("select ");
+		sql.append("a.video_id,a.video_cname,a.video_auth,");
+		sql.append("a.create_time,a.user_id,b.user_name,");
+		sql.append("a.video_img,a.video_desc");
+		sql.append(" from sys_video a ");
+		sql.append("left join sys_user b");
+		sql.append(" on a.user_id = b.user_id");
+		if(!StringUtils.isNullOrEmpty(video_id)){
+			sql.append(" where a.video_id= "+video_id);
+		}
+		return DateBase.runSqlJoin(sql.toString(), SysVideoBean.class);
 	}
 
 

@@ -95,6 +95,8 @@ public class VideoAction {
 		String video_id = req.getParameter("vd");
 		System.out.println(video_id);
 		Map<String, String> map = new HashMap<String, String>();
+		map.put("like", video_id);
+		map.put("likeName", "video_id");
 		SysVideoBean videoBean =null ;
 		try {
 			videoBean = videoService.getVideoBean(map).getList().get(0);
