@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="${base }/www/css/index.css" />
 <link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
-<script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
-<title>Insert title here</title>
+<title>主页直播推荐</title>
 </head>
 <body style="background-color: 9990;margin: 7px">
 	<h3>当前推荐信息:</h3>

@@ -33,31 +33,31 @@
 					<li><select id="likeName_serach" class="input"
 						style="width:200px; line-height:17px;">
 							<option value="">请选择查询条件</option>
-							<option value="user_name"
-								<c:if test="${likeName eq 'video_name' }">selected="selected"</c:if>>视频名</option>
+							<option value="live_name"
+								<c:if test="${likeName eq 'video_name' }">selected="selected"</c:if>>直播名字</option>
+							<option value="live_id"
+								<c:if test="${likeName eq 'user_name' }">selected="selected"</c:if>>直播ID</option>
+							<option value="live_title"
+								<c:if test="${likeName eq 'video_type' }">selected="selected"</c:if>>直播类型</option>
 							<option value="user_id"
-								<c:if test="${likeName eq 'user_name' }">selected="selected"</c:if>>用户名</option>
-							<option value="user_type"
-								<c:if test="${likeName eq 'video_type' }">selected="selected"</c:if>>视频类型</option>
-							<option value="user_flag"
-								<c:if test="${likeName eq 'video_auth' }">selected="selected"</c:if>>审核状态</option>
+								<c:if test="${likeName eq 'video_auth' }">selected="selected"</c:if>>用户名</option>
 					</select></li>
 					<li><input type="text" placeholder="请输入搜索关键字" id="likeSearch"
 						class="input"
 						style="width:250px; line-height:17px;display:inline-block" /> <a
 						href="javascript:void(0)" class="button border-main icon-search"
-						onclick="changesearch()"> 搜索</a></li>
+						onclick="changeThingsToSearch()"> 搜索</a></li>
 				</ul>
 			</div>
 			<table class="table table-hover text-center">
 				<tr>
 					<th width="120">序号</th>
-					<th>审核</th>
-					<th>投稿人</th>
-					<th>视频别名</th>
+					<th>是否推荐</th>
+					<th>直播ID</th>
+					<th>直播名</th>
 					<th>缩略图</th>
 					<th width="25%">描述信息</th>
-					<th width="120">创建时间</th>
+					<th width="120">是否直播</th>
 					<th>操作</th>
 				</tr>
 				<%
@@ -67,18 +67,18 @@
 					<tr>
 						<td><input type="checkbox" name="id[]"
 							value="${live.live_id }" /> <%=i++%></td>
+						<td>${live.is_recoment }</td>
 						<td>${live.live_id }</td>
-						<td>${live.live_name }</td>
 						<td>${live.live_title }</td>
 						<td>${live.live_img }</td>
 						<td>${live.user_id }</td>
 						<td>${live.live_path }</td>
 						<td><div class="button-group">
 								<a class="button border-main"
-									href="${base }/sys/back/user/qupdate?live_id=${live.user_id}">
+									href="javascript:void(0)" onclick="recomment(${live.live_id})">
 									<span class="icon-edit"></span>推荐
 								</a> <a class="button border-red" href="javascript:void(0)"
-									onclick="return del(1)"><span class="icon-trash-o"></span>
+									onclick="noRecomment(${live.live_id})"><span class="icon-trash-o"></span>
 									取消</a>
 							</div></td>
 					</tr>
@@ -104,6 +104,6 @@
 	<script type="text/javascript">
 		var base="${base}";
 	</script>
-	<script type="text/javascript" src="${base }/www/js/backStage/live/live_list.js"></script>
+	<script type="text/javascript" src="${base }/www/js/backStage/js/live/recoment_live_room_list.js"></script>
 <body>
 </html>

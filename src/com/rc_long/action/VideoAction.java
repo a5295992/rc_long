@@ -99,9 +99,9 @@ public class VideoAction {
 		map.put("likeName", "video_id");
 		SysVideoBean videoBean =null ;
 		try {
-			videoBean = videoService.getVideoBean(map).getList().get(0);
+			videoBean =  new VideoServiceImpl<SysVideoBean>(SysVideoBean.class).getVideoBean(map).getList().get(0);
 		} catch (Exception e) {
-			LogLog.error("NULLPoint 数据查询异常");
+			e.printStackTrace();
 		}
 		
 		return new ModelAndView("video/video_play").addObject("videoBean",

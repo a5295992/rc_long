@@ -57,7 +57,7 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			}else{
 				sql.append("a.video_id,a.video_cname,a.video_auth,");
 				sql.append("a.create_time,a.user_id,b.user_name,");
-				sql.append("a.video_img,a.video_desc");
+				sql.append("a.video_img,a.video_desc,a.video_path");
 				sql.append(" from sys_video a ");
 				sql.append("left join sys_user b");
 			}
@@ -83,9 +83,9 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			if ((!StringUtils.isNullOrEmpty(like))
 					&& (!StringUtils.isNullOrEmpty(likeName))) {
 				if(sql.toString().contains("where")){
-					sql.append(" and "+likeName+" like "+"%"+"'"+like+"'"+"%");
+					sql.append(" and "+likeName+" like "+"'"+"%"+""+like+"%"+"'");
 				}else{
-					sql.append(" where "+likeName+" like "+"%"+"'"+like+"'"+"%");
+					sql.append(" where "+likeName+" like "+"'"+"%"+""+like+"%"+"'");
 				}
 			}
 			List<SysVideoBean> list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);

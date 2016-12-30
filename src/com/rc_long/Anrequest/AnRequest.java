@@ -65,6 +65,9 @@ public class AnRequest {
 	public static final String sys_back_live_room_search = "/sys/back/live/room/search";
 	public static final String sys_back_live_room_update = "/sys/back/live/room/update";
 	public static final String sys_back_live_room_delete = "/sys/back/live/room/delete";
+	public static final String sys_back_live_room_recomment = "/sys/back/live/room/recomment";
+	public static final String sys_back_live_room_noRecomment = "/sys/back/live/room/noRecomment";
+	
 	
 	
 	

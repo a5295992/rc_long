@@ -135,7 +135,7 @@ public class LiveServiceImpl implements LiveService {
 	@Override
 	public int updateSingle(Map<String,Object> map) {
 		
-		Class<Object> clazz = null;
+		Class<LiveRoom> clazz = LiveRoom.class;
 		String condition = (String) map.get("condition");
 		
 		String [] inCondition =(String[]) map.get("inCondition");
