@@ -68,6 +68,13 @@ public class AnRequest {
 	public static final String sys_back_live_room_recomment = "/sys/back/live/room/recomment";
 	public static final String sys_back_live_room_noRecomment = "/sys/back/live/room/noRecomment";
 	
+	//后台主页 自编辑界面
+	public static final String sys_back_self_edit ="/sys/back/self/edit";
+	public static final String sys_back_self_edit_search = "/sys/back/self/edit/search";
+	//自影评
+	public static final String sys_back_self_movie_comment ="/sys/back/self/movie/comment";
+	//自推荐
+	public static final String sys_back_self_recoment ="/sys/back/self/movie/comment";
 	
 	
 	

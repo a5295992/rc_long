@@ -92,7 +92,7 @@
 			href="##">英文</a></li>
 	</ul>
 	<div class="admin">
-		<iframe scrolling="auto" rameborder="0" src="${base }/sys/back/infor"
+		<iframe scrolling="auto" rameborder="0" src=""
 			name="right" width="100%" height="100%"></iframe>
 	</div>
 	<div style="text-align:center;"></div>

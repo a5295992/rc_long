@@ -2,6 +2,9 @@ package com.rc_long.service.video.impl;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import net.sf.json.JSONObject;
 
 import org.apache.log4j.helpers.LogLog;
 
@@ -57,7 +60,7 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			}else{
 				sql.append("a.video_id,a.video_cname,a.video_auth,");
 				sql.append("a.create_time,a.user_id,b.user_name,");
-				sql.append("a.video_img,a.video_desc,a.video_path");
+				sql.append("a.video_img,a.video_desc,a.video_path,a.is_recommend");
 				sql.append(" from sys_video a ");
 				sql.append("left join sys_user b");
 			}
@@ -88,6 +91,21 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 					sql.append(" where "+likeName+" like "+"'"+"%"+""+like+"%"+"'");
 				}
 			}
+			//如果 查询条件不为空
+			String conditionJson = map.get("conditionJson");
+			if(!StringUtils.isNullOrEmpty(conditionJson)){
+				JSONObject json = JSONObject.fromObject(conditionJson);
+				
+				Map<String, Object> map1 = json;
+				for(Entry<String,Object> e : map1.entrySet()){
+					if(sql.toString().contains("where")){
+						sql.append(" and "+e.getKey()+" = "+e.getValue());
+					}else{
+						sql.append(" where "+e.getKey()+" = "+e.getValue());
+					}
+				}
+			}
+			
 			List<SysVideoBean> list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);
 			int count = 0;
 			int pageCount;
@@ -114,7 +132,6 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			} catch (Exception e) {
 				LogLog.error(e.getMessage());
 			}
-			System.out.println(sql.toString());
 			list=(List<SysVideoBean>) DateBase.runSqlJoin(sql.toString(), clazz);
 			if (limit.getPage() == 0) {
 				limit.setPage(1);

@@ -60,8 +60,9 @@
 		});
 	</script>
 	<div class="admin" style="top: 0px;padding: 0px">
-		<iframe scrolling="auto" rameborder="0" src="${base }/sys/back/infor"
-			name="right1" width="100%" height="100%"></iframe>
+		<iframe scrolling="auto" rameborder="0" src=""
+			name="right1" width="100%" height="100%">
+		</iframe>
 	</div>
 	<div style="text-align:center;"></div>
 	<script type="text/javascript">

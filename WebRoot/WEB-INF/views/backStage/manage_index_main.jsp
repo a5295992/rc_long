@@ -22,7 +22,7 @@
 		<ul>
 			<li><a href="${base }/sys/back/live/room" target="right2"><span
 					class="icon-caret-right"></span>直播间推荐</a></li>
-			<li><a href="${base }/www/html/add.html" target="right"><span
+			<li><a href="${base }/sys/back/self/edit" target="right2"><span
 					class="icon-caret-right"></span>自编辑</a></li>
 			<li><a href="${base }/sys/back/menu" target="right"><span
 					class="icon-caret-right"></span>自影评</a></li>
@@ -31,10 +31,10 @@
 		</ul>
 	</div>
 
-	<h2 style="cursor:pointer" id="h2_001">
+	<h2 style="cursor:pointer" id="h2_002">
 		<span class="icon-pencil-square-o"></span>电影推荐模块
 	</h2>
-	<div style="display: none" id="div_001">
+	<div style="display: none" id="div_002">
 		<ul>
 			<li><a href="${base }/www/html/list.html" target="right"><span
 					class="icon-caret-right"></span>内容管理</a></li>
@@ -45,10 +45,10 @@
 		</ul>
 	</div>
 
-	<h2 style="cursor:pointer" id="h2_001">
+	<h2 style="cursor:pointer" id="h2_003">
 		<span class="icon-pencil-square-o"></span>电视剧推荐模块
 	</h2>
-	<div style="display: none" id="div_001">
+	<div style="display: none" id="div_003">
 		<ul>
 			<li><a href="${base }/www/html/list.html" target="right"><span
 					class="icon-caret-right"></span>内容管理</a></li>
@@ -59,10 +59,10 @@
 		</ul>
 	</div>
 
-	<h2 style="cursor:pointer" id="h2_001">
+	<h2 style="cursor:pointer" id="h2_004">
 		<span class="icon-pencil-square-o"></span>综艺推荐模块
 	</h2>
-	<div style="display: none" id="div_001">
+	<div style="display: none" id="div_004">
 		<ul>
 			<li><a href="${base }/www/html/list.html" target="right"><span
 					class="icon-caret-right"></span>内容管理</a></li>
@@ -73,10 +73,10 @@
 		</ul>
 	</div>
 
-	<h2 style="cursor:pointer" id="h2_001">
+	<h2 style="cursor:pointer" id="h2_005">
 		<span class="icon-pencil-square-o"></span>搞笑推荐模块
 	</h2>
-	<div style="display: none" id="div_001">
+	<div style="display: none" id="div_005">
 		<ul>
 			<li><a href="${base }/www/html/list.html" target="right"><span
 					class="icon-caret-right"></span>内容管理</a></li>
@@ -87,7 +87,7 @@
 		</ul>
 	</div>
 	<div class="admin" style="top:0px;padding: 0px">
-		<iframe scrolling="auto" rameborder="0" src="${base }/sys/back/infor"
+		<iframe scrolling="auto" rameborder="0" src=""
 			name="right2" width="100%" height="100%"></iframe>
 	</div>
 </body>
