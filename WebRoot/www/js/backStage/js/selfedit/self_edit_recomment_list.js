@@ -21,7 +21,6 @@ function dealForm() {
 	$("#listform").attr("action", base + "/sys/back/self/edit/search");
 }
 function changesearch() {
-	alert("hello");
 	var like = $("#likeSearch").val();
 	var likeName = $("#likeName_serach").val();
 	$("#like").val(like);
@@ -40,4 +39,6 @@ $("#checkall").click(function() {
 		}
 	});
 });
+
+
 

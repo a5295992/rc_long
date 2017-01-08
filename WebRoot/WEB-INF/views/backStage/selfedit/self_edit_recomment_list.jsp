@@ -81,7 +81,7 @@
 						<td><div class="button-group">
 								<a class="button border-main"
 									href="${base }/sys/back/user/qupdate?user_id=${user.user_id}">
-									<span class="icon-edit"></span>推荐</a> 
+									<span class="icon-edit"></span>更改</a> 
 							</div></td>
 					</tr>
 				</c:forEach>
@@ -106,50 +106,7 @@
 	<script type="text/javascript">
 		var base="${base}";
 		
-		//查询js
-		var  listform=$("#listform");
-
-		//设置表单属性
-		  function setForm(pageNum){
-			listform.attr("method","post");
-			listform.attr("action",base+"/sys/back/self/edit/search?pageNum="+pageNum);
-		};
-		//提交表单
-		 function submit (){
-			listform.submit();
-		};
-		function turnPage(){
-			var inputPageNum=$("input[name='inputPageNum']").val();
-			setForm(inputPageNum);
-			submit();
-		}
-
-		function dealForm() {
-			$("#listform").attr("method", "post");
-			$("#listform").attr("action", base + "/sys/back/self/edit/search");
-		}
-		function changesearch() {
-			var like = $("#likeSearch").val();
-			var likeName = $("#likeName_serach").val();
-			$("#like").val(like);
-			$("#likeName").val(likeName);
-			dealForm();
-			$("#listform").submit();
-		}
-
-		//选中所有
-		$("#checkall").click(function() {
-			$("input[name='id[]']").each(function() {
-				if (this.checked) {
-					this.checked = false;
-				} else {
-					this.checked = true;
-				}
-			});
-		});
-
-
 	</script>
-	
+	<script type="text/javascript" src="${base }/www/js/backStage/js/selfedit/self_edit_recomment_list.js"></script>
 <body>
 </html>

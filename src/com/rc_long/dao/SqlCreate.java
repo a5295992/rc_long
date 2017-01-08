@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.rc_long.Entity.SysVideoBean;
+import com.rc_long.utils.AnnotationParser;
+
 public class SqlCreate {
 	/**
 	 * 查询所有
@@ -295,5 +298,19 @@ public class SqlCreate {
 			setConditions(parameters, sb);
 		}
 	}
-	
+	/**
+	 * 左外关联查询
+	 * @param sb 查询语句
+	 * @param clazz 对象
+	 * @param queryThing 查找的字段
+	 * @param Condition 查询条件
+	 */
+	public static void leftJoinSql(StringBuilder sb,Class<?> clazz,String queryThing,String Condition){
+		sb.append("select ");
+		sb.append(queryThing);
+		sb.append(" from ");
+		String sql = AnnotationParser.parse(clazz);
+		sb.append(sql);
+		sb.append(" ");
+	}
 }

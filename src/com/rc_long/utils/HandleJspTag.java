@@ -90,7 +90,6 @@ public class HandleJspTag<T> implements SimpleTag {
 			sb.append("</div>");
 			out.write(sb.toString());
 		} else {
-			out.write("<span>暂无数据</span>");
 			sb.append("</div>");
 		}
 	}

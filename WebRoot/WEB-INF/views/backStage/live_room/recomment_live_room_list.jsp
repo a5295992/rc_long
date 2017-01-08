@@ -74,12 +74,18 @@
 						<td>${live.user_id }</td>
 						<td>${live.live_path }</td>
 						<td><div class="button-group">
+							<c:if test="${live.is_recoment eq 0 }">
 								<a class="button border-main"
 									href="javascript:void(0)" onclick="recomment(${live.live_id})">
 									<span class="icon-edit"></span>推荐
-								</a> <a class="button border-red" href="javascript:void(0)"
+								</a> 
+							</c:if>
+							<c:if test="${live.is_recoment eq 1 }">
+								<a class="button border-red" href="javascript:void(0)"
 									onclick="noRecomment(${live.live_id})"><span class="icon-trash-o"></span>
 									取消</a>
+							</c:if>
+								
 							</div></td>
 					</tr>
 				</c:forEach>

@@ -48,3 +48,24 @@ function DelSelect() {
 		return false;
 	}
 }
+
+//管理视频
+function manage(video_id){
+	var diag = new Dialog();
+
+	diag.Title = "返回值到调用页面";
+
+	diag.URL = "test.html";
+
+	diag.OKEvent = function(){$id('getval').value = diag.innerFrame.contentWindow.document.getElementById('a').value;diag.close();};
+
+	diag.show();
+
+	var doc=diag.innerFrame.contentWindow.document;
+
+	doc.open();
+
+	doc.write('<html><body><input id="a" type="text"/>请在文本框里输入一些值</body></html>') ;
+
+	doc.close();
+}

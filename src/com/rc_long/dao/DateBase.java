@@ -13,8 +13,9 @@ import net.sf.json.JSONObject;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.log4j.helpers.LogLog;
 
-import com.rc_long.Entity.LiveRoom;
+import com.mysql.jdbc.StringUtils;
 import com.rc_long.utils.C3P0UTils;
 import com.rc_long.utils.Pager;
 
@@ -410,5 +411,80 @@ public class DateBase {
 			C3P0UTils.closeCon(connecion);
 		}
 		return null;
+	}
+	/**
+	 * 查询组合bean
+	 * @param clazz
+	 * @param condtion
+	 * @param queryThing
+	 * @return
+	 */
+	public static <T>T newQuerySingle(Class<T> clazz,String condtion,String queryThing ){
+		StringBuilder sql = new StringBuilder();
+		connecion = C3P0UTils.getConnection();
+		SqlCreate.leftJoinSql(sql, clazz, queryThing, condtion); 
+		try {
+			return queryRunner.query(connecion, sql.toString(), new BeanHandler<T>(clazz));
+		} catch (SQLException e) {
+			LogLog.error(e.getMessage());
+		}finally {
+			printSql(sql.toString());
+			C3P0UTils.closeCon(connecion);
+		}
+		return null;
+	}
+	/**
+	 * 查询组合集合
+	 * @param clazz
+	 * @param condtion
+	 * @param queryThing
+	 * @param Order
+	 * @param like
+	 * @return
+	 */
+	public static <T>List<T> newQueryList(Class<T> clazz,String condtion,String queryThing,String order,String like){
+		StringBuilder sql = new StringBuilder();
+		connecion = C3P0UTils.getConnection();
+		SqlCreate.leftJoinSql(sql, clazz, queryThing, condtion);
+		if(!StringUtils.isNullOrEmpty(condtion)){
+			if(sql.toString().contains("where")){
+				sql.append(" and "+condtion);
+			}else{
+				sql.append("where"+condtion);
+			}
+		}
+		if(!StringUtils.isNullOrEmpty(like)){
+			if(sql.toString().contains("where")){
+				sql.append(" and "+like);
+			}else{
+				sql.append(" where "+like);
+			}
+		}
+		if(!StringUtils.isNullOrEmpty(order)){
+				sql.append(" order by  "+order);
+		}
+		try {
+			return queryRunner.query(connecion, sql.toString(), new BeanListHandler<T>(clazz));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			printSql(sql.toString());
+			C3P0UTils.closeCon(connecion);
+		}
+		return null;
+	}
+	/**
+	 * 查询数量
+	 * @param <T>
+	 * @param clazz
+	 * @param condtion
+	 * @param queryThing
+	 * @param order
+	 * @param like
+	 * @return
+	 */
+	public static <T> int newQueryCount(Class<T> clazz,String condtion,String queryThing,String order,String like){
+		return DateBase.newQueryList(clazz, condtion, queryThing, order, like).size();
+		
 	}
 }

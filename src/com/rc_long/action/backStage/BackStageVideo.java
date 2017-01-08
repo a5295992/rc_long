@@ -1,6 +1,7 @@
 package com.rc_long.action.backStage;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,5 +56,15 @@ public class BackStageVideo {
 		Pager<SysVideoBean> video_bean = new VideoServiceImpl<SysVideoBean>(SysVideoBean.class).getVideoBean(map);
 		
 		return new ModelAndView("backStage/video_list").addObject("video_bean",video_bean);
+	}
+	/**
+	 * 视频 权限及分组管理
+	 * @return
+	 */
+	@RequestMapping(value=AnRequest.sys_back_video_manage)
+	public ModelAndView manage(){
+		Map<String, String> map = new HashMap<String,String>();
+		List<SysVideoBean> videoBean = new VideoServiceImpl<SysVideoBean>(SysVideoBean.class).getSysVideoBean(map);
+		return new ModelAndView("backStage/video/video_manage");
 	}
 }

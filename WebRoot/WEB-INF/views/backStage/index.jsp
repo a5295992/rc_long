@@ -43,7 +43,7 @@
 					class="icon-caret-right"></span>网站设置</a></li>
 			<li><a href="${base }/www/html/pass.html" target="right"><span
 					class="icon-caret-right"></span>修改密码</a></li>
-			<li><a href="${base }/sys/back/index/manage" target="right"><span
+			<li><a href="${base }/sys/back/index/manage" target="right" ><span
 					class="icon-caret-right"></span>单页管理</a></li>
 			<li><a href="${base }/www/html/adv.html" target="right"><span
 					class="icon-caret-right"></span>首页轮播</a></li>
@@ -92,40 +92,12 @@
 			href="##">英文</a></li>
 	</ul>
 	<div class="admin">
-		<iframe scrolling="auto" rameborder="0" src=""
-			name="right" width="100%" height="100%"></iframe>
+		 <iframe scrolling="auto" rameborder="0" src=""
+			name="right" width="100%" height="100%"></iframe> 
 	</div>
 	<div style="text-align:center;"></div>
 	<script type="text/javascript">
 		var base = "${base}";
-
-		function del(user_id) {
-			alert("hedassad");
-			var enter = window.confirm("警告！删除该用户后,用户无法再使用该账号");
-			if (enter == 1) {
-				$.ajax({
-					cache : true,
-					type : "POST",
-					url : base + "/sys/back/user/delete",
-					//data:$('#exe_form_login').serialize(),// 你的formid
-					data : {
-						"user_id" : user_id
-					},
-					async : false,
-					error : function(request) {
-						alert("Connection error");
-					},
-					success : function(data) {
-						if (data > 0) {
-							window.confirm("操作成功");
-							w.replace(base + "/sys/back");
-						} else {
-							window.confirm("操作失败");
-						}
-					}
-				});
-			}
-		};
 	</script>
 </body>
 </html>

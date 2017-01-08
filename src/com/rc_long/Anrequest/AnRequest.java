@@ -75,6 +75,7 @@ public class AnRequest {
 	public static final String sys_back_self_movie_comment ="/sys/back/self/movie/comment";
 	//自推荐
 	public static final String sys_back_self_recoment ="/sys/back/self/movie/comment";
+	public static final String sys_back_video_manage = "/sys/back/video/manage";
 	
 	
 	

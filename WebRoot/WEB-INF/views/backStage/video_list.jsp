@@ -75,7 +75,7 @@
 						<td>${video.create_time }</td>
 						<td><div class="button-group">
 								<a class="button border-main"
-									href="${base }/sys/back/user/qupdate?user_id=${user.user_id}">
+									href="##">
 									<span class="icon-edit"></span> 管理
 								</a> <a class="button border-red" href="javascript:void(0)"
 									onclick="return del(1)"><span class="icon-trash-o"></span>

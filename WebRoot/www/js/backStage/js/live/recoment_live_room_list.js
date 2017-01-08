@@ -44,10 +44,8 @@ function recomment(live_id){
 			},
 			success : function(data) {
 				if (data > 0) {
-					var enter  = window.confirm("操作成功");
-					if(enter  == 1){
-						w2.close();
-					}
+					window.confirm("操作成功");
+						w2.reload();
 					
 				} else {
 					window.confirm("操作失败");
@@ -96,3 +94,5 @@ function turnPage() {
 	$("#pageNum").val(pa);
 	$("#listform").submit();
 }
+
+
