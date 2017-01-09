@@ -65,8 +65,11 @@
 				%>
 				<c:forEach items="${live_bean.list }" var="live">
 					<tr>
-						<td><input type="checkbox" name="id[]"
-							value="${live.live_id }" /> <%=i++%></td>
+						<td>
+							<input type="checkbox"  name="id[]"
+							value="${live.live_id }"  
+							<c:if test="${live.is_recoment eq 1 }">checked="checked"</c:if>
+							/> <%=i++%></td>
 						<td>${live.is_recoment }</td>
 						<td>${live.live_id }</td>
 						<td>${live.live_title }</td>

@@ -16,26 +16,22 @@ import com.mysql.jdbc.StringUtils;
 import com.rc_long.Anrequest.AnRequest;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
+import com.rc_long.enumeration.VideoTypeConstants;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
 import com.rc_long.utils.Pager;
 import com.rc_long.utils.ReqUtils;
 
 @Controller
-public class BackStageSelfEditAction {
-
-	/**
-	 * 加载自编辑
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = AnRequest.sys_back_self_edit)
-	public ModelAndView init(HttpServletRequest req) {
-
+public class MovieRecommentAction {
+		
+	@RequestMapping(value = AnRequest.sys_back_movie_recomment)
+	public ModelAndView init(HttpServletRequest req){
 		ReqUtils.Encoding(req);
+		String video_type  = req.getParameter("video_type");
 		VideoService videoService = new VideoServiceImpl<SysVideoBean>(
 				SysVideoBean.class);
-		String conditionJson = "{video_type:'103',is_recommend:'1'}";
+		String conditionJson = "{video_type:'"+video_type+"',is_recommend:'1'}";
 		Map<String, String> map = new HashMap<String, String>();
 		map = ReqUtils.parseSearch(map, req);
 
@@ -43,33 +39,29 @@ public class BackStageSelfEditAction {
 
 		Pager<SysVideoBean> self_edit_bean_list = videoService
 				.getVideoBean(map);
-
-		return new ModelAndView("backStage/selfedit/self_edit_recomment")
-				.addObject("self_edit_bean_list", self_edit_bean_list);
+		
+		return new ModelAndView(VideoTypeConstants.choose(Integer.parseInt(video_type)))
+				.addObject("self_edit_bean_list", self_edit_bean_list).addObject("video_type",video_type);
 	}
-
-	/**
-	 * 加载所有 自编辑视频
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = AnRequest.sys_back_self_edit_search)
+	
+	@RequestMapping(value = AnRequest.sys_back_movie_recomment_search)
 	public ModelAndView searchVideo(HttpServletRequest req) {
 		ReqUtils.Encoding(req);
 		VideoService videoService = new VideoServiceImpl<SysVideoBean>(
 				SysVideoBean.class);
-		String conditionJson = "{video_type:'103'}";
+		String video_type  = req.getParameter("video_type");
+		String conditionJson = "{video_type:'"+video_type+"'}";
 		Map<String, String> map = new HashMap<String, String>();
 		map = ReqUtils.parseSearch(map, req);
 
 		map.put("conditionJson", conditionJson);
 
 		Pager<SysVideoBean> self_edit_bean = videoService.getVideoBean(map);
-		return new ModelAndView("backStage/selfedit/self_edit_recomment_list")
-				.addObject("self_edit_bean", self_edit_bean);
+		return new ModelAndView(VideoTypeConstants.choose(Integer.parseInt(video_type))+"_list")
+				.addObject("self_edit_bean", self_edit_bean).addObject("video_type",video_type);
 	}
-
-	@RequestMapping(value = AnRequest.sys_back_self_edit_update)
+	
+	@RequestMapping(value = AnRequest.sys_back_movie_recomment_update)
 	public void update(HttpServletRequest req, HttpServletResponse rep)
 			throws IOException {
 		ReqUtils.Encoding(req);
@@ -78,10 +70,10 @@ public class BackStageSelfEditAction {
 		if(StringUtils.isNullOrEmpty(data_id)){
 			pw.print(-1);
 		}
+		String video_type  = req.getParameter("video_type");
 		String all = ReqUtils.dealData(data_id);
 		int result = new VideoServiceImpl<SysVideo>(SysVideo.class)
-				.updateAuth(all,"103");
+				.updateAuth(all,video_type);
 		pw.print(result);
 	}
-
 }

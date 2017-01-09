@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@include file="../../../jsp/global.jsp"%>
+<%@include file="../../../../jsp/global.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -108,14 +108,15 @@
 						type="hidden" id="like" name="like" value="" />
 					</td>
 					<pager:Pager pager="${self_edit_bean }"
-						path="${base }/sys/back/self/edit/search"></pager:Pager>
+						path="${base }/sys/back/movie/recomment/search?video_type=${video_type }"></pager:Pager>
 				</tr>
 			</table>
 		</div>
 	</form>
 	<script type="text/javascript">
 		var base="${base}";
+		var video_type = "${video_type}";
 	</script>
-	<script type="text/javascript" src="${base }/www/js/backStage/js/selfedit/self_edit_recomment_list.js"></script>
+	<script type="text/javascript" src="${base }/www/js/backStage/js/movie_recomment/movie_recomment_list.js"></script>
 <body>
 </html>

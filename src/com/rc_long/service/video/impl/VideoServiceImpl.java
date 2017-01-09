@@ -1,5 +1,6 @@
 package com.rc_long.service.video.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -202,6 +203,24 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			sql.append(" where a.video_id= "+video_id);
 		}
 		return DateBase.runSqlJoin(sql.toString(), SysVideoBean.class);
+	}
+	/**
+	 * 更新是否推荐
+	 * @param all
+	 */
+	public int updateAuth(String inCondition,String type) {
+		String sql2 = "update sys_video set is_recommend = 0 where video_type = '"+type+"'";
+		DateBase.updateSql(sql2);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("is_recommend", 1);
+		StringBuilder sql =  new StringBuilder();
+		StringBuilder temp = new StringBuilder();
+		temp.append("(");
+		temp.append(inCondition);
+		temp.append(")");
+		sql.append("update sys_video set is_recommend = 1 where video_id in "+temp);
+		 DateBase.updateSql(sql.toString());
+		 return 2;
 	}
 
 

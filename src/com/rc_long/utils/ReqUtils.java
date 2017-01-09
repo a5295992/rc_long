@@ -59,4 +59,17 @@ public class ReqUtils {
 		}
 		return map;
 	}
+	/**
+	 * 将字符串转为数组
+	 * @param data_id
+	 * @return
+	 */
+	public static String  dealData(String data_id) {
+		if(!StringUtils.isNullOrEmpty(data_id)){
+			data_id = data_id.substring(0, data_id.length()-1);
+			return data_id;
+		}else{
+			return "";
+		}
+	}
 }

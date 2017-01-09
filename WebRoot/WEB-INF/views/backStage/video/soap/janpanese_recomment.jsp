@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../../../jsp/global.jsp"%>
+<%@include file="../../../../jsp/global.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -90,15 +90,16 @@
 	</div>
 	
 	<div id="self_edit_bean_list">
-		<%@include file="self_edit_recomment_list_already.jsp" %>
+		<%@include file="janpanese_recomment_list_already.jsp" %>
 	</div>
 </body>
 <script type="text/javascript">
 	var base = "${base}";
+	var video_type = "${video_type}";
 </script>
 
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/selfedit/self_edit_recomment.js"></script>
+	src="${base }/www/js/backStage/js/movie_recomment/movie_recomment_list.js"></script>
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/live/recoment_live_room_list.js"></script>
+	src="${base }/www/js/backStage/js/movie_recomment/movie_recomment.js"></script>
 </html>

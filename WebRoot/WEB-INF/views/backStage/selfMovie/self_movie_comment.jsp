@@ -66,7 +66,7 @@
 </head>
 <body style="background-color: 9990;margin: 7px">
 	<h3>当前推荐信息:</h3>
-	<div>
+		<div>
 		<ul class="search" style="padding-left:10px;">
 			<li><a class="button border-main icon-plus-square-o" href="#"
 				id="changeLiveRec"> 自动推荐</a></li>
@@ -88,9 +88,8 @@
 			</c:forEach>
 		</ul>
 	</div>
-	
 	<div id="self_edit_bean_list">
-		<%@include file="self_edit_recomment_list_already.jsp" %>
+		<%@include file="self_movie_comment_list_already.jsp" %>
 	</div>
 </body>
 <script type="text/javascript">
@@ -98,7 +97,7 @@
 </script>
 
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/selfedit/self_edit_recomment.js"></script>
+	src="${base }/www/js/backStage/js/selfMovie/self_movie_comment.js"></script>
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/live/recoment_live_room_list.js"></script>
+	src="${base }/www/js/backStage/js/selfMovie/self_movie_comment_list.js"></script>
 </html>

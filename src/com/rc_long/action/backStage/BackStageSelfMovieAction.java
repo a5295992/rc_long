@@ -20,22 +20,15 @@ import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
 import com.rc_long.utils.Pager;
 import com.rc_long.utils.ReqUtils;
-
 @Controller
-public class BackStageSelfEditAction {
-
-	/**
-	 * 加载自编辑
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = AnRequest.sys_back_self_edit)
-	public ModelAndView init(HttpServletRequest req) {
-
+public class BackStageSelfMovieAction {
+	
+	@RequestMapping(value=AnRequest.sys_back_self_movie_comment)
+	public ModelAndView init(HttpServletRequest req){
 		ReqUtils.Encoding(req);
 		VideoService videoService = new VideoServiceImpl<SysVideoBean>(
 				SysVideoBean.class);
-		String conditionJson = "{video_type:'103',is_recommend:'1'}";
+		String conditionJson = "{video_type:'102',is_recommend:'1'}";
 		Map<String, String> map = new HashMap<String, String>();
 		map = ReqUtils.parseSearch(map, req);
 
@@ -44,32 +37,32 @@ public class BackStageSelfEditAction {
 		Pager<SysVideoBean> self_edit_bean_list = videoService
 				.getVideoBean(map);
 
-		return new ModelAndView("backStage/selfedit/self_edit_recomment")
+		return new ModelAndView("backStage/selfMovie/self_movie_comment")
 				.addObject("self_edit_bean_list", self_edit_bean_list);
 	}
-
+	
 	/**
 	 * 加载所有 自编辑视频
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = AnRequest.sys_back_self_edit_search)
+	@RequestMapping(value = AnRequest.sys_back_self_movie_comment_search)
 	public ModelAndView searchVideo(HttpServletRequest req) {
 		ReqUtils.Encoding(req);
 		VideoService videoService = new VideoServiceImpl<SysVideoBean>(
 				SysVideoBean.class);
-		String conditionJson = "{video_type:'103'}";
+		String conditionJson = "{video_type:'102'}";
 		Map<String, String> map = new HashMap<String, String>();
 		map = ReqUtils.parseSearch(map, req);
 
 		map.put("conditionJson", conditionJson);
 
 		Pager<SysVideoBean> self_edit_bean = videoService.getVideoBean(map);
-		return new ModelAndView("backStage/selfedit/self_edit_recomment_list")
+		return new ModelAndView("backStage/selfMovie/self_movie_comment_list")
 				.addObject("self_edit_bean", self_edit_bean);
 	}
 
-	@RequestMapping(value = AnRequest.sys_back_self_edit_update)
+	@RequestMapping(value = AnRequest.sys_back_self_movie_comment_update)
 	public void update(HttpServletRequest req, HttpServletResponse rep)
 			throws IOException {
 		ReqUtils.Encoding(req);
@@ -80,8 +73,7 @@ public class BackStageSelfEditAction {
 		}
 		String all = ReqUtils.dealData(data_id);
 		int result = new VideoServiceImpl<SysVideo>(SysVideo.class)
-				.updateAuth(all,"103");
+				.updateAuth(all,"102");
 		pw.print(result);
 	}
-
 }

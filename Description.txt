@@ -3,4 +3,8 @@
 	
 	跳转分页 函数名 : "turnPage"
 	1.2016.12.20日
+	
 	使用弹窗插件的时候，必须要把diag.show()放在最后，不然的话，会出现很对问题
+	2017-1.9
+	后台管理视频推荐管理 采用了videoTypeConstants 枚举类代替地址
+	公用action MovieRecommentAction 和js

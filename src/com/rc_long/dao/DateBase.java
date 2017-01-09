@@ -113,7 +113,7 @@ public class DateBase {
 						sql.append(",");
 					}
 					if(i==inCondition.length-1){
-						sql.append("");
+						sql.append(")");
 					}
 				}
 			}
@@ -486,5 +486,18 @@ public class DateBase {
 	public static <T> int newQueryCount(Class<T> clazz,String condtion,String queryThing,String order,String like){
 		return DateBase.newQueryList(clazz, condtion, queryThing, order, like).size();
 		
+	}
+
+	public static void updateSql(String sql2) {
+		connecion = C3P0UTils.getConnection(); 
+		
+		try {
+			queryRunner.update(connecion,sql2);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			printSql(sql2);
+			C3P0UTils.closeCon(connecion);
+		}
 	}
 }

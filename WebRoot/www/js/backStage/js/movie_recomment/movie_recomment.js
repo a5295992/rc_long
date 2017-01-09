@@ -25,7 +25,7 @@ var self_control_rec= function (){
 
 	diag.Title = "更改自编辑推荐";
 
-	diag.URL = base+"/sys/back/self/edit/search";
+	diag.URL = base+"/sys/back/movie/recomment/search?video_type="+video_type;
 	
 	diag.OKEvent = function(){
 		var e= window.confirm("确认操作吗?");
@@ -40,16 +40,12 @@ var self_control_rec= function (){
 					index=index+1;
 				}
 			});
-			if(index!=3){
-				window.confirm("请选择三个推荐视频");
-				return ;
-			}
 			$.ajax({
 		        cache: true,
 		        type: "POST",
-		        url:base+"/sys/back/self/edit/update",
+		        url:base+"/sys/back/movie/recomment/update",
 		        //data:$('#exe_form_login').serialize(),// 你的formid
-		        data:{"data_id":data},
+		        data:{"data_id":data,"video_type":video_type},
 		        async: false,
 		        error: function(request) {
 		            alert("Connection error");

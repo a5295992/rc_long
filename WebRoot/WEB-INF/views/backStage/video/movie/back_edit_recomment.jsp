@@ -90,15 +90,16 @@
 	</div>
 	
 	<div id="self_edit_bean_list">
-		<%@include file="self_edit_recomment_list_already.jsp" %>
+		<%@include file="back_edit_recomment_list_already.jsp" %>
 	</div>
 </body>
 <script type="text/javascript">
 	var base = "${base}";
+	var video_type = "${video_type}";
 </script>
 
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/selfedit/self_edit_recomment.js"></script>
+	src="${base }/www/js/backStage/js/movie_recomment/movie_recomment_list.js"></script>
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/live/recoment_live_room_list.js"></script>
+	src="${base }/www/js/backStage/js/movie_recomment/movie_recomment.js"></script>
 </html>

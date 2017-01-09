@@ -88,9 +88,16 @@
 			</c:forEach>
 		</ul>
 	</div>
-	
+	<div>
+		<ul class="search" style="padding-left:10px;">
+			<li><a class="button border-main icon-plus-square-o" href="#"
+				id="changeLiveRec"> 自动推荐</a></li>
+				<li><a class="button border-main icon-plus-square-o" href="#"
+				id="self_control_rec"> 手动推荐</a></li>
+		</ul>
+	</div>
 	<div id="self_edit_bean_list">
-		<%@include file="self_edit_recomment_list_already.jsp" %>
+		<%@include file="self_recomment_list_already.jsp" %>
 	</div>
 </body>
 <script type="text/javascript">
@@ -98,7 +105,7 @@
 </script>
 
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/selfedit/self_edit_recomment.js"></script>
+	src="${base }/www/js/backStage/js/selfRecomment/self_recomment.js"></script>
 <script type="text/javascript"
-	src="${base }/www/js/backStage/js/live/recoment_live_room_list.js"></script>
+	src="${base }/www/js/backStage/js/selfRecomment/self_recomment_list.js"></script>
 </html>

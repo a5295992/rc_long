@@ -71,11 +71,23 @@ public class AnRequest {
 	//后台主页 自编辑界面
 	public static final String sys_back_self_edit ="/sys/back/self/edit";
 	public static final String sys_back_self_edit_search = "/sys/back/self/edit/search";
+	public static final String sys_back_self_edit_update = "/sys/back/self/edit/update";
 	//自影评
 	public static final String sys_back_self_movie_comment ="/sys/back/self/movie/comment";
+	public static final String sys_back_self_movie_comment_search = "/sys/back/self/movie/comment/search";
+	public static final String sys_back_self_movie_comment_update = "/sys/back/self/movie/comment/update";
 	//自推荐
-	public static final String sys_back_self_recoment ="/sys/back/self/movie/comment";
+	public static final String sys_back_self_recoment ="/sys/back/self/recomment";
+	public static final String sys_back_self_recoment_search ="/sys/back/self/recomment/search";
+	public static final String sys_back_self_recoment_update ="/sys/back/self/recomment/update";
 	public static final String sys_back_video_manage = "/sys/back/video/manage";
+	
+	
+	public static final String sys_back_movie_recomment ="/sys/back/movie/recomment";
+	public static final String sys_back_movie_recomment_search ="/sys/back/movie/recomment/search";
+	public static final String sys_back_movie_recomment_update ="/sys/back/movie/recomment/update";
+	
+	
 	
 	
 	

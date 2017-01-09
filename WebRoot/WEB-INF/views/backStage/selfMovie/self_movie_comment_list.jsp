@@ -108,7 +108,7 @@
 						type="hidden" id="like" name="like" value="" />
 					</td>
 					<pager:Pager pager="${self_edit_bean }"
-						path="${base }/sys/back/self/edit/search"></pager:Pager>
+						path="${base }/sys/back/self/movie/comment/search"></pager:Pager>
 				</tr>
 			</table>
 		</div>
@@ -116,6 +116,6 @@
 	<script type="text/javascript">
 		var base="${base}";
 	</script>
-	<script type="text/javascript" src="${base }/www/js/backStage/js/selfedit/self_edit_recomment_list.js"></script>
+	<script type="text/javascript" src="${base }/www/js/backStage/js/selfMovie/self_movie_comment_list.js""></script>
 <body>
 </html>
