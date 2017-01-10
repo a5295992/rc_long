@@ -56,6 +56,8 @@ public class AnRequest {
 	//后台视频管理
 	public static final String sys_back_video="/sys/back/video";
 	public static final String sys_back_video_search="/sys/back/video/search";
+	public static final String sys_back_video_manage = "/sys/back/video/manage";
+	public static final String sys_back_video_manage_update = "/sys/back/video/manage/update";
 	
 	//后台主页管理前台显示
 	public static final String sys_back_index_manage="/sys/back/index/manage";
@@ -80,14 +82,17 @@ public class AnRequest {
 	public static final String sys_back_self_recoment ="/sys/back/self/recomment";
 	public static final String sys_back_self_recoment_search ="/sys/back/self/recomment/search";
 	public static final String sys_back_self_recoment_update ="/sys/back/self/recomment/update";
-	public static final String sys_back_video_manage = "/sys/back/video/manage";
-	
 	
 	public static final String sys_back_movie_recomment ="/sys/back/movie/recomment";
 	public static final String sys_back_movie_recomment_search ="/sys/back/movie/recomment/search";
 	public static final String sys_back_movie_recomment_update ="/sys/back/movie/recomment/update";
 	
+	//2017.1.10日
+	//栏目管理
+	public static final String sys_back_programa_manage = "/sys/back/programa/manage";
 	
+	public static final String sys_back_programa_manage_search = "/sys/back/programa/manage/search";
+	public static final String sys_back_programa_manage_delete = "	/sys/back/programa/manage/delete";
 	
 	
 	

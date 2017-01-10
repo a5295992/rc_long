@@ -61,7 +61,7 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			}else{
 				sql.append("a.video_id,a.video_cname,a.video_auth,");
 				sql.append("a.create_time,a.user_id,b.user_name,");
-				sql.append("a.video_img,a.video_desc,a.video_path,a.is_recommend");
+				sql.append("a.video_img,a.video_desc,a.video_path,a.is_recommend,a.video_type");
 				sql.append(" from sys_video a ");
 				sql.append("left join sys_user b");
 			}
@@ -157,10 +157,22 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 		return DateBase.querySingle(SysVideo.class, queryThing, condition);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public int updateSingle(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		Class<SysVideo> clazz = SysVideo.class;
+		String condition = (String) map.get("condition");
+		
+		String [] inCondition =(String[]) map.get("inCondition");
+		
+		Map<String,Object> conditions= null;
+		if(!StringUtils.isNullOrEmpty(condition)){
+			conditions= (Map<String, Object>)JSONObject.fromObject(condition);
+		}
+		map.remove("condition");
+		map.remove("inCondition");
+		
+		return DateBase.update(clazz, map, conditions,inCondition);
 	}
 
 	@Override
@@ -195,7 +207,7 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 		sql.append("select ");
 		sql.append("a.video_id,a.video_cname,a.video_auth,");
 		sql.append("a.create_time,a.user_id,b.user_name,");
-		sql.append("a.video_img,a.video_desc");
+		sql.append("a.video_img,a.video_desc,a.video_type");
 		sql.append(" from sys_video a ");
 		sql.append("left join sys_user b");
 		sql.append(" on a.user_id = b.user_id");

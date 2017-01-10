@@ -73,7 +73,6 @@ public class BackStage {
 		String user_type = req.getParameter("user_type");
 
 		String user_flag = req.getParameter("user_flag");
-		System.out.println("获取的 user_ttype为" + user_type);
 		if (!user_type.trim().isEmpty()) {
 			map.put("user_type", user_type);
 		} else {

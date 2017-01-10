@@ -8,3 +8,10 @@
 	2017-1.9
 	后台管理视频推荐管理 采用了videoTypeConstants 枚举类代替地址
 	公用action MovieRecommentAction 和js
+	
+	2017-1.10 日在利用反射写通用uodate 方法时候 因为没有使用暴力访问导致访问不到字段
+	
+	
+	新增 地址管理类LocationConstant 管理转发地址
+	
+	placeholder 用于提示内容

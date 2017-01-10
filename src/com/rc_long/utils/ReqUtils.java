@@ -2,6 +2,7 @@ package com.rc_long.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.helpers.LogLog;
 
 import com.mysql.jdbc.StringUtils;
-import com.rc_long.Entity.LiveRoom;
+import com.rc_long.Entity.SysVideo;
 
 public class ReqUtils {
 
@@ -42,10 +43,9 @@ public class ReqUtils {
 	}
 
 	public static <T> Map<String, Object> parseUpdate(Map<String, Object> map,
-			HttpServletRequest req, Class<LiveRoom> class1) {
+			HttpServletRequest req, Class<T> class1) {
 
-		Field[] f = class1.getFields();// 获取实体类参数
-		
+		Field[] f = class1.getDeclaredFields();// 获取实体类参数
 		if (f != null && f.length > 0) {
 			for (Field field : f) {
 				//获取实体类名

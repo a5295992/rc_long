@@ -49,7 +49,7 @@
 					class="icon-caret-right"></span>首页轮播</a></li>
 			<li><a href="${base }/www/html/book.html" target="right"><span
 					class="icon-caret-right"></span>留言管理</a></li>
-			<li><a href="${base }/www/html/column.html" target="right"><span
+			<li><a href="${base }/sys/back/programa/manage" target="right"><span
 					class="icon-caret-right"></span>栏目管理</a></li>
 			<li><a href="${base }/sys/back/video" target="right"><span
 					class="icon-caret-right"></span>视频管理</a></li>
@@ -91,6 +91,7 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a
 			href="##">英文</a></li>
 	</ul>
+	
 	<div class="admin">
 		 <iframe scrolling="auto" rameborder="0" src=""
 			name="right" width="100%" height="100%"></iframe> 

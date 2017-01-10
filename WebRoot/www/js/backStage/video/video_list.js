@@ -1,17 +1,17 @@
 //查询js
-var  listform=$("#listform");
+var listform = $("#listform");
 
-//设置表单属性
-  function setForm(pageNum){
-	listform.attr("method","post");
-	listform.attr("action",base+"/sys/back/video/search?pageNum="+pageNum);
+// 设置表单属性
+function setForm(pageNum) {
+	listform.attr("method", "post");
+	listform.attr("action", base + "/sys/back/video/search?pageNum=" + pageNum);
 };
-//提交表单
- function submit (){
+// 提交表单
+function submit() {
 	listform.submit();
 };
-function turnPage(){
-	var inputPageNum=$("input[name='inputPageNum']").val();
+function turnPage() {
+	var inputPageNum = $("input[name='inputPageNum']").val();
 	setForm(inputPageNum);
 	submit();
 }
@@ -49,23 +49,43 @@ function DelSelect() {
 	}
 }
 
-//管理视频
-function manage(video_id){
+// 管理视频
+function manage(video_id) {
 	var diag = new Dialog();
 
-	diag.Title = "返回值到调用页面";
+	diag.Title = "更改视频信息";
 
-	diag.URL = "test.html";
+	diag.URL = base + "/sys/back/video/manage?video_id="+video_id;
+	diag.OKEvent = function() {
+		var exe_form_login = diag.innerFrame.contentWindow.$("#exe_form_login");
 
-	diag.OKEvent = function(){$id('getval').value = diag.innerFrame.contentWindow.document.getElementById('a').value;diag.close();};
+		$.ajax({
+			cache : true,
+			type : "POST",
+			url : base + "/sys/back/video/manage/update",
+			data : exe_form_login.serialize(),// 你的formid
+			async : false,
+			error : function(request) {
+				alert("Connection error");
+			},
+			success : function(data) {
+				if (data > 0) {
+					var enter = window.confirm("操作成功");
+					if (enter == 1) {
+						diag.close();
+						window.location.reload();
+					}else{
+						window.location.reload();
+					}
+				} else {
+					window.confirm("操作失败");
+				}
+			}
+		});
+	};
+	diag.Width = 400;
+	diag.Height = 450;
 
 	diag.show();
 
-	var doc=diag.innerFrame.contentWindow.document;
-
-	doc.open();
-
-	doc.write('<html><body><input id="a" type="text"/>请在文本框里输入一些值</body></html>') ;
-
-	doc.close();
 }

@@ -53,14 +53,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int updateInfor(Map<String, Object> map,
 			Map<String, Object> condition) {
-		
-		return DateBase.update(SysUser.class, map, condition,null);
+
+		return DateBase.update(SysUser.class, map, condition, null);
 	}
 
 	@Override
 	public int delete(Map<String, Object> condition) {
 
-		return DateBase.delete(SysUser.class, condition,null);
+		return DateBase.delete(SysUser.class, condition, null);
 	}
 
 	@Override
@@ -72,13 +72,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int updateUserInfor(Map<String, Object> map,
 			Map<String, Object> condition) {
-		return DateBase.update(SysUserInfor.class, map, condition,null);
+		return DateBase.update(SysUserInfor.class, map, condition, null);
 	}
 
 	@Override
 	public int deleteUserInfor(Map<String, Object> map) {
 
-		return DateBase.delete(SysUserInfor.class, map,null);
+		return DateBase.delete(SysUserInfor.class, map, null);
 	}
 
 	@Override

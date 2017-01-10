@@ -1,17 +1,24 @@
 package com.rc_long.action.backStage;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rc_long.Anrequest.AnRequest;
+import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
+import com.rc_long.Entity.VideoType;
+import com.rc_long.service.Impl.VideoTypeServiceImpl;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
 import com.rc_long.utils.Pager;
@@ -62,9 +69,34 @@ public class BackStageVideo {
 	 * @return
 	 */
 	@RequestMapping(value=AnRequest.sys_back_video_manage)
-	public ModelAndView manage(){
+	public ModelAndView manage(HttpServletRequest req ){
+		ReqUtils.Encoding(req);
+		String video_id  = req.getParameter("video_id");
 		Map<String, String> map = new HashMap<String,String>();
-		List<SysVideoBean> videoBean = new VideoServiceImpl<SysVideoBean>(SysVideoBean.class).getSysVideoBean(map);
-		return new ModelAndView("backStage/video/video_manage");
+		map.put("video_id", video_id);
+		SysVideoBean videoBean = new VideoServiceImpl<SysVideoBean>(SysVideoBean.class).getSysVideoBean(map).get(0);
+		
+		List<VideoType> video_type_bean =  new  VideoTypeServiceImpl().getVideoTypeBean();
+		return new ModelAndView("backStage/video/video_manage").addObject("videoBean", videoBean).addObject("video_type_bean", video_type_bean);
 	}
+	/**
+	 * 视频 权限更新
+	 * @param req
+	 * @return
+	 * @throws IOException 
+	 */
+	@RequestMapping(value=AnRequest.sys_back_video_manage_update)
+	public void manageUpdate(HttpServletRequest req,HttpServletResponse rep ) throws IOException{
+		ReqUtils.Encoding(req);
+		PrintWriter pw  = rep.getWriter();
+		String video_id  = req.getParameter("video_id");
+		Map<String, Object> map = new HashMap<String,Object>();
+		map = ReqUtils.parseUpdate(map, req, SysVideo.class);
+		map.remove("video_id");
+		map.put("condition", "{video_id:'"+video_id+"'}");
+		int result = new VideoServiceImpl<SysVideo>(SysVideo.class).updateSingle(map);	
+		pw.print(result);
+		pw.close();
+	}
+	
 }

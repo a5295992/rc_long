@@ -1,3 +1,4 @@
+<%@page import="com.rc_long.enumeration.VideoTypeConstants"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@include file="../../jsp/global.jsp"%>
 
@@ -56,7 +57,7 @@
 					<th>投稿人</th>
 					<th>视频别名</th>
 					<th>缩略图</th>
-					<th width="25%">描述信息</th>
+					<th width="25%">分组</th>
 					<th width="120">创建时间</th>
 					<th>操作</th>
 				</tr>
@@ -70,12 +71,16 @@
 						<td>${video.video_auth }</td>
 						<td>${video.user_name }</td>
 						<td>${video.video_cname }</td>
-						<td>${video.video_img }</td>
-						<td>${video.video_desc }</td>
+						<td>
+						<img style="width: 50px;height: 35px"
+						src="${base }/www/resources/images/${video.video_img}" alt="缩略图" />
+						</td>
+						<c:set var="video_type" value="${video.video_type }" scope="request"></c:set>
+						<td><%=VideoTypeConstants.chooseName(Integer.parseInt((String)request.getAttribute("video_type")))%></td>
 						<td>${video.create_time }</td>
 						<td><div class="button-group">
 								<a class="button border-main"
-									href="##">
+									href="##" onclick="manage(${video.video_id})">
 									<span class="icon-edit"></span> 管理
 								</a> <a class="button border-red" href="javascript:void(0)"
 									onclick="return del(1)"><span class="icon-trash-o"></span>
