@@ -2,10 +2,9 @@ package com.rc_long.Entity;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
+import com.rc_long.anotation.RcLongTable;
 
 //当前用户信息类
-@Entity
 public class ShiroUser {
 	private String user_name;
 	

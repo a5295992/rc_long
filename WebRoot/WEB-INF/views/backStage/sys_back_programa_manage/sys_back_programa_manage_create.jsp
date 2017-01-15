@@ -5,7 +5,7 @@
 			<strong><span class="icon-pencil-square-o"></span>添加内容</strong>
 		</div>
 		<div class="body-content">
-			<form method="post" class="form-x" action="">
+			<form class="form-x" id="create_form">
 				<div class="form-group">
 					<div class="label">
 						<label>上级栏目：</label>
@@ -39,7 +39,9 @@
 							style="height:150px;" placeholder="请添加描述，最多不超过100字"></textarea>
 					</div>
 				</div>
+				</form>
 				
+				<form action="" id="exe_ajax_image_upload_form" class="form-x" >
 				<div class="form-group">
 					<div class="label">
 						<label>上传封面：</label>
@@ -57,16 +59,16 @@
 							value="+ 浏览上传"></input>
 					</div>
 				</div>
-								
+							
 				<div class="form-group">
 					<div class="label">
 						<label></label>
 					</div>
 					<div class="field">
-						<button class="button bg-main icon-check-square-o" type="submit">
+						<button class="button bg-main icon-check-square-o" type="submit" id="create_form_sumbit">
 							提交</button>
 					</div>
 				</div>
-			</form>
+			</form>	
 		</div>
 	</div>	

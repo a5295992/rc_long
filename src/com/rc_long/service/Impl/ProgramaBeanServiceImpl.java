@@ -9,6 +9,7 @@ import com.mysql.jdbc.StringUtils;
 import com.rc_long.Entity.ProgramaBean;
 import com.rc_long.action.backStage.ProgramaBeanService;
 import com.rc_long.dao.DateBase;
+import com.rc_long.dao.DateBaseNew;
 import com.rc_long.utils.Pager;
 
 public class ProgramaBeanServiceImpl implements ProgramaBeanService {
@@ -112,7 +113,16 @@ public class ProgramaBeanServiceImpl implements ProgramaBeanService {
 
 	@Override
 	public int deleteSingle(Map<String, Object> map) {
-		return 0;
+		
+		String programa_id = (String) map.get("programa_id");
+		String inCondition = (String) map.get("inCondition");
+		String condition = null; 
+		
+		if(!StringUtils.isNullOrEmpty(programa_id)){
+			condition="programa_id = "+programa_id;
+		}
+		
+		return DateBaseNew.delete(ProgramaBean.class, condition, inCondition);
 	}
 
 	@Override

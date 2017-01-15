@@ -4,15 +4,17 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.websocket.Session;
 
+import com.rc_long.anotation.RcLongTable;
+import com.rc_long.Anrequest.TableName;
 /**
  * 
  * @author 周湘龙
  *
  */
 @Entity
-@Table(name="sys_user")
+@RcLongTable(name=TableName.SysUser)
 public class SysUser extends EntitiBaseBean<SysUser>{
 	/**
 	 * 
@@ -20,6 +22,7 @@ public class SysUser extends EntitiBaseBean<SysUser>{
 	private static final long serialVersionUID = 1L;
 
 	//id
+	private Session session;
 	
 	private String user_id;//uuid
 	private String user_name;//用户姓名
@@ -148,6 +151,14 @@ public class SysUser extends EntitiBaseBean<SysUser>{
 
 	public void setUser_regist_time(Date user_regist_time) {
 		this.user_regist_time = user_regist_time;
+	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
 	}
 	
 	

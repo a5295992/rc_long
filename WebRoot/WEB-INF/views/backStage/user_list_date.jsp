@@ -20,7 +20,7 @@
 <c:forEach items="${user_bean.list }" var="user">
 	<tr>
 		<td style="text-align:left; padding-left:20px;"><input
-			type="checkbox" name="id[]" value="${user.user_ssid }" />
+			type="checkbox" name="id[]" value="${user.user_id }" />
 			${user.user_ssid }</td>
 
 		<td><input type="text" name="sort[1]" value="<%=i++%>"

@@ -1,12 +1,14 @@
 package com.rc_long.Entity;
 
-import java.util.Date;
+import com.rc_long.Anrequest.TableName;
+import com.rc_long.anotation.RcLongTable;
 
 
 /**
  * @author Long
  *
  */
+@RcLongTable(name=TableName.LiveRoom)
 public class LiveRoom extends EntitiBaseBean<LiveRoom> {
 	/**
 	 * 

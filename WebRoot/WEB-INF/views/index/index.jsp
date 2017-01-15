@@ -274,6 +274,7 @@
 </body>
 <script type="text/javascript">
 	var base = "${base}";
+	var user_id = "${ShiroUser.user_id }";
 </script>
 <script type="text/javascript" src="${base }/www/js/index/index.js"></script>
 

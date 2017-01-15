@@ -50,4 +50,10 @@ function del(programa_id) {
 	}
 }
 
+ var  create_form_sumbit = function(){
+	 
+ };
+ 
+ 
+$("#create_form_sumbit").click(create_form_sumbit);
 

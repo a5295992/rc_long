@@ -22,7 +22,7 @@ import com.rc_long.utils.Pager;
 public class DateBase {
 	private static QueryRunner queryRunner = new QueryRunner();
 	private static Connection connecion;
-
+	
 	public static <T> int insert(Class<T> clazz, Map<String, Object> map) {
 		int i = -1;
 		connecion = C3P0UTils.getConnection();
@@ -499,5 +499,21 @@ public class DateBase {
 			printSql(sql2);
 			C3P0UTils.closeCon(connecion);
 		}
+	}
+
+	public static <T> List<T> getBeanListRunsql(Class<T> class1,
+			String sql, Object[] params) {
+		
+		connecion = C3P0UTils.getConnection();
+		try {
+			return queryRunner.query(connecion, sql, new BeanListHandler<T>(
+					class1),params);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			printSql(sql);
+			C3P0UTils.closeCon(connecion);
+		}
+		return null;
 	}
 }

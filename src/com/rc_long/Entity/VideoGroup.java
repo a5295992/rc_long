@@ -1,13 +1,14 @@
 package com.rc_long.Entity;
 
-import javax.persistence.Entity;
+import com.rc_long.Anrequest.TableName;
+import com.rc_long.anotation.RcLongTable;
 
 /**
  * 视频分组表
  * @author Administrator
  *
  */
-@Entity
+@RcLongTable(name=TableName.VideoGroup)
 public class VideoGroup  extends EntitiBaseBean<VideoGroup>{
 
 	/**

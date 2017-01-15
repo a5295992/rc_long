@@ -1,6 +1,17 @@
 package com.rc_long.Anrequest;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class AnRequest {
+	
+	//2017.1.11日
+	//网站资源管理-
+		//网站静态资源管理
+	public static final String sys_web_static_resource_manage= "/sys/web/static/resource/manage";
+	public static final String sys_web_static_resource_manage_public= "/sys/web/static/resource/manage/public";
+	
 	//2016.12-8 20.07 
 	public static final String sys_init="/rc";
 	//2016-12-5 22.06
@@ -93,7 +104,18 @@ public class AnRequest {
 	
 	public static final String sys_back_programa_manage_search = "/sys/back/programa/manage/search";
 	public static final String sys_back_programa_manage_delete = "	/sys/back/programa/manage/delete";
+	public static final String sys_back_programa_manage_create = "/sys/back/programa/manage/create";
 	
-	
+	public static void main(String[] args) {
+		
+		File file= new File("RESOURCES");
+		FileInputStream ins =  null;
+		try {
+			ins = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println(ins);
+	}
 	
 }

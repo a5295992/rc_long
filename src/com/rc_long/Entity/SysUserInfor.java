@@ -1,8 +1,9 @@
 package com.rc_long.Entity;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
+import com.rc_long.Anrequest.TableName;
+import com.rc_long.anotation.RcLongTable;
 
 
 /**
@@ -10,8 +11,7 @@ import javax.persistence.Table;
  * @author longge
  *
  */
-@Entity
-@Table(name="sys_user_infor")
+@RcLongTable(name=TableName.SysUserInfor)
 public class SysUserInfor extends EntitiBaseBean<SysUserInfor>{
 	
 	/**

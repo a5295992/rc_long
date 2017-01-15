@@ -59,13 +59,13 @@
 					class="icon-caret-right"></span>用户管理</a></li>
 		</ul>
 		<h2>
-			<span class="icon-pencil-square-o"></span>栏目管理
+			<span class="icon-pencil-square-o"></span>资源管理
 		</h2>
 		<ul>
-			<li><a href="${base }/www/html/list.html" target="right"><span
-					class="icon-caret-right"></span>内容管理</a></li>
+			<li><a href="${base }/sys/web/static/resource/manage" target="right"><span
+					class="icon-caret-right"></span>网站静态资源管理</a></li>
 			<li><a href="${base }/www/html/add.html" target="right"><span
-					class="icon-caret-right"></span>添加内容</a></li>
+					class="icon-caret-right"></span>资源路径</a></li>
 			<li><a href="${base }/sys/back/menu" target="right"><span
 					class="icon-caret-right"></span>分类管理</a></li>
 		</ul>

@@ -23,7 +23,7 @@
 			<div class="padding border-bottom">
 				<ul class="search" style="padding-left:10px;">
 					<li><a class="button border-main icon-plus-square-o"
-						href="add.html"> 向用户推送消息</a></li>
+						href="javascript:void(0)" id="sendMessageToUsers"> 向用户推送消息</a></li>
 					<li>搜索：</li>
 					<li>首页 <select name="s_ishome" class="input"
 						onchange="changesearch()"

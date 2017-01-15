@@ -1,5 +1,8 @@
 package com.rc_long.Entity;
+import com.rc_long.Anrequest.TableName;
+import com.rc_long.anotation.RcLongTable;
 
+@RcLongTable(name=TableName.SysRecommentSearch)
 public class SysRecommentSearch extends EntitiBaseBean<SysRecommentSearch>{
 
 	/**

@@ -2,16 +2,15 @@ package com.rc_long.Entity;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.rc_long.Anrequest.TableName;
+import com.rc_long.anotation.RcLongTable;
 
 /**
  * 视频实体类
  * @author Administrator
  *
  */
-@Entity
-@Table(name="sys_video")
+@RcLongTable(name=TableName.SysVideo)
 public class SysVideo extends EntitiBaseBean<SysVideo> {
 	/**
 	 * 

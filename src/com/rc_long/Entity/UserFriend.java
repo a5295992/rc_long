@@ -1,8 +1,9 @@
 package com.rc_long.Entity;
 
-import javax.persistence.Entity;
+import com.rc_long.Anrequest.TableName;
+import com.rc_long.anotation.RcLongTable;
 
-@Entity
+@RcLongTable(name=TableName.UserFriend)
 public class UserFriend extends EntitiBaseBean<UserFriend>{
 
 	/**

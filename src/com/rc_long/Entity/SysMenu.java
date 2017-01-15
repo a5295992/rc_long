@@ -1,12 +1,12 @@
 package com.rc_long.Entity;
 
-import javax.persistence.Entity;
-
+import com.rc_long.anotation.RcLongTable;
+import com.rc_long.Anrequest.TableName;
 /**
  * 菜单实体类
  * @author long
  */
-@Entity
+@RcLongTable(name=TableName.SysMenu)
 public class SysMenu extends EntitiBaseBean<SysMenu>{
 	/**
 	 * 

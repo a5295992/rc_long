@@ -1,13 +1,13 @@
 package com.rc_long.Entity;
 
-import javax.persistence.Entity;
-
+import com.rc_long.anotation.RcLongTable;
+import com.rc_long.Anrequest.TableName;
 /**
  * 栏目实体类
  * @author longge
  *
  */
-@Entity
+@RcLongTable(name=TableName.ProgramaBean)
 public class ProgramaBean extends EntitiBaseBean<ProgramaBean> {
 
 	/**

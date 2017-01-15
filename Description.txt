@@ -15,3 +15,8 @@
 	新增 地址管理类LocationConstant 管理转发地址
 	
 	placeholder 用于提示内容
+	
+	新增资源文件夹 在网站上新增管理员管理静态资源功能
+	
+	2017. 1. 16
+	在使用websorcket 通信的时候，必需要在open方法完毕的时候才能调用 send message方法 不然的话  会报错

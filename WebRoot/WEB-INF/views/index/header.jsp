@@ -96,7 +96,7 @@
 					<div class="img">
 						<img src="${base }/www/resources/images/003.PNG" alt="" />
 					</div>
-					<div class="login_thirdDiv">消息</div>
+					<div class="login_thirdDiv" id="message_div">消息</div>
 			</a></li>
 			<li><a href="#">
 					<div class="img">
