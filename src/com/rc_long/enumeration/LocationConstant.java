@@ -12,8 +12,13 @@ public class LocationConstant {
 	
 	//网站资源 管理
 	public static String sys_web_static_resource_manage = "backStage/sys_web_static_resource_manage/sys_web_static_resource_manage";
-	public static String sys_web_static_resource_manage_public = "backStage/sys_web_static_resource_manage/sys_web_static_resource_manage_public";
+	public static String sys_web_static_resource_manage_public= "backStage/sys_web_static_resource_manage/sys_web_static_resource_manage_public";
+	public static String sys_web_static_resource_manage_database = "backStage/sys_web_static_resource_manage/sys_web_static_resource_manage_database";
 	
+	
+	//文件上传 地址管理
+	
+	public static String sys_file_swf_upload = "upload/file_upload";
 	
 	
 }

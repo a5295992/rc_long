@@ -6,7 +6,7 @@ import javax.websocket.Session;
 
 import com.rc_long.utils.FileManage;
 
-public class MyTask extends Thread{
+public class MyTask implements MyTaskInterface<MyTask>{
 	
 	private File file;
 	
@@ -24,7 +24,6 @@ public class MyTask extends Thread{
 	@Override
 	public void run() {
 		taskStart();
-		super.run();
 	}
 
 	private void taskStart() {

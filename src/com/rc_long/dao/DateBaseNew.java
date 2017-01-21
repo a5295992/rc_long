@@ -18,14 +18,15 @@ public class DateBaseNew {
 	private static Connection connecion;
 	
 	public static <T> int delete(Class<T> clazz,String condition,String inCondition){
-		connecion = C3P0UTils.getConnection();
+		connecion = C3P0UTils.getConnection(); 
 		StringBuilder sql = new StringBuilder();
 		SqlCreate.generateDeleteSQL(clazz,sql,condition,inCondition);
 		try {
-			return queryRunner.update(sql.toString(),connecion);
+			return queryRunner.update(connecion,sql.toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
+			printSql(sql.toString());
 			C3P0UTils.closeCon(connecion);
 		}
 		return -1;
@@ -43,4 +44,14 @@ public class DateBaseNew {
 		return -1;
 		
 	}
+	
+	/**
+	 * 打印操作的sql语句 方便 改错开发
+	 * 
+	 * @param sql
+	 */
+	public static void printSql(String sql) {
+		System.out.println("Rc_long:" + sql);
+	}
+
 }

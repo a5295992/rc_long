@@ -1,8 +1,5 @@
 package com.rc_long.Anrequest;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class AnRequest {
 	
@@ -11,6 +8,9 @@ public class AnRequest {
 		//网站静态资源管理
 	public static final String sys_web_static_resource_manage= "/sys/web/static/resource/manage";
 	public static final String sys_web_static_resource_manage_public= "/sys/web/static/resource/manage/public";
+	public static final String sys_web_static_resource_manage_database= "/sys/web/static/resource/manage/database";
+	public static final String sys_web_static_resource_manage_database_search = "/sys/web/static/resource/manage/database/search";
+	public static final String sys_web_static_resource_manage_database_delete = "/sys/web/static/resource/manage/database/delete";
 	
 	//2016.12-8 20.07 
 	public static final String sys_init="/rc";
@@ -25,6 +25,7 @@ public class AnRequest {
 	public static final String sys_video_delete="/sys/video/delete";
 	public static final String sys_video_search="/sys/video/search";
 	public static final String sys_video_play = "/sys/video/play";
+	public static final String sys_video_play_rtmb="/sys/video/play/rtmb";
 
 	//2016-12-4 17.17
 	//user Action 地址管理
@@ -106,16 +107,10 @@ public class AnRequest {
 	public static final String sys_back_programa_manage_delete = "	/sys/back/programa/manage/delete";
 	public static final String sys_back_programa_manage_create = "/sys/back/programa/manage/create";
 	
-	public static void main(String[] args) {
-		
-		File file= new File("RESOURCES");
-		FileInputStream ins =  null;
-		try {
-			ins = new FileInputStream(file);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		System.out.println(ins);
-	}
+	//文件上传请求地址
+	public static final String sys_file_swf_upload = "/sys/file/swf/upload";
+	public static final String sys_file_swf_upload_start = "/sys/file/swf/upload/start";
+	
+	
 	
 }

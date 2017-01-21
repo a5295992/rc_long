@@ -1,5 +1,7 @@
 package com.rc_long.utils;
 
+import com.rc_long.annotationPaser.RcLongTablePaser;
+import com.rc_long.anotation.RcLongTable;
 import com.rc_long.anotation.TableList;
 
 /**
@@ -36,10 +38,11 @@ public class AnnotationParser {
 					}
 				}
 			}
-		} else {
-			throw new RuntimeException("该类没有使用@TableList注解");
+		} else if(clazz.isAnnotationPresent(RcLongTable.class)){
+			return RcLongTablePaser.getTableName(clazz);
+		}else{
+			throw new RuntimeException("该类没有使用任何有效的表名注解");
 		}
 		return sql.toString();
 	}
-
 }

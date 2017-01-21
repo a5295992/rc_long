@@ -1,6 +1,7 @@
 package com.rc_long.Entity;
 
 import java.sql.Date;
+
 import com.rc_long.anotation.TableList;
 @TableList(names={"sys_video a1","sys_user a2"},connectCondition={"a1.user_id=a2.user_id"})
 public class SysVideoBean {
@@ -53,6 +54,27 @@ public class SysVideoBean {
 	private Date user_last_time; //最后登录时间
 	private Date user_regist_time;//ע注册时间
 	
+	private String video_type_id;
+	
+	private String video_type_name;
+	
+	
+	public String getVideo_type_id() {
+		return video_type_id;
+	}
+
+	public void setVideo_type_id(String video_type_id) {
+		this.video_type_id = video_type_id;
+	}
+
+	public String getVideo_type_name() {
+		return video_type_name;
+	}
+
+	public void setVideo_type_name(String video_type_name) {
+		this.video_type_name = video_type_name;
+	}
+
 	public String getUser_name() {
 		return user_name;
 	}

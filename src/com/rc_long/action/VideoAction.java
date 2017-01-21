@@ -1,11 +1,20 @@
 package com.rc_long.action;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.helpers.LogLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -108,5 +117,14 @@ public class VideoAction {
 				videoBean);
 
 	}
-
+	@RequestMapping(value=AnRequest.sys_video_play_rtmb)
+	public void video_play_rtmb(HttpServletRequest req,HttpServletResponse rep) throws IOException{
+		InputStream file = new FileInputStream("E:/git_gui/rc_long/WebRoot/www/resources/data_data/57b1368741321.mp4");
+		OutputStream out= rep.getOutputStream();
+		IOUtils.copy(file, out);
+	}
+	public static void main(String[] args) throws FileNotFoundException {
+		InputStream file = new FileInputStream("E:/git_gui/rc_long/WebRoot/www/resources/data_data/57b1368741321.mp4");
+		System.out.println(file);
+	}
 }

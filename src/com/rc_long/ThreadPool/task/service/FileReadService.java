@@ -6,6 +6,8 @@ public interface FileReadService {
 
 
 	void readFile(String a, Session session);
+
+	void delete(String[] split);
 	
 	
 }

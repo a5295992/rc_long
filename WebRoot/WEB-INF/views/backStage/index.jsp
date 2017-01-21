@@ -64,8 +64,8 @@
 		<ul>
 			<li><a href="${base }/sys/web/static/resource/manage" target="right"><span
 					class="icon-caret-right"></span>网站静态资源管理</a></li>
-			<li><a href="${base }/www/html/add.html" target="right"><span
-					class="icon-caret-right"></span>资源路径</a></li>
+			<li><a href="${base }/sys/web/static/resource/manage/database" target="right"><span
+					class="icon-caret-right"></span>静态资源数据管理</a></li>
 			<li><a href="${base }/sys/back/menu" target="right"><span
 					class="icon-caret-right"></span>分类管理</a></li>
 		</ul>

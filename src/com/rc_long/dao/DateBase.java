@@ -484,8 +484,12 @@ public class DateBase {
 	 * @return
 	 */
 	public static <T> int newQueryCount(Class<T> clazz,String condtion,String queryThing,String order,String like){
-		return DateBase.newQueryList(clazz, condtion, queryThing, order, like).size();
-		
+		try {
+			return DateBase.newQueryList(clazz, condtion, queryThing, order, like).size();
+		} catch (Exception e) {
+			LogLog.error("no query result!");
+		}
+		return 0;
 	}
 
 	public static void updateSql(String sql2) {

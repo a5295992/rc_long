@@ -85,12 +85,12 @@
 					</c:otherwise>
 
 				</c:choose></li>
-			<li><a href="#">
+			<li><a href="${base }/sys/file/swf/upload">
 					<div class="img">
 						<img src="${base }/www/resources/images/002.PNG" alt="" />
 					</div>
 
-					<div class="login_thirdDiv">上传</div>
+					<div class="login_thirdDiv" >上传</div>
 			</a></li>
 			<li><a href="#">
 					<div class="img">

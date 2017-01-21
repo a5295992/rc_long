@@ -98,6 +98,17 @@
 					class="icon-caret-right"></span>分类管理</a></li>
 		</ul>
 	</div>
+	<h2 style="cursor:pointer" id="h2_007">
+		<span class="icon-pencil-square-o"></span>猜你喜欢模块
+	</h2>
+	<div style="display: none" id="div_007">
+		<ul>
+			<li><a href="${base }/www/html/list.html" target="right2"><span
+					class="icon-caret-right"></span>自动推荐设置</a></li>
+			<li><a href="${base }/www/html/add.html" target="right2"><span
+					class="icon-caret-right"></span>官方内容</a></li>
+		</ul>
+	</div>
 	<div class="admin" style="top:0px;padding: 0px">
 		<iframe scrolling="auto" rameborder="0" src=""
 			name="right2" width="100%" height="100%"></iframe>

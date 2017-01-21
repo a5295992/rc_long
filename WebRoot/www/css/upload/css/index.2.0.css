@@ -1,0 +1,582 @@
+BODY {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+OL {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+DL {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+DT {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+DD {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+P {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+H1 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+H2 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+H3 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+H4 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+H5 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+H6 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+FORM {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+FIELDSET {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+TABLE {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+TD {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+UL {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+OL {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+LI {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+P {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+FORM {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+FIELDSET {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+TABLE {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+TD {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FONT-WEIGHT: normal
+}
+BODY {
+	MARGIN-TOP: 0px
+}
+TD {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; COLOR: #000; FONT-SIZE: 12px
+}
+P {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; COLOR: #000; FONT-SIZE: 12px
+}
+LI {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; COLOR: #000; FONT-SIZE: 12px
+}
+SELECT {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; COLOR: #000; FONT-SIZE: 12px
+}
+INPUT {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; COLOR: #000; FONT-SIZE: 12px
+}
+TEXTAREA {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; COLOR: #000; FONT-SIZE: 12px
+}
+DIV {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; COLOR: #000; FONT-SIZE: 12px
+}
+UL {
+	LIST-STYLE-TYPE: none; COLOR: #000000
+}
+OL {
+	LIST-STYLE-TYPE: none; COLOR: #000000
+}
+SELECT {
+	VERTICAL-ALIGN: middle
+}
+INPUT {
+	VERTICAL-ALIGN: middle
+}
+A {
+	TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #272727; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #272727; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #c00; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #c00; TEXT-DECORATION: underline
+}
+A:focus {
+	COLOR: #c00; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #842b2b
+}
+
+.clearit {
+	CLEAR: both
+}
+A:focus {
+	OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: medium; -moz-outline: none
+}
+.cRed {
+	COLOR: #ff0000
+}
+A.cRed {
+	COLOR: #ff0000
+}
+A.cRed:hover {
+	COLOR: #ff0000
+}
+.cRed A {
+	COLOR: #ff0000
+}
+.cRed A:hover {
+	COLOR: #ff0000
+}
+.cBlack {
+	COLOR: #000
+}
+A.cBlack {
+	COLOR: #000
+}
+.cBlack A {
+	COLOR: #000
+}
+.cGreen {
+	COLOR: #00873c
+}
+A.cGreen {
+	COLOR: #00873c
+}
+A.cGreen:hover {
+	COLOR: #00873c
+}
+.cGreen A {
+	COLOR: #00873c
+}
+.cGreen A:hover {
+	COLOR: #00873c
+}
+.cGray {
+	COLOR: #ccc
+}
+A.cGray {
+	COLOR: #ccc
+}
+A.cGray:hover {
+	COLOR: #ccc
+}
+.cGray A {
+	COLOR: #ccc
+}
+.cGray A:hover {
+	COLOR: #ccc
+}
+.cGrey {
+	COLOR: #999
+}
+A.cGrey {
+	COLOR: #999
+}
+A.cGrey:hover {
+	COLOR: #999
+}
+.cGrey A {
+	COLOR: #999
+}
+.cGrey A:hover {
+	COLOR: #999
+}
+.cOrange {
+	COLOR: #ff9900
+}
+A.cOrange {
+	COLOR: #ff9900
+}
+A.cOrange:hover {
+	COLOR: #ff9900
+}
+.cOrange A {
+	COLOR: #ff9900
+}
+.cOrange A:hover {
+	COLOR: #ff9900
+}
+.cWhite {
+	COLOR: #fff
+}
+A.cWhite {
+	COLOR: #fff
+}
+A.cWhite:hover {
+	COLOR: #fff
+}
+.cWhite A {
+	COLOR: #fff
+}
+.cWhite A:hover {
+	COLOR: #fff
+}
+.cBlue {
+	COLOR: #006db7
+}
+A.cBlue {
+	COLOR: #006db7
+}
+A.cBlue:hover {
+	COLOR: #006db7
+}
+.cBlue A {
+	COLOR: #006db7
+}
+.cBlue A:hover {
+	COLOR: #006db7
+}
+.sp_13 {
+	MARGIN: 0px auto; WIDTH: 100%;text-align:center;
+}
+.topbar {
+	PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 10px; WIDTH: 1027px; PADDING-RIGHT: 10px; FONT-FAMILY: Î¢ÈíÑÅºÚ; BACKGROUND: #fff; CLEAR: both; PADDING-TOP: 0px
+}
+.topbar .topbar_l {
+	FLOAT: left
+}
+.topbar .topbar_r {
+	FLOAT: right
+}
+
+.header {
+	PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 10px; WIDTH: 1027px; PADDING-RIGHT: 10px; FONT-FAMILY: Î¢ÈíÑÅºÚ; BACKGROUND: #fff; CLEAR: both; PADDING-TOP: 0px
+}
+.header {
+	BACKGROUND-IMAGE: url(header_bg.gif); BACKGROUND-REPEAT: repeat-x; FONT-FAMILY: Î¢ÈíÑÅºÚ; HEIGHT: 80px
+}
+.header {
+	BACKGROUND: url(topbar.png) no-repeat 50% top; HEIGHT: 80px
+}
+.logo {
+	FLOAT: left; PADDING-TOP: 6px
+}
+.logo A {
+	BACKGROUND-IMAGE: url(new_logo.gif); BACKGROUND-COLOR: transparent; TEXT-INDENT: -9999px; WIDTH: 375px; BACKGROUND-ATTACHMENT: scroll; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; HEIGHT: 56px; opacity: 1
+}
+.clearfix:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; FONT-SIZE: 0px; CONTENT: " "
+}
+.clearfix {
+	DISPLAY: inline-block
+}
+HTML[xmlns] .clearfix {
+	DISPLAY: block
+}
+.liveproduct {
+	MARGIN-TOP: 12px; WIDTH: 310px; FLOAT: right; LEFT: 50px
+}
+.liveproduct LI {
+	BORDER-BOTTOM: #fff 1px solid; POSITION: relative; BORDER-LEFT: #fff 1px solid; FLOAT: right; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid
+}
+.liveproduct LI A SPAN {
+	POSITION: relative; TOP: 40px
+}
+.liveproduct .hotmail {
+	TEXT-ALIGN: center; WIDTH: 85px; DISPLAY: block; FONT-FAMILY: Arial; HEIGHT: 60px; FONT-SIZE: 11px; FONT-WEIGHT: 700
+}
+.liveproduct .hotmail {
+	BACKGROUND: url(an.jpg) no-repeat
+}
+.liveproduct .ie9 {
+	TEXT-ALIGN: center; WIDTH: 85px; DISPLAY: block; FONT-FAMILY: Arial; HEIGHT: 60px; FONT-SIZE: 11px; FONT-WEIGHT: 700
+}
+.liveproduct .ie9 {
+	BACKGROUND: url(ap.jpg) no-repeat
+}
+.liveproduct .hotmail:hover {
+	TEXT-DECORATION: none
+}
+.liveproduct .ie9:hover {
+	TEXT-DECORATION: none
+}
+.nav {
+	MARGIN: 10px auto 0px; WIDTH: 1028px;background:#da542c;
+}
+.navMain A {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 38px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; FLOAT: left; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+.navMain A:hover {
+	BACKGROUND-POSITION: -216px -40px; TEXT-DECORATION: none
+}
+.navMain .title {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 200px; PADDING-LEFT: 0px; WIDTH: 94px; PADDING-RIGHT: 0px; BACKGROUND-POSITION: -103px -96px; HEIGHT: 38px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+.navMain .title:hover {
+	BACKGROUND-POSITION: 0px -40px
+}
+.navMain .titleSg {
+	PADDING: 0px; WIDTH: 100px;  BACKGROUND: #da542c no-repeat; HEIGHT: 38px; OVERFLOW: hidden; font-size:16px;font-weight: bold;text-align:center;
+}
+.navMain .titleSg:hover {
+	BACKGROUND: #ffaa01 no-repeat
+}
+A.link_fff:link {
+	COLOR: #fff !important
+}
+A.link_fff:visited {
+	COLOR: #fff !important
+}
+A.link_fff:hover {
+	COLOR: #fff !important
+}
+.focus {
+	MARGIN: 10px auto 0px; WIDTH: 1028px; HEIGHT: auto
+}
+.focus .l {
+	WIDTH: 700px; FLOAT: left; HEIGHT: 800px;MARGIN: 0px 28px 0px 0px;
+}
+.box335-2 {
+	WIDTH: 1028px; BACKGROUND: #ffffff 0px 0px; HEIGHT: 300px
+}
+.focus .r {
+	WIDTH: 300px; FLOAT: left; HEIGHT:auto
+}
+.softad {
+	MARGIN-TOP: 10px; WIDTH: 700px; BACKGROUND: #f0f0f0; FLOAT: left; HEIGHT: auto
+}
+.softad .t {
+	BORDER-BOTTOM: #ccc 2px solid; WIDTH: 320px; FLOAT: left; HEIGHT: 30px;
+}
+.softad .t H2 {
+	LINE-HEIGHT: 37px; PADDING-LEFT: 10px; WIDTH: 690px; FLOAT: left; HEIGHT: 37px; FONT-SIZE: 18px; FONT-WEIGHT: bold
+}
+.softad_box {
+	WIDTH: 700px; FLOAT: left; HEIGHT: auto;PADDING:5px 0 10px 0;
+}
+.softad_box P {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; WIDTH: 680px; PADDING-RIGHT: 10px; FLOAT: left; HEIGHT: 100px; PADDING-TOP: 10px
+}
+.softad_box OL {
+	BORDER-BOTTOM: #f2f2f2 2px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 10px; WIDTH: 330px; PADDING-RIGHT: 10px; FLOAT: left; HEIGHT: auto; PADDING-TOP: 4px
+}
+.softad_box OL LI {
+	TEXT-ALIGN: left; LINE-HEIGHT: 27px; WIDTH: 330px; BACKGROUND: url(dot.png) no-repeat left center;PADDING-LEFT: 10px; FLOAT: left; HEIGHT: 27px; FONT-SIZE: 14px
+}
+
+
+.focus .lr {
+	WIDTH: 1028px; FLOAT: left; HEIGHT: auto;MARGIN: 0px 28px 0px 0px;
+}
+.softadr {
+	MARGIN-TOP: 10px; WIDTH: 1028px; BACKGROUND: #f0f0f0; FLOAT: left; HEIGHT: auto
+}
+.softadr.t {
+	BORDER-BOTTOM: #ccc 2px solid; WIDTH: 320px; FLOAT: left; HEIGHT: 30px;
+}
+.softadr .t H2 {
+	LINE-HEIGHT: 37px; PADDING-LEFT: 10px; WIDTH: 690px; FLOAT: left; HEIGHT: 37px; FONT-SIZE: 18px; FONT-WEIGHT: bold
+}
+.softadr_box {
+	WIDTH: 1028px; FLOAT: left; HEIGHT: auto;PADDING:5px 0 10px 0;
+}
+.softadr_box P {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; WIDTH: 680px; PADDING-RIGHT: 10px; FLOAT: left; HEIGHT: 100px; PADDING-TOP: 10px
+}
+.softadr_box OL {
+	BORDER-BOTTOM: #f2f2f2 2px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 10px; WIDTH: 490px; PADDING-RIGHT: 10px; FLOAT: left; HEIGHT: auto; PADDING-TOP: 4px
+}
+.softadr_box OL LI {
+	TEXT-ALIGN: left; LINE-HEIGHT: 27px; WIDTH: 450px; BACKGROUND: url(dot.png) no-repeat left center;PADDING-LEFT: 10px; FLOAT: left; HEIGHT: 27px; FONT-SIZE: 14px
+}
+
+
+
+.update {
+	WIDTH: 300px; BACKGROUND: #f0f0f0; FLOAT: left; HEIGHT: auto
+}
+.update .t {
+	BORDER-BOTTOM: #fff 1px solid; LINE-HEIGHT: 33px; PADDING-LEFT: 40px; WIDTH: 260px; BACKGROUND: url(index_files/update.jpg) no-repeat; FLOAT: left; HEIGHT: 30px; COLOR: #272727; FONT-SIZE: 14px; FONT-WEIGHT: normal
+}
+.update .box {
+	WIDTH: 300px; FLOAT: left; HEIGHT: auto; BORDER-TOP: #e0e0e0 1px solid
+}
+.update .box OL {
+	BORDER-BOTTOM: #f2f2f2 2px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 10px; WIDTH: 110px; PADDING-RIGHT: 10px; FLOAT: left; HEIGHT: auto; PADDING-TOP: 4px
+}
+.update .box OL LI {
+	TEXT-ALIGN: left; LINE-HEIGHT: 27px; WIDTH: 100px; BACKGROUND: url(dot.png) no-repeat left center;PADDING-LEFT: 10px; FLOAT: left; HEIGHT: 27px; FONT-SIZE: 14px
+}
+.update .box P {
+	LINE-HEIGHT: 25px; PADDING-LEFT: 10px; WIDTH: 290px; FONT-FAMILY: ËÎÌå; FLOAT: left; HEIGHT: 25px; COLOR: #666
+}
+.pc {
+	MARGIN: 10px auto 0px; WIDTH: 1028px; HEIGHT: auto
+}
+.b2 {
+	MARGIN: 10px 0px; WIDTH: 1028px; FONT-FAMILY: Î¢ÈíÑÅºÚ; FLOAT: left; COLOR: #000000
+}
+.t {
+	BORDER-BOTTOM: #1fa9f0 2px solid; LINE-HEIGHT: 28px; WIDTH: 1028px; FLOAT: left; HEIGHT: 28px; FONT-SIZE: 18px; FONT-WEIGHT: 
+}
+#ft {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 20px; MARGIN: 0px auto; PADDING-LEFT: 310px; WIDTH: 630px; PADDING-RIGHT: 90px; BACKGROUND: url(index_files/ft_bg.png) #f0f0f0 no-repeat 80px 15px; HEIGHT:50px; COLOR: #666; CLEAR: both; PADDING-TOP: 20px
+}
+#ft .pb_ft {
+	WIDTH: 460px; MARGIN-BOTTOM: 10px; HEIGHT: 30px
+}
+.xxUl LI {
+	BORDER-BOTTOM: #e6e6e6 1px solid; POSITION: relative; BORDER-LEFT: #e6e6e6 1px solid; MARGIN: 2px 2px 0px; WIDTH: 250px; DISPLAY: inline; BACKGROUND: #fff; FLOAT: left; TEXT-ALIGN: center;HEIGHT: 250px; OVERFLOW: hidden; BORDER-TOP: #e6e6e6 1px solid; BORDER-RIGHT: #e6e6e6 1px solid
+}
+.xxUl LI .img {
+	POSITION: relative; MARGIN: 10px auto; WIDTH: 230px; HEIGHT: 190px; OVERFLOW: hidden
+}
+.xxUl LI .bg {
+	Z-INDEX: 9; POSITION: absolute; FILTER: Alpha(Opacity=50); WIDTH: 100%; BOTTOM: 0px; BACKGROUND: #000; HEIGHT: 30px; LEFT: 0px; Opacity: 0.5
+}
+.xxUl LI .img IMG {
+	WIDTH: 230px; HEIGHT: 200px
+}
+.xxUl LI .text {
+	Z-INDEX: 10; POSITION: absolute; TEXT-ALIGN: center; LINE-HEIGHT: 30px; WIDTH: 200px; BOTTOM: 0px; FONT-FAMILY: "ËÎÌå", "SimHei"; HEIGHT: 30px; COLOR: #fff; FONT-SIZE: 14px; OVERFLOW: hidden; FONT-WEIGHT: normal; LEFT: 0px
+}
+.xxUl LI .text A {
+	COLOR: #999 !important; TEXT-DECORATION: none
+}
+.xxUl LI .hp {
+	MARGIN: 0px auto 13px; WIDTH: 230px;TEXT-ALIGN: center; OVERFLOW: hidden
+}
+.xxUl LI .hp EM {
+	COLOR: #999;TEXT-ALIGN: center
+}
+.myinput
+{
+Z-INDEX: 10; POSITION: absolute; TEXT-ALIGN: center; LINE-HEIGHT: 30px; WIDTH: 200px; BOTTOM: 0px; FONT-FAMILY: "ËÎÌå", "SimHei"; HEIGHT: 30px; COLOR: #fff; FONT-SIZE: 14px; OVERFLOW: hidden; FONT-WEIGHT: normal; LEFT: 0px
+}
+
+
+.xxUla LI {
+	BORDER-BOTTOM: #e6e6e6 1px solid; POSITION: relative; BORDER-LEFT: #e6e6e6 1px solid; MARGIN: 2px 2px 0px; WIDTH: 336px; DISPLAY: inline; BACKGROUND: #fff; FLOAT: left; HEIGHT: 350px; OVERFLOW: hidden; BORDER-TOP: #e6e6e6 1px solid; BORDER-RIGHT: #e6e6e6 1px solid
+}
+.xxUla LI .img {
+	POSITION: relative; MARGIN: 10px auto; WIDTH: 300px; HEIGHT: 225px; OVERFLOW: hidden
+}
+.xxUla LI .bg {
+	Z-INDEX: 9; POSITION: absolute; FILTER: Alpha(Opacity=50); WIDTH: 100%; BOTTOM: 0px; BACKGROUND: #000; HEIGHT:30px; LEFT: 0px; Opacity: 0.5
+}
+.xxUla LI .img IMG {
+	WIDTH: 300px; HEIGHT: 225px
+}
+.xxUla LI .text {
+	Z-INDEX: 10; POSITION: absolute; TEXT-ALIGN: center; LINE-HEIGHT: 20px; WIDTH: 230px; BOTTOM: 0px; FONT-FAMILY: "Microsoft YaHei", "SimHei"; HEIGHT: 30px; COLOR: #fff; FONT-SIZE: 14px; OVERFLOW: hidden; FONT-WEIGHT: normal; LEFT: 0px
+}
+.xxUla LI .text A {
+	COLOR: #fff !important; TEXT-DECORATION: none
+}
+.xxUla LI .hp {
+	MARGIN: 0px auto 13px; WIDTH: 300px; OVERFLOW: hidden
+}
+.xxUla LI .hp EM {
+	COLOR: #a36b18
+}
+
+#pageZone {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 12px; MARGIN: 0px auto; PADDING-LEFT: 12px; WIDTH: 944px; PADDING-RIGHT: 0px; OVERFLOW: hidden; PADDING-TOP: 12px
+}
+#pageZone A {
+	BORDER-BOTTOM: #e2e2e2 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #e2e2e2 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 34px; PADDING-LEFT: 13px; PADDING-RIGHT: 13px; DISPLAY: inline-block; FONT-FAMILY: "Microsoft YaHei", "SimHei"; BACKGROUND: #fff; HEIGHT: 34px; COLOR: #000; FONT-SIZE: 16px; OVERFLOW: hidden; BORDER-TOP: #e2e2e2 1px solid; CURSOR: pointer; FONT-WEIGHT: normal; MARGIN-RIGHT: 5px; BORDER-RIGHT: #e2e2e2 1px solid; PADDING-TOP: 0px
+}
+#pageZone A.current {
+	BACKGROUND: #d4973e; COLOR: #fff !important; TEXT-DECORATION: none
+}
+#pageZone A:hover {
+	BACKGROUND: #d4973e; COLOR: #fff !important; TEXT-DECORATION: none
+}
+
+.sjBox {
+	MARGIN: 0px auto 30px; WIDTH: 100%; OVERFLOW: hidden
+}
+.sjBox .hd {
+	BORDER-BOTTOM: #dfdfdf 2px solid; LINE-HEIGHT: 35px; WIDTH: 100%; HEIGHT: 35px
+}
+.sjBox .hd H2 {
+	BORDER-BOTTOM: #d4973e 2px solid; DISPLAY: inline-block; HEIGHT: 35px; FONT-SIZE: 24px !important; _height: 36px
+}
+#xxjs .hd {
+	POSITION: relative
+}
+#xxjs .hd .jieshao {
+	COLOR: #8c8c8c; MARGIN-LEFT: 15px
+}
+#xxjs .hd .jieshao EM {
+	COLOR: #d29843
+}
+#xxjs .hd .jieshao EM A {
+	COLOR: #d29843
+}
+#xxjs .hd .fr {
+	POSITION: absolute; FONT-FAMILY: "Microsoft YaHei", "SimHei"; FLOAT: none; FONT-SIZE: 18px; TOP: 0px; RIGHT: 0px; FONT-WEIGHT: normal
+}
+#xxjs .hd .fr EM {
+	COLOR: #a36b18
+}
+#xxjs .bd {
+	OVERFLOW: hidden; PADDING-TOP: 15px
+}
+#xxjs .bd P {
+	LINE-HEIGHT: 25px; TEXT-INDENT: 2em; MARGIN: 0px auto; WIDTH: 940px; COLOR: #000; FONT-SIZE: 14px; OVERFLOW: hidden
+}
+#gxjll UL {
+	PADDING-TOP: 10px
+}
+#gxjll UL LI {
+	BORDER-BOTTOM: #c8c8c8 1px dotted; LINE-HEIGHT: 25px; HEIGHT: 25px; FONT-SIZE: 14px
+}
+#gxjll UL LI DIV {
+	TEXT-ALIGN: center; FLOAT: left; FONT-SIZE: 14px
+}
+#gxjll UL LI .date {
+	WIDTH: 150px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#gxjll UL LI .date2 {
+	WIDTH: 250px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#gxjll UL LI .gx {
+	WIDTH: 500px; COLOR: #737373
+}
+#gxjll UL LI .gx A {
+	COLOR: #737373
+}
+#gxjll UL LI .wp {
+	TEXT-ALIGN: left; WIDTH: 530px
+}
+#gxjll UL LI .yhd {
+	TEXT-ALIGN: right; WIDTH: 160px; COLOR: #a36b18
+}
