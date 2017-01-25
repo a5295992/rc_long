@@ -116,3 +116,9 @@ function send(message){
 //websocket.send(JSON.stringify(a));
 	
 }
+
+
+//上传方法
+function upload(){
+	
+}

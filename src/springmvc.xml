@@ -14,5 +14,9 @@
 	<property name = "suffix" value = ".jsp"></property>
 </bean>
 <!-- 配置hibenate sesionfactory -->
-	
+	<bean id="multipartResolver"  
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <!-- one of the properties available; the maximum file size in bytes -->  
+        <property name="maxUploadSize" value="104857600000000" />  
+    </bean> 
 </beans>

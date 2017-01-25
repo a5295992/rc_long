@@ -30,8 +30,8 @@ public class FileReadServiceImpl implements FileReadService {
 		for (String reource_id : split) {
 			ResourceBean rb = new ReSourceBeanServiceImpl().getSingle(reource_id);
 			
-			String path = gobalUtils.getpath()+"/"+rb.getResource_personal()+"/"+rb.getResource_type()+"/"+rb.getUser_id()+"/"+rb.getUpload_date()+"/"+rb.getResource_name()+"."+rb.getResource_format();
-			String path1 = gobalUtils.getpath()+"/"+rb.getResource_personal()+"/"+rb.getResource_type()+"/"+rb.getUser_id()+"/"+rb.getUpload_date()+"/"+rb.getResource_name()+".PNG";
+			String path = gobalUtils.getpath()+"/"+rb.getResource_personal()+"/"+rb.getUser_id()+"/"+rb.getResource_type()+"/"+rb.getUpload_date()+"/"+rb.getResource_id()+"/"+rb.getResource_name();
+			String path1 =gobalUtils.getpath()+"/"+rb.getResource_personal()+"/"+rb.getUser_id()+"/"+rb.getResource_type()+"/"+rb.getUpload_date()+"/"+rb.getResource_id()+"/"+rb.getResource_name()+".PNG";
 			FileDelTask mt= new FileDelTask(path);
 			FileDelTask mt2= new FileDelTask(path1);
 			ThreadPoolsUtils.execute(mt);

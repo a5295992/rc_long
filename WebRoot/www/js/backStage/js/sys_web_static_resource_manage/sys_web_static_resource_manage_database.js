@@ -39,8 +39,11 @@ function choose(resource_id) {
 	$("#" + resource_id).each(function() {
 		if (this.checked) {
 			this.checked = false;
+			$("#choose_exe_connect").val("");
 		} else {
 			this.checked = true;
+			var resource_id =$(this).val();
+			$("#choose_exe_connect").val(resource_id);
 		}
 	});
 }

@@ -33,7 +33,7 @@
 					<c:forEach items="${editPager.list }" var="x">
 						<li>
 							<div class="liF">
-								<a href="#"><img
+								<a href="${base }/sys/video/play?vd=${x.video_id}"><img
 									src="${base }/www/resources/images/${x.video_img}" alt="" /></a>
 								<div class="liS">
 									<span><img src="${base }/www/resources/images/009.PNG"
@@ -51,7 +51,7 @@
 					<c:forEach items="${commentPager.list }" var="x">
 						<li>
 							<div class="liF">
-								<a href="${base }/sys/video/play?vd=10001"><img
+								<a href="${base }/sys/video/play?vd=${x.video_id}"><img
 									src="${base }/www/resources/images/${x.video_img}" alt="" /></a>
 								<div class="liS">
 									<span><img src="${base }/www/resources/images/009.PNG"
@@ -69,7 +69,7 @@
 					<c:forEach items="${newsPager.list }" var="x">
 						<li>
 							<div class="liF">
-								<a href="#"><img
+								<a href="${base }/sys/video/play?vd=${x.video_id}"><img
 									src="${base }/www/resources/images/${x.video_img}" alt="" /></a>
 								<div class="liS">
 									<span><img src="${base }/www/resources/images/009.PNG"
@@ -277,5 +277,8 @@
 	var user_id = "${ShiroUser.user_id }";
 </script>
 <script type="text/javascript" src="${base }/www/js/index/index.js"></script>
+ <script type="text/javascript" src="${base }/www/js/upload/file_upload.js">
+ 	
+ </script>
 
 </html>

@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -95,6 +94,26 @@ public class BackStageVideo {
 		map.remove("video_id");
 		map.put("condition", "{video_id:'"+video_id+"'}");
 		int result = new VideoServiceImpl<SysVideo>(SysVideo.class).updateSingle(map);	
+		pw.print(result);
+		pw.close();
+	}
+	
+	/**
+	 * 视频 关联资源更新
+	 * @param req
+	 * @return
+	 * @throws IOException 
+	 */
+	@RequestMapping(value=AnRequest.sys_back_video_manage_update_resource)
+	public void manageUpdateResource(HttpServletRequest req,HttpServletResponse rep ) throws IOException{
+		ReqUtils.Encoding(req);
+		PrintWriter pw  = rep.getWriter();
+		String video_id  = req.getParameter("video_id");
+		String resource_id = req.getParameter("resource_id");
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("video_id", video_id);
+		map.put("resource_id", resource_id);
+		int result = new VideoServiceImpl<SysVideo>(SysVideo.class).update(map);	
 		pw.print(result);
 		pw.close();
 	}

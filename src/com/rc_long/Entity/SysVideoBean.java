@@ -37,7 +37,8 @@ public class SysVideoBean {
 	private String video_img;
 	
 	private String video_desc;
-
+	
+	private String resource_id;//关联资源id
 	
 
 	private String user_name;//用户姓名
@@ -305,6 +306,14 @@ public class SysVideoBean {
 
 	public void setVideo_desc(String video_desc) {
 		this.video_desc = video_desc;
+	}
+
+	public String getResource_id() {
+		return resource_id;
+	}
+
+	public void setResource_id(String resource_id) {
+		this.resource_id = resource_id;
 	}
 	
 }

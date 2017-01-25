@@ -48,6 +48,8 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 	private String video_img;
 	
 	private String video_desc;
+	
+	private String resource_id;
 	public String getVideo_id() {
 		return video_id;
 	}
@@ -174,6 +176,14 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 
 	public void setVideo_desc(String video_desc) {
 		this.video_desc = video_desc;
+	}
+
+	public String getResource_id() {
+		return resource_id;
+	}
+
+	public void setResource_id(String resource_id) {
+		this.resource_id = resource_id;
 	}
 	
 	

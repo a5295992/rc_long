@@ -1,9 +1,7 @@
 package com.rc_long.action;
 
-import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -15,22 +13,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.log4j.helpers.LogLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rc_long.Anrequest.AnRequest;
+import com.rc_long.Entity.ResourceBean;
 import com.rc_long.Entity.SysMenu;
 import com.rc_long.Entity.SysRecommentSearch;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
+import com.rc_long.enumeration.LocationConstant;
 import com.rc_long.service.RecommentService;
+import com.rc_long.service.Impl.ReSourceBeanServiceImpl;
 import com.rc_long.service.Impl.RecommentServiceImpl;
 import com.rc_long.service.Menu.Impl.MenuServiceImpl;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
+import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.Pager;
+import com.rc_long.utils.ResouTools;
 
 @Controller
 public class VideoAction {
@@ -109,8 +111,12 @@ public class VideoAction {
 		SysVideoBean videoBean =null ;
 		try {
 			videoBean =  new VideoServiceImpl<SysVideoBean>(SysVideoBean.class).getVideoBean(map).getList().get(0);
+			ResourceBean  rb= new ReSourceBeanServiceImpl().getSingle(videoBean.getResource_id());
+			String path = ResouTools.getRrsorcePath(rb);
+			videoBean.setVideo_img(path+".PNG");
+			videoBean.setVideo_path(path );
 		} catch (Exception e) {
-			e.printStackTrace();
+			return new ModelAndView(LocationConstant.erro_404);
 		}
 		
 		return new ModelAndView("video/video_play").addObject("videoBean",

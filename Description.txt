@@ -20,3 +20,21 @@
 	
 	2017. 1. 16
 	在使用websorcket 通信的时候，必需要在open方法完毕的时候才能调用 send message方法 不然的话  会报错
+	
+	
+	2017.1-21日 
+	在使用swf上传文件的时候 必须要返回一个 modelandView  才能支持轮询上传
+	
+	
+	javascript:void(0)
+	
+	.也要转义
+	
+	
+	增加通用方法   bean to map
+	
+	Introspector .BeanInfo --PropertyDescriptor 遍历 Method reader = pd.getReadMethod();
+	reader。invol=ke
+	
+	
+	，然后用java调用命令的方式（RunTime.exec相关方法），使用ffmpeg的功能。

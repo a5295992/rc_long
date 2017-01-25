@@ -11,6 +11,7 @@ import com.rc_long.ThreadPool.task.service.impl.ServiceUtils;
 import com.rc_long.dao.DateBase;
 import com.rc_long.dao.DateBaseNew;
 import com.rc_long.service.ReSourceBeanService;
+import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.Pager;
 
 public class ReSourceBeanServiceImpl implements ReSourceBeanService {
@@ -67,7 +68,8 @@ public class ReSourceBeanServiceImpl implements ReSourceBeanService {
 		FileReadService fileService= new FileReadServiceImpl();
 		
 		fileService.delete(inCondition.split(","));
-		
+		//将数据加上'号
+		inCondition = CommoTools.addHot(inCondition);
 		
 		inCondition = someThingIn+" in ("+inCondition+")";
 		
@@ -83,9 +85,42 @@ public class ReSourceBeanServiceImpl implements ReSourceBeanService {
 	 */
 	public ResourceBean getSingle(String reource_id) {
 		
-		String condtion = " resource_id="+reource_id;
+		String condtion = " resource_id='"+reource_id+"'";
 		String queryThing = "user_id,resource_format,resource_name,resource_id,resource_type,resource_personal,upload_date";
 		
 		return DateBase.newQueryList(ResourceBean.class, condtion, queryThing, null, null).get(0);
+	}
+
+	public int saveBean(Map<String, Object> map) {
+		
+		ResourceBean resource = new ResourceBean();
+		//默认0 公开的
+		resource.setIs_personal(0);
+		//1
+		String type = (String) map.get("type");
+		
+		resource.setResource_format(type );
+		//2
+		String resource_id = (String) map.get("resource_id");
+		
+		resource.setResource_id(resource_id );
+		//3
+		String fileName = (String) map.get("fileName");
+		
+		resource.setResource_name(fileName);
+		
+		resource.setResource_personal("public");
+		
+		resource.setResource_type(type);
+		//5
+		String current_time = (String) map.get("current_time");
+		resource.setUpload_date(current_time);
+		//4
+		String user_id = (String) map.get("user_id");
+		resource.setUser_id(user_id );
+		
+		Map<String,Object> newMap = CommoTools.beanToMap(resource);
+		newMap.remove("class");
+		return DateBase.insert(ResourceBean.class, newMap);
 	}
 }

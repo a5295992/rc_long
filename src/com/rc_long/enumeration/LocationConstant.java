@@ -19,6 +19,7 @@ public class LocationConstant {
 	//文件上传 地址管理
 	
 	public static String sys_file_swf_upload = "upload/file_upload";
+	public static String erro_404 = "jsp/error/404.jsp";
 	
 	
 }

@@ -23,13 +23,14 @@
 <script type="text/javascript">
 	var base="${base}";
 	var url="${videoBean.video_path}";
+	var img = "${videoBean.video_img}";
 	$(function() {
 		$(".video_container").html5video({
 			autoplay : "autoplay",
 			width : 1100, //Number型，播放器宽度。
 			height : 600, //Number型，播放器高度。
-			src : base+"/www/resources/data_data/"+url, //String型，要播放的视频的 URL。
-			poster : "html5video-preview.png", //String型，在视频播放之前所显示的图片的 URL。
+			src : base+"/RESOURCES/"+url, //String型，要播放的视频的 URL。
+			poster : base+"/RESOURCES/"+img, //String型，在视频播放之前所显示的图片的 URL。
 			loop : false, //Boolean型，则当媒介文件完成播放后再次开始播放。
 			preload : true, //Boolean型，如果出现该属性，则视频在页面加载时进行加载，并预备播放。
 			notsuportmsg : "您的浏览器不支持html5，无法使用该插件！"  

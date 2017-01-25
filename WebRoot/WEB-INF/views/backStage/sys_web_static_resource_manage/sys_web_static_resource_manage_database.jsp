@@ -82,11 +82,11 @@
 						<td>${resource.resource_type }</td>
 						<td>
 						<img style="width: 50px;height: 35px"
-						src="${base }/RESOURCES/${resource.resource_personal }/${resource.resource_type }/${resource.user_id }/${resource.upload_date}/${resource.resource_name}.PNG" alt="缩略图" />
+						src="${base }/RESOURCES/${resource.resource_personal }/${resource.user_id }/${resource.resource_type }/${resource.upload_date}/${resource.resource_id}/${resource.resource_name}.PNG" alt="缩略图" />
 						</td>
 						<td><div class="button-group">
 								 <a class="button border-main"
-									href="##" onclick="choose(${resource.resource_id})">
+									href="##" onclick="choose('${resource.resource_id}')">
 									<span class="icon-edit"></span> 选择
 								</a> 
 							</div></td>
@@ -110,6 +110,7 @@
 			</table>
 		</div>
 	</form>
+	<input type="hidden" id="choose_exe_connect"/>
 	<script type="text/javascript">
 		var base="${base}";
 	</script>

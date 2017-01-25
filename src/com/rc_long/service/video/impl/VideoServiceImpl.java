@@ -14,6 +14,7 @@ import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
 import com.rc_long.action.base.BaseService;
 import com.rc_long.dao.DateBase;
+import com.rc_long.dao.DateBaseNew;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.utils.Pager;
 
@@ -59,7 +60,7 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 			if (!StringUtils.isNullOrEmpty(queryThing)) {
 				sql.append(queryThing);
 			}else{
-				sql.append("a.video_id,a.video_cname,a.video_auth,");
+				sql.append("a.video_id,a.resource_id,a.video_cname,a.video_auth,");
 				sql.append("a.create_time,a.user_id,b.user_name,");
 				sql.append("a.video_img,a.video_desc,a.video_path,a.is_recommend,a.video_type");
 				sql.append(" from sys_video a ");
@@ -233,6 +234,14 @@ public class VideoServiceImpl<T> implements VideoService, BaseService<SysVideo> 
 		sql.append("update sys_video set is_recommend = 1 where video_id in "+temp);
 		 DateBase.updateSql(sql.toString());
 		 return 2;
+	}
+
+	public int update(Map<String, Object> map) {
+		String resource_id = (String) map.get("resource_id");
+		String video_id = (String) map.get("video_id");
+		String sql = "update sys_video set resource_id =? where video_id = ?";
+		Object[] params = {resource_id,video_id};
+		return DateBaseNew.update(SysVideo.class, sql, params );
 	}
 
 

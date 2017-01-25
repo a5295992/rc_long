@@ -12,6 +12,7 @@ public class AnRequest {
 	public static final String sys_web_static_resource_manage_database_search = "/sys/web/static/resource/manage/database/search";
 	public static final String sys_web_static_resource_manage_database_delete = "/sys/web/static/resource/manage/database/delete";
 	
+	
 	//2016.12-8 20.07 
 	public static final String sys_init="/rc";
 	//2016-12-5 22.06
@@ -70,7 +71,7 @@ public class AnRequest {
 	public static final String sys_back_video_search="/sys/back/video/search";
 	public static final String sys_back_video_manage = "/sys/back/video/manage";
 	public static final String sys_back_video_manage_update = "/sys/back/video/manage/update";
-	
+	public static final String sys_back_video_manage_update_resource = "/sys/back/video/manage/update/resource";
 	//后台主页管理前台显示
 	public static final String sys_back_index_manage="/sys/back/index/manage";
 	public static final String sys_back_index_manage_index="/sys/back//index/manage/index";

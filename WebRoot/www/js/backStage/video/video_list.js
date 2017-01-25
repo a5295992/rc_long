@@ -90,3 +90,58 @@ function manage(video_id) {
 	diag.show();
 
 }
+
+/*****************************************
+ * 打开关联资源
+ * openResourceManage()
+ */
+
+function openResourceManage(){
+	var index = 0;
+	var video_id=null;
+	$("input[name='id[]']").each(function() {
+		if (this.checked == true) {
+			index=index+1;
+			video_id=$(this).val();
+		}
+	});
+	if(index!=1){
+		window.confirm("选且仅能选择一位");
+	}else{
+		var diag = new Dialog();
+		diag.Title="关联资源选择";
+		diag.Width=1000;
+		diag.Height=600;
+		diag.URL=base+"/sys/web/static/resource/manage/database";
+		diag.OKEvent=function(){
+			var resource_id=diag.innerFrame.contentWindow.$("#choose_exe_connect").val();
+			alert(resource_id);
+			$.ajax({
+				cache : true,
+				type : "POST",
+				url : base + "/sys/back/video/manage/update/resource",
+				/*data : exe_form_login.serialize(),// 你的formid
+*/				data :{"video_id":video_id,"resource_id":resource_id},
+				async : false,
+				error : function(request) {
+					alert("Connection error");
+				},
+				success : function(data) {
+					if (data > 0) {
+						var enter = window.confirm("操作成功");
+						if (enter == 1) {
+							diag.close();
+							window.location.reload();
+						}else{
+							window.location.reload();
+						}
+					} else {
+						window.confirm("操作失败");
+					}
+				}
+			});
+		};
+		diag.show();
+	}
+	
+}

@@ -29,6 +29,10 @@
 						<button type="submit" class="button border-red">
 							<span class="icon-trash-o"></span> 批量删除
 						</button>
+					<button type="button" class="button border-yellow"
+				onclick="openResourceManage()">
+				<span class="icon-plus-square-o"></span> 关联资源
+			</button>
 					</li>
 
 					<li><select id="likeName_serach" class="input"

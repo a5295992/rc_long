@@ -85,7 +85,7 @@
 					</c:otherwise>
 
 				</c:choose></li>
-			<li><a href="${base }/sys/file/swf/upload">
+			<li><a href="javascript:void(0)" onclick="upload()">
 					<div class="img">
 						<img src="${base }/www/resources/images/002.PNG" alt="" />
 					</div>

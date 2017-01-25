@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import org.apache.commons.dbutils.QueryRunner;
 
-import com.rc_long.Entity.ChatLog;
 import com.rc_long.utils.C3P0UTils;
 
 /**
@@ -32,10 +31,10 @@ public class DateBaseNew {
 		return -1;
 	}
 
-	public static int update(Class<ChatLog> class1, String sql, Object[] params) {
+	public static <T> int update(Class<T> class1, String sql, Object[] params) {
 		connecion = C3P0UTils.getConnection();
 		try {
-			return queryRunner.update(sql,connecion,params);
+			return queryRunner.update(connecion,sql,params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -53,5 +52,6 @@ public class DateBaseNew {
 	public static void printSql(String sql) {
 		System.out.println("Rc_long:" + sql);
 	}
+
 
 }
