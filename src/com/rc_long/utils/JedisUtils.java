@@ -79,48 +79,73 @@ public class JedisUtils {
 	}
 
 	public static <T> void saveObject(String string, T session) {
-		
-		Jedis jedis  = JedisUtils.getJedisObject();
-		
-		 ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		 ObjectOutputStream obj = null;
-		 try {
-			 obj= new ObjectOutputStream(bos);
-			 
-			 obj.writeObject(session);
-			 
-				byte[] arr=  bos.toByteArray();
-				jedis.set(string.getBytes(), arr);
-				
+
+		Jedis jedis = JedisUtils.getJedisObject();
+
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		ObjectOutputStream obj = null;
+		try {
+			obj = new ObjectOutputStream(bos);
+
+			obj.writeObject(session);
+
+			byte[] arr = bos.toByteArray();
+			jedis.set(string.getBytes(), arr);
+
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 			JedisUtils.recycleJedisOjbect(jedis);
 		}
 	}
-	
-	public static Object getObject(String name){
-		
-		Jedis jedis  = JedisUtils.getJedisObject();
-		byte[] arr2 =  jedis.get(name.getBytes());
-		
+
+	public static Object getObject(String name) {
+
+		Jedis jedis = JedisUtils.getJedisObject();
+		byte[] arr2 = jedis.get(name.getBytes());
+
 		ByteArrayInputStream bis = new ByteArrayInputStream(arr2);
-        ObjectInputStream inputStream = null;
+		ObjectInputStream inputStream = null;
 		try {
 			inputStream = new ObjectInputStream(bis);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        
+
 		try {
 			return inputStream.readObject();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 			JedisUtils.recycleJedisOjbect(jedis);
 		}
 		return null;
+	}
+
+	public static void save(String string, String string2) {
+		Jedis jedis = JedisUtils.getJedisObject();
+		try {
+			jedis.set(string, string2);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			JedisUtils.recycleJedisOjbect(jedis);
+		}
+	}
+	public static String load(String string){
+		Jedis jedis = JedisUtils.getJedisObject();
+		try {
+			return jedis.get(string);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			JedisUtils.recycleJedisOjbect(jedis);
+		}
 	}
 }

@@ -1,7 +1,6 @@
 package com.rc_long.action;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -30,7 +29,6 @@ import com.rc_long.service.Impl.RecommentServiceImpl;
 import com.rc_long.service.Menu.Impl.MenuServiceImpl;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
-import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.Pager;
 import com.rc_long.utils.ResouTools;
 
@@ -129,8 +127,11 @@ public class VideoAction {
 		OutputStream out= rep.getOutputStream();
 		IOUtils.copy(file, out);
 	}
-	public static void main(String[] args) throws FileNotFoundException {
-		InputStream file = new FileInputStream("E:/git_gui/rc_long/WebRoot/www/resources/data_data/57b1368741321.mp4");
-		System.out.println(file);
+	//加載flash播放器
+	@RequestMapping(value=AnRequest.sys_video_flash_play)
+	public ModelAndView flashPlay(){
+		
+		
+		return new ModelAndView(LocationConstant.sys_video_flowPlayer);
 	}
 }

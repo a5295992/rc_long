@@ -2,8 +2,6 @@ package com.rc_long.Entity;
 
 import java.sql.Date;
 
-import com.rc_long.anotation.RcLongTable;
-
 //当前用户信息类
 public class ShiroUser {
 	private String user_name;

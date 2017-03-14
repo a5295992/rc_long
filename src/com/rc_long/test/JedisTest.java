@@ -12,6 +12,7 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import com.rc_long.Entity.SysUser;
+import com.rc_long.utils.JedisUtils;
 
 /*public class JedisTest {
  public static void main(String[] args) {
@@ -94,7 +95,7 @@ public class JedisTest {
 	 * @throws ClassNotFoundException 
 	 */
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+/*	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 		Jedis jedis = getJedisObject();// 获得jedis实例
 
@@ -122,6 +123,7 @@ public class JedisTest {
         
         System.out.println(readObject.getUser_name());
 		recycleJedisOjbect(jedis); // 将 获取的jedis实例对象还回迟中
-	}
+	}*/
+	
 
 }

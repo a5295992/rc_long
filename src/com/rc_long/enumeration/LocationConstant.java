@@ -21,5 +21,11 @@ public class LocationConstant {
 	public static String sys_file_swf_upload = "upload/file_upload";
 	public static String erro_404 = "jsp/error/404.jsp";
 	
+	//视频直播测试
+	public static String sys_live_webRtc = "live/webRTC";
+	
+	//flash播放器
+	
+	public static String sys_video_flowPlayer="video/flashPlayer/flowPlayer";
 	
 }

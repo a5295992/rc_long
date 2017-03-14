@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import com.rc_long.Entity.ResourceBean;
 
@@ -76,5 +77,10 @@ public class CommoTools {
 			sb.append(",");
 		}
 		return ReqUtils.dealData(sb.toString());
+	}
+
+	public static String getUUID() {
+		
+		return UUID.randomUUID().toString().replace("-", "");
 	}
 }

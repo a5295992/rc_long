@@ -26,6 +26,9 @@ public class AnRequest {
 	public static final String sys_video_delete="/sys/video/delete";
 	public static final String sys_video_search="/sys/video/search";
 	public static final String sys_video_play = "/sys/video/play";
+	
+	public static final String sys_video_flash_play="/sys/video/flash/play";
+	
 	public static final String sys_video_play_rtmb="/sys/video/play/rtmb";
 
 	//2016-12-4 17.17
@@ -113,5 +116,7 @@ public class AnRequest {
 	public static final String sys_file_swf_upload_start = "/sys/file/swf/upload/start";
 	
 	
+	//2017-1-25 日
+	public static final  String sys_live_webRtc = "/sys/live/webRtc";
 	
 }

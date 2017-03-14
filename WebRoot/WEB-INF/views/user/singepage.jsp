@@ -25,6 +25,7 @@
           <a class="blog-nav-item" href="#part1">看过</a>
           <a class="blog-nav-item" href="#part2">与我相关</a>
           <a class="blog-nav-item" href="#part3">上传的作品</a>
+          <a class="blog-nav-item" href="${base }/sys/live/webRTC">我要直播</a>
         </nav>
       </div>
     </div>
