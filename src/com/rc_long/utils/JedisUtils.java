@@ -7,8 +7,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Properties;
 
-import javax.websocket.Session;
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -128,10 +126,6 @@ public class JedisUtils {
 		Jedis jedis = JedisUtils.getJedisObject();
 		try {
 			jedis.set(string, string2);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		} finally {
 			JedisUtils.recycleJedisOjbect(jedis);
 		}
@@ -140,10 +134,6 @@ public class JedisUtils {
 		Jedis jedis = JedisUtils.getJedisObject();
 		try {
 			return jedis.get(string);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		} finally {
 			JedisUtils.recycleJedisOjbect(jedis);
 		}
