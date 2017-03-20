@@ -7,9 +7,10 @@
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
           <!--自动扫描  -->
+<context:annotation-config/>
 <context:component-scan base-package="com"></context:component-scan>
 <mvc:annotation-driven />  
-<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/views/"></property>
 	<property name = "suffix" value = ".jsp"></property>
 </bean>
@@ -18,5 +19,58 @@
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
         <!-- one of the properties available; the maximum file size in bytes -->  
         <property name="maxUploadSize" value="104857600000000" />  
-    </bean> 
+    </bean>       	
+	       	
+	       	
+	  	<bean id="ConfigBean"  
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="locations">  
+            <list>  
+                <value>classpath:jdbc.properties</value>  
+            </list>  
+        </property>  
+   	    </bean>
+	  
+<!-- 	  
+	   <bean id="dataSource"    class="com.mchange.v2.c3p0.ComboPooledDataSource">  
+        <property name="driverClassName" value="${jdbc.driverClassName}"></property>  
+        <property name="url" value="${c3p0.url}"></property>  
+        <property name="username" value="${jdbc.username}"></property>  
+        <property name="password" value="${jdbc.password}"></property>  
+   	   </bean> -->
+	  
+	  
+	  <!--定义数据源  -->
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName"><value>${jdbc.driverClassName}</value></property>
+			<property name="url"><value>${jdbc.url}</value></property>
+			<property name="username"><value>${jdbc.username}</value></property>
+			<property name="password"><value>${jdbc.password}</value></property>
+			
+		</bean>
+		<!-- 定义hibenate的session factory -->
+		<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"></property>
+				<property name="annotatedClasses">  
+   			 <list>  
+         <!-- 可以加多个包 -->  
+         <value>com.rc_long.Entity.SysUser</value>
+         <value>com.rc_long.Entity.SysUserInfor</value>
+    			</list>  
+			</property> 
+			
+			<property name="hibernateProperties">
+			
+			<props >
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>  
+			</props>
+			</property>
+		</bean>
+            
 </beans>

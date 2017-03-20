@@ -2,7 +2,9 @@ package com.rc_long.Entity;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 用户 主表和附�?

@@ -29,7 +29,9 @@ import com.rc_long.utils.ReqUtils;
 public class BackStage {
 	// 用戶
 	UserService userService = new UserServiceImpl();
-
+	
+	
+	
 	@RequestMapping(value = AnRequest.sys_back)
 	public ModelAndView init() {
 		return new ModelAndView("backStage/index");
@@ -137,5 +139,6 @@ public class BackStage {
 				user_bean).addObject("likeName", likeName)
 				.addObject("map", map);
 	}
-
+	
+	
 }

@@ -1,62 +1,66 @@
 package com.rc_long.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import com.rc_long.dao_001.UserDao;
-import com.rc_long.entity_001.User;
+import com.rc_long.Entity.SysUser;
+import com.rc_long.dao.UserDao;
 
-public class UserDaoImpl  implements UserDao{
+
+@Component
+public class UserDaoImpl implements UserDao {
 	
-	Session session ;
+	@Autowired
 	private SessionFactory sessionFactory;
 	
+	private  Session session;
 	@Override
-	public void save(User u) {
+	public void saveUser(SysUser user) {
 		
-		try {
-			session = sessionFactory.getCurrentSession();
-		} catch (HibernateException e1) {
-			// TODO Auto-generated catch block
-			session=sessionFactory.openSession();
-		}
-		Transaction tr = session.beginTransaction();
+		session = sessionFactory.openSession();
 		
+		session.save(user);
+		
+	}
+
+	@Override
+	public SysUser getUserById(String userId,String password) {
+		List<SysUser> list = null;
+		Transaction tran = null;
 		try {
-			session.save(u);
-			tr.commit();
-		} catch (Exception e) {
-			tr.rollback();
+			session = sessionFactory.openSession();
+			 tran =  session.beginTransaction();
+			String hql = "FROM SysUser WHERE user_ssid = ? AND user_key = ?";
+			Query query=session.createQuery(hql);
+			query.setParameter(0, userId);
+			query.setParameter(1, password);
+			list = query.list();
+			tran.commit();
+		} catch (HibernateException e) {
+			tran.rollback();
 			e.printStackTrace();
 		}finally{
+			
 			session.close();
 		}
+		if(list!=null&&list.size()>0){
+			return  list.get(0);
+		}
+		return null;
 	}
-	
 
 	@Override
-	public User getUser(String id) {
-		try {
-			session = sessionFactory.getCurrentSession();
-			return (User) session.get(User.class, id);
-		} catch (HibernateException e) {
-			session = sessionFactory.openSession();
-			return (User) session.get(User.class, id);
-		}finally{
-			session.close();
-		}
+	public List<SysUser> getUserByHql() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
 	
 	
 }

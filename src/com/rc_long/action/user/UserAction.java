@@ -20,20 +20,19 @@ import com.rc_long.Entity.SysUserBean;
 import com.rc_long.service.user.UserService;
 import com.rc_long.service.user.Impl.UserServiceImpl;
 import com.rc_long.utils.CurrentSession;
-import com.rc_long.utils.Pager;
 @Controller
 public class UserAction {
 	public UserService userService = new UserServiceImpl();
 	
-	@RequestMapping(value=AnRequest.sys_user_init)
+	/*@RequestMapping(value=AnRequest.sys_user_init)
 	public ModelAndView initUser(){
 		Pager<SysUser> userPager=userService.getUserPager(null, userPager, null);
 		return new ModelAndView("index/index").addObject("userPager",userPager);
-	}
-	@RequestMapping(value=AnRequest.sys_user_page)
+	}*/
+	/*@RequestMapping(value=AnRequest.sys_user_page)
 	public ModelAndView loginAndRegist(){
 		return new ModelAndView("index/loginAndregist");
-	}
+	}*/
 	@RequestMapping(value=AnRequest.sys_user_do)
 	public ModelAndView dispather(HttpServletRequest req){
 		return new ModelAndView("user/success");

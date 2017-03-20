@@ -2,12 +2,14 @@ package com.rc_long.Entity;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.websocket.Session;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-import com.rc_long.anotation.RcLongTable;
 import com.rc_long.Anrequest.TableName;
+import com.rc_long.anotation.RcLongTable;
 /**
  * 
  * @author 周湘龙
@@ -15,6 +17,7 @@ import com.rc_long.Anrequest.TableName;
  */
 @Entity
 @RcLongTable(name=TableName.SysUser)
+@Table(name="sys_user")
 public class SysUser extends EntitiBaseBean<SysUser>{
 	/**
 	 * 
@@ -22,25 +25,66 @@ public class SysUser extends EntitiBaseBean<SysUser>{
 	private static final long serialVersionUID = 1L;
 
 	//id
-	private Session session;
 	
+	@Id
 	private String user_id;//uuid
 	private String user_name;//用户姓名
 	private String user_ssid;//id
 	private String user_img;//头像
 	private String user_key;//用户密码
-	private int user_group;//组织֯
-	private int user_type;//用户类型 1
-	private int user_staut;//状态 1代表在线 0 代表不在线?
-	private int user_flag; //标识 1代表可用 0 不可用?
+	private Integer user_group;//组织֯
+	private Integer user_type;//用户类型 1
+	private Integer user_staut;//状态 1代表在线 0 代表不在线?
+	private Integer user_flag; //标识 1代表可用 0 不可用?
+	public Integer getUser_group() {
+		return user_group;
+	}
+
+	public void setUser_group(Integer user_group) {
+		this.user_group = user_group;
+	}
+
+	public Integer getUser_type() {
+		return user_type;
+	}
+
+	public void setUser_type(Integer user_type) {
+		this.user_type = user_type;
+	}
+
+	public Integer getUser_staut() {
+		return user_staut;
+	}
+
+	public void setUser_staut(Integer user_staut) {
+		this.user_staut = user_staut;
+	}
+
+	public Integer getUser_flag() {
+		return user_flag;
+	}
+
+	public void setUser_flag(Integer user_flag) {
+		this.user_flag = user_flag;
+	}
+
 	private String user_attr1;
 	private String user_attr2;
 	private String session_id; //
 	private Date user_last_time; //最后登录时间
 	private Date user_regist_time;//ע注册时间
 	
+	@OneToOne(mappedBy = "sysUser",cascade=CascadeType.ALL)
+	private SysUserInfor userInfor;
 	
-	@Id
+	public SysUserInfor getUserInfor() {
+		return userInfor;
+	}
+
+	public void setUserInfor(SysUserInfor userInfor) {
+		this.userInfor = userInfor;
+	}
+
 	public String getUser_id() {
 		return user_id;
 	}
@@ -81,37 +125,6 @@ public class SysUser extends EntitiBaseBean<SysUser>{
 		this.user_key = user_key;
 	}
 
-	public int getUser_group() {
-		return user_group;
-	}
-
-	public void setUser_group(int user_group) {
-		this.user_group = user_group;
-	}
-
-	public int getUser_type() {
-		return user_type;
-	}
-
-	public void setUser_type(int user_type) {
-		this.user_type = user_type;
-	}
-
-	public int getUser_staut() {
-		return user_staut;
-	}
-
-	public void setUser_staut(int user_staut) {
-		this.user_staut = user_staut;
-	}
-
-	public int getUser_flag() {
-		return user_flag;
-	}
-
-	public void setUser_flag(int user_flag) {
-		this.user_flag = user_flag;
-	}
 
 	public String getUser_attr1() {
 		return user_attr1;
@@ -153,14 +166,6 @@ public class SysUser extends EntitiBaseBean<SysUser>{
 		this.user_regist_time = user_regist_time;
 	}
 
-	public Session getSession() {
-		return session;
-	}
-
-	public void setSession(Session session) {
-		this.session = session;
-	}
-	
 	
 	
 }

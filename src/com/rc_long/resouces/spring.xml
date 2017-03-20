@@ -69,9 +69,5 @@
 			</props>
 			</property>
 		</bean>
-		<bean id="hibenateDataJHelper" class="com.rc_long.test.HibenateDataJHelper">
-			<property name="sessionFactory" ref="sessionFactory"></property>
-		</bean>
-		
 		
 </beans>

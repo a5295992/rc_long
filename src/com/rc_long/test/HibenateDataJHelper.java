@@ -1,18 +1,13 @@
 package com.rc_long.test;
 
-import javax.annotation.Resource;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.stereotype.Component;
 
 import com.rc_long.Entity.User;
-@Component
 public class HibenateDataJHelper {
 	
 	
-	@Resource
 	private  SessionFactory sessionFactory;
 	
 	private Session session;

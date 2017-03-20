@@ -11,4 +11,6 @@
 <script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
 <script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
 <script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
+<c:set var="module_02" value="${base }/www/module_02/static"></c:set>
+<!--  ${module_02 }-->
 

@@ -27,5 +27,6 @@ public class LocationConstant {
 	//flash播放器
 	
 	public static String sys_video_flowPlayer="video/flashPlayer/flowPlayer";
+	public static String index = "mudule_02/index/index";
 	
 }

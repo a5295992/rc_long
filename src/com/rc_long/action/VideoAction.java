@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rc_long.Anrequest.AnRequest;
+import com.rc_long.Anrequest.NewAnRequest;
 import com.rc_long.Entity.ResourceBean;
 import com.rc_long.Entity.SysMenu;
 import com.rc_long.Entity.SysRecommentSearch;
@@ -134,4 +135,13 @@ public class VideoAction {
 		
 		return new ModelAndView(LocationConstant.sys_video_flowPlayer);
 	}
+	
+	
+	@RequestMapping(value=NewAnRequest.index)
+	public ModelAndView initIndex(){
+		
+		
+		return new ModelAndView(LocationConstant.index);
+	}
+	
 }
