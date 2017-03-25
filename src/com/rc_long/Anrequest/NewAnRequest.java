@@ -10,4 +10,6 @@ public class NewAnRequest {
 	public static final String index= "/";
 	public static final String toLogin = "/user/login";
 	
+	
+	public static final String toSingle="/video";
 }

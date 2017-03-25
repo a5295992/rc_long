@@ -28,5 +28,6 @@ public class LocationConstant {
 	
 	public static String sys_video_flowPlayer="video/flashPlayer/flowPlayer";
 	public static String index = "mudule_02/index/index";
+	public static String singeVideo = "mudule_02/single/index";
 	
 }

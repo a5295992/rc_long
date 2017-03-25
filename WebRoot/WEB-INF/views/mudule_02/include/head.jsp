@@ -3,6 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+  	<title>${inform }-a_long</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -66,6 +67,14 @@
 	
   </head>
   <body>
+<%--  <c:out value="${fnc:getCurrentMenu('index') }"></c:out> --%>
+<%--  <c:forEach items="${fnc:getCurrentMenu('index') }" var="menu">
+ 		${menu.menu_name }
+ 		<c:forEach items="${menu.sysMenuS }" var="menu_child">
+ 			${menu.menu_name }
+ 		</c:forEach>
+ 
+ </c:forEach> --%>
   <!-- header -->
 	<div class="header">
 		<div class="container">
@@ -81,7 +90,14 @@
 			<div class="w3l_sign_in_register">
 				<ul>
 					<li><i aria-hidden="true"></i> 更多精彩！</li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+					<c:choose>
+						<c:when test="${ShiroUser eq null }">
+							<li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><img src="${base }/www/resources/images/001.PNG" alt="" /></li>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -106,82 +122,32 @@
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
+							<li class="active"><a href="${base }">Home</a></li>
+							
+					<c:forEach items="${fnc:getCurrentMenu('index') }" var="menu">
+						<!-- 如果是下拉的菜单 -->
+						<c:choose>
+							<c:when test="${menu.co_id eq '下拉' }">
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">${menu.menu_name } <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
-									<li>
 									<div class="col-sm-4">
 										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Action</a></li>
-											<li><a href="genres.html">Biography</a></li>
-											<li><a href="genres.html">Crime</a></li>
-											<li><a href="genres.html">Family</a></li>
-											<li><a href="horror.html">Horror</a></li>
-											<li><a href="genres.html">Romance</a></li>
-											<li><a href="genres.html">Sports</a></li>
-											<li><a href="genres.html">War</a></li>
+											<c:forEach items="${menu.sysMenuList }" var="menu_child" >
+ 												<li><a href="genres.html">${menu_child.menu_name }</a></li>
+ 											</c:forEach>
 										</ul>
 									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Adventure</a></li>
-											<li><a href="comedy.html">Comedy</a></li>
-											<li><a href="genres.html">Documentary</a></li>
-											<li><a href="genres.html">Fantasy</a></li>
-											<li><a href="genres.html">Thriller</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Animation</a></li>
-											<li><a href="genres.html">Costume</a></li>
-											<li><a href="genres.html">Drama</a></li>
-											<li><a href="genres.html">History</a></li>
-											<li><a href="genres.html">Musical</a></li>
-											<li><a href="genres.html">Psychological</a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-									</li>
 								</ul>
-							</li>
-							<li><a href="series.html">tv - series</a></li>
-							<li><a href="news.html">news</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Country <b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<li>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Asia</a></li>
-												<li><a href="genres.html">France</a></li>
-												<li><a href="genres.html">Taiwan</a></li>
-												<li><a href="genres.html">United States</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">China</a></li>
-												<li><a href="genres.html">HongCong</a></li>
-												<li><a href="genres.html">Japan</a></li>
-												<li><a href="genres.html">Thailand</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Euro</a></li>
-												<li><a href="genres.html">India</a></li>
-												<li><a href="genres.html">Korea</a></li>
-												<li><a href="genres.html">United Kingdom</a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</li>
-								</ul>
-							</li>
-							<li><a href="short-codes.html">Short Codes</a></li>
-							<li><a href="list.html">A - z list</a></li>
+						
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="news.html">${menu.menu_name }</a></li>						
+							</c:otherwise>
+						</c:choose>
+ 					</c:forEach>
+							
 						</ul>
 					</nav>
 				</div>

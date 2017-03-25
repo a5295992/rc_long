@@ -56,6 +56,12 @@
          <!-- 可以加多个包 -->  
          <value>com.rc_long.Entity.SysUser</value>
          <value>com.rc_long.Entity.SysUserInfor</value>
+         <value>com.rc_long.Entity.SysMenu</value>
+         <value>com.rc_long.Entity.SysVideo</value>
+         <value>com.rc_long.Entity.VideoGroup</value>
+         <value>com.rc_long.Entity.VideoType</value>
+         <value>com.rc_long.Entity.MenuRole</value>
+         <value>com.rc_long.Entity.Comment</value>
     			</list>  
 			</property> 
 			

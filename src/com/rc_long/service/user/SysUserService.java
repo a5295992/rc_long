@@ -11,4 +11,7 @@ public interface SysUserService {
 	
 	
 	public SysUser searchUse(Map<String,Object> map);
+
+
+	public void updateUser(SysUser user);
 }

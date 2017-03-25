@@ -1,5 +1,14 @@
 package com.rc_long.Entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.rc_long.Anrequest.TableName;
 import com.rc_long.anotation.RcLongTable;
 
@@ -9,18 +18,28 @@ import com.rc_long.anotation.RcLongTable;
  *
  */
 @RcLongTable(name=TableName.VideoType)
+@Entity
+@Table(name="video_type")
 public class VideoType extends EntitiBaseBean<VideoType> {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
 	private String video_type_id;
 	
 	private String video_type_name;
 	
-	private int video_type_pid;
+	private Integer video_type_pid;
+	
+	@OneToOne(mappedBy="videoType",cascade=CascadeType.ALL)
+	private MenuRole menuRole;
+	
+	
+	@OneToMany(mappedBy="videoType",cascade=CascadeType.ALL)
+	private List<SysVideo> videoList;
 
 	public String getVideo_type_id() {
 		return video_type_id;
@@ -44,5 +63,22 @@ public class VideoType extends EntitiBaseBean<VideoType> {
 
 	public void setVideo_type_pid(int video_type_pid) {
 		this.video_type_pid = video_type_pid;
+	}
+
+	public List<SysVideo> getVideoList() {
+		return videoList;
+	}
+
+	public void setVideoList(List<SysVideo> videoList) {
+		this.videoList = videoList;
+	}
+
+
+	public MenuRole getMenuRole() {
+		return menuRole;
+	}
+
+	public void setMenuRole(MenuRole menuRole) {
+		this.menuRole = menuRole;
 	}
 }

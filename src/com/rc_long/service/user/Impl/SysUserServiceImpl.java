@@ -32,4 +32,9 @@ public class SysUserServiceImpl implements SysUserService{
 		return userDao.getUserById(user_id,password);
 	}
 
+	@Override
+	public void updateUser(SysUser user) {
+		userDao.update(user);	
+	}
+
 }

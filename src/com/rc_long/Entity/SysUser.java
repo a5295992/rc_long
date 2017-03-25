@@ -1,10 +1,12 @@
 package com.rc_long.Entity;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -36,6 +38,20 @@ public class SysUser extends EntitiBaseBean<SysUser>{
 	private Integer user_type;//用户类型 1
 	private Integer user_staut;//状态 1代表在线 0 代表不在线?
 	private Integer user_flag; //标识 1代表可用 0 不可用?
+
+	@OneToMany(targetEntity=Comment.class,cascade=CascadeType.ALL)
+	private List<Comment> comentList;
+	//发布的所有视频
+	@OneToMany(targetEntity=SysVideo.class,cascade=CascadeType.ALL)
+	public List<SysVideo> videoList;
+	public List<SysVideo> getVideoList() {
+		return videoList;
+	}
+
+	public void setVideoList(List<SysVideo> videoList) {
+		this.videoList = videoList;
+	}
+
 	public Integer getUser_group() {
 		return user_group;
 	}
@@ -164,6 +180,14 @@ public class SysUser extends EntitiBaseBean<SysUser>{
 
 	public void setUser_regist_time(Date user_regist_time) {
 		this.user_regist_time = user_regist_time;
+	}
+
+	public List<Comment> getComentList() {
+		return comentList;
+	}
+
+	public void setComentList(List<Comment> comentList) {
+		this.comentList = comentList;
 	}
 
 	

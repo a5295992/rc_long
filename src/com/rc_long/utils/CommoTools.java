@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.hibernate.Query;
+
 import com.rc_long.Entity.ResourceBean;
 
 public class CommoTools {
@@ -82,5 +84,13 @@ public class CommoTools {
 	public static String getUUID() {
 		
 		return UUID.randomUUID().toString().replace("-", "");
+	}
+
+	public static void setValues(Object[] obj, Query query) {
+		for (int i = 0; i < obj.length; i++) {
+			query.setParameter(i, obj[i]);
+		}
+		// TODO Auto-generated method stub
+		
 	}
 }

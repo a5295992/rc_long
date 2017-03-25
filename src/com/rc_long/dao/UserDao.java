@@ -23,5 +23,8 @@ public interface UserDao {
 	
 	
 	public List<SysUser> getUserByHql();
+
+
+	public void update(SysUser user);
 	
 }

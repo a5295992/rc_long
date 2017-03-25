@@ -61,6 +61,23 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void update(SysUser user) {
+		session = sessionFactory.openSession();
+		Transaction tran  = session.beginTransaction();
+		try {
+			session.update(user);
+			tran.commit();
+		} catch (Exception e) {
+			tran.rollback();
+			e.printStackTrace();
+		}finally{
+			
+			session.close();
+		}
+		
+	}
 	
 	
 }

@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Properties;
 
+import org.apache.log4j.helpers.LogLog;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -97,27 +99,33 @@ public class JedisUtils {
 		}
 	}
 
-	public static Object getObject(String name) {
+	@SuppressWarnings("unchecked")
+	public static <T> T getObject(String name) {
 
 		Jedis jedis = JedisUtils.getJedisObject();
-		byte[] arr2 = jedis.get(name.getBytes());
-
-		ByteArrayInputStream bis = new ByteArrayInputStream(arr2);
-		ObjectInputStream inputStream = null;
+		byte[] arr2 = null;
 		try {
-			inputStream = new ObjectInputStream(bis);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+			arr2 = jedis.get(name.getBytes());
+			ByteArrayInputStream bis = new ByteArrayInputStream(arr2);
+			ObjectInputStream inputStream = null;
+			try {
+				inputStream = new ObjectInputStream(bis);
+			} catch (IOException e) {
+				LogLog.warn("IOError");
+				e.printStackTrace();
+			}
 
-		try {
-			return inputStream.readObject();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			JedisUtils.recycleJedisOjbect(jedis);
+			try {
+				return (T) inputStream.readObject();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				JedisUtils.recycleJedisOjbect(jedis);
+			}
+		} catch (Exception e1) {
+			LogLog.warn("cant resolve this resource because it not exit");
 		}
 		return null;
 	}
@@ -135,6 +143,21 @@ public class JedisUtils {
 		try {
 			return jedis.get(string);
 		} finally {
+			JedisUtils.recycleJedisOjbect(jedis);
+		}
+	}
+   //清空 资源
+	public static void clear() {
+		
+		Jedis jedis = JedisUtils.getJedisObject();
+		
+		try {
+			jedis.flushDB();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}finally{
+			
 			JedisUtils.recycleJedisOjbect(jedis);
 		}
 	}

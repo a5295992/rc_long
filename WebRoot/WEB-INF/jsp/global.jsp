@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="pager" uri="http://com.suse/jsp/jstl/sky"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fnc" uri="http://java.sun.com/jsp/jstl/functionsc" %>
 <c:set var="base" value="${pageContext.request.contextPath }"></c:set>
 <script type="text/javascript" >
 	var base="${base}";
