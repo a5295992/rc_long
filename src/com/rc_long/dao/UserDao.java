@@ -26,5 +26,8 @@ public interface UserDao {
 
 
 	public void update(SysUser user);
+
+
+	public SysUser getUserByUserId(String user_id);
 	
 }

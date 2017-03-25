@@ -14,4 +14,7 @@ public interface SysUserService {
 
 
 	public void updateUser(SysUser user);
+
+
+	public SysUser searchUserById(String user_id);
 }

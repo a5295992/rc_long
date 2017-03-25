@@ -19,8 +19,29 @@
 						<div class="song-info">
 							<h3>${sysVideo.video_name }</h3>	
 					</div>
+					<c:forEach items="${videoGroup.videoList }" var="video" >
+							<input type="text" name="video_id_id" value="${video.video_id}" style="display: none">
+					</c:forEach>
+					
+					<div id="play_list" style="width:145px;height:360px;position: relative;left: 600px;top: -360px;display:none;scoller;overflow:auto">
+						<ul style="width:140px;height:320px">
+						<li><font size="3px" ,color="red">播放列表</font></li>
+						<c:forEach items="${videoGroup.videoList }" var="video" end="5">
+							<li ><a href="${base }/video/${video.video_id}" ><img alt="" src="${base }/${video.video_img }"style="height: 60px;width: 140"/>
+								<p style="height: 15px">${video.video_name }</p>
+								</a>
+							</li>
+							
+						</c:forEach>
+						</ul>
+					</div>
+						
 						<div class="video-grid-single-page-agileits">
-							<div data-video="dLmKio67pVQ" id="video"> <img src="${base }/${sysVideo.video_img}" alt="" class="img-responsive" /> </div>
+							<div data-video="dLmKio67pVQ" id="video"> 
+							<img src="${base }/${sysVideo.video_img}" alt="" class="img-responsive" /> 
+								
+							</div>
+							简介:<span style="color: black;">${sysVideo.video_desc }[...]</span>
 						</div>
 					</div>
 					<div class="song-grid-right">
@@ -68,151 +89,93 @@
 					<div class="clearfix"> </div>
 
 					<div class="all-comments">
+					<c:choose>
+						<c:when test="${ShiroUser eq null}">
 						<div class="all-comments-info">
 							<a href="#">评论留言</a>
 							<div class="agile-info-wthree-box">
 								<form>
-									<input type="text" placeholder="Name" required="">			           					   
-									<input type="text" placeholder="Email" required="">
-									<input type="text" placeholder="Phone" required="">
-									<textarea placeholder="Message" required=""></textarea>
-									<input type="submit" value="SEND">
+									<input type="text" placeholder="你的名字" required="">			           					   
+									<input type="text" placeholder="邮箱" required="">
+									<input type="text" placeholder="手机号" required="">
+									<textarea placeholder="评论内容" required=""></textarea>
+									<input type="submit" value="发送">
 									<div class="clearfix"> </div>
 								</form>
 							</div>
 						</div>
+						
+						
+						
+						</c:when>
+						
+						<c:otherwise>
+							<div class="all-comments-info">
+							<a href="#">评论留言</a>
+							<div class="agile-info-wthree-box">
+								<form>
+									<textarea placeholder="我也要说一句" required=""></textarea>
+									<input type="submit" value="发送">
+									<div class="clearfix"> </div>
+								</form>
+							</div>
+						</div>
+						</c:otherwise>
+					</c:choose>
+						
 						<div class="media-grids">
-							<div class="media">
-								<h5>TOM BROWN</h5>
+						<c:forEach items="${commentPager.list}" var="comment">
+						<div class="media" >
+								<span style="color: #C7C7C7;size: 14px" ></span><h5>${comment.sysUser.user_name }</h5>
 								<div class="media-left">
 									<a href="#">
-										<img src="images/user.jpg" title="One movies" alt=" " />
+										<img src="${base }/${comment.sysUser.user_img}" title="One movies" alt=" " />
 									</a>
 								</div>
 								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
+									<p>${comment.text}</p>
+									<span>${comment.date }</span>
 								</div>
-							</div>
-							<div class="media">
-								<h5>MARK JOHNSON</h5>
+						</div>
+						<hr/>
+						<c:forEach items="${comment.recomment }" var="rcomment" end="1">
+							<div class="media" style="margin-left: 50px;margin-top: 10px">
+								<h5>${rcomment.sysUser.user_name }<span style="color: #C7C7C7;size: 14px" ><font color="red" size="5px">回复:</font>${comment.sysUser.user_name }</span></h5>
 								<div class="media-left">
 									<a href="#">
-									<img src="images/user.jpg" title="One movies" alt=" " />
+									<img src="${base }/${rcomment.sysUser.user_img }" title="One movies" alt=" " />
 									</a>
 								</div>
 								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
+									<p>${rcomment.text}</p>
+									<span>${rcomment.date }</span>
 								</div>
 							</div>
-							<div class="media">
-								<h5>STEVEN SMITH</h5>
-								<div class="media-left">
-									<a href="#">
-									<img src="images/user.jpg" title="One movies" alt=" " />
-									</a>
-								</div>
-								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
-								</div>
-							</div>
-
+						
+						</c:forEach>
+						<hr/>
+						</c:forEach>
+							<a href="#"><p>查看所有留言</p></a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 single-right">
-					<h3>Up Next</h3>
+					<h3>同名专辑</h3>
 					<div class="single-grid-right">
-						<div class="single-right-grids">
+					<c:forEach items="${videoGroup.videoList}" var="video">
+					<div class="single-right-grids">
 							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/m1.jpg" alt="" /></a>
+								<a href="${base }/video/${video.video_id}"><img src="${base }/${video.video_img}" alt="" /></a>
 							</div>
 							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author"><a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views</p>
+								<a href="${base }/video/${video.video_id}" class="title"> ${fn:substring(video.video_name,0,8)}</a>
+								<p class="author"><a href="${base }/fuser/${video.sysUser.user_id}" class="author">${video.sysUser.user_name}</a></p>
+								<p class="views">${video.video_wathers }人看过</p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<div class="single-right-grids">
-							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/m2.jpg" alt="" /></a>
-							</div>
-							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author"><a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views </p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="single-right-grids">
-							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/m3.jpg" alt="" /></a>
-							</div>
-							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author"><a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="single-right-grids">
-							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/m4.jpg" alt="" /></a>
-							</div>
-							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author"><a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="single-right-grids">
-							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/m5.jpg" alt="" /></a>
-							</div>
-							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author"><a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="single-right-grids">
-							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/c5.jpg" alt="" /></a>
-							</div>
-							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author"><a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="single-right-grids">
-							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/m6.jpg" alt="" /></a>
-							</div>
-							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author">By <a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="single-right-grids">
-							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="images/m15.jpg" alt="" /></a>
-							</div>
-							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> Nullam interdum metus</a>
-								<p class="author">By <a href="#" class="author">John Maniya</a></p>
-								<p class="views">2,114,200 views</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
+					
+					</c:forEach>
 
 					</div>
 				</div>
@@ -225,17 +188,18 @@
 				<!--body wrapper start-->
 			<div class="w3_agile_banner_bottom_grid">
 				<div id="owl-demo" class="owl-carousel owl-theme">
-					<div class="item">
+					<c:forEach items="${tvList }" var="video">
+						<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m13.jpg" title="album-name" class="img-responsive" alt=" " />
+							<a href="${base }/video/${video.video_id}" class="hvr-shutter-out-horizontal"><img src="${base }/${video.video_img}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
 								<div class="w3l-movie-text">
-									<h6><a href="single.html">Citizen Soldier</a></h6>							
+									<h6><a href="${base }/video/${video.video_id}">${fn:substring(video.video_name,0,8) }</a></h6>							
 								</div>
 								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
+									<p>${fn:substring(video.create_time,0,8) }</p>
 									<div class="block-stars">
 										<ul class="w3l-ratings">
 											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -249,234 +213,13 @@
 								</div>
 							</div>
 							<div class="ribben">
-								<p>NEW</p>
+								<p>${fn:substring(video.videoType.video_type_name,0,2) }</p>
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">X-Men</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m12.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">Greater</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">Light B/t Oceans</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m8.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">The BFG</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">Central Intelligence</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m10.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">Don't Think Twice</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">Peter</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m15.jpg" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">God’s Compass</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
+					
+					</c:forEach>
+					
 				</div>
 			</div>
 		<!--body wrapper end-->
@@ -487,8 +230,10 @@
 			</div>	
 		</div>
 	<!-- //w3l-medile-movies-grids -->
-	
-	<<script type="text/javascript" src="${base }/www/module_02/single/single.js">
+	<script type="text/javascript" >
+	var $player = "${module_02_player}";
+	</script>
+	<script type="text/javascript" src="${base }/www/module_02/single/single.js">
 <!--
 
 //-->

@@ -7,7 +7,7 @@
 		<ul>
 			<!--  首页推荐电影-->
 			<c:forEach items="${videoList }" var="video">
-				<li><img src="${base }/${video.video_img }" alt="电影封面" ><p class='title'>${video.video_name }</p><p class='description'> <a></a>${video.video_desc }<a href="${base }/video?video_id=${video.video_id}">|PLAY|</a></p></li>
+				<li><img src="${base }/${video.video_img }" alt="电影封面" ><p class='title'>${video.video_name }</p><p class='description'> <a></a>${video.video_desc }<a href="${base }/video/${video.video_id}">|PLAY|</a></p></li>
 			</c:forEach>
 			<%-- <li><img src="${module_02 }/images/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
 			<li><img src="${module_02 }/images/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
@@ -37,12 +37,12 @@
 					<c:forEach  items="${tvList }" var="tVideo">
 						<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="${base }/${tVideo.video_img}" title="album-name" class="img-responsive" alt=" " />
+							<a href="${base }/video/${tVideo.video_id}" class="hvr-shutter-out-horizontal"><img src="${base }/${tVideo.video_img}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
 								<div class="w3l-movie-text">
-									<h6><a href="#">${fn:substring(tVideo.video_name,0,8) }</a></h6>							
+									<h6><a href="${base }/video/${tVideo.video_id}">${fn:substring(tVideo.video_name,0,8) }</a></h6>							
 								</div>
 								<div class="mid-2 agile_mid_2_home">
 									<p>${fn:substring(tVideo.create_time,0,4) }</p>
@@ -101,12 +101,12 @@
 						<div class="w3_agile_featured_movies">
 							<c:forEach items="${videoType.videoList }" var="tVideo">
 								<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="${base }/${tVideo.video_img}" title="album-name" class="img-responsive" alt=" " />
+								<a href="${base }/video/${tVideo.video_id}" class="hvr-shutter-out-horizontal"><img src="${base }/${tVideo.video_img}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
 									<div class="w3l-movie-text">
-										<h6><a href="single.html">${fn:substring(tVideo.video_name,0,8) }</a></h6>							
+										<h6><a href="${base }/video/${tVideo.video_id}">${fn:substring(tVideo.video_name,0,8) }</a></h6>							
 									</div>
 									<div class="mid-2 agile_mid_2_home">
 										<p>${fn:substring(tVideo.create_time,0,4) }</p>
@@ -207,12 +207,12 @@
 								
 									
 									<div class="col-md-2 w3l-movie-gride-agile">
-										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="${module_02 }/images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
+										<a href="${base }/video/${video.video_id}" class="hvr-shutter-out-horizontal"><img src="${module_02 }/images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
 										<div class="mid-1 agileits_w3layouts_mid_1_home">
 											<div class="w3l-movie-text">
-												<h6><a href="single.html">${video.video_name }</a></h6>							
+												<h6><a href="${base }/video/${video.video_id}">${video.video_name }</a></h6>							
 											</div>
 											<div class="mid-2 agile_mid_2_home">
 												<p>${fn:substring(video.create_time,0,4) } </p>
@@ -242,7 +242,7 @@
 										</a>
 										<div class="mid-1 agileits_w3layouts_mid_1_home">
 											<div class="w3l-movie-text">
-												<h6><a href="single.html">更多内容..</a></h6>							
+												<h6><a href="#">更多内容..</a></h6>							
 											</div>
 											<div class="mid-2 agile_mid_2_home">
 												<p></p>

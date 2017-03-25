@@ -32,6 +32,8 @@ public class Comment extends EntitiBaseBean<Comment>{
 	
 	private String user_id;
 	
+	private String r_id;
+	
 	public String getVideo_id() {
 		return video_id;
 	}
@@ -49,7 +51,7 @@ public class Comment extends EntitiBaseBean<Comment>{
 	}
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="comment_id",insertable=false,updatable=false)
+	@JoinColumn(name="r_id",insertable=false,updatable=false)
 	private Comment pcomment;
 	
 	//回复
@@ -124,6 +126,14 @@ public class Comment extends EntitiBaseBean<Comment>{
 
 	public void setSysVideo(SysVideo sysVideo) {
 		this.sysVideo = sysVideo;
+	}
+
+	public String getR_id() {
+		return r_id;
+	}
+
+	public void setR_id(String r_id) {
+		this.r_id = r_id;
 	}
 
 	@ManyToOne(cascade=CascadeType.ALL)

@@ -1,35 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@include file="../../jsp/global.jsp" %>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="renderer" content="webkit">
-<title>后台管理中心</title>
-<link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
-<link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
-</head>
-<body style="background-color:#f2f9fd;">
-	<div class="header bg-main"
-		style="background:url(${base}/www/resources/backStage/images/bg.jpg)">
-		<div class="logo margin-big-left fadein-top">
-			<h1>
-				<img src="${base }/www/resources/backStage/images/y.jpg"
-					class="radius-circle rotate-hover" height="50" alt="" />后台管理中心
-			</h1>
-		</div>
-		<div class="head-l">
-			<a class="button button-little bg-green" href="${base }/sys/video"
-				target="_blank"><span class="icon-home"></span> 前台首页</a>
-			&nbsp;&nbsp;<a href="##" class="button button-little bg-blue"><span
-				class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a
-				class="button button-little bg-red" href="login.html"><span
-				class="icon-power-off"></span> 退出登录</a>
-		</div>
-	</div>
+<%@include file="../../../jsp/global.jsp" %>
+<%@include file="../include/head.jsp" %>
+
 	<div class="leftnav">
 		<div class="leftnav-title"
 			style="background:url(${base}/www/resources/backStage/images/bg.jpg) no-repeat 0 -1000px;">
@@ -41,7 +14,7 @@
 		<ul style="display:block">
 			<li><a href="${base }/sys/back/infor" target="right"><span
 					class="icon-caret-right"></span>网站设置</a></li>
-			<li><a href="${base }/www/html/pass.html" target="right"><span
+			<li><a href="${base }/admin/updatekey" target="right"><span
 					class="icon-caret-right"></span>修改密码</a></li>
 			<li><a href="${base }/sys/back/index/manage" target="right" ><span
 					class="icon-caret-right"></span>单页管理</a></li>
@@ -99,6 +72,25 @@
 	<div style="text-align:center;"></div>
 	<script type="text/javascript">
 		var base = "${base}";
+		function clearCach(){
+			$.ajax({
+		        cache: true,
+		        type: "GET",
+		        url:base+"/admin/clearCach",
+		       // data:$('#exe_form_login').serialize(),// 你的formid
+		        async: false,
+		        error: function(request) {
+		            alert("Connection error");
+		        },
+		        success: function(data) {
+		            if(data=="success"){
+		            	window.confirm(data);
+		            }else{
+		            	alert("清除失败");
+		            }
+		        }
+		    });
+		}
+		
 	</script>
-</body>
-</html>
+

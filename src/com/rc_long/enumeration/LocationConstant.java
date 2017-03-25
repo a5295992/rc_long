@@ -29,5 +29,9 @@ public class LocationConstant {
 	public static String sys_video_flowPlayer="video/flashPlayer/flowPlayer";
 	public static String index = "mudule_02/index/index";
 	public static String singeVideo = "mudule_02/single/index";
+	public static String adminLogin="backStage/login/index";
+	public static String admin = "backStage/index/index";
+	public static String erro_403 ="error/erro403";
+	public static String updateUserKey ="backStage/index/user_key_update";
 	
 }

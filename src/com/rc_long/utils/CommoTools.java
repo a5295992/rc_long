@@ -18,6 +18,7 @@ import java.util.UUID;
 
 import org.hibernate.Query;
 
+import com.mysql.jdbc.StringUtils;
 import com.rc_long.Entity.ResourceBean;
 
 public class CommoTools {
@@ -92,5 +93,14 @@ public class CommoTools {
 		}
 		// TODO Auto-generated method stub
 		
+	}
+
+	public static boolean isAllNotEmpty(String ...strings) {
+		for (int i = 0; i < strings.length; i++) {
+			if(StringUtils.isNullOrEmpty(strings[i])){
+				return false;
+			}
+		}
+		return true;
 	}
 }

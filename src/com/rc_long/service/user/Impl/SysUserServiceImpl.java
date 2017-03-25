@@ -36,5 +36,14 @@ public class SysUserServiceImpl implements SysUserService{
 	public void updateUser(SysUser user) {
 		userDao.update(user);	
 	}
+	/**
+	 * 通过id查找用户
+	 */
+	@Override
+	public SysUser searchUserById(String user_id) {
+		
+		return userDao.getUserByUserId(user_id);
+	}
+	
 
 }

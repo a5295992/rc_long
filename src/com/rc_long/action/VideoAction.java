@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -188,9 +189,8 @@ public class VideoAction {
 	}
 	
 	
-	@RequestMapping(value=NewAnRequest.toSingle)
-	public ModelAndView toSingle(HttpServletRequest req ){
-		String video_id = req.getParameter("video_id");
+	@RequestMapping(value=NewAnRequest.toSingle+"/{video_id}")
+	public ModelAndView toSingle(@PathVariable(value="video_id") String video_id ){
 		
 		if(StringUtils.isNullOrEmpty(video_id)){
 			return new ModelAndView(LocationConstant.erro_404);
@@ -207,11 +207,15 @@ public class VideoAction {
 			
 			//加载同专辑
 			VideoGroup videoGroup = moduleGroupService.getVideoGroupByTyId(true,"singleGroup",sysVideo.getGroup_id());
-			System.out.println(videoGroup);
+			
+			List<SysVideo> tvList = moduleVideoService.getVideoListByIsRecomment(1,
+					VideoTypeManage.tv, PutLocation.second,true,"tvList");
+			//
 			return new ModelAndView(LocationConstant.singeVideo)
 			.addObject("sysVideo",sysVideo)
 			.addObject("commentPager", commentPager)
-			.addObject("videoGroup",videoGroup);
+			.addObject("videoGroup",videoGroup)
+			.addObject("tvList",tvList);
 		}else{
 			return new ModelAndView(LocationConstant.erro_404);
 		}

@@ -12,4 +12,11 @@ public class NewAnRequest {
 	
 	
 	public static final String toSingle="/video";
+	
+	
+	public  static final String back_tologin="/admin/login";
+	public  static final String backlogin="/admin/login/determin";
+	public static final String to_backIndex = "/admin";
+	public static final String clearCach = "/admin/clearCach";
+	public static final String updateUserKey = "/admin/updatekey";
 }

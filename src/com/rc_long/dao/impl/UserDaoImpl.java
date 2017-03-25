@@ -2,7 +2,6 @@ package com.rc_long.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.rc_long.Entity.SysUser;
 import com.rc_long.dao.UserDao;
+import com.rc_long.utils.SessionUtils;
 
 
 @Component
@@ -21,10 +21,12 @@ public class UserDaoImpl implements UserDao {
 	private SessionFactory sessionFactory;
 	
 	private  Session session;
+	
+	private Transaction tran;
 	@Override
 	public void saveUser(SysUser user) {
 		
-		session = sessionFactory.openSession();
+		session=SessionUtils.getSession(sessionFactory);
 		
 		session.save(user);
 		
@@ -33,27 +35,13 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public SysUser getUserById(String userId,String password) {
 		List<SysUser> list = null;
-		Transaction tran = null;
-		try {
-			session = sessionFactory.openSession();
-			 tran =  session.beginTransaction();
-			String hql = "FROM SysUser WHERE user_ssid = ? AND user_key = ?";
-			Query query=session.createQuery(hql);
-			query.setParameter(0, userId);
-			query.setParameter(1, password);
-			list = query.list();
-			tran.commit();
-		} catch (HibernateException e) {
-			tran.rollback();
-			e.printStackTrace();
-		}finally{
-			
-			session.close();
-		}
-		if(list!=null&&list.size()>0){
-			return  list.get(0);
-		}
-		return null;
+		session=SessionUtils.getSession(sessionFactory);
+		String hql = "FROM SysUser WHERE user_ssid = ? AND user_key = ?";
+		Query query=session.createQuery(hql);
+		query.setParameter(0, userId);
+		query.setParameter(1, password);
+		return (SysUser) query.uniqueResult();
+		
 	}
 
 	@Override
@@ -64,19 +52,25 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void update(SysUser user) {
-		session = sessionFactory.openSession();
-		Transaction tran  = session.beginTransaction();
+		session=SessionUtils.getSession(sessionFactory);
+		tran  = session.beginTransaction();
+		
 		try {
-			session.update(user);
+			session.update(session.merge(user));
 			tran.commit();
 		} catch (Exception e) {
 			tran.rollback();
 			e.printStackTrace();
-		}finally{
-			
-			session.close();
 		}
 		
+	}
+
+	@Override
+	public SysUser getUserByUserId(String user_id) {
+		session=SessionUtils.getSession(sessionFactory);
+		
+		
+		return (SysUser) session.get(SysUser.class, user_id);
 	}
 	
 	

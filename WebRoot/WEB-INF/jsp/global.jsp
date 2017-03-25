@@ -14,4 +14,7 @@
 <script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
 <c:set var="module_02" value="${base }/www/module_02/static"></c:set>
 <!--  ${module_02 }-->
-
+<c:set var="module_02_player" value="${base }/www/module_02/player"></c:set>
+<!--  ${module_02_player }-->
+<c:set var="back_static" value="${base }/www/backStage"></c:set>
+<!-- back_static -->

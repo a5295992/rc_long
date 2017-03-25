@@ -36,6 +36,7 @@
 <link href="${module_02 }/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
 <script src="${module_02 }/js/owl.carousel.js"></script>
 <script src="${module_02 }/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${base }/www/module_02/player/flowplayer-3.2.10.min.js"></script>
 <script>
 	$(document).ready(function() { 
 		$("#owl-demo").owlCarousel({
