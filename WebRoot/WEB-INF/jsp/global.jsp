@@ -12,9 +12,14 @@
 <script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>
 <script type="text/javascript" src="${base }/www/js/zDialog.js"></script>
 <script type="text/javascript" src="${base }/www/js/zDrag.js"></script>
+
 <c:set var="module_02" value="${base }/www/module_02/static"></c:set>
 <!--  ${module_02 }-->
 <c:set var="module_02_player" value="${base }/www/module_02/player"></c:set>
 <!--  ${module_02_player }-->
 <c:set var="back_static" value="${base }/www/backStage"></c:set>
 <!-- back_static -->
+
+<script type="text/javascript" src="${back_static }/js/ztree/jquery.ztree.core.min.js"></script>
+<link rel="stylesheet" href="${back_static }/css/ztree/zTreeStyle.css" />
+<link rel="stylesheet" href="${module_02 }/css/font-awesome.min.css" />

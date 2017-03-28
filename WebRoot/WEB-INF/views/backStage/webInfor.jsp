@@ -20,15 +20,18 @@
 	<div class="panel admin-panel">
 		<div class="panel-head">
 			<strong><span class="icon-pencil-square-o"></span> 网站信息</strong>
+			<input type="button"
+							class="button bg-blue margin-left" id="image1" value="重启服务器" onclick="restart()">
 		</div>
 		<div class="body-content">
-			<form method="post" class="form-x" action="">
+			<form method="post" class="form-x" action="${base }/system/witeSet/update">
+				<input type="hidden" value="${witeSiteInfor.id }" name="id">
 				<div class="form-group">
 					<div class="label">
 						<label>网站标题：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="stitle" value="" />
+						<input type="text" class="input" name="wite_name" value="${witeSiteInfor.wite_name }" />
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -37,8 +40,8 @@
 						<label>网站LOGO：</label>
 					</div>
 					<div class="field">
-						<input type="text" id="url1" name="slogo" class="input tips"
-							style="width:25%; float:left;" value="" data-toggle="hover"
+						<input type="text" id="url1" name="wite_logo" class="input tips"
+							style="width:25%; float:left;" value="${witeSiteInfor.wite_logo }" data-toggle="hover"
 							data-place="right" data-image="" /> <input type="button"
 							class="button bg-blue margin-left" id="image1" value="+ 浏览上传">
 					</div>
@@ -48,7 +51,7 @@
 						<label>网站域名：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="surl" value="" />
+						<input type="text" class="input" name="wite_href" value="${witeSiteInfor.wite_href }"" />
 					</div>
 				</div>
 				<div class="form-group" style="display:none">
@@ -56,7 +59,7 @@
 						<label>副加标题：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="sentitle" value="" />
+						<input type="text" class="input" name="wite_name_" value="" />
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -65,7 +68,7 @@
 						<label>网站关键字：</label>
 					</div>
 					<div class="field">
-						<textarea class="input" name="skeywords" style="height:80px"></textarea>
+						<textarea class="input" name="wite_key" style="height:80px" > ${witeSiteInfor.wite_key }</textarea>
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -74,7 +77,7 @@
 						<label>网站描述：</label>
 					</div>
 					<div class="field">
-						<textarea class="input" name="sdescription"></textarea>
+						<textarea class="input" name="wite_desc">${witeSiteInfor.wite_desc }</textarea>
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -83,7 +86,7 @@
 						<label>联系人：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="s_name" value="" />
+						<input type="text" class="input" name="wite_author" value="${witeSiteInfor.wite_author }"" />
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -92,7 +95,7 @@
 						<label>手机：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="s_phone" value="" />
+						<input type="text" class="input" name="phone" value="${witeSiteInfor.phone }"" />
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -101,72 +104,42 @@
 						<label>电话：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="s_tel" value="" />
+						<input type="text" class="input" name="s_phone" value="" />
 						<div class="tips"></div>
 					</div>
 				</div>
-				<div class="form-group" style="display:none;">
-					<div class="label">
-						<label>400电话：</label>
-					</div>
-					<div class="field">
-						<input type="text" class="input" name="s_400" value="" />
-						<div class="tips"></div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="label">
-						<label>传真：</label>
-					</div>
-					<div class="field">
-						<input type="text" class="input" name="s_fax" value="" />
-						<div class="tips"></div>
-					</div>
-				</div>
+				
+				
 				<div class="form-group">
 					<div class="label">
 						<label>QQ：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="s_qq" value="" />
+						<input type="text" class="input" name="qq" value=""${witeSiteInfor.qq }" />
 						<div class="tips"></div>
 					</div>
 				</div>
-				<div class="form-group" style="display:none">
-					<div class="label">
-						<label>QQ群：</label>
-					</div>
-					<div class="field">
-						<input type="text" class="input" name="s_qqu" value="" />
-						<div class="tips"></div>
-					</div>
-				</div>
+				
 
 				<div class="form-group">
 					<div class="label">
 						<label>Email：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="s_email" value="" />
+						<input type="text" class="input" name="connet_email" value="${witeSiteInfor.connet_email }"" />
 						<div class="tips"></div>
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="label">
-						<label>地址：</label>
-					</div>
-					<div class="field">
-						<input type="text" class="input" name="s_address" value="" />
-						<div class="tips"></div>
-					</div>
-				</div>
+				
 
 				<div class="form-group">
 					<div class="label">
 						<label>底部信息：</label>
 					</div>
 					<div class="field">
-						<textarea name="scopyright" class="input" style="height:120px;"></textarea>
+						<textarea name="copy_right" class="input" style="height:120px;">
+						${witeSiteInfor.copy_right }
+						</textarea>
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -175,7 +148,7 @@
 						<label></label>
 					</div>
 					<div class="field">
-						<button class="button bg-main icon-check-square-o" type="submit">
+						<button class="button bg-main icon-check-square-o" type="submit"  id="submit">
 							提交</button>
 					</div>
 				</div>
@@ -185,5 +158,10 @@
 </body>
 <script type="text/javascript">
 	var base = "${base}";
+	if("${message}"!=""){
+		window.confirm("${message}")
+	}
+	
 </script>
+<script type="text/javascript" src="${back_static }/js/webinfor.js"></script>
 </html>

@@ -12,14 +12,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Query;
 
 import com.mysql.jdbc.StringUtils;
 import com.rc_long.Entity.ResourceBean;
+import com.rc_long.Entity.ShiroUser;
 
 public class CommoTools {
 
@@ -102,5 +106,29 @@ public class CommoTools {
 			}
 		}
 		return true;
+	}
+	
+	public static String  getDateTimerFiled(Date date) {
+		
+		@SuppressWarnings("deprecation")
+		int h = date.getHours();
+		
+		if(h<13&&h>5){
+			return "上午";
+		}else if(h<5&&h>0){
+			return "凌晨";
+		}else if(h>13&&h<18){
+			return "下午";
+		}else{
+			return "晚上";
+		}
+	}
+
+	public static boolean ifAuth(HttpServletRequest req) {
+		ShiroUser user = new CurrentSession(req).getShiroUser();
+		if(user!=null&&user.getUser_type()==1){
+			return true;
+		}
+		return false;
 	}
 }

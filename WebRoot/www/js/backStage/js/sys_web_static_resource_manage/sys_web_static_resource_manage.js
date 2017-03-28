@@ -13,8 +13,8 @@ var public_resource = function(){
 	  div.fadeOut();
 	  
 	  var diag = new Dialog();
-		diag.Width=500;
-		diag.Height=500;
+		diag.Width=1100;
+		diag.Height=700;
 		diag.URL=base+"/sys/web/static/resource/manage/public";
 		diag.OKEvent=function(){
 			window.location.reload();
@@ -31,8 +31,8 @@ var private_resource = function(){
 	  div2.animate({bottom:'220px'},"slow");
 	  
 	  var diag = new Dialog();
-		diag.Width=500;
-		diag.Height=500;
+	  diag.Width=1100;
+		diag.Height=700;
 		diag.URL=base+"/sys/web/static/resource/manage/public";
 		diag.OKEvent=function(){
 			window.location.reload();

@@ -12,7 +12,7 @@
 			<span class="icon-user"></span>基本设置
 		</h2>
 		<ul style="display:block">
-			<li><a href="${base }/sys/back/infor" target="right"><span
+			<li><a href="${base }/system/witeSet" target="right"><span
 					class="icon-caret-right"></span>网站设置</a></li>
 			<li><a href="${base }/admin/updatekey" target="right"><span
 					class="icon-caret-right"></span>修改密码</a></li>
@@ -66,7 +66,7 @@
 	</ul>
 	
 	<div class="admin">
-		 <iframe scrolling="auto" rameborder="0" src=""
+		 <iframe scrolling="auto" rameborder="0" src="${base }/admin/welecom"
 			name="right" width="100%" height="100%"></iframe> 
 	</div>
 	<div style="text-align:center;"></div>

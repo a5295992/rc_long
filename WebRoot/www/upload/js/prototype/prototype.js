@@ -1956,6 +1956,7 @@ Element.Methods = {
   },
 
   makePositioned: function(element) {
+	  
     element = $(element);
     var pos = Element.getStyle(element, 'position');
     if (pos == 'static' || !pos) {
@@ -2058,7 +2059,6 @@ Element.Methods = {
     element.style.position = 'relative';
     var top  = parseFloat(element.style.top  || 0) - (element._originalTop || 0);
     var left = parseFloat(element.style.left || 0) - (element._originalLeft || 0);
-
     element.style.top    = top + 'px';
     element.style.left   = left + 'px';
     element.style.height = element._originalHeight;

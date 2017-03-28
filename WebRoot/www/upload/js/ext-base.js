@@ -6,6 +6,7 @@
  * http://extjs.com/license
  */
 
+
 Ext = {
 	version : "2.2"
 };

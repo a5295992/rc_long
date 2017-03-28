@@ -163,7 +163,6 @@ var limtallsize=5000000000;
  </script>
  <div id="panel"></div>	
   <div >
-  	<button onclick="showAll()">查看所有</button>
   </div>	
 </body>
 </html>

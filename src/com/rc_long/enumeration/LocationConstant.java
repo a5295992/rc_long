@@ -34,4 +34,12 @@ public class LocationConstant {
 	public static String erro_403 ="error/erro403";
 	public static String updateUserKey ="backStage/index/user_key_update";
 	
+	
+	
+	
+	
+	//系统设置
+	
+	public static String witeSet = "backStage/webInfor";
+	public static String welecom = "backStage/index/welecom";
 }

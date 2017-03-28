@@ -17,6 +17,7 @@ import com.rc_long.Anrequest.NewAnRequest;
 import com.rc_long.Entity.ShiroUser;
 import com.rc_long.Entity.SysUser;
 import com.rc_long.enumeration.LocationConstant;
+import com.rc_long.service.CmdService;
 import com.rc_long.service.user.SysUserService;
 import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.CurrentSession;
@@ -163,5 +164,22 @@ public class LoginControler {
 		}else{
 			return "不能为空";
 		}
+	}
+	
+	@RequestMapping(value=NewAnRequest.welecom)
+	public ModelAndView welecom(){
+		//获取cpu使用率
+		String mee = JedisUtils.load("mee");
+		if(mee==null){
+			CmdService cmdService = new CmdServiceImpl();
+			mee= cmdService.runBat("findmemery.bat");
+			JedisUtils.save("mee", mee);
+		}
+		//获取当前时间段
+		String dateFiled = CommoTools.getDateTimerFiled(new Date());
+		//获取
+		return new ModelAndView(LocationConstant.welecom)
+		.addObject("dateFiled",dateFiled).
+		addObject("mee",mee);
 	}
 }

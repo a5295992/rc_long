@@ -847,7 +847,7 @@ SWFUpload.prototype.fileQueued = function (file) {
 	allsize +=file.size;
 	if(allsize >limtallsize){
 		allsize = allsize - file.size;
-		alert("´óÐ¡³¬¹ýÏÞÖÆ!");
+		alert("ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
 		return false;
 	}
 

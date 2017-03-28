@@ -62,6 +62,7 @@
          <value>com.rc_long.Entity.VideoType</value>
          <value>com.rc_long.Entity.MenuRole</value>
          <value>com.rc_long.Entity.Comment</value>
+         <value>com.rc_long.Entity.WiteSiteInfor</value>
     			</list>  
 			</property> 
 			
