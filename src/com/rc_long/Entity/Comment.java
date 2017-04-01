@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="video_comment")
+@Table(name="comment")
 public class Comment extends EntitiBaseBean<Comment>{
 	
 	/**
@@ -20,19 +20,39 @@ public class Comment extends EntitiBaseBean<Comment>{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
+	
 	private String comment_id;
-	//是否是评论回复
-	private boolean is_recoment;
+	
+	
 	//评论内容
 	private String text;
 	//评论时间
 	private Date date;
 	
+	public List<ReComment> getReComment() {
+		return reComment;
+	}
+
+	public void setReComment(List<ReComment> reComment) {
+		this.reComment = reComment;
+	}
+
 	private String video_id;
 	
 	private String user_id;
+	//回复
+	@OneToMany(cascade=CascadeType.ALL,targetEntity=ReComment.class,mappedBy="comment")
+	private List<ReComment> reComment;
 	
-	private String r_id;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="user_id",insertable=false,updatable=false)
+	private SysUser sysUser;
+	
+	
+
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="video_id",insertable=false,updatable=false)
+	private SysVideo sysVideo;
 	
 	public String getVideo_id() {
 		return video_id;
@@ -50,17 +70,7 @@ public class Comment extends EntitiBaseBean<Comment>{
 		this.user_id = user_id;
 	}
 
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="r_id",insertable=false,updatable=false)
-	private Comment pcomment;
-	
-	//回复
-	@OneToMany(cascade=CascadeType.ALL,targetEntity=Comment.class)
-	private List<Comment> recomment;
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_id",insertable=false,updatable=false)
-	private SysUser sysUser;
+
 	
 	public String getComment_id() {
 		return comment_id;
@@ -72,13 +82,6 @@ public class Comment extends EntitiBaseBean<Comment>{
 
 
 
-	public boolean isIs_recoment() {
-		return is_recoment;
-	}
-
-	public void setIs_recoment(boolean is_recoment) {
-		this.is_recoment = is_recoment;
-	}
 
 	public String getText() {
 		return text;
@@ -96,21 +99,6 @@ public class Comment extends EntitiBaseBean<Comment>{
 		this.date = date;
 	}
 
-	public Comment getPcomment() {
-		return pcomment;
-	}
-
-	public void setPcomment(Comment pcomment) {
-		this.pcomment = pcomment;
-	}
-
-	public List<Comment> getRecomment() {
-		return recomment;
-	}
-
-	public void setRecomment(List<Comment> recomment) {
-		this.recomment = recomment;
-	}
 
 	public SysUser getSysUser() {
 		return sysUser;
@@ -128,17 +116,4 @@ public class Comment extends EntitiBaseBean<Comment>{
 		this.sysVideo = sysVideo;
 	}
 
-	public String getR_id() {
-		return r_id;
-	}
-
-	public void setR_id(String r_id) {
-		this.r_id = r_id;
-	}
-
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="video_id",insertable=false,updatable=false)
-	private SysVideo sysVideo;
-	
-	
 }

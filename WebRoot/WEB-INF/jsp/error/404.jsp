@@ -22,4 +22,11 @@
 	<span>404-页面不存在！</span>
 	</div>
 	</body>
+	
+	<script type="text/javascript">
+		/* setTimeout(function(){
+			
+		}, 5);
+	 */
+	</script>
 	</html>

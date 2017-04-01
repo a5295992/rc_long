@@ -13,7 +13,6 @@ function login(){
             alert("Connection error");
         },
         success: function(data) {
-        	alert(data);
             if(data=="success"){
             	window.location.href=base+"/admin";
             }else{

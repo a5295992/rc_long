@@ -371,7 +371,7 @@ width:100%;
     -o-transition: .5s all;
     -ms-transition: .5s all;
 }
-.agile-info-wthree-box input[type="submit"]:hover{
+.agile-info-wthree-box input[type="button"]:hover{
     text-decoration: none;
     color: #fff;
     background:#222;

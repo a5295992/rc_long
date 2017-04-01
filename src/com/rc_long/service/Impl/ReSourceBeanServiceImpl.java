@@ -3,6 +3,9 @@ package com.rc_long.service.Impl;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.rc_long.Entity.ResourceBean;
 import com.rc_long.Entity.UserResourceBean;
 import com.rc_long.ThreadPool.task.service.FileReadService;
@@ -10,12 +13,14 @@ import com.rc_long.ThreadPool.task.service.impl.FileReadServiceImpl;
 import com.rc_long.ThreadPool.task.service.impl.ServiceUtils;
 import com.rc_long.dao.DateBase;
 import com.rc_long.dao.DateBaseNew;
+import com.rc_long.dao.ReSourceBeanDao;
 import com.rc_long.service.ReSourceBeanService;
 import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.Pager;
-
+@Component
 public class ReSourceBeanServiceImpl implements ReSourceBeanService {
-
+	@Autowired
+	private ReSourceBeanDao reSourceBeanDao;
 	/**
 	 * 获取 ResourceBean 的分页
 	 */
@@ -122,5 +127,10 @@ public class ReSourceBeanServiceImpl implements ReSourceBeanService {
 		Map<String,Object> newMap = CommoTools.beanToMap(resource);
 		newMap.remove("class");
 		return DateBase.insert(ResourceBean.class, newMap);
+	}
+
+	@Override
+	public void save(ResourceBean rb) {
+		reSourceBeanDao.save(rb);
 	}
 }

@@ -58,6 +58,16 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.mp4</url-pattern>
 	</servlet-mapping>
+		<servlet-mapping>
+
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.mp3</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.flv</url-pattern>
+	</servlet-mapping>
 	
 	<servlet-mapping>
 

@@ -19,7 +19,7 @@ public class LocationConstant {
 	//文件上传 地址管理
 	
 	public static String sys_file_swf_upload = "upload/file_upload";
-	public static String erro_404 = "jsp/error/404.jsp";
+	public static String erro_404 = "jsp/error/404";
 	
 	//视频直播测试
 	public static String sys_live_webRtc = "live/webRTC";
@@ -42,4 +42,15 @@ public class LocationConstant {
 	
 	public static String witeSet = "backStage/webInfor";
 	public static String welecom = "backStage/index/welecom";
+	
+	
+	//视频列表 通用 页面
+	public static String video_list = "backStage/video_list";
+	public static String commView ="commom/commoview";
+	public static String search ="mudule_02/search/search";
+	
+	
+	
+	public static String menu_add= "backStage/menu/menu_add";
+	public static String manage_index = "backStage/manage_index";
 }

@@ -20,12 +20,12 @@
 	</head>
 	<body>
 	<span style="size:10px">${message }!</span>
-	<span id="span_id">5</span><p>秒后返回</p>
+	<span id="span_id">3</span><p>秒后返回</p>
 	<div class="c404" style="background:url(${base}/www/resources/error/404.jpg) no-repeat center top;">
 	</div>
 	</body>
 	<script type="text/javascript">
-		var index=5;
+		var index=3;
 		$(function(){
 			timeOut();
 		});

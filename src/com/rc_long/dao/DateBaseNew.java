@@ -38,6 +38,7 @@ public class DateBaseNew {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
+			printSql(sql);
 			C3P0UTils.closeCon(connecion);
 		}
 		return -1;

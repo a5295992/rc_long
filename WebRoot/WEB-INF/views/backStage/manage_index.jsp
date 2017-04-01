@@ -9,42 +9,27 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title>后台管理中心</title>
-<link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
-<link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
+
 </head>
 <body style="background-color:#f2f9fd;">
-	<div class="leftnav" style="top: 0px">
-		<ul style="display:block;background-color:scrollbar; ;">
-			<li><a href="${base }/sys/back/manage/01" target="right1"><span
-					class="icon-caret-right"></span>首页管理</a></li>
-			<li><a href="${base }/www/html/pass.html" target="right1"><span
-					class="icon-caret-right"></span>电影页管理</a></li>
-			<li><a href="${base }/sys/back/index/manage" target="right"><span
-					class="icon-caret-right"></span>电视剧管理</a></li>
-			<li><a href="${base }/www/html/adv.html" target="right1"><span
-					class="icon-caret-right"></span>个人主页</a></li>
-			<li><a href="${base }/www/html/book.html" target="right1"><span
-					class="icon-caret-right"></span>搞笑频道</a></li>
-			<li><a href="${base }/www/html/column.html" target="right1"><span
-					class="icon-caret-right"></span>直播页面</a></li>
-			<li><a href="${base }/sys/back/video" target="right1"><span
-					class="icon-caret-right"></span>视频播放</a></li>
-			<li><a href="${base }/www/html/column.html" target="right1"><span
-					class="icon-caret-right"></span>用户推荐</a></li>
-			<li><a href="${base }/sys/back/user" target="right1"><span
-					class="icon-caret-right"></span>娱乐频道</a></li>
-		</ul>
+		<div >
+			<ul id="ztreeDeme" class="ztree"></ul>
+		</div>
+	<div class="leftnav" style="top: 500px" >
+		
 		<h2>
-			<span class="icon-pencil-square-o"></span>功能添加
+			<span class="icon-pencil-square-o"></span>功能管理
 		</h2>
 		<ul>
-			<li><a href="${base }/www/html/list.html" target="right"><span
-					class="icon-caret-right"></span>内容管理</a></li>
-			<li><a href="${base }/www/html/add.html" target="right"><span
-					class="icon-caret-right"></span>添加内容</a></li>
-			<li><a href="${base }/sys/back/menu" target="right"><span
-					class="icon-caret-right"></span>分类管理</a></li>
+			<li><a href="javascript:void(0)" onclick="add()"><span
+					class="icon-caret-right"></span>菜单修改</a></li>
+			<li><a href="javascript:void(0)" onclick="addNew()"><span
+					class="icon-caret-right" "></span>添加菜单</a></li>
+			<li><a href="javascript:void(0)" onclick="dele()"><span
+					class="icon-caret-right"></span>删除菜单</a></li>
 		</ul>
+		
+		<input type="hidden" name="dd" id="menu_id_">
 	</div>
 	<script type="text/javascript">
 		$(function() {
@@ -59,42 +44,18 @@
 			})
 		});
 	</script>
-	<div class="admin" style="top: 0px;padding: 0px">
-		<iframe scrolling="auto" rameborder="0" src=""
+	<div style="position:absolute;top: 0px;padding: 0px;left: 200px;width: 1100"><p>详情</p> </div>
+	<div class="admin" style="position:absolute;top: 30px;padding: 0px;left: 200px;color: white;width: 100%" id="content_id">
+		<!-- <iframe scrolling="auto" rameborder="0" src=""
 			name="right1" width="100%" height="100%">
-		</iframe>
+		</iframe> -->
 	</div>
 	<div style="text-align:center;"></div>
 	<script type="text/javascript">
 		var base = "${base}";
 
-		function del(user_id) {
-			alert("hedassad");
-			var enter = window.confirm("警告！删除该用户后,用户无法再使用该账号");
-			if (enter == 1) {
-				$.ajax({
-					cache : true,
-					type : "POST",
-					url : base + "/sys/back/user/delete",
-					//data:$('#exe_form_login').serialize(),// 你的formid
-					data : {
-						"user_id" : user_id
-					},
-					async : false,
-					error : function(request) {
-						alert("Connection error");
-					},
-					success : function(data) {
-						if (data > 0) {
-							window.confirm("操作成功");
-							w.replace(base + "/sys/back");
-						} else {
-							window.confirm("操作失败");
-						}
-					}
-				});
-			}
-		};
+		
 	</script>
 </body>
+<script type="text/javascript" src="${back_static }/js/manage_index.js"></script>
 </html>

@@ -11,6 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import com.rc_long.Anrequest.TableName;
 import com.rc_long.anotation.RcLongTable;
 
@@ -29,6 +32,9 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 	@OneToMany(targetEntity=Comment.class,cascade=CascadeType.ALL)
 	private List<Comment> commentList;
 	private static final long serialVersionUID = 1L;
+	
+	private String key_words;
+	
 	//视频分类
 	private String video_kinds;
 	//在首页摆放的位置
@@ -38,7 +44,14 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 	private String video_id;
 	
 	private Integer video_rating;
+	//菜单id
 	
+	private Integer menu_id;
+	
+	@ManyToOne(cascade=CascadeType.ALL,targetEntity=ModuleMenu.class)
+	@JoinColumn(name="menu_id",insertable=false,updatable=false)
+	@NotFound(action=NotFoundAction.IGNORE)
+	private ModuleMenu moduleMenu;
 	
 	private String  video_name;
 	
@@ -67,6 +80,7 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="group_id",insertable=false,updatable=false)
+	@NotFound(action=NotFoundAction.IGNORE)
 	private VideoGroup videoGroup;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -283,6 +297,212 @@ public class SysVideo extends EntitiBaseBean<SysVideo> {
 		this.group_id = group_id;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((commentList == null) ? 0 : commentList.hashCode());
+		result = prime * result
+				+ ((create_time == null) ? 0 : create_time.hashCode());
+		result = prime * result
+				+ ((group_id == null) ? 0 : group_id.hashCode());
+		result = prime * result
+				+ ((index_flag == null) ? 0 : index_flag.hashCode());
+		result = prime * result
+				+ ((is_recommend == null) ? 0 : is_recommend.hashCode());
+		result = prime * result
+				+ ((resource_id == null) ? 0 : resource_id.hashCode());
+		result = prime * result + ((sysUser == null) ? 0 : sysUser.hashCode());
+		result = prime * result + ((user_id == null) ? 0 : user_id.hashCode());
+		result = prime * result
+				+ ((videoGroup == null) ? 0 : videoGroup.hashCode());
+		result = prime * result
+				+ ((videoType == null) ? 0 : videoType.hashCode());
+		result = prime * result
+				+ ((video_auth == null) ? 0 : video_auth.hashCode());
+		result = prime * result
+				+ ((video_cname == null) ? 0 : video_cname.hashCode());
+		result = prime * result
+				+ ((video_desc == null) ? 0 : video_desc.hashCode());
+		result = prime * result
+				+ ((video_id == null) ? 0 : video_id.hashCode());
+		result = prime * result
+				+ ((video_img == null) ? 0 : video_img.hashCode());
+		result = prime * result
+				+ ((video_kinds == null) ? 0 : video_kinds.hashCode());
+		result = prime * result
+				+ ((video_long == null) ? 0 : video_long.hashCode());
+		result = prime * result
+				+ ((video_name == null) ? 0 : video_name.hashCode());
+		result = prime * result
+				+ ((video_path == null) ? 0 : video_path.hashCode());
+		result = prime * result
+				+ ((video_rating == null) ? 0 : video_rating.hashCode());
+		result = prime * result
+				+ ((video_share == null) ? 0 : video_share.hashCode());
+		result = prime * result
+				+ ((video_status == null) ? 0 : video_status.hashCode());
+		result = prime * result
+				+ ((video_type == null) ? 0 : video_type.hashCode());
+		result = prime * result
+				+ ((video_wathers == null) ? 0 : video_wathers.hashCode());
+		return result;
+	}
 
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SysVideo other = (SysVideo) obj;
+		if (commentList == null) {
+			if (other.commentList != null)
+				return false;
+		} else if (!commentList.equals(other.commentList))
+			return false;
+		if (create_time == null) {
+			if (other.create_time != null)
+				return false;
+		} else if (!create_time.equals(other.create_time))
+			return false;
+		if (group_id == null) {
+			if (other.group_id != null)
+				return false;
+		} else if (!group_id.equals(other.group_id))
+			return false;
+		if (index_flag == null) {
+			if (other.index_flag != null)
+				return false;
+		} else if (!index_flag.equals(other.index_flag))
+			return false;
+		if (is_recommend == null) {
+			if (other.is_recommend != null)
+				return false;
+		} else if (!is_recommend.equals(other.is_recommend))
+			return false;
+		if (resource_id == null) {
+			if (other.resource_id != null)
+				return false;
+		} else if (!resource_id.equals(other.resource_id))
+			return false;
+		if (sysUser == null) {
+			if (other.sysUser != null)
+				return false;
+		} else if (!sysUser.equals(other.sysUser))
+			return false;
+		if (user_id == null) {
+			if (other.user_id != null)
+				return false;
+		} else if (!user_id.equals(other.user_id))
+			return false;
+		if (videoGroup == null) {
+			if (other.videoGroup != null)
+				return false;
+		} else if (!videoGroup.equals(other.videoGroup))
+			return false;
+		if (videoType == null) {
+			if (other.videoType != null)
+				return false;
+		} else if (!videoType.equals(other.videoType))
+			return false;
+		if (video_auth == null) {
+			if (other.video_auth != null)
+				return false;
+		} else if (!video_auth.equals(other.video_auth))
+			return false;
+		if (video_cname == null) {
+			if (other.video_cname != null)
+				return false;
+		} else if (!video_cname.equals(other.video_cname))
+			return false;
+		if (video_desc == null) {
+			if (other.video_desc != null)
+				return false;
+		} else if (!video_desc.equals(other.video_desc))
+			return false;
+		if (video_id == null) {
+			if (other.video_id != null)
+				return false;
+		} else if (!video_id.equals(other.video_id))
+			return false;
+		if (video_img == null) {
+			if (other.video_img != null)
+				return false;
+		} else if (!video_img.equals(other.video_img))
+			return false;
+		if (video_kinds == null) {
+			if (other.video_kinds != null)
+				return false;
+		} else if (!video_kinds.equals(other.video_kinds))
+			return false;
+		if (video_long == null) {
+			if (other.video_long != null)
+				return false;
+		} else if (!video_long.equals(other.video_long))
+			return false;
+		if (video_name == null) {
+			if (other.video_name != null)
+				return false;
+		} else if (!video_name.equals(other.video_name))
+			return false;
+		if (video_path == null) {
+			if (other.video_path != null)
+				return false;
+		} else if (!video_path.equals(other.video_path))
+			return false;
+		if (video_rating == null) {
+			if (other.video_rating != null)
+				return false;
+		} else if (!video_rating.equals(other.video_rating))
+			return false;
+		if (video_share == null) {
+			if (other.video_share != null)
+				return false;
+		} else if (!video_share.equals(other.video_share))
+			return false;
+		if (video_status == null) {
+			if (other.video_status != null)
+				return false;
+		} else if (!video_status.equals(other.video_status))
+			return false;
+		if (video_type == null) {
+			if (other.video_type != null)
+				return false;
+		} else if (!video_type.equals(other.video_type))
+			return false;
+		if (video_wathers == null) {
+			if (other.video_wathers != null)
+				return false;
+		} else if (!video_wathers.equals(other.video_wathers))
+			return false;
+		return true;
+	}
+
+	public Integer getMenu_id() {
+		return menu_id;
+	}
+
+	public void setMenu_id(Integer menu_id) {
+		this.menu_id = menu_id;
+	}
+
+	public ModuleMenu getModuleMenu() {
+		return moduleMenu;
+	}
+
+	public void setModuleMenu(ModuleMenu moduleMenu) {
+		this.moduleMenu = moduleMenu;
+	}
+
+	public String getKey_words() {
+		return key_words;
+	}
+
+	public void setKey_words(String key_words) {
+		this.key_words = key_words;
+	}
 }

@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import com.rc_long.Anrequest.TableName;
 import com.rc_long.anotation.RcLongTable;
 
@@ -32,6 +35,7 @@ public class VideoGroup  extends EntitiBaseBean<VideoGroup>{
 	
 	private String group_name;
 	
+	private String group_pid = "0";
 	
 	private Integer group_watchers;
 	
@@ -44,6 +48,7 @@ public class VideoGroup  extends EntitiBaseBean<VideoGroup>{
 	private Date group_create_time;
 	
 	@OneToMany(mappedBy="videoGroup",cascade=CascadeType.ALL)
+	@NotFound(action=NotFoundAction.IGNORE)
 	private List<SysVideo> videoList;
 
 	
@@ -110,6 +115,14 @@ public class VideoGroup  extends EntitiBaseBean<VideoGroup>{
 
 	public void setGroup_img(String group_img) {
 		this.group_img = group_img;
+	}
+
+	public String getGroup_pid() {
+		return group_pid;
+	}
+
+	public void setGroup_pid(String group_pid) {
+		this.group_pid = group_pid;
 	}
 	
 }

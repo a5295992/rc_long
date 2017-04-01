@@ -71,3 +71,43 @@ $("#h2_007").click(function(){
 	
 });
 
+
+
+var upload = function (){
+	
+	
+	var diag = new Dialog();
+
+	diag.Title = "获取资源路径";
+
+	diag.URL=base+"/sys/web/static/resource/manage/public";
+	diag.OKEvent = function() {
+		var resource_name=diag.innerFrame.contentWindow.$("#show_name").val();
+		if(resource_name.lastIndexOf("jpg")||resource_name.lastIndexOf("png")){
+			$("input[name='video_img']").val(resource_name);
+			diag.close();
+		}else{
+			window.confirm("请选择合适的图片");
+		}
+		
+	};
+	diag.Width = 1100;
+	diag.Height = 700;
+
+	diag.show();
+	
+}
+
+$("#image1").click(upload);
+
+
+
+//选择菜单
+function chooseMenu(){
+	
+	var menu_id = $("input[name='menu_id_option']").val();
+	
+	$("input[name='menu_id']").val(menu_id);
+	
+}
+

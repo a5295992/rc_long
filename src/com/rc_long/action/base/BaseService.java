@@ -7,7 +7,7 @@ import com.rc_long.utils.Pager;
 
 public interface BaseService<T> {
 	
-	public Pager<T> getPager(Map<String,String> map);
+	public Pager<T> getPager(Map<String, String> map);
 	
 	public  T getSingle(Map<String,String> map);
 

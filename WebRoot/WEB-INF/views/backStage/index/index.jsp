@@ -16,13 +16,13 @@
 					class="icon-caret-right"></span>网站设置</a></li>
 			<li><a href="${base }/admin/updatekey" target="right"><span
 					class="icon-caret-right"></span>修改密码</a></li>
-			<li><a href="${base }/sys/back/index/manage" target="right" ><span
-					class="icon-caret-right"></span>单页管理</a></li>
+			<li><a href="${base }/menu/" target="right" ><span
+					class="icon-caret-right"></span>菜单管理</a></li>
 			<li><a href="${base }/www/html/adv.html" target="right"><span
 					class="icon-caret-right"></span>首页轮播</a></li>
 			<li><a href="${base }/www/html/book.html" target="right"><span
 					class="icon-caret-right"></span>留言管理</a></li>
-			<li><a href="${base }/sys/back/programa/manage" target="right"><span
+			<li><a href="${base }/group/toGroup" target="right"><span
 					class="icon-caret-right"></span>栏目管理</a></li>
 			<li><a href="${base }/sys/back/video" target="right"><span
 					class="icon-caret-right"></span>视频管理</a></li>

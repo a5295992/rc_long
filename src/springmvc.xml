@@ -63,6 +63,9 @@
          <value>com.rc_long.Entity.MenuRole</value>
          <value>com.rc_long.Entity.Comment</value>
          <value>com.rc_long.Entity.WiteSiteInfor</value>
+         <value>com.rc_long.Entity.ResourceBean</value>
+         <value>com.rc_long.Entity.ReComment</value>
+         <value>com.rc_long.Entity.ModuleMenu</value>
     			</list>  
 			</property> 
 			

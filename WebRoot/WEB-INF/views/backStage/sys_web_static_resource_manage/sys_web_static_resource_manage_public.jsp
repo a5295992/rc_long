@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@include file="../../../jsp/global.jsp"%>
+<script type="text/javascript" src="${base }/www/js/audioplayer.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,6 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-
 <style type="text/css">
 .tu_a {
 	width: 200px;
@@ -100,12 +100,16 @@
 		</div>
 		<hr>
 			<div style="" id="flash_upload">
-			<p id="show_name">预览</p>
-			<img alt="" src=""id="showImg" style="width: 300px;">
+			<span>路径</span><input id="show_name" value="" readonly="readonly" style="width: 300px"></input>
+			<img alt="" src=""id="showImg" style="width: 300px;"/>
+			
+			<div id="play_id" >
+			
+		
+			</div>
 		</div>
 		
-	</div>
-	<div style="position: absolute;left:500px;top:30px; id="swf_upload">
+	<div style="position: absolute;left:300px;top:30px; id="swf_upload">
 		<hr>
 		<div><p id="message"><p></div>
 		<iframe src="${base }/sys/file/swf/upload" style="width:630px;height: 380px" >
@@ -145,11 +149,43 @@ function filter(treeId, parentNode, childNodes) {
 }
 function onClick(event, treeId, treeNode, clickFlag) {
 	var path = treeNode.path;
-	if(path.lastIndexOf(".txt")!=-1){
+	var name = treeNode.name;
+	/* if(path.lastIndexOf(".txt")!=-1){
 		alert(path);
 	}else{
 		$("#show_name").html("路径:"+path);
 		$("#showImg").attr("src","${base}/"+path);
+	} */
+	if(path.lastIndexOf("txt")!=-1){
+		$("#play_id").html("<iframe src='"+base+"/"+path+"'> </iframe>");
+		$("#show_name").val(path);
+	}else if(path.lastIndexOf("jpg")!=-1){
+		$("#play_id").html("");
+		$("#showImg").attr("src",base+"/"+path);
+		$("#show_name").val(path);
+		
+	}else if(path.lastIndexOf("png")!=-1){
+		$("#play_id").html("");
+		$("#showImg").attr("src",base+"/"+path);
+		$("#show_name").val(path);
+		
+	}else if(path.lastIndexOf("doc")!=-1) {
+		$("#play_id").html("");
+		$("#showImg").attr("src","");
+		
+		$("#show_name").val(path);
+		
+	}else if(path.lastIndexOf("mp4")!=-1) {
+		$("#showImg").attr("src","");
+		$("#play_id").html("<video controls='controls' autoplay='autoplay' loop='loop'preload='auto' src='"+base+"/"+path+"' width='300' height='150'></video>");
+		$("#show_name").val(name);
+		
+	}else if(path.lastIndexOf("flv")!=-1) {
+		$("#show_name").val(path);
+	}else if (path.lastIndexOf("mp3")!=-1){
+		$("#show_name").val(path);
+		$("#showImg").attr("src",base+"/www/resources/images/timg.gif");
+		$("#play_id").html("<audio src='"+base+"/"+path+"' preload='auto'  autoplay='autoplay' id='audio_id'></audio></div>");
 	}
 }
 $(document).ready(function(){  

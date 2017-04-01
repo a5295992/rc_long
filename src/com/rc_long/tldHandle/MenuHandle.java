@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.helpers.LogLog;
 
-import com.mysql.jdbc.log.Log;
 import com.rc_long.Entity.SysMenu;
-import com.rc_long.dao.DateBase;
 import com.rc_long.tldService.TLDMenuService;
 import com.rc_long.tldService.TLDMenuServiceImpl;
 import com.rc_long.utils.JedisUtils;
@@ -23,7 +21,6 @@ public class MenuHandle {
 		List<SysMenu> list = null;
 		try {
 			list = (List<SysMenu>) JedisUtils.getObject("indexMenu");
-			LogLog.warn("从缓存中取得了对象:"+list.size());
 		} catch (Exception e) {
 			list=null;
 		}

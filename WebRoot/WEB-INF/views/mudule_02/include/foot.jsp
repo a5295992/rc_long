@@ -37,7 +37,7 @@
 						<a href="genres.html">介绍</a>
 					</li>
 					<li>
-						<a href="comedy.html">管理员</a>
+						<a href="${base }/admin/login">管理员</a>
 					</li>
 					<li>
 						<a href="icons.html">酬谢</a>

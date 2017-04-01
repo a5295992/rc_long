@@ -1,8 +1,10 @@
 package com.rc_long.dao.impl;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,10 @@ import org.springframework.stereotype.Component;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.VideoGroup;
 import com.rc_long.dao.ModuleVideoGroupDao;
+import com.rc_long.dao.dataSource.HQLCostants;
+import com.rc_long.dao.dataSource.QueryCondition;
+import com.rc_long.utils.CommoTools;
+import com.rc_long.utils.SessionUtils;
 
 @Component
 public class ModuleVideoGroupDaoImpl implements ModuleVideoGroupDao {
@@ -49,6 +55,36 @@ public class ModuleVideoGroupDaoImpl implements ModuleVideoGroupDao {
 		List <SysVideo> list = session.createFilter(videoGroup.getVideoList(),"order by video_id").setFirstResult(0).setMaxResults(8).list();
 		videoGroup.setVideoList(list);
 		return videoGroup;
+	}
+
+	@Override
+	public int getCount(QueryCondition queryCondition) {
+		session = SessionUtils.getSession(sessionFactory);
+		String hql = HQLCostants.getALL(queryCondition);
+		
+		SQLQuery sql = session.createSQLQuery(hql);
+		CommoTools.setValues(queryCondition.getObj(), sql);
+		BigInteger b = (BigInteger) sql.uniqueResult();
+		
+		return b.intValue();
+	}
+
+	@Override
+	public void save(VideoGroup videoGroup) {
+		Daoutils.saveBean(sessionFactory, videoGroup);
+	}
+
+	@Override
+	public void update(VideoGroup videoGroup) {
+		Daoutils.updateMerge(sessionFactory, videoGroup);
+	}
+
+	@Override
+	public void delete(String hql) {
+		
+		
+		Daoutils.delete(sessionFactory,hql);
+		
 	}
 
 }

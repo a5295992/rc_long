@@ -1,6 +1,5 @@
 package com.rc_long.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -109,7 +108,6 @@ public class WebSiteManageControler {
 		
 		List<PoTree>  list = fileReadService.getFileList(resourcePath);
 		
-		System.out.println(list);
 		return list;
 	}
 }

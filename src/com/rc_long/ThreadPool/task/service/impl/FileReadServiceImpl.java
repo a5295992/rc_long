@@ -47,7 +47,6 @@ public class FileReadServiceImpl implements FileReadService {
 	@Override
 	public List<PoTree> getFileList(String resourcePath) {
 		//先响应一部分数据
-		int i = 0;
 		List<PoTree> list  = new ArrayList<PoTree>();
 		PoTree  poTree = new PoTree();
 		poTree.setId(RandomUtils.nextInt(100000));
@@ -92,18 +91,5 @@ public class FileReadServiceImpl implements FileReadService {
 		return "RESOURCES"+arr[1];
 	}
 
-	public static void main(String[] args) {
-		String a= new FileReadServiceImpl().getContextPath(new File("E:/Program Files/Apache Software Foundation/Tomcat 8.0/webapps/rc_long/RESOURCES/public"));
-		System.out.println(a);
-	}
-
-	private static void readList(List<PoTree> list) {
-		for (PoTree poTree : list) {
-			System.out.println("father:"+poTree.getName());
-			if(poTree.getChildren()!=null){
-				readList(poTree.getChildren());
-			}
-		}
-	}
 	
 }

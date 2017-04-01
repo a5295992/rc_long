@@ -3,7 +3,11 @@ package com.rc_long.Entity;
 import java.util.List;
 
 import javax.persistence.Entity;
-
+/**
+ * 文件 列表树
+ * @author Administrator
+ *
+ */
 @Entity
 public class PoTree {
 
@@ -12,7 +16,7 @@ public class PoTree {
 	}
 
 	public PoTree(String name, boolean open, boolean isParent, String url,
-			List<PoTree> children, boolean isChecked, int id,String path) {
+			List<PoTree> children, boolean isChecked, int id,String path,int level) {
 		super();
 		this.name = name;
 		this.open = open;
@@ -22,7 +26,10 @@ public class PoTree {
 		this.isChecked = isChecked;
 		this.id = id;
 		this.setPath(path);
+		this.setLevel(level);
 	}
+	//资源类型
+	private int level;
 	private String path;
 	
 	private int id;
@@ -114,6 +121,15 @@ public class PoTree {
 	public void setPath(String path) {
 		this.path = path;
 	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 
 
 	

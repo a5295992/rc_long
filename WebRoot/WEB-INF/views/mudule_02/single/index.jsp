@@ -23,9 +23,8 @@
 							<input type="text" name="video_id_id" value="${video.video_id}" style="display: none">
 					</c:forEach>
 					
-					<div id="play_list" style="width:145px;height:360px;position: relative;left: 600px;top: -360px;display:none;scoller;overflow:auto">
-						<ul style="width:140px;height:320px">
-						<li><font size="3px" ,color="red">播放列表</font></li>
+					<div id="play_list" style="width:145px;height:350px;position: relative;left: 600px;top: -360px;display:none;scoller;overflow:auto">
+						<ul style="width:140px;height:350px">
 						<c:forEach items="${videoGroup.videoList }" var="video" end="5">
 							<li ><a href="${base }/video/${video.video_id}" ><img alt="" src="${base }/${video.video_img }"style="height: 60px;width: 140"/>
 								<p style="height: 15px">${video.video_name }</p>
@@ -111,11 +110,15 @@
 						
 						<c:otherwise>
 							<div class="all-comments-info">
-							<a href="#">评论留言</a>
+							<a href="javascript:void(0)" onclick="recoverTonew()">评论留言</a>
 							<div class="agile-info-wthree-box">
-								<form>
-									<textarea placeholder="我也要说一句" required=""></textarea>
-									<input type="submit" value="发送">
+								<form id="comment_form">
+									<input type="hidden" name="comment_id" value="">
+									<input type="hidden" name="video_id" value="${sysVideo.video_id }"/>
+									<input type="hidden" value="${ShiroUser.user_id }" name="user_id"/>
+									<textarea placeholder="我也要说一句" required="" name="comment_data" id="comment_data"></textarea>
+									<input type="button" value="发送" style="outline: none;font-style: normal;padding: 8px 20px;background: #ff8d1b;font-size: 14px;color: #fff;display: block;border: none;transition: .5s all; -webkit-transition: .5s all;-moz-transition: .5s all;-o-transition: .5s all;-ms-transition: .5s all;" onclick="createNewComment()" id="button_send"/>
+									
 									<div class="clearfix"> </div>
 								</form>
 							</div>
@@ -126,7 +129,7 @@
 						<div class="media-grids">
 						<c:forEach items="${commentPager.list}" var="comment">
 						<div class="media" >
-								<span style="color: #C7C7C7;size: 14px" ></span><h5>${comment.sysUser.user_name }</h5>
+								<span style="color: #C7C7C7;size: 14px" ></span><h5>${comment.sysUser.user_name }</h5><span style="position: relative; left: 60px;top: -40px"><a href="javascript:void(0)" onclick="recommentTOUser('${comment.comment_id}','${comment.sysUser.user_name }')"><i class="fa fa-reply" aria-hidden="true"></i> </a></span>
 								<div class="media-left">
 									<a href="#">
 										<img src="${base }/${comment.sysUser.user_img}" title="One movies" alt=" " />
@@ -138,7 +141,7 @@
 								</div>
 						</div>
 						<hr/>
-						<c:forEach items="${comment.recomment }" var="rcomment" end="1">
+						<c:forEach items="${comment.reComment }" var="rcomment" end="1">
 							<div class="media" style="margin-left: 50px;margin-top: 10px">
 								<h5>${rcomment.sysUser.user_name }<span style="color: #C7C7C7;size: 14px" ><font color="red" size="5px">回复:</font>${comment.sysUser.user_name }</span></h5>
 								<div class="media-left">
@@ -165,7 +168,7 @@
 					<c:forEach items="${videoGroup.videoList}" var="video">
 					<div class="single-right-grids">
 							<div class="col-md-4 single-right-grid-left">
-								<a href="${base }/video/${video.video_id}"><img src="${base }/${video.video_img}" alt="" /></a>
+								<a href="${base }/video/${video.video_id}"><img src="${base }/${video.video_img}" alt=""  style="height: 60px;width: 120"/></a>
 							</div>
 							<div class="col-md-8 single-right-grid-right">
 								<a href="${base }/video/${video.video_id}" class="title"> ${fn:substring(video.video_name,0,8)}</a>
@@ -232,10 +235,9 @@
 	<!-- //w3l-medile-movies-grids -->
 	<script type="text/javascript" >
 	var $player = "${module_02_player}";
+	var $flash_player ="${flash_player}";
 	</script>
 	<script type="text/javascript" src="${base }/www/module_02/single/single.js">
-<!--
-
-//-->
+	
 </script>
 	<%@ include file="../include/foot.jsp"%>

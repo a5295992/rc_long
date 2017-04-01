@@ -61,7 +61,8 @@
 					<th>投稿人</th>
 					<th>视频别名</th>
 					<th>缩略图</th>
-					<th width="25%">分组</th>
+					<th width="10%">栏目</th>
+					<th width="8%">分类</th>
 					<th width="120">创建时间</th>
 					<th>操作</th>
 				</tr>
@@ -73,14 +74,14 @@
 						<td><input type="checkbox" name="id[]"
 							value="${video.video_id }" /> <%=i++%></td>
 						<td>${video.video_auth }</td>
-						<td>${video.user_name }</td>
+						<td>${video.sysUser.user_name }</td>
 						<td>${video.video_cname }</td>
 						<td>
 						<img style="width: 50px;height: 35px"
-						src="${base }/www/resources/images/${video.video_img}" alt="缩略图" />
+						src="${base }/${video.video_img}" alt="缩略图" />
 						</td>
-						<c:set var="video_type" value="${video.video_type }" scope="request"></c:set>
-						<td><%=VideoTypeConstants.chooseName(Integer.parseInt((String)request.getAttribute("video_type")))%></td>
+						<td>${video.videoGroup.group_name }</td>
+						<td>${video.moduleMenu.name }</td>
 						<td>${video.create_time }</td>
 						<td><div class="button-group">
 								<a class="button border-main"

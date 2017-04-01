@@ -56,36 +56,34 @@ function manage(video_id) {
 
 	diag.Title = "更改视频信息";
 
-	diag.URL = base + "/sys/back/video/manage?video_id="+video_id;
-	diag.OKEvent = function() {
-		var exe_form_login = diag.innerFrame.contentWindow.$("#exe_form_login");
-
+	diag.URL = base + "/sys/back/video/manage/"+video_id;
+/*	diag.OKEvent = function() {
+		var exe_form_login = diag.innerFrame.contentWindow.$("#exe_form_video");
+		
+		
 		$.ajax({
 			cache : true,
 			type : "POST",
-			url : base + "/sys/back/video/manage/update",
+			url : base + "/video/update",
 			data : exe_form_login.serialize(),// 你的formid
 			async : false,
 			error : function(request) {
+				alert(request);
 				alert("Connection error");
 			},
 			success : function(data) {
-				if (data > 0) {
-					var enter = window.confirm("操作成功");
-					if (enter == 1) {
-						diag.close();
-						window.location.reload();
-					}else{
+				if(data!=""){
+					var enter = window.confirm(data);
+					if(enter==1){
 						window.location.reload();
 					}
-				} else {
-					window.confirm("操作失败");
 				}
+				
 			}
 		});
-	};
-	diag.Width = 400;
-	diag.Height = 450;
+	};*/
+	diag.Width = 1100;
+	diag.Height = 700;
 
 	diag.show();
 
@@ -110,34 +108,24 @@ function openResourceManage(){
 	}else{
 		var diag = new Dialog();
 		diag.Title="关联资源选择";
-		diag.Width=1000;
+		diag.Width=1100;
 		diag.Height=600;
-		diag.URL=base+"/sys/web/static/resource/manage/database";
+		diag.URL=base+"/sys/web/static/resource/manage/public";
 		diag.OKEvent=function(){
-			var resource_id=diag.innerFrame.contentWindow.$("#choose_exe_connect").val();
-			alert(resource_id);
+			var resource_name=diag.innerFrame.contentWindow.$("#show_name").val();
 			$.ajax({
 				cache : true,
 				type : "POST",
-				url : base + "/sys/back/video/manage/update/resource",
+				url : base + "/video/updatePath",
 				/*data : exe_form_login.serialize(),// 你的formid
-*/				data :{"video_id":video_id,"resource_id":resource_id},
+*/				data :{"video_id":video_id,"resource_name":resource_name},
 				async : false,
 				error : function(request) {
 					alert("Connection error");
 				},
 				success : function(data) {
-					if (data > 0) {
-						var enter = window.confirm("操作成功");
-						if (enter == 1) {
-							diag.close();
-							window.location.reload();
-						}else{
-							window.location.reload();
-						}
-					} else {
-						window.confirm("操作失败");
-					}
+					alert(data);
+					diag.close();
 				}
 			});
 		};

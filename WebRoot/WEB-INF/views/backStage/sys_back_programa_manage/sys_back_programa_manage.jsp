@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
 </head>
 <body>
-	<form id="listform">
+	<form id="listform" action="${base }/group/search/0" method="post">
 	<div class="panel admin-panel">
 		<div class="panel-head">
 			<strong class="icon-reorder"> 内容列表</strong>
@@ -22,24 +22,25 @@
 			<button type="button" class="button border-green" id="checkall">
 							<span class="icon-check"></span> 全选
 			</button>
+			
 			<button type="submit" class="button border-red">
 							<span class="icon-trash-o"></span> 一键删除
 			</button>
 			<button type="button" class="button border-yellow"
-				onclick="window.location.href='#add'">
+				onclick="add()">
 				<span class="icon-plus-square-o"></span> 添加分类
 			</button>
 			<a class="button border-main icon-plus-square-o"
-				href="#" id="changeLiveRec"> 查看栏目下所有视频</a>
+				href="javascript:void(0)" id="changeLiveRec" onclick="findAllVideos()"> 移除栏目下视频</a>
 			<button type="button" class="button border-yellow"
-				onclick="window.location.href='#add'">
-				<span class="icon-plus-square-o"></span> 添加视频
+				onclick="addVideos()">
+				<span class="icon-plus-square-o" ></span> 添加视频
 			</button>
-			<input type="text" placeholder="请输入搜索关键字" id="likeSearch"
+			<input type="text" placeholder="请输入搜索关键字" name="like"
 						class="input"
 						style="width:250px; line-height:17px;display:inline-block" /> <a
 						href="javascript:void(0)" class="button border-main icon-search"
-						onclick="changesearch()"> 搜索</a>
+						onclick="searchA()"> 搜索</a>
 		</div>
 		<table class="table table-hover text-center">
 			<tr>
@@ -53,23 +54,23 @@
 				<th width="15%">操作</th>
 			</tr>
 			
-			<c:forEach items="${programaBean.list }" var="programa">
+			<c:forEach items="${videoGroup.list }" var="programa">
 				<tr>
-				<td><input type="checkbox" name="id[]" value="${programa.programa_id }"/></td>
-				<td>${fn:substring(programa.programa_id,0,5) }</td>
-				<td>${fn:substring(programa.programa_name,0,10) }</td>
+				<td><input type="checkbox" name="id[]" value="${programa.group_id }"/></td>
+				<td>${fn:substring(programa.group_id,0,5) }</td>
+				<td>${fn:substring(programa.group_name,0,10) }</td>
 				<td>
 					<img style="width: 50px;height: 35px"
-					src="${base }/www/resources/images/${programa.programa_img}" alt="缩略图" />
+					src="${base }/${programa.group_img}" alt="缩略图" />
 				</td>
-				<td>${programa.programa_wathers }</td>
-				<td>${programa.programa_videos }</td>
-				<td>${fn:substring(programa.programa_desc,0,10) }</td>
+				<td>${programa.group_watchers }</td>
+				<td>${fn:length(programa.videoList) }</td>
+				<td>${fn:substring(programa.group_desc,0,10) }</td>
 				<td><div class="button-group">
-						<a class="button border-main" href="cateedit.html"><span
+						<a class="button border-main" href="javascript:void(0)" onclick="update('${programa.group_id}','${programa.group_name }','${programa.group_id }','${programa.group_img }','${programa.group_desc }')"><span
 							class="icon-edit"></span> 修改</a>
 							<a class="button border-red"
-							href="##" onclick="del('${programa.programa_id}')"><span
+							href="##" onclick="del('${programa.group_id}')"><span
 							class="icon-trash-o"></span> 删除</a>
 					</div></td>
 				</tr>
@@ -79,16 +80,10 @@
 			<tr>
 					<td>
 					<td>
-						<!--用来提交下查询的操作的表单  --> <input type="hidden" id="pageNum"
-						name="pageNum" value="" /> <input type="hidden" id="pageCount"
-						name="pageCount" value="" /> <input type="hidden" id="order"
-						name="order" value="${map.order }" /> <input type="hidden"
-						id="orderBy" name="orderBy" value="${map.orderBy }" /> <input
-						type="hidden" id="condition" name="condition" value="" /> <input
-						type="hidden" id="likeName" name="likeName" value="" /> <input
-						type="hidden" id="like" name="like" value="" />
+						<!--用来提交下查询的操作的表单  -->  <input
+						type="hidden" id="likeName" name="likeName" value="group_name" />
 					</td>
-					<pager:Pager pager="${programaBean }"
+					<pager:Pager pager="${videoGroup }"
 						path="${base }/sys/back/programa/manage/search"></pager:Pager>
 				</tr>
 		</table>
