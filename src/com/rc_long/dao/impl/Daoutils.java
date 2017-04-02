@@ -38,15 +38,14 @@ public class Daoutils {
 			Class<T> clazz) {
 
 		session = SessionUtils.getSession(sessionFactory);
-
 		return (T) session.get(clazz, id);
 	}
 
-	public static <T> void updateMerge(SessionFactory sessionFactory, T sysVideo) {
+	public static <T> void updateMerge(SessionFactory sessionFactory, T bean) {
 
 		session = SessionUtils.getSession(sessionFactory);
 		tran = session.beginTransaction();
-		session.update(session.merge(sysVideo));
+		session.update(session.merge(bean));
 		tran.commit();
 
 	}
@@ -116,5 +115,6 @@ public class Daoutils {
 		tran.commit();
 		
 	}
+
 
 }

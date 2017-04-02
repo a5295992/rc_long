@@ -80,6 +80,14 @@ public class ModuleMenuServiceImpl implements ModuleMenuService {
 		
 	}
 
+	@Override
+	public List<ModuleMenu> getMenu(boolean b) {
+		
+		String hql = "FROM ModuleMenu as c";
+		List<ModuleMenu> list =moduleMenuDao.getAllMenuList(hql);
+		return list;
+	}
+
 	// ***********************************************************************
 	// * ****
 

@@ -1,12 +1,18 @@
 package com.rc_long.dao.dataSource;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.mysql.jdbc.StringUtils;
+
 public class QueryCondition {
 	
+	public QueryCondition() {
+	}
 	private Class<?> clazz;
 	//自定义 查询条件
 	private String condition;
 	//自定义条件数组
-	private Object [] conditionObject;
+	private Object [] conditionObject =new Object []{};
 	private int pageNum;
 	private int begin = 0;
 	
@@ -24,6 +30,31 @@ public class QueryCondition {
 	
 	private String count ="*";
 	
+	/**
+	 * 专门用来封装查询条件的constractor
+	 * @param req
+	 */
+	public QueryCondition(HttpServletRequest req) {
+		String pageNum_ = req.getParameter("pageNum");	
+		
+		String pageCount = req.getParameter("pageCount");
+		
+		String like = req.getParameter("like");
+		
+		String likeName = req.getParameter("likeName");
+		
+		if(!StringUtils.isNullOrEmpty(pageCount)){
+			this.max=Integer.parseInt(pageCount);
+		}
+		if(!StringUtils.isNullOrEmpty(pageNum_)){
+			this.pageNum=Integer.parseInt(pageNum_);
+		}
+		if(!StringUtils.isNullOrEmpty(like)&&!StringUtils.isNullOrEmpty(likeName)){
+			this.like=likeName;
+			this.likeName=like;
+		}
+		
+	}
 
 	public String getCondition() {
 		return condition;
@@ -33,7 +64,7 @@ public class QueryCondition {
 		this.condition = condition;
 	}
 
-	private Object [] obj;
+	private Object [] obj = new Object[]{};
 	
 	public int getBegin() {
 		return begin;

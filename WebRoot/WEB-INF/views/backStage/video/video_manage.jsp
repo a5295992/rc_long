@@ -21,18 +21,14 @@
 			
 		</div>
 		<div class="body-content">
-			<form method="post" class="form-x"  id ="exe_form_video" action="${base }/video/updateBean/${videoBean.video_id}">
-				<input type="hidden" value="${videoBean.video_id }" name="video_id" >
-				
-				<input type="hidden" value="${videoBean.videoType.video_type_id }" name="video_type_id" >
-				
-				
+			<form method="post" class="form-x"  id ="exe_form_video" action="${base }/video/updateBean">
+				<input type="hidden" name="video_id" value="${videoBean.video_id}" />
 				<div class="form-group">
 					<div class="label">
 						<label>视频名字：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="video_name" value="${videoBean.video_name }" />
+						<input  type="text" class="input" name="video_name" value="${videoBean.video_name }"maxlength="100"/>
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -52,7 +48,7 @@
 						<label>视频别名：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="video_cname" value="${videoBean.video_cname }"" />
+						<input type="text" class="input" name="video_cname" value="${videoBean.video_cname }" maxlength="100"/>
 					</div>
 				</div>
 				<div class="form-group" >
@@ -60,7 +56,7 @@
 						<label>关联资源：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="video_path" value="${videoBean.video_path }" />
+						<input type="text" class="input" name="video_path" value="${videoBean.video_path }" readonly="readonly"/>
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -80,16 +76,17 @@
 						<label>分类[菜单]：</label>
 					</div>
 					<div class="field">
-					<li><select id="likeName_serach" class="input"
-						style="width:200px; line-height:17px;">
+					<li><select id="menu_select" class="input"
+						style="width:200px; line-height:17px;" onchange="chooseMenu()">
 						<option value="" name="menu_id_option"
-						 onclick="chooseMenu()">请选择菜单</option>
+						 >${videoBean.moduleMenu.name }</option>
 						<c:forEach items="${menu_list }" var="menu">
 							<option value="${menu.id }" name="menu_id_option">${menu.name }</option>
 						</c:forEach>
 					</select></li>
-					<input type="text" class="input" name="menu_id" value="${videoBean.moduleMenu.name }"  disabled="disabled"/>
-						<div class="tips"></div>
+					<input type="text" class="input" name="menu_id" value="${videoBean.moduleMenu.id}" />
+					<div class="tips">
+					</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -106,7 +103,7 @@
 						<label>视频描述：</label>
 					</div>
 					<div class="field">
-						<textarea class="input" name="video_desc">${videoBean.video_desc }</textarea>
+						<textarea class="input" name="video_desc" maxlength="200" >${videoBean.video_desc }</textarea>
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -126,6 +123,15 @@
 					</div>
 					<div class="field">
 						<input type="text" class="input" name="video_auth" value="${videoBean.video_auth }" />
+						<div class="tips"></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="label">
+						<label>关键字：</label>
+					</div>
+					<div class="field">
+						<input type="text" class="input" name="key_words" value="${videoBean.key_words }" />
 						<div class="tips"></div>
 					</div>
 				</div>

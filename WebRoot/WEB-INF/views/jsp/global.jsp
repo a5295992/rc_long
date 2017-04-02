@@ -23,3 +23,5 @@
 <script type="text/javascript" src="${back_static }/js/ztree/jquery.ztree.core.min.js"></script>
 <link rel="stylesheet" href="${back_static }/css/ztree/zTreeStyle.css" />
 <link rel="stylesheet" href="${module_02 }/css/font-awesome.min.css" />
+
+<script type="text/javascript" src="${back_static }/js/pager.js"></script>

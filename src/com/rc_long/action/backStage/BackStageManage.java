@@ -49,6 +49,7 @@ public class BackStageManage {
 	@RequestMapping(value=NewAnRequest.system_menu_list)
 	public List<ModuleMenu> menuList(){
 		List<ModuleMenu> list  = moduleMenuService.getMenu();
+		System.out.println(list);
 		return list;
 	}
 	

@@ -59,13 +59,12 @@
          <value>com.rc_long.Entity.SysMenu</value>
          <value>com.rc_long.Entity.SysVideo</value>
          <value>com.rc_long.Entity.VideoGroup</value>
-         <value>com.rc_long.Entity.VideoType</value>
-         <value>com.rc_long.Entity.MenuRole</value>
          <value>com.rc_long.Entity.Comment</value>
          <value>com.rc_long.Entity.WiteSiteInfor</value>
          <value>com.rc_long.Entity.ResourceBean</value>
          <value>com.rc_long.Entity.ReComment</value>
          <value>com.rc_long.Entity.ModuleMenu</value>
+         <value>com.rc_long.Entity.News</value>
     			</list>  
 			</property> 
 			

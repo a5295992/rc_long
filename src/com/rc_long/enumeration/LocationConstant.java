@@ -53,4 +53,13 @@ public class LocationConstant {
 	
 	public static String menu_add= "backStage/menu/menu_add";
 	public static String manage_index = "backStage/manage_index";
+	
+	
+	//新闻
+	public static String addNews = "backStage/news/addNews";
+	
+	public static String updateNews = "backStage/news/updateNews";
+	
+	public static String newsList = "backStage/news/news_list";
+	
 }

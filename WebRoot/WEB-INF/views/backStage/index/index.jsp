@@ -30,6 +30,8 @@
 					class="icon-caret-right"></span>直播管理</a></li>
 			<li><a href="${base }/sys/back/user" target="right"><span
 					class="icon-caret-right"></span>用户管理</a></li>
+			<li><a href="${base }/news/list" target="right"><span
+					class="icon-caret-right"></span>新闻管理</a></li>
 		</ul>
 		<h2>
 			<span class="icon-pencil-square-o"></span>资源管理

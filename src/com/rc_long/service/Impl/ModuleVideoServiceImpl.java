@@ -136,4 +136,12 @@ public class ModuleVideoServiceImpl implements ModuleVideoService {
 		return moduleVideoDao.update_map(hql,map);
 	}
 
+
+	@Override
+	public void updateOrSave(SysVideo sysVideo) {
+		
+		
+		moduleVideoDao.updateOrSave(sysVideo);
+	}
+
 }

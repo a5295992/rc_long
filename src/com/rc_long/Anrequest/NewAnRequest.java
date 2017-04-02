@@ -72,4 +72,13 @@ public class NewAnRequest {
 	public static final String toSearch = "/search";
 	
 	
+	
+	
+	//新闻
+	public static final String news = "/news";
+	public static final String news_list = "/list";
+	public static final String news_add = "/add";
+	public static final String news_dele = "/dele";
+	public static final String news_update = "/update";
+	
 }

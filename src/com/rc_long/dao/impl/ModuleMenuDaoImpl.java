@@ -64,5 +64,14 @@ public class ModuleMenuDaoImpl implements ModuleMenuDao {
 		Daoutils.delete(sessionFactory, moduleMenu);
 		
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ModuleMenu> getAllMenuList(String hql) {
+		session = SessionUtils.getSession(sessionFactory);
+		
+		query = session.createQuery(hql);
+		
+		return query.list();
+	}
 
 }

@@ -21,4 +21,15 @@
  		<rtexprvalue>true</rtexprvalue>
  	</attribute>
  </tag>
+ 
+  <tag>
+ 	<name>pager</name>
+ 	<tag-class>com.rc_long.utils.HandleJspTag_simple</tag-class>
+ 	<body-content>scriptless</body-content>
+ 	<attribute>
+ 		<name>pager</name>
+ 		<required>true</required>
+ 		<rtexprvalue>true</rtexprvalue><!--支持运行时表达式  -->
+ 	</attribute>
+ </tag>
 </taglib>

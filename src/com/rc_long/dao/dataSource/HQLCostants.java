@@ -56,9 +56,7 @@ public class HQLCostants {
 				} else {
 					sb.append(" AND ");
 				}
-				sb.append(like + " like ?");
-
-				conditionList.add(likeName);
+				sb.append(like + " like '%"+likeName+"%'");
 			}
 		}
 
@@ -157,9 +155,8 @@ public class HQLCostants {
 				} else {
 					sb.append(" AND ");
 				}
-				sb.append(like + " like ?");
+				sb.append(like + " like '%"+likeName+"%'");
 
-				conditionList.add(likeName);
 			}
 		}
 		

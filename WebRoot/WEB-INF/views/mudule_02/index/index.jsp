@@ -5,9 +5,9 @@
 
 	<div id="slidey" style="display:none;">
 		<ul>
-			<!--  首页推荐电影-->
-			<c:forEach items="${videoList }" var="video">
-				<li><img src="${base }/${video.video_img }" alt="电影封面" ><p class='title'>${video.video_name }</p><p class='description'> <a></a>${video.video_desc }<a href="${base }/video/${video.video_id}">|PLAY|</a></p></li>
+			<!--  首页推荐新闻-->
+			<c:forEach items="${newsList }" var="news">
+				<li><img src="${base }/${news.news_img }" alt="新闻封面" ><p class='title'>${news.news_title }</p><p class='description'> <a></a>${news.news_content }<a href="${base }/news/${news.news_id}">|详情|</a></p></li>
 			</c:forEach>
 			<%-- <li><img src="${module_02 }/images/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
 			<li><img src="${module_02 }/images/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
@@ -80,6 +80,42 @@
 		</ul>
   </nav>
 </div>
+<c:forEach items="${menu_list }" var="menu">
+	
+		<div class="general">
+		<h4 class="latest-text w3_latest_text">${menu.name }</h4>
+		<div class="container">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<ul id="myTab" class="nav nav-tabs" role="tablist">
+					<c:forEach items="${menu.children }" var="menu_">
+						<li role="presentation" ><a href="##" id="${menu_.id }" ">${fn:substring(menu_.name,0,6)}</a></li>
+					</c:forEach>
+					<!-- <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">最新</a></li>
+					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">最热</a></li>
+					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">评分最高</a></li>
+					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">经典</a></li> -->
+				</ul>
+				
+				<c:if test="${menu.type eq 'video' }">
+				
+				<div >
+					<c:forEach items="${menu.videoList }" var="video">
+						${video.video_name }
+						
+
+					</c:forEach>
+					
+					</c:if>
+					
+			</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	
+</c:forEach>
 <!-- general -->
 	<div class="general">
 		<h4 class="latest-text w3_latest_text">电影分类</h4>

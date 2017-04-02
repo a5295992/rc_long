@@ -21,13 +21,11 @@ import org.hibernate.annotations.NotFoundAction;
  */
 @Entity
 @Table(name="module_menu")
-public class ModuleMenu  extends EntitiBaseBean<ModuleMenu>{
+public class ModuleMenu   {
 		
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-
 
 	@Id
 	private int id;
@@ -63,10 +61,24 @@ public class ModuleMenu  extends EntitiBaseBean<ModuleMenu>{
 	private List<ModuleMenu> children = new ArrayList<ModuleMenu>();
 	
 	
+	@OneToMany(cascade=CascadeType.ALL,targetEntity= News.class)
+	@NotFound(action = NotFoundAction.IGNORE)
+	private List<News> newsList;
+	
+
 	@OneToMany(cascade=CascadeType.ALL,targetEntity=SysVideo.class)
 	@NotFound(action=NotFoundAction.IGNORE)
 	private List<SysVideo> videoList;
 	
+	
+	
+	public List<News> getNewsList() {
+		return newsList;
+	}
+
+	public void setNewsList(List<News> newsList) {
+		this.newsList = newsList;
+	}
 	public int getId() {
 		return id;
 	}

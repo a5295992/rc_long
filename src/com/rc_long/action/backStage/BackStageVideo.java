@@ -3,6 +3,7 @@ package com.rc_long.action.backStage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,10 +21,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mysql.jdbc.StringUtils;
 import com.rc_long.Anrequest.AnRequest;
 import com.rc_long.Anrequest.NewAnRequest;
+import com.rc_long.Entity.ModuleMenu;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
 import com.rc_long.dao.dataSource.QueryCondition;
 import com.rc_long.enumeration.LocationConstant;
+import com.rc_long.service.ModuleMenuService;
 import com.rc_long.service.ModuleVideoService;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
@@ -36,6 +39,9 @@ public class BackStageVideo {
 	
 	@Autowired
 	private ModuleVideoService moduleVideoService;
+	
+	@Autowired
+	private ModuleMenuService  moduleMenuService;
 	/**
 	 * 后台视频模块管理
 	 * @return
@@ -96,7 +102,10 @@ public class BackStageVideo {
 			String to = "/admin";
 			return new ModelAndView(LocationConstant.erro_404).addObject("message","没有找到该视频").addObject("to",to);
 		}
-		return new ModelAndView("backStage/video/video_manage").addObject("videoBean", videoBean );
+		List<ModuleMenu> menu_list  = moduleMenuService.getMenu(true);
+		
+		return new ModelAndView("backStage/video/video_manage").addObject("videoBean", videoBean )
+				.addObject("menu_list", menu_list);
 	}
 	/**
 	 * 视频 权限更新
@@ -149,51 +158,58 @@ public class BackStageVideo {
 		return moduleVideoService.update(video_id,resource_name);
 		
 	}
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@RequestMapping(value=NewAnRequest.video_update+"/{video_id}",method=RequestMethod.POST)
-	public ModelAndView updateOrInsert(@PathVariable(value="video_id") String video_id,SysVideo sysVideo){
-		
-		if(sysVideo!=null){
-			
+/*	@DateTimeFormat(pattern="yyyy-MM-dd")
+*/	@RequestMapping(value=NewAnRequest.video_update)
+	public ModelAndView updateOrInsert(HttpServletRequest req ){
 			//第一步  查询该视频信息
-			SysVideo sysVideo_ = moduleVideoService.getVideoById(video_id);
-			
-			if(sysVideo_!=null){
-				if(sysVideo_.equals(sysVideo)){
-					return new ModelAndView("backStage/video/video_manage").addObject("videoBean", sysVideo );
-				}else{
-					
-					setValue(sysVideo,sysVideo_);
-					moduleVideoService.update(sysVideo_);
-					
-					return new ModelAndView("backStage/video/video_manage").addObject("videoBean", sysVideo_ );
-				}
-			}else{
-				moduleVideoService.update(sysVideo);
-				return new ModelAndView("backStage/video/video_manage").addObject("videoBean", sysVideo_ );
-			}
+		//视频id
+		String video_id = req.getParameter("video_id");
+		if(StringUtils.isNullOrEmpty(video_id)){
+			return new ModelAndView(LocationConstant.erro_404)
+			.addObject("message", "没有找到该视频");
 		}
-		return new ModelAndView(LocationConstant.erro_404).addObject("message","请提交正确的表单");
-	}
-	
-	/**
-	 * 
-	 * @param sysVideo
-	 * @param sysVideo_
-	 */
-	private void setValue(SysVideo sysVideo, SysVideo sysVideo_) {
+		//视频名字
+		String video_name = req.getParameter("video_name");
+		//视频别名
+		String video_cname = req.getParameter("video_cname");
+		//封面
+		String video_img = req.getParameter("video_img");
+		//菜单id
+		String menu_id = req.getParameter("menu_id");
+		//关键字
+		String key_words = req.getParameter("key_words");
+		//视频描述
+		String video_desc = req.getParameter("video_desc");
 		
-		sysVideo_.setVideo_name(sysVideo.getVideo_cname());
-		
-		sysVideo_.setVideo_cname(sysVideo.getVideo_cname());
-		
-		sysVideo_.setVideo_img(sysVideo.getVideo_img());
-		
-		sysVideo_.setVideo_path(sysVideo.getVideo_path());
-		
-		sysVideo_.setVideo_desc(sysVideo.getVideo_desc());
-		
-		sysVideo_.setVideo_auth(sysVideo.getVideo_auth());
-		sysVideo_.setVideo_rating(sysVideo.getVideo_rating());
+		SysVideo sysVideo = moduleVideoService.getVideoById(video_id);
+		if(sysVideo!=null){
+			if(!StringUtils.isNullOrEmpty(video_name)){
+				sysVideo.setVideo_name(video_name);
+			}
+			if(!StringUtils.isNullOrEmpty(video_cname)){
+				sysVideo.setVideo_cname(video_cname);
+			}
+			if(!StringUtils.isNullOrEmpty(video_img)){
+				sysVideo.setVideo_img(video_img);
+			}
+			if(!StringUtils.isNullOrEmpty(menu_id)){
+				int menu_id_ = Integer.parseInt(menu_id);
+				sysVideo.setMenu_id(menu_id_);;
+			}
+			if(!StringUtils.isNullOrEmpty(key_words)){
+				sysVideo.setKey_words(key_words);
+			}
+			if(!StringUtils.isNullOrEmpty(video_desc)){
+				sysVideo.setVideo_desc(video_desc);
+			}
+			moduleVideoService.update(sysVideo);
+			
+			List<ModuleMenu> menu_list  = moduleMenuService.getMenu(true);
+			
+			return new ModelAndView("backStage/video/video_manage").addObject("videoBean", sysVideo)
+					.addObject("menu_list", menu_list);
+		}
+		return new ModelAndView(LocationConstant.erro_404)
+		.addObject("message", "发生了不可预知的错误");
 	}
 }

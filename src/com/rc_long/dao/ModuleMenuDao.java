@@ -20,5 +20,12 @@ public interface ModuleMenuDao {
 	public abstract void saveOrUpdate(ModuleMenu moduleMenu);
 
 	public abstract void dele(ModuleMenu moduleMenu);
+	
+	/**
+	 * 获取所有的菜单
+	 * @param hql
+	 * @return
+	 */
+	public abstract List<ModuleMenu> getAllMenuList(String hql);
 
 }

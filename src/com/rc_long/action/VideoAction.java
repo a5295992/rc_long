@@ -22,18 +22,21 @@ import com.mysql.jdbc.StringUtils;
 import com.rc_long.Anrequest.AnRequest;
 import com.rc_long.Anrequest.NewAnRequest;
 import com.rc_long.Entity.Comment;
+import com.rc_long.Entity.ModuleMenu;
+import com.rc_long.Entity.News;
 import com.rc_long.Entity.ResourceBean;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.Entity.SysVideoBean;
 import com.rc_long.Entity.VideoGroup;
-import com.rc_long.Entity.VideoType;
+import com.rc_long.dao.dataSource.QueryCondition;
 import com.rc_long.enumeration.LocationConstant;
 import com.rc_long.enumeration.PutLocation;
 import com.rc_long.enumeration.VideoTypeManage;
 import com.rc_long.service.CommentService;
 import com.rc_long.service.ModuleGroupService;
+import com.rc_long.service.ModuleMenuService;
+import com.rc_long.service.ModuleNewsService;
 import com.rc_long.service.ModuleVideoService;
-import com.rc_long.service.ModuleVideoTypeService;
 import com.rc_long.service.Impl.ReSourceBeanServiceImpl;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
@@ -47,15 +50,17 @@ public class VideoAction {
 	private ModuleVideoService moduleVideoService;
 	@Autowired
 	private ModuleGroupService moduleGroupService;
-	@Autowired
-	private ModuleVideoTypeService moduleVideoTypeService;
 
 	public VideoService videoService = new VideoServiceImpl<SysVideo>(
 			SysVideo.class);
 	
 	@Autowired
 	private CommentService commentService;
+	@Autowired
+	private ModuleNewsService moduleNewsService;
 	
+	@Autowired
+	private ModuleMenuService moduleMenuService;
 
 	/**
 	 * 视频播放
@@ -106,25 +111,30 @@ public class VideoAction {
 	@RequestMapping(value = NewAnRequest.index)
 	public ModelAndView initIndex() {
 		// 加载推荐信息（首页电影轮播图）
-		List<SysVideo> videoList = moduleVideoService
-				.getVideoListByIsRecomment(1, VideoTypeManage.movie,
-						PutLocation.head,true,"videoList");
+		
+		//加载 新闻轮播
+		
+		QueryCondition queryCondition =new QueryCondition();
+		queryCondition.setClazz(News.class);
+		queryCondition.setPageNum(0);
+		queryCondition.setMax(7);
+		queryCondition.setCondition("WHERE isRecomment = ?");
+		queryCondition.setConditionObject(new Object[]{1});
+		
+		
+		List<News> newsList = moduleNewsService.getList(queryCondition);
+		
+		
+		List<ModuleMenu> menu_list = moduleMenuService.getMenu(true);
 		
 		// 电视剧
 
-		List<SysVideo> tvList = moduleVideoService.getVideoListByIsRecomment(1,
-				VideoTypeManage.tv, PutLocation.second,true,"tvList");
-		//
-
-		List<VideoType> videoTypeList = moduleVideoTypeService.getVideoType(0,
-				5,true,"videoTypeList");
-
-		// 加载热门专辑
+		
 		List<VideoGroup> groupList = moduleGroupService.getVideoGroupList(true,"groupList");
 
 		return new ModelAndView(LocationConstant.index)
-				.addObject("videoList", videoList).addObject("tvList", tvList)
-				.addObject("videoTypeList", videoTypeList)
+				.addObject("newsList", newsList)
+				.addObject("menu_list", menu_list)
 				.addObject("groupList", groupList);
 	}
 	

@@ -22,6 +22,8 @@ public interface ModuleMenuService {
 	
 	public void dele(ModuleMenu moduleMenu);
 	void add(ModuleMenu moduleMenu);
+	//查询 所有 没有下上级
+	public List<ModuleMenu> getMenu(boolean b);
 	
 	
 }

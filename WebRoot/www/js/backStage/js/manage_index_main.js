@@ -105,8 +105,8 @@ $("#image1").click(upload);
 //选择菜单
 function chooseMenu(){
 	
-	var menu_id = $("input[name='menu_id_option']").val();
-	
+	var menu_id = $("#menu_select").val();
+	alert(menu_id);
 	$("input[name='menu_id']").val(menu_id);
 	
 }

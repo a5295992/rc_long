@@ -122,5 +122,12 @@ public class ModuleVideoDaoImpl implements ModuleVideoDao {
 		}
 		
 	}
+
+	@Override
+	public void updateOrSave(SysVideo sysVideo) {
+		
+		Daoutils.saveOrupdate(sessionFactory, sysVideo);
+		
+	}
 	
 }

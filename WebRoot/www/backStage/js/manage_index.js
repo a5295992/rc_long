@@ -36,7 +36,7 @@ function onClick(event, treeId, treeNode, clickFlag) {
 $(document).ready(function() {
 	$.get(base + '/menu/list', function(data) {
 		// zNodes = data;
-		zTreeObj = $.fn.zTree.init($("#ztreeDeme"), setting, data);
+		alert(data);
 	});
 });
 

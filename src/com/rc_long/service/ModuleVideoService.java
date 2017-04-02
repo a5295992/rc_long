@@ -48,5 +48,10 @@ public interface ModuleVideoService {
 	 * @return
 	 */
 	public String updateGroupId(String changes, String in_videos);
+	/**
+	 * 更新或者新建
+	 * @param sysVideo
+	 */
+	public void updateOrSave(SysVideo sysVideo);
 	
 }

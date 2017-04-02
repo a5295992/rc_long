@@ -28,4 +28,6 @@ public interface ModuleVideoDao {
 	 * @param map 配合 name=:name 语法形式 
 	 */
 	public String update_map(String hql ,Map<String,Object>map);
+
+	public void updateOrSave(SysVideo sysVideo);
 }
