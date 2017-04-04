@@ -106,7 +106,6 @@ $("#image1").click(upload);
 function chooseMenu(){
 	
 	var menu_id = $("#menu_select").val();
-	alert(menu_id);
 	$("input[name='menu_id']").val(menu_id);
 	
 }

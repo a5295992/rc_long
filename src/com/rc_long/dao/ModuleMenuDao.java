@@ -1,6 +1,7 @@
 package com.rc_long.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.rc_long.Entity.ModuleMenu;
 
@@ -27,5 +28,7 @@ public interface ModuleMenuDao {
 	 * @return
 	 */
 	public abstract List<ModuleMenu> getAllMenuList(String hql);
+
+	public abstract List<ModuleMenu> getAllMenuList(String hql, Map<String,Object> map);
 
 }

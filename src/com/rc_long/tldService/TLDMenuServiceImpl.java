@@ -2,50 +2,45 @@ package com.rc_long.tldService;
 
 import java.util.List;
 
-import org.apache.log4j.helpers.LogLog;
-
+import com.rc_long.Entity.ModuleMenu;
 import com.rc_long.Entity.SysMenu;
 import com.rc_long.tldDao.TLDMenuDao;
 import com.rc_long.tldDao.TLDMenuDaoImpl;
 
 public class TLDMenuServiceImpl implements TLDMenuService {
-	private TLDMenuDao tldMenuDao;
+	private TLDMenuDao tldMenuDao =new TLDMenuDaoImpl();
 
 	@Override
-	public List<SysMenu> getMenuList(String flag) {
-		List<SysMenu> list;
-		tldMenuDao = new TLDMenuDaoImpl();
+	public List<ModuleMenu> getMenuList(Integer pid) {
+		List<ModuleMenu> list;
 
-		String sql = "SELECT co_id,menu_id,menu_name,menu_pid,menu_path FROM sys_menu WHERE menu_flag =? AND menu_pid ='0'";
-		Object[] obj = { flag };
+		String sql = "SELECT name,id,parents_id_,isParent FROM module_menu WHERE parents_id_ =? AND isIndexShow =?";
+		Object[] obj = { pid,1 };
 		list = tldMenuDao.getMenuList(sql, obj);
-		String sql2 = "SELECT co_id,menu_id,menu_name,menu_pid,menu_path FROM sys_menu WHERE menu_pid =?";
+		
 		
 		//以后在优化上使用addBatch()
-		for (SysMenu sysMenu : list) {
-			Object[] obj2 = { sysMenu.getMenu_id() };
-			LogLog.warn(sysMenu.getMenu_id());
-			List<SysMenu> list2 = tldMenuDao.getMenuList(sql2, obj2);
-			if (list2 != null) {
-				sysMenu.setSysMenuList(list2);
-			}
-		}
+		
 		return list;
 	}
 
-	@Override
-	public List<SysMenu> getMenuByPid(String pid) {
-
-		String sql = "SELECT co_id,menu_id,menu_name,menu_pid,menu_path FROM sys_menu WHERE menu_pid =?";
-		Object[] obj = { pid };
-
-		return tldMenuDao.getMenuList(sql, obj);
-	}
 
 	@Override
 	public SysMenu getMenu(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
+	public static void main(String[] args) {
+		List<ModuleMenu> list = new TLDMenuServiceImpl().getMenuList(0);
+		System.out.println(list.size());
+		for (ModuleMenu moduleMenu : list) {
+			System.out.println("c:"+moduleMenu.getChildren().size());
+		}
+		
+	}
 }
+
+
+

@@ -1,6 +1,7 @@
 package com.rc_long.dao.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.rc_long.Entity.ModuleMenu;
 import com.rc_long.dao.ModuleMenuDao;
+import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.SessionUtils;
 
 @Component
@@ -70,6 +72,17 @@ public class ModuleMenuDaoImpl implements ModuleMenuDao {
 		session = SessionUtils.getSession(sessionFactory);
 		
 		query = session.createQuery(hql);
+		
+		return query.list();
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ModuleMenu> getAllMenuList(String hql, Map<String,Object> map) {
+		session = SessionUtils.getSession(sessionFactory);
+		
+		query = session.createQuery(hql);
+		
+		CommoTools.setValues(map, query);
 		
 		return query.list();
 	}

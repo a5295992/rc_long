@@ -116,5 +116,20 @@ public class Daoutils {
 		
 	}
 
+	public static void delete(SessionFactory sessionFactory, String hql,
+			Map<String, Object> map) {
+		
+		session = SessionUtils.getSession(sessionFactory);
+		
+		tran = session.beginTransaction();
+		
+		Query query = session.createQuery(hql);
+		
+		CommoTools.setValues(map, query);
+		
+		query.executeUpdate();
+		
+		tran.commit();
+	}
 
 }

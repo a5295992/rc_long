@@ -2,9 +2,7 @@ package com.rc_long.tldHandle;
 
 import java.util.List;
 
-import org.apache.log4j.helpers.LogLog;
-
-import com.rc_long.Entity.SysMenu;
+import com.rc_long.Entity.ModuleMenu;
 import com.rc_long.tldService.TLDMenuService;
 import com.rc_long.tldService.TLDMenuServiceImpl;
 import com.rc_long.utils.JedisUtils;
@@ -16,25 +14,34 @@ public class MenuHandle {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public static List<SysMenu> getCurrentMenu(String flag){
+	public static List<ModuleMenu> getCurrentMenu(){
 		
-		List<SysMenu> list = null;
+		List<ModuleMenu> list = null;
 		try {
-			list = (List<SysMenu>) JedisUtils.getObject("indexMenu");
+			list = (List<ModuleMenu>) JedisUtils.getObject("moduleMenu");
 		} catch (Exception e) {
 			list=null;
 		}
 		if(list==null){
 			tldService = new TLDMenuServiceImpl();
 			
-			list = tldService.getMenuList(flag);
+			list = tldService.getMenuList(0);
 			
 			if(list!=null){
-				LogLog.warn("数据保存到缓存中...");
-				JedisUtils.saveObject("indexMenu", list);
+				JedisUtils.saveObject("moduleMenu", list);
 			}
 		}
 		
 		return list;
+	}
+	
+	/**
+	 * 获取当前菜单
+	 * @return
+	 */
+	public static String getCurrentMenuName(){
+		
+		
+		return JedisUtils.load("active");
 	}
 }

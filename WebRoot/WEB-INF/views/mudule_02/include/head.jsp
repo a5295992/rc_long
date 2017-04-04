@@ -130,19 +130,28 @@
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="${base }">Home</a></li>
+							<c:choose >
+								<c:when test="${fnc:getCurrentMenuName() eq '主页'}">
+								<li class="active"><a href="${base }" onclick="tosavestatuts('主页')">主页</a></li>
+								</c:when>
+								<c:otherwise>
+								<li ><a href="${base }" onclick="tosavestatuts('主页')">主页</a></li>
+								</c:otherwise>
+							</c:choose>
 							
-					<c:forEach items="${fnc:getCurrentMenu('index') }" var="menu">
+					<c:forEach items="${fnc:getCurrentMenu()}" var="menu">
 						<!-- 如果是下拉的菜单 -->
-						<c:choose>
-							<c:when test="${menu.co_id eq '下拉' }">
+						
+						<%-- 
+							<c:choose>
+							<c:when test="${menu.parents_id_ eq '0' }">
 								<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">${menu.menu_name } <b class="caret"></b></a>
+								<a href="${base }/singles/${menu.id}" class="dropdown-toggle" data-toggle="dropdown">${menu.name } <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<div class="col-sm-4">
 										<ul class="multi-column-dropdown">
-											<c:forEach items="${menu.sysMenuList }" var="menu_child" >
- 												<li><a href="genres.html">${menu_child.menu_name }</a></li>
+											<c:forEach items="${menu.children }" var="menu_child" >
+ 												<li><a href="${base }/singles/${menu_child.id}">${menu_child.name }</a></li>
  											</c:forEach>
 										</ul>
 									</div>
@@ -150,10 +159,21 @@
 						
 								</li>
 							</c:when>
-							<c:otherwise>
-								<li><a href="news.html">${menu.menu_name }</a></li>						
-							</c:otherwise>
+							<c:otherwise> 
+							
+								</c:otherwise>
 						</c:choose>
+							--%>
+								<c:choose>
+									<c:when test="${fnc:getCurrentMenuName() eq menu.name}">
+									<li class="active"><a href="${base }/singles/${menu.id}" onclick="tosavestatuts('${menu.name }')">${menu.name }</a></li>						
+									</c:when>
+									<c:otherwise>
+									<li ><a href="${base }/singles/${menu.id}" onclick="tosavestatuts('${menu.name }')">${menu.name }</a></li>						
+									</c:otherwise>
+								</c:choose>
+								
+						
  					</c:forEach>
 							
 						</ul>

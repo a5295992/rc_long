@@ -1,4 +1,4 @@
-package com.rc_long.service;
+package com.rc_long.service.Impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import com.rc_long.Entity.Comment;
 import com.rc_long.Entity.ReComment;
 import com.rc_long.dao.CommentDao;
+import com.rc_long.service.CommentService;
 import com.rc_long.utils.Pager;
 
 @Component

@@ -10,7 +10,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
-<title>添加新闻</title>
+<title>添加轮播</title>
 <link rel="stylesheet" href="${base }/www/css/backStage/css/admin.css">
 <link rel="stylesheet" href="${base }/www/css/backStage/css/pintuer.css">
 <script src="${base }/www/js/backStage/js/jquery.js"></script>
@@ -19,18 +19,18 @@
 <body>
 	<div class="panel admin-panel">
 		<div class="panel-head">
-			<strong><span class="icon-pencil-square-o"></span>添加新闻信息</strong>
+			<strong><span class="icon-pencil-square-o"></span>添加新轮播图</strong>
 			
 		</div>
 		<div class="body-content">
-			<form method="post" class="form-x" action="${base }/news/add" >
-				<input type="hidden" value="<%=CommoTools.getUUID() %>" name="news_id">
+			<form method="post" class="form-x" action="${base }/replayImg/add" >
+				<input type="hidden" value="${rePlayImg.id }" name="id">
 				<div class="form-group">
 					<div class="label">
-						<label>新闻标题：</label>
+						<label>轮播标题：</label>
 					</div>
 					<div class="field">
-						<input type="text" class="input" name="news_title" value="" />
+						<input type="text" class="input" name="title" value="${rePlayImg.title }" />
 						<div class="tips"></div>
 					</div>
 				</div>
@@ -52,41 +52,11 @@
 				
 				<div class="form-group">
 					<div class="label">
-						<label>是否推荐：</label>
+						<label>封面：</label>
 					</div>
 					<div class="field">
-					
-					<input name="isRecomment" value="true"/>[tips:0 or 1]
-					</div>
-				</div>
-				<div class="form-group" ">
-					<div class="label">
-						<label>用户：</label>
-					</div>
-					<div class="field">
-							<input type="text" class="input" name="user_name" value="${ShiroUser.user_name }"  readonly="readonly"/>
-							<input type="hidden" class="input" name="user_id" value="${ShiroUser.user_id }" />
-						<div class="tips"></div>
-					</div>
-				</div>
-				
-				<div class="form-group" ">
-					<div class="label">
-						<label>搜索关键字：</label>
-					</div>
-					<div class="field">
-							<input type="text" class="input" name="key_words" value="${news.key_words }"  readonly="readonly"/>
-						<div class="tips"></div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<div class="label">
-						<label>新闻封面：</label>
-					</div>
-					<div class="field">
-						<input type="text" id="url1" name="news_img" class="input tips"
-							style="width:25%; float:left;" value=" " data-toggle="hover"
+						<input type="text" id="url1" name="img" class="input tips"
+							style="width:25%; float:left;" value=" ${rePlayImg.img }" data-toggle="hover"
 							data-place="right" data-image="" /> 
 							<input type="button"
 							class="button bg-blue margin-left" id="image1" value="+ 浏览上传" onclick="img_file()">
@@ -97,7 +67,8 @@
 						<label>内容：</label>
 					</div>
 					<div class="field">
-						<textarea name="news_content" class="input" style="height:120px;">
+						<textarea name="intruduction" class="input" style="height:120px;">
+						${rePlayImg.intruduction }
 						</textarea>
 						<div class="tips"></div>
 					</div>
@@ -125,23 +96,8 @@
 		
 	}
 	
-	function img_file(){
-		var diag = new Dialog();
-		diag.Title="关联资源选择";
-		diag.Width=1100;
-		diag.Height=600;
-		diag.URL=base+"/sys/web/static/resource/manage/public";
-		diag.OKEvent=function(){
-		var resource_name=diag.innerFrame.contentWindow.$("#show_name").val();
-			$("#url1").val(resource_name);
-			diag.close();
-		}
-		
-		diag.show();
-	}
 	
 		
 </script>
 
-<script type="text/javascript" src="${back_static }/js/news_add.js"></script>
 </html>

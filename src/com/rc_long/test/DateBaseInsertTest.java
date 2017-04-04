@@ -1,4 +1,4 @@
-package com.rc_long.test;
+/*package com.rc_long.test;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -54,10 +54,10 @@ public class DateBaseInsertTest {
 	public static SysUser getT(){
 		return DateBase.querySingle(SysUser.class, "user_id,user_name", "{user_name:'李秋水'}");
 	}
-	/**
+	*//**
 	 * 查询和
 	 * @param args
-	 */
+	 *//*
 	public static void getcount(){
 		int count =DateBase.queryCount(SysUser.class,null);
 		System.out.println(count);
@@ -67,3 +67,4 @@ public class DateBaseInsertTest {
 	}
 	
 }
+*/

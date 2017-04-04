@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,8 +22,13 @@ import org.hibernate.annotations.NotFoundAction;
  */
 @Entity
 @Table(name="module_menu")
-public class ModuleMenu   {
+public class ModuleMenu   extends EntitiBaseBean<ModuleMenu>{
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * 
 	 */
@@ -49,6 +55,11 @@ public class ModuleMenu   {
 	private int parents_id_;
 	
 	private String path;
+	//是否在主页显示  1 。 0
+	private boolean isIndexShow;
+	
+	private String clazz;
+	//子菜单默认为第一
 	
 	@ManyToOne(cascade=CascadeType.ALL,targetEntity=ModuleMenu.class)
 	@JoinColumn(name="parents_id_",insertable=false,updatable=false)
@@ -56,29 +67,23 @@ public class ModuleMenu   {
 	private ModuleMenu moduleMenu;
 	
 	
-	@OneToMany(cascade=CascadeType.ALL,targetEntity= ModuleMenu.class)
+	@OneToMany(cascade=CascadeType.ALL,targetEntity= ModuleMenu.class,fetch=FetchType.EAGER)
 	@NotFound(action = NotFoundAction.IGNORE)
 	private List<ModuleMenu> children = new ArrayList<ModuleMenu>();
 	
 	
-	@OneToMany(cascade=CascadeType.ALL,targetEntity= News.class)
-	@NotFound(action = NotFoundAction.IGNORE)
-	private List<News> newsList;
-	
-
 	@OneToMany(cascade=CascadeType.ALL,targetEntity=SysVideo.class)
-	@NotFound(action=NotFoundAction.IGNORE)
+	@NotFound(action = NotFoundAction.IGNORE)
 	private List<SysVideo> videoList;
 	
-	
-	
-	public List<News> getNewsList() {
-		return newsList;
+	public List<SysVideo> getVideoList() {
+		return videoList;
 	}
 
-	public void setNewsList(List<News> newsList) {
-		this.newsList = newsList;
+	public void setVideoList(List<SysVideo> videoList) {
+		this.videoList = videoList;
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -161,13 +166,7 @@ public class ModuleMenu   {
 		this.type = type;
 	}
 
-	public List<SysVideo> getVideoList() {
-		return videoList;
-	}
-
-	public void setVideoList(List<SysVideo> videoList) {
-		this.videoList = videoList;
-	}
+	
 
 	public boolean isParent() {
 		return isParent;
@@ -176,5 +175,23 @@ public class ModuleMenu   {
 	public void setParent(boolean isParent) {
 		this.isParent = isParent;
 	}
+
+	public boolean isIndexShow() {
+		return isIndexShow;
+	}
+
+	public void setIndexShow(boolean isIndexShow) {
+		this.isIndexShow = isIndexShow;
+	}
+
+	public String getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(String clazz) {
+		this.clazz = clazz;
+	}
+
+
 
 }

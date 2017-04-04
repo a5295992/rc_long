@@ -15,7 +15,17 @@
     <description>获取首页菜单列表</description>
     <name>getCurrentMenu</name>
     <function-class>com.rc_long.tldHandle.MenuHandle</function-class>
-    <function-signature>java.util.List getCurrentMenu(java.lang.String)</function-signature>
-    <example>${fnc:getCurrentMenu(flag)}</example>  
+    <function-signature>java.util.List getCurrentMenu()</function-signature>
+    <example>${fnc:getCurrentMenu()}</example>  
   </function>
+  
+  
+   <function>
+    <description>获取当前菜单名称</description>
+    <name>getCurrentMenuName</name>
+    <function-class>com.rc_long.tldHandle.MenuHandle</function-class>
+    <function-signature>java.lang.String getCurrentMenuName()</function-signature>
+    <example>${fnc:getCurrentMenuName()}</example>  
+  </function>
+  
 </taglib>

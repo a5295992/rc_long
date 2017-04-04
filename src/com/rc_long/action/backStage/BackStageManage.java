@@ -49,10 +49,8 @@ public class BackStageManage {
 	@RequestMapping(value=NewAnRequest.system_menu_list)
 	public List<ModuleMenu> menuList(){
 		List<ModuleMenu> list  = moduleMenuService.getMenu();
-		System.out.println(list);
 		return list;
 	}
-	
 	
 	//首页
 	@RequestMapping(value=NewAnRequest.system_menu_content+"/{menu_id}")
@@ -127,7 +125,7 @@ public class BackStageManage {
 		
 		 //移除自己先
 		for (ModuleMenu moduleMenu1 : list) {
-			if(moduleMenu1.getId()==menu_id){
+			if(moduleMenu1.getId()==menu_id&&moduleMenu1.getParents_id_()!=0){
 				list.remove(moduleMenu1);
 			}
 		}

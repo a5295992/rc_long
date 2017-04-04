@@ -6,6 +6,7 @@ package com.rc_long.enumeration;
  */
 public class LocationConstant {
 
+	
 	//栏目管理
 	public static String sys_back_programa_manage = "backStage/sys_back_programa_manage/sys_back_programa_manage";
 	public static String sys_back_programa_manage_create = "backStage/sys_back_programa_manage/sys_back_programa_manage_create";
@@ -60,6 +61,21 @@ public class LocationConstant {
 	
 	public static String updateNews = "backStage/news/updateNews";
 	
-	public static String newsList = "backStage/news/news_list";
+	public static final String newsList = "backStage/news/news_list";
 	
+	public static final String indexMenuList ="mudule_02/single/singleMenus";
+	public static final String singlemenu = "mudule_02/single/singleMenu";
+	
+	
+	
+	
+	//轮播图
+	
+	
+	
+	public static final String repaly_list = "backStage/replayimg/replayimg_list";
+	
+	public static final String repaly_add = "backStage/replayimg/addReplay";
+	
+	public static final String repaly_update = "backStage/replayimg/updateReplay";
 }

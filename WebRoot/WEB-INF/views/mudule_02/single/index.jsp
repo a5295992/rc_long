@@ -23,7 +23,7 @@
 							<input type="text" name="video_id_id" value="${video.video_id}" style="display: none">
 					</c:forEach>
 					
-					<div id="play_list" style="width:145px;height:350px;position: relative;left: 600px;top: -360px;display:none;scoller;overflow:auto">
+					<%-- <div id="play_list" style="width:145px;height:350px;position: relative;left: 600px;top: -360px;display:none;scoller;overflow:auto">
 						<ul style="width:140px;height:350px">
 						<c:forEach items="${videoGroup.videoList }" var="video" end="5">
 							<li ><a href="${base }/video/${video.video_id}" ><img alt="" src="${base }/${video.video_img }"style="height: 60px;width: 140"/>
@@ -33,11 +33,11 @@
 							
 						</c:forEach>
 						</ul>
-					</div>
+					</div> --%>
 						
 						<div class="video-grid-single-page-agileits">
 							<div data-video="dLmKio67pVQ" id="video"> 
-							<img src="${base }/${sysVideo.video_img}" alt="" class="img-responsive" /> 
+							<img src="${base }/${sysVideo.video_img}" alt="" class="img-responsive" style="width: 750px;height: 370px"/> 
 								
 							</div>
 							简介:<span style="color: black;">${sysVideo.video_desc }[...]</span>

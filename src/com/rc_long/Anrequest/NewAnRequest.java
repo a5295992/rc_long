@@ -13,6 +13,8 @@ public class NewAnRequest {
 	
 	public static final String toSingle="/video";
 	public static final String video_update = "/video/updateBean";
+	public static final String updateVideoRecomment = "/video/updateRecomment";
+	
 	
 	public static final String updatePath = "/video/updatePath";
 	
@@ -80,5 +82,25 @@ public class NewAnRequest {
 	public static final String news_add = "/add";
 	public static final String news_dele = "/dele";
 	public static final String news_update = "/update";
+	
+	
+	
+	
+	//单页管理
+	
+	
+	public static final String singles = "/singles";
+	
+	
+	public static final String replayImg = "/replayImg";
+	public static final String replayImg_list = "/list";
+	
+	public static final String replayImg_addOrupdate = "/add";
+	
+	public static final String replayImg_dele= "/dele";
+	public static final String replayImg_deles= "/deles";
+	public static final String toreplayImg_addOrupdate = "/toadd";
+	
+	
 	
 }

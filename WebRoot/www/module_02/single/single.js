@@ -32,9 +32,9 @@
 
 function videoPlay(video_path) {
 
-	$("#video").css("height", "360");
+	$("#video").css("height", "380");
 	$("#video").html(
-			"<object width='600' height='360' id='videoPlayer' " +
+			"<object width='700' height='380' id='videoPlayer' " +
 			"name='videoPlayer' type='application/x-shockwave-flash'" +
 			" classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' >" +
 			"<param name='movie' value='"+$flash_player+"/swfs/videoPlayer.swf' />" +
@@ -44,7 +44,7 @@ function videoPlay(video_path) {
 			" <param name='flashvars' value= '&videoWidth=0&" +
 			"videoHeight=0&dsControl=manual&dsSensitivity=100&DS_Status=true&streamType=vod&autoStart=true&" +
 			"serverURL=rtmp:/vod/mp4:sample2_1000kbps.f4v'/>" +
-			"<embed src='"+$flash_player+"/swfs/videoPlayer.swf' width='600' height='380' id='videoPlayer' quality='high'" +
+			"<embed src='"+$flash_player+"/swfs/videoPlayer.swf' width='700' height='380px' id='videoPlayer' quality='high'" +
 			" bgcolor='#000000' name='videoPlayer' allowfullscreen='true' " +
 			"pluginspage='http://www.adobe.com/go/getflashplayer'   " +
 			"flashvars='&videoWidth=0&videoHeight=0&dsControl=manual&dsSensitivity=100&DS_Status=true&" +

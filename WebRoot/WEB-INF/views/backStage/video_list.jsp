@@ -33,6 +33,10 @@
 				onclick="openResourceManage()">
 				<span class="icon-plus-square-o"></span> 关联资源
 			</button>
+			
+			<button type="button" class="button border-blue" id="recomment">
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 推荐
+			</button>
 					</li>
 
 					<li><select id="likeName_serach" class="input"
@@ -57,7 +61,7 @@
 			<table class="table table-hover text-center">
 				<tr>
 					<th width="120">序号</th>
-					<th>审核</th>
+					<th>推荐</th>
 					<th>投稿人</th>
 					<th>视频别名</th>
 					<th>缩略图</th>
@@ -73,7 +77,20 @@
 					<tr>
 						<td><input type="checkbox" name="id[]"
 							value="${video.video_id }" /> <%=i++%></td>
-						<td>${video.video_auth }</td>
+						<td>
+						<a href="javascript:void(0)" onclick="recomment('${video.video_id}','${video.is_recommend }')">
+							<c:choose>
+								<c:when test="${video.is_recommend eq '1' }">
+										<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+								</c:when>
+								<c:otherwise>
+								<i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+								
+								
+								</c:otherwise>
+							</c:choose>
+						</a>
+						</td>
 						<td>${video.sysUser.user_name }</td>
 						<td>${video.video_cname }</td>
 						<td>

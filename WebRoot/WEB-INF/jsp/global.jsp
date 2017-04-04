@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="pager" uri="http://com.suse/jsp/jstl/sky"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@taglib prefix="fnc" uri="http://java.sun.com/jsp/jstl/functionsc" %>
+<%@ taglib prefix="fnc" uri="http://java.sun.com/jsp/jstl/functionsc" %>
 <c:set var="base" value="${pageContext.request.contextPath }"></c:set>
 <script type="text/javascript" >
 	var base="${base}";
@@ -25,5 +25,23 @@
 <link rel="stylesheet" href="${module_02 }/css/font-awesome.min.css" />
 
 <c:set var ="flash_player" value="${base }/www/player" ></c:set>
+
+<script type="text/javascript">
+<!--
+function tosavestatuts(name){
+	
+	$.ajax({
+        cache: true,
+        type: "PUT",
+        url:base+"/system/extration/"+name,
+        async: true,
+        error: function(request) {
+        },
+        success: function(data) {
+        }
+    });
+}
+//-->
+</script>
 
 

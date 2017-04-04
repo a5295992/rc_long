@@ -22,6 +22,7 @@ import com.rc_long.service.CmdService;
 import com.rc_long.service.WiteSiteService;
 import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.CurrentSession;
+import com.rc_long.utils.JedisUtils;
 import com.rc_long.utils.PropUtils;
 
 @Controller
@@ -109,5 +110,16 @@ public class WebSiteManageControler {
 		List<PoTree>  list = fileReadService.getFileList(resourcePath);
 		
 		return list;
+	}
+	/**
+	 * 将当前菜单保存到缓存中
+	 */
+	@ResponseBody
+	@RequestMapping(value="/extration/{name}")
+	public String extration(@PathVariable String name){
+		
+		JedisUtils.save("active", name);
+		
+		return "ok";
 	}
 }

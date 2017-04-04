@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mysql.jdbc.StringUtils;
@@ -40,6 +41,7 @@ import com.rc_long.service.ModuleVideoService;
 import com.rc_long.service.Impl.ReSourceBeanServiceImpl;
 import com.rc_long.service.video.VideoService;
 import com.rc_long.service.video.impl.VideoServiceImpl;
+import com.rc_long.utils.JedisUtils;
 import com.rc_long.utils.Pager;
 import com.rc_long.utils.ResouTools;
 
@@ -114,31 +116,90 @@ public class VideoAction {
 		
 		//加载 新闻轮播
 		
-		QueryCondition queryCondition =new QueryCondition();
-		queryCondition.setClazz(News.class);
-		queryCondition.setPageNum(0);
-		queryCondition.setMax(7);
-		queryCondition.setCondition("WHERE isRecomment = ?");
-		queryCondition.setConditionObject(new Object[]{1});
 		
+		List<News> newsList =JedisUtils.getObject("newsList");
+		if(newsList==null){
+			QueryCondition queryCondition =new QueryCondition();
+			queryCondition.setClazz(News.class);
+			queryCondition.setPageNum(0);
+			queryCondition.setMax(7);
+			queryCondition.setCondition("WHERE isRecomment = ?");
+			queryCondition.setConditionObject(new Object[]{1});
+			newsList = moduleNewsService.getList(queryCondition);
+			if(newsList!=null){
+				JedisUtils.saveObject("newsList", newsList);
+			}
+			
+		}
 		
-		List<News> newsList = moduleNewsService.getList(queryCondition);
+		//轮播电影
+		List<SysVideo> wholeVido = JedisUtils.getObject("wholeVido");
+		if(wholeVido==null){
+			QueryCondition queryCondition3 =new QueryCondition();
+			queryCondition3.setClazz(SysVideo.class);
+			queryCondition3.setPageNum(0);
+			queryCondition3.setMax(7);
+			queryCondition3.setCondition("WHERE is_recommend = ?");
+			queryCondition3.setConditionObject(new Object[]{1});
+			wholeVido = moduleVideoService.getVideoList(queryCondition3).getList();
+			if(wholeVido!=null){
+				JedisUtils.saveObject("wholeVido", wholeVido);
+			}
+			
+		}
 		
+		List<ModuleMenu> videoMenuList = JedisUtils.getObject("videoMenuList");
 		
-		List<ModuleMenu> menu_list = moduleMenuService.getMenu(true);
+		if(videoMenuList==null){
+			 videoMenuList = moduleMenuService.getVideoMenu(0,true,"video");
+				
+			getVideos(videoMenuList);
+			if(videoMenuList!=null){
+				JedisUtils.saveObject("videoMenuList", videoMenuList);
+			}
+			
+		}
+		//电影
+		//电视剧
 		
-		// 电视剧
-
+		List<ModuleMenu> tvMenuList = JedisUtils.getObject("tvMenuList");
 		
+		if(tvMenuList==null){
+			tvMenuList = moduleMenuService.getVideoMenu(0,true,"tv");
+			getVideos(tvMenuList);
+			if(tvMenuList!=null){
+				JedisUtils.saveObject("tvMenuList", tvMenuList);
+			}
+		}
+		//栏目
 		List<VideoGroup> groupList = moduleGroupService.getVideoGroupList(true,"groupList");
 
 		return new ModelAndView(LocationConstant.index)
 				.addObject("newsList", newsList)
-				.addObject("menu_list", menu_list)
-				.addObject("groupList", groupList);
+				.addObject("groupList", groupList)
+				.addObject("videoMenuList", videoMenuList)
+				.addObject("tvMenuList", tvMenuList).
+				addObject("wholeVido",wholeVido)
+				;
 	}
 	
 	
+	private void getVideos(List<ModuleMenu> videoMenuList) {
+		
+		for (ModuleMenu moduleMenu : videoMenuList) {
+			
+			for (ModuleMenu moduleMenu2 : moduleMenu.getChildren()) {
+				QueryCondition queryCondition =new QueryCondition();
+				queryCondition.setClazz(SysVideo.class);
+				queryCondition.setPageNum(0);
+				queryCondition.setMax(12);
+				queryCondition.setCondition("WHERE menu_id = ?");
+				queryCondition.setConditionObject(new Object[]{moduleMenu2.getId()});
+				moduleMenu2.setVideoList(moduleVideoService.getVideoList(queryCondition).getList());
+			}
+		}
+	}
+
 	@RequestMapping(value=NewAnRequest.toSingle+"/{video_id}")
 	public ModelAndView toSingle(@PathVariable(value="video_id") String video_id ){
 		
@@ -168,6 +229,21 @@ public class VideoAction {
 			return new ModelAndView(LocationConstant.erro_404);
 		}
 		
+	}
+	//是否推荐
+	@ResponseBody
+	@RequestMapping(value=NewAnRequest.updateVideoRecomment+"/{video_id}/{isre}")
+	public String recomment(@PathVariable String video_id,@PathVariable Integer isre){
+		
+		SysVideo sysVideo = moduleVideoService.getVideoById(video_id);
+		
+		if(sysVideo!=null){
+			
+			sysVideo.setIs_recommend(isre);
+			
+			moduleVideoService.update(sysVideo);
+		}
+		return "";
 	}
 	
 }

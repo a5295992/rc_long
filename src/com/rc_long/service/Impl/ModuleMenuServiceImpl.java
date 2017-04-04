@@ -1,6 +1,8 @@
 package com.rc_long.service.Impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -97,4 +99,37 @@ public class ModuleMenuServiceImpl implements ModuleMenuService {
 	 * 
 	 * return moduleMenuDao.getMenu(); }
 	 */
+	
+	public List<ModuleMenu> getVideoMenu(int pid,boolean b,String c) {
+		System.out.println(pid);
+		String hql = "FROM ModuleMenu as c WHERE c.parents_id_=:parents_id_ AND c.isIndexShow =:isIndexShow AND c.type=:type";
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("isIndexShow", b);
+		map.put("type", c);
+		map.put("parents_id_",pid);
+		List<ModuleMenu> list =moduleMenuDao.getAllMenuList(hql,map);
+		for (ModuleMenu moduleMenu : list) {
+			if(moduleMenu.isParent()){
+				moduleMenu.setChildren(getVideoMenu(moduleMenu.getId(), b, c));
+			}
+		}
+		return list;
+	}
+	
+	
+	public List<ModuleMenu> getVideoMenu(int pid,String c) {
+		System.out.println(pid);
+		String hql = "FROM ModuleMenu as c WHERE c.parents_id_=:parents_id_ AND c.isIndexShow =:isIndexShow AND c.type=:type";
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("type", c);
+		map.put("parents_id_",pid);
+		map.put("isIndexShow", true);
+		List<ModuleMenu> list =moduleMenuDao.getAllMenuList(hql,map);
+		for (ModuleMenu moduleMenu : list) {
+			if(moduleMenu.isParent()){
+				moduleMenu.setChildren(getVideoMenu(moduleMenu.getId(), c));
+			}
+		}
+		return list;
+	}
 }

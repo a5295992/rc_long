@@ -25,5 +25,11 @@ public interface ModuleMenuService {
 	//查询 所有 没有下上级
 	public List<ModuleMenu> getMenu(boolean b);
 	
+	public List<ModuleMenu> getVideoMenu(int i, boolean b, String string);
+	
+	public List<ModuleMenu> getVideoMenu(int pid,String c);
+	
+	//所有在主页显示的菜单
+	
 	
 }

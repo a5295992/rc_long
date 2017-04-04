@@ -55,18 +55,20 @@
 				
 				<div class="form-group">
 					<div class="label">
-						<label>可见：</label>
+						<label>是否推荐：</label>
 					</div>
 					<div class="field">
 					
-					<select onchange="toValue()" id="p_id_sele">
-						<option  name= "parents_id"value="${x.id }" >
-						所有人可见
-						</option>
-						<option  name= "parents_id"value="${x.id }" >
-						登录可见
-						</option>
-					</select>
+					<input name="isRecomment" value="${news.isRecomment }"/>[tips:0 or 1]
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="label">
+						<label>关键字：</label>
+					</div>
+					<div class="field">
+					
+					<input name="key_words" value="${news.key_words }"/>[tips:#key1#key2]
 					</div>
 				</div>
 				<div class="form-group" ">

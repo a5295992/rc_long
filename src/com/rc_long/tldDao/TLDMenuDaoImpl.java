@@ -7,10 +7,14 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import com.rc_long.Entity.ModuleMenu;
 import com.rc_long.Entity.SysMenu;
 import com.rc_long.utils.C3P0UTils;
 
 public class TLDMenuDaoImpl implements TLDMenuDao {
+	
+	
+	public static TLDMenuDaoImpl tLDMenuDaoImpl;
 	private static QueryRunner queryRunner;
 	private static Connection connecion;
 	
@@ -23,11 +27,11 @@ public class TLDMenuDaoImpl implements TLDMenuDao {
 		}
 	}
 	@Override
-	public List<SysMenu> getMenuList(String sql, Object[] obj) {
+	public List<ModuleMenu> getMenuList(String sql, Object[] obj) {
 		queryRunner = getQueryRunnner();
 		connecion = C3P0UTils.getConnection();
 		try {
-			return queryRunner.query(connecion, sql, new BeanListHandler<SysMenu>(SysMenu.class),obj);
+			return queryRunner.query(connecion, sql, new BeanListHandler<ModuleMenu>(ModuleMenu.class),obj);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();

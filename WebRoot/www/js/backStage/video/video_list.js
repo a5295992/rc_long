@@ -57,6 +57,11 @@ function manage(video_id) {
 	diag.Title = "更改视频信息";
 
 	diag.URL = base + "/sys/back/video/manage/"+video_id;
+	
+	diag.OKEvent = function(){
+		diag.close();
+		window.location.reload();
+	}
 /*	diag.OKEvent = function() {
 		var exe_form_login = diag.innerFrame.contentWindow.$("#exe_form_video");
 		
@@ -133,3 +138,32 @@ function openResourceManage(){
 	}
 	
 }
+
+
+//推荐
+function recomment(video_id,isRecomment){
+		if(isRecomment==1){
+			//是推荐的状态
+			
+			isRecomment=0;
+		}else if(isRecomment==0){
+			isRecomment =1;
+		}else{
+			isRecomment =1;
+		}
+	
+		$.ajax({
+			cache : true,
+			type : "GET",
+			url : base + "/video/updateRecomment/"+video_id+"/"+isRecomment,
+			/*data : exe_form_login.serialize(),// 你的formid
+*/				/*data :{"video_id":video_id,"resource_name":resource_name},*/
+			async : false,
+			error : function(request) {
+				alert("Connection error");
+			},
+			success : function(data) {
+				window.location.reload();
+			}
+		});
+	}
