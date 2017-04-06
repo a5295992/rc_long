@@ -11,9 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+
+import com.rc_long.utils.Pager;
 
 /**
  * 菜单实体
@@ -72,15 +75,16 @@ public class ModuleMenu   extends EntitiBaseBean<ModuleMenu>{
 	private List<ModuleMenu> children = new ArrayList<ModuleMenu>();
 	
 	
-	@OneToMany(cascade=CascadeType.ALL,targetEntity=SysVideo.class)
-	@NotFound(action = NotFoundAction.IGNORE)
-	private List<SysVideo> videoList;
+	@Transient
+	private Pager<SysVideo> videoList;
 	
-	public List<SysVideo> getVideoList() {
+
+
+	public Pager<SysVideo> getVideoList() {
 		return videoList;
 	}
 
-	public void setVideoList(List<SysVideo> videoList) {
+	public void setVideoList(Pager<SysVideo> videoList) {
 		this.videoList = videoList;
 	}
 

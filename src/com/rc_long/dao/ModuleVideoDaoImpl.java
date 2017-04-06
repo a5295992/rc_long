@@ -15,7 +15,9 @@ import org.springframework.stereotype.Component;
 import com.rc_long.Entity.Comment;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.dao.dataSource.HQLCostants;
+import com.rc_long.dao.dataSource.QueryCondition;
 import com.rc_long.dao.impl.Daoutils;
+import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.SessionUtils;
 
 @Component
@@ -128,6 +130,21 @@ public class ModuleVideoDaoImpl implements ModuleVideoDao {
 		
 		Daoutils.saveOrupdate(sessionFactory, sysVideo);
 		
+	}
+
+	@Override
+	public int getVideoCount(QueryCondition queryCondition) {
+		
+		String hql = HQLCostants.getALL(queryCondition);
+		
+		session = SessionUtils.getSession(sessionFactory);
+		Query query =session.createSQLQuery(hql);
+		
+		CommoTools.setValues(queryCondition.getObj(), query);
+		
+		BigInteger count = (BigInteger) query.uniqueResult();
+		Integer in = count.intValue();
+		return in;
 	}
 	
 }

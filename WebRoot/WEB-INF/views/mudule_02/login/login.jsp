@@ -26,7 +26,7 @@
 								<form action="${base }/user/login" method="post" id="loginForm">
 								  <input type="text" name="user_ssid" placeholder="账号" required="" onfocus="recove()">
 								  <input type="password" name="password" placeholder="密码" required=""onfocus="recove()">
-								  <input type="button" value="登录" onclick="login()">
+								  <input type="button" value="登录" onclick="login()"style="outline: none;font-style: normal;padding: 8px 20px;background: #ff8d1b;font-size: 14px;color: #fff;display: block;border: none;transition: .5s all; -webkit-transition: .5s all;-moz-transition: .5s all;-o-transition: .5s all;-ms-transition: .5s all;" onclick="createNewComment()" id="button_send">
 								</form>
 							  </div>
 							  <div class="form">

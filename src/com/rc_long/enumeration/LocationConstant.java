@@ -61,11 +61,19 @@ public class LocationConstant {
 	
 	public static String updateNews = "backStage/news/updateNews";
 	
+	
 	public static final String newsList = "backStage/news/news_list";
 	
 	public static final String indexMenuList ="mudule_02/single/singleMenus";
 	public static final String singlemenu = "mudule_02/single/singleMenu";
+	public static String singleMenuVideo = "mudule_02/single/singleMenuVideo";
 	
+	
+	//主页新闻页
+	
+	public static final String indeNewsList  = "mudule_02/newsSingle/singleNews";
+	public static final String indeNewsSingle  = "mudule_02/newsSingle/singleNew";
+	public static final String indeNewsSingleRight = "mudule_02/newsSingle/right2";
 	
 	
 	
@@ -78,4 +86,14 @@ public class LocationConstant {
 	public static final String repaly_add = "backStage/replayimg/addReplay";
 	
 	public static final String repaly_update = "backStage/replayimg/updateReplay";
+	
+	
+	
+	public static String userinfor = "user/singepage";
+	public static String liveRoom="mudule_02/live/liveRoom";
+	
+	
+	
+	
+	
 }

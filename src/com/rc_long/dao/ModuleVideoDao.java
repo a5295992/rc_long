@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.rc_long.Entity.SysVideo;
+import com.rc_long.dao.dataSource.QueryCondition;
 
 public interface ModuleVideoDao {
 
@@ -30,4 +31,6 @@ public interface ModuleVideoDao {
 	public String update_map(String hql ,Map<String,Object>map);
 
 	public void updateOrSave(SysVideo sysVideo);
+
+	public int getVideoCount(QueryCondition queryCondition);
 }

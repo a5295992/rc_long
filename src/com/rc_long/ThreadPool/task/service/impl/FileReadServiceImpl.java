@@ -15,6 +15,7 @@ import com.rc_long.ThreadPool.task.FileDelTask;
 import com.rc_long.ThreadPool.task.service.FileReadService;
 import com.rc_long.enumeration.gobalUtils;
 import com.rc_long.service.Impl.ReSourceBeanServiceImpl;
+import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.ThreadPoolsUtils;
 
 public class FileReadServiceImpl implements FileReadService {
@@ -88,7 +89,10 @@ public class FileReadServiceImpl implements FileReadService {
 	private String getContextPath(File file2) {
 		String a = file2.getAbsolutePath();
 		String arr [] = a.split("RESOURCES");
-		return "RESOURCES"+arr[1];
+		
+		String b = "RESOURCES"+arr[1];
+		
+		return CommoTools.rePlace_(b, "\\", "/");
 	}
 
 	

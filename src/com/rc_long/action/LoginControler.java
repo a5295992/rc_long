@@ -182,4 +182,15 @@ public class LoginControler {
 		.addObject("dateFiled",dateFiled).
 		addObject("mee",mee);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value=NewAnRequest.tologinOut)
+	public String toLoginOut(HttpServletRequest req){
+		ShiroUser shiro = new CurrentSession(req).getShiroUser();
+		if(shiro!=null){
+			req.getSession().removeAttribute("ShiroUser");
+		}
+		
+		return "";
+	}
 }

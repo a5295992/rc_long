@@ -21,7 +21,7 @@ public class MenuBean extends EntitiBaseBean<MenuBean>{
 	private Integer menu_id;
 	
 	
-	private List<SysVideo> list;
+	private List<News> list;
 
 
 	public String getMenu_name() {
@@ -44,13 +44,15 @@ public class MenuBean extends EntitiBaseBean<MenuBean>{
 	}
 
 
-	public List<SysVideo> getList() {
+	public List<News> getList() {
 		return list;
 	}
 
 
-	public void setList(List<SysVideo> list) {
+	public void setList(List<News> list) {
 		this.list = list;
 	}
+
+
 	
 }

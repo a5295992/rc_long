@@ -195,7 +195,7 @@ public class VideoAction {
 				queryCondition.setMax(12);
 				queryCondition.setCondition("WHERE menu_id = ?");
 				queryCondition.setConditionObject(new Object[]{moduleMenu2.getId()});
-				moduleMenu2.setVideoList(moduleVideoService.getVideoList(queryCondition).getList());
+				moduleMenu2.setVideoList(moduleVideoService.getVideoList(queryCondition));
 			}
 		}
 	}

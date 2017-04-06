@@ -30,5 +30,28 @@ function recove(){
 }
 
 
+function loginOut(){
+	var enter =window.confirm("退出吗?");
+	
+	if(enter==1){
+		$.ajax({
+	        cache: true,
+	        type: "GET",
+	        url:base+"/fuser/loginOut",
+	        async: false,
+	        error: function(request) {
+	            alert("服务器繁忙");
+	        },
+	        success: function(data) {
+	        	window.confirm("您已退出登陆状态");
+	        	window.location.reload();
+	        }
+	    });
+	}
+	
+	
+}
+
+
 
 

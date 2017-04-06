@@ -56,7 +56,7 @@
 					</div>
 					<div class="field">
 					
-					<input name="isRecomment" value="true"/>[tips:0 or 1]
+					<input name="isRecomment" value="1"/>[tips:0 or 1 默认[1:推荐]]
 					</div>
 				</div>
 				<div class="form-group" ">
@@ -75,7 +75,7 @@
 						<label>搜索关键字：</label>
 					</div>
 					<div class="field">
-							<input type="text" class="input" name="key_words" value="${news.key_words }"  readonly="readonly"/>
+							<input type="text" class="input" name="key_words" value="${news.key_words }"  />
 						<div class="tips"></div>
 					</div>
 				</div>

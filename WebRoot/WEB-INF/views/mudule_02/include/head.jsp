@@ -29,6 +29,7 @@
 <!-- //pop-up -->
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="${module_02 }/css/font-awesome.min.css" />
+<link rel="stylesheet" href="${module_02 }/css/news.css" />
 <!-- //font-awesome icons -->
 <!-- js -->
 <!-- //js -->
@@ -80,7 +81,7 @@
 	<div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="index.html"><h1>LONG<span>Movies</span></h1></a>
+				<a href="${base }"><h1>LONG<span>Movies</span></h1></a>
 			</div>
 			<div class="w3_search">
 				<form action="${base }/search/" method="post">
@@ -97,13 +98,18 @@
 			</script>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><i aria-hidden="true"></i> 更多精彩！</li>
+					
 					<c:choose>
 						<c:when test="${ShiroUser eq null }">
+						<li><i aria-hidden="true"></i> 更多精彩！</li>
 							<li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><img src="${base }/www/resources/images/001.PNG" alt="" /></li>
+							
+							<a href="${base }/fuser/infor/${ShiroUser.user_id}" ><img src="${base }/www/resources/images/001.PNG" alt="个人信息" style="border-radius:50%"/></a></li>
+							
+							<a href="javascript:void(0)" onclick="loginOut()">退出<i class="fa fa-user-times" aria-hidden="true"></i>
+							</a>
 						</c:otherwise>
 					</c:choose>
 				</ul>
@@ -175,7 +181,8 @@
 								
 						
  					</c:forEach>
-							
+							<li ><a href="${base }/singles/live" >直播</a></li>
+							<li ><a href="#" >网站声明</a></li>
 						</ul>
 					</nav>
 				</div>

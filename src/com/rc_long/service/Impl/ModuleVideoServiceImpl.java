@@ -80,7 +80,7 @@ public class ModuleVideoServiceImpl implements ModuleVideoService {
 
 	@Override
 	public Pager<SysVideo> getVideoList(QueryCondition queryCondition) {
-		int count = moduleVideoDao.getVideoCount();
+		int count = moduleVideoDao.getVideoCount(queryCondition);
 		String HQL =HQLCostants.getSQL(queryCondition);
 		Pager <SysVideo> perger = new Pager<SysVideo>(queryCondition.getMax(),count,queryCondition.getPageNum());
 		

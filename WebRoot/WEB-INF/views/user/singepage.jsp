@@ -20,8 +20,8 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-        <a class="blog-nav-item" href="${base }/sys/video">Rc_long首页</a>
-          <a class="blog-nav-item active" href="${base }/sys/user/infor">个人信息首页</a>
+        <a class="blog-nav-item" href="${base }">Rc_long首页</a>
+          <a class="blog-nav-item active" href="${base }/fuser/infor/${ShiroUser.user_id}">个人信息首页</a>
           <a class="blog-nav-item" href="#part1">看过</a>
           <a class="blog-nav-item" href="#part2">与我相关</a>
           <a class="blog-nav-item" href="#part3">上传的作品</a>
@@ -30,7 +30,7 @@
       </div>
     </div>
 	<div class="intr" >
-    	<span class="avtar" style="background:url(${base }/www/resources/singlepage_img/${ShiroUser.user_img });background-size:cover"></span>
+    	<span class="avtar" style="background:url(${base }/${ShiroUser.user_img });background-size:cover"></span>
         <p class="peointr">${ShiroUser.user_name}</p>
 		<p class="peointr">账号:${ShiroUser.user_ssid }</p>
         <p class="peointr">热爱生活，爱编程。<a href="${base }/sys/back">后台管理</p>

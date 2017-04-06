@@ -9,6 +9,8 @@ public class NewAnRequest {
 	
 	public static final String index= "/";
 	public static final String toLogin = "/user/login";
+	public static final String user_infor = "/fuser/infor";
+	public static final String tologinOut = "/fuser/loginOut";
 	
 	
 	public static final String toSingle="/video";
@@ -91,6 +93,8 @@ public class NewAnRequest {
 	
 	public static final String singles = "/singles";
 	
+	public static final String toSingleMenu = "/{menu_id}/{pageNum}";
+	
 	
 	public static final String replayImg = "/replayImg";
 	public static final String replayImg_list = "/list";
@@ -100,6 +104,11 @@ public class NewAnRequest {
 	public static final String replayImg_dele= "/dele";
 	public static final String replayImg_deles= "/deles";
 	public static final String toreplayImg_addOrupdate = "/toadd";
+	public static final String toNewsSingle = "/newst";
+	
+	public static final String toNewsMore = "/newst/more";
+	public static final String live = "live";
+	
 	
 	
 	

@@ -100,7 +100,7 @@
 						
 						<div role="tabpanel" class="tab-pane fade active in" id="${menu_2.name }" aria-labelledby="${menu_2.id }">
 						<div class="w3_agile_featured_movies">
-							<c:forEach items="${menu_2.videoList }" var="tVideo">
+							<c:forEach items="${menu_2.videoList.list }" var="tVideo">
 								<div class="col-md-2 w3l-movie-gride-agile">
 								<a href="${base }/video/${tVideo.video_id}" class="hvr-shutter-out-horizontal"><img src="${base }/${tVideo.video_img}" title="album-name" class="img-responsive" alt=" "  style="width: 200px;height: 250px"/>
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
@@ -188,7 +188,7 @@
 						
 						<div role="tabpanel" class="${menu_2.clazz }" id="ad${menu_2.path }" aria-labelledby="${menu_2.id }">
 						<div class="w3_agile_featured_movies">
-							<c:forEach items="${menu_2.videoList }" var="tVideo">
+							<c:forEach items="${menu_2.videoList.list }" var="tVideo">
 								<div class="col-md-2 w3l-movie-gride-agile">
 								<a href="${base }/video/${tVideo.video_id}" class="hvr-shutter-out-horizontal"><img src="${base }/${tVideo.video_img}" title="album-name" class="img-responsive" alt=" " style="width: 200px;height: 250px"/>
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
