@@ -1,132 +1,149 @@
 package com.rc_long.Entity;
 
-import com.rc_long.Anrequest.TableName;
 import com.rc_long.anotation.RcLongTable;
+import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
+@RcLongTable(name="live_room")
+@Entity
+@Table(name="liveroom")
+public class LiveRoom extends EntitiBaseBean<LiveRoom>
+{
+  private static final long serialVersionUID = 1L;
+  private String live_img;
 
-/**
- * @author Long
- *
- */
-@RcLongTable(name=TableName.LiveRoom)
-public class LiveRoom extends EntitiBaseBean<LiveRoom> {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	//直播首页图片
-	private String live_img;
-	
-	private String live_id;
-	
-	private String live_name;
-	
-	private String live_title;
-	
-	private String video_id;
-	
-	private String user_id;
-	
-	private String start_time;
-	
-	private String end_time;
-	
-	private int live_status;//0 未直播　１直播中　２直播结束
-	
-	private String live_path;//直播路径
-	
-	private int is_recoment;//是否推荐 0 不推荐　１　推荐
+  @Id
+  private String live_id;
+  private String live_name;
+  private Date creare_time;
+  private Integer auth;
+  private String live_desc;
+  private Integer live_status;
+  private String live_path;
+  private Integer is_recoment;
+  private Integer menu_id;
+  private String user_id;
 
-	public String getLive_id() {
-		return live_id;
-	}
+  @OneToOne(cascade={javax.persistence.CascadeType.ALL}, targetEntity=SysUser.class)
+  @JoinColumn(name="user_id", insertable=false, updatable=false)
+  @NotFound(action=NotFoundAction.IGNORE)
+  private SysUser sysUser;
 
-	public void setLive_id(String live_id) {
-		this.live_id = live_id;
-	}
+  @ManyToOne(cascade={javax.persistence.CascadeType.ALL}, targetEntity=ModuleMenu.class)
+  @JoinColumn(name="menu_id", insertable=false, updatable=false)
+  @NotFound(action=NotFoundAction.IGNORE)
+  private ModuleMenu moduleMenu;
 
-	public String getLive_name() {
-		return live_name;
-	}
+  public Integer getMenu_id()
+  {
+    return this.menu_id;
+  }
 
-	public void setLive_name(String live_name) {
-		this.live_name = live_name;
-	}
+  public void setMenu_id(Integer menu_id) {
+    this.menu_id = menu_id;
+  }
 
-	public String getLive_title() {
-		return live_title;
-	}
+  public SysUser getSysUser() {
+    return this.sysUser;
+  }
 
-	public void setLive_title(String live_title) {
-		this.live_title = live_title;
-	}
+  public void setSysUser(SysUser sysUser) {
+    this.sysUser = sysUser;
+  }
 
-	public String getVideo_id() {
-		return video_id;
-	}
+  public ModuleMenu getModuleMenu() {
+    return this.moduleMenu;
+  }
 
-	public void setVideo_id(String video_id) {
-		this.video_id = video_id;
-	}
+  public void setModuleMenu(ModuleMenu moduleMenu) {
+    this.moduleMenu = moduleMenu;
+  }
 
-	public String getUser_id() {
-		return user_id;
-	}
+  public String getLive_img() {
+    return this.live_img;
+  }
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
+  public void setLive_img(String live_img) {
+    this.live_img = live_img;
+  }
 
-	public String getStart_time() {
-		return start_time;
-	}
+  public String getLive_id() {
+    return this.live_id;
+  }
 
-	public void setStart_time(String start_time) {
-		this.start_time = start_time;
-	}
+  public void setLive_id(String live_id) {
+    this.live_id = live_id;
+  }
 
-	public String getEnd_time() {
-		return end_time;
-	}
+  public String getLive_name() {
+    return this.live_name;
+  }
 
-	public void setEnd_time(String end_time) {
-		this.end_time = end_time;
-	}
+  public void setLive_name(String live_name) {
+    this.live_name = live_name;
+  }
 
-	public int getLive_status() {
-		return live_status;
-	}
+  public Integer getLive_status()
+  {
+    return this.live_status;
+  }
 
-	public void setLive_status(int live_status) {
-		this.live_status = live_status;
-	}
+  public void setLive_status(Integer live_status) {
+    this.live_status = live_status;
+  }
 
-	public String getLive_path() {
-		return live_path;
-	}
+  public String getLive_path() {
+    return this.live_path;
+  }
 
-	public void setLive_path(String live_path) {
-		this.live_path = live_path;
-	}
+  public void setLive_path(String live_path) {
+    this.live_path = live_path;
+  }
 
-	public int getIs_recoment() {
-		return is_recoment;
-	}
+  public Integer getIs_recoment() {
+    return this.is_recoment;
+  }
 
-	public void setIs_recoment(int is_recoment) {
-		this.is_recoment = is_recoment;
-	}
+  public void setIs_recoment(Integer is_recoment) {
+    this.is_recoment = is_recoment;
+  }
 
-	public String getLive_img() {
-		return live_img;
-	}
+  public Date getCreare_time() {
+    return this.creare_time;
+  }
 
-	public void setLive_img(String live_img) {
-		this.live_img = live_img;
-	}
-	
-	/**
-	 * 是否过期
-	 * @return
-	 */
+  public void setCreare_time(Date creare_time) {
+    this.creare_time = creare_time;
+  }
+
+  public Integer getAuth() {
+    return this.auth;
+  }
+
+  public void setAuth(Integer auth) {
+    this.auth = auth;
+  }
+
+  public String getLive_desc() {
+    return this.live_desc;
+  }
+
+  public void setLive_desc(String live_desc) {
+    this.live_desc = live_desc;
+  }
+
+  public String getUser_id() {
+    return this.user_id;
+  }
+
+  public void setUser_id(String user_id) {
+    this.user_id = user_id;
+  }
 }

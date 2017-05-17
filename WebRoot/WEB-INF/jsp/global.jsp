@@ -5,8 +5,11 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fnc" uri="http://java.sun.com/jsp/jstl/functionsc" %>
 <c:set var="base" value="${pageContext.request.contextPath }"></c:set>
+<c:set var="basePathUrl" value="${pageContext.request.serverName }:${pageContext.request.serverPort }${pageContext.request.contextPath }/"/>
+<c:set var ="baseServer" value="${pageContext.request.serverName }"></c:set>
 <script type="text/javascript" >
 	var base="${base}";
+	var basePathUrl = "${basePathUrl}";
 </script>
 <link rel="stylesheet" href="${base }/www/css/ziDilog/Zidilog.css" />
 <script src="${base }/www/resources/assets/js/jquery.2.1.1.min.js"></script>

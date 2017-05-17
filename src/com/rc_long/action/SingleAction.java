@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rc_long.Anrequest.NewAnRequest;
+import com.rc_long.Entity.LiveRoom;
 import com.rc_long.Entity.MenuBean;
 import com.rc_long.Entity.ModuleMenu;
 import com.rc_long.Entity.News;
@@ -17,6 +18,7 @@ import com.rc_long.Entity.RePlayImg;
 import com.rc_long.Entity.SysVideo;
 import com.rc_long.dao.dataSource.QueryCondition;
 import com.rc_long.enumeration.LocationConstant;
+import com.rc_long.service.LiveRoomService;
 import com.rc_long.service.ModuleMenuService;
 import com.rc_long.service.ModuleNewsService;
 import com.rc_long.service.ModuleVideoService;
@@ -38,6 +40,9 @@ public class SingleAction {
 
 	@Autowired
 	private ModuleNewsService moduleNewsService;
+	
+	@Autowired
+	  private LiveRoomService liveRoomService;
 
 	@RequestMapping(value = "/{menu_id}")
 	public ModelAndView init(@PathVariable Integer menu_id) {
@@ -99,7 +104,24 @@ public class SingleAction {
 				return new ModelAndView(LocationConstant.indexMenuList)
 						.addObject("menu_list", list).addObject("inmList",
 								inmList);
-			}
+			} if ("live".equals(menu.getType()))
+		      {
+				QueryCondition condition = new QueryCondition();
+		        condition.setClazz(RePlayImg.class);
+		        condition.setPageNum(0);
+		        condition.setMax(6);
+		        condition.setCondition("WHERE menu_id = ? ");
+		        condition.setConditionObject(new Object[] { Integer.valueOf(menu.getId()) });
+		        List<RePlayImg> inmList = this.rePlayImgService.getList(condition);
+
+		        List<ModuleMenu> list = this.mkoduleMenuService.getVideoMenu(menu_id.intValue(), 
+		          "live");
+		        List munuList = getLives(list);
+
+		        return new ModelAndView(LocationConstant.indexLiveMenuList)
+		          .addObject("inmList", 
+		          inmList).addObject("menuList", munuList);
+		      }
 
 		}
 
@@ -117,6 +139,27 @@ public class SingleAction {
 				"videoList", list);
 	}
 
+	private List<MenuBean> getLives(List<ModuleMenu> list)
+	  {
+	    List<MenuBean> list2 = new ArrayList<MenuBean>();
+	    for (ModuleMenu moduleMenu : list) {
+	      QueryCondition queryCondition = new QueryCondition();
+	      queryCondition.setClazz(LiveRoom.class);
+	      queryCondition.setPageNum(0);
+	      queryCondition.setMax(12);
+	      queryCondition.setCondition("WHERE menu_id = ? AND live_status =?");
+	      queryCondition
+	        .setConditionObject(new Object[] { Integer.valueOf(moduleMenu.getId()), Integer.valueOf(1) });
+	      Pager<LiveRoom> livepager = this.liveRoomService.getPager(queryCondition);
+	      MenuBean moBean = new MenuBean();
+	      moBean.setMenu_id(Integer.valueOf(moduleMenu.getId()));
+	      moBean.setMenu_name(moduleMenu.getName());
+	      moBean.setLivelist(livepager);
+	      list2.add(moBean);
+	    }
+	    return list2;
+	  }
+	
 	private List<MenuBean> getNews(List<ModuleMenu> list) {
 		List<MenuBean> list2 = new ArrayList<MenuBean>();
 		for (ModuleMenu moduleMenu : list) {

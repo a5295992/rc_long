@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.rc_long.Entity.LiveRoom;
 import com.rc_long.Entity.ModuleMenu;
 import com.rc_long.utils.CommoTools;
 import com.rc_long.utils.SessionUtils;
@@ -130,6 +131,18 @@ public class Daoutils {
 		query.executeUpdate();
 		
 		tran.commit();
+	}
+
+	public static LiveRoom getBeanByHqlAndMapCondition(
+			SessionFactory sessionFactory, String hql, Map<String, Object> map) {
+		session = SessionUtils.getSession(sessionFactory);
+		tran = session.beginTransaction();
+		
+		Query query = session.createQuery(hql);
+		
+		CommoTools.setValues(map, query);
+		
+		return (LiveRoom) query.uniqueResult();
 	}
 
 }

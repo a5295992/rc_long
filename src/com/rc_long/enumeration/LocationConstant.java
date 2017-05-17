@@ -68,7 +68,10 @@ public class LocationConstant {
 	public static final String singlemenu = "mudule_02/single/singleMenu";
 	public static String singleMenuVideo = "mudule_02/single/singleMenuVideo";
 	
-	
+	  public static String indexLiveMenuList = "mudule_02/live/singleLiveMenus";
+	  public static String indexLiveMenu = "mudule_02/live/singleLiveMenu";
+	  public static String singleMenuLive = "mudule_02/live/singleMenuLive";
+	  public static String livePlay = "mudule_02/live/livePlay";
 	//主页新闻页
 	
 	public static final String indeNewsList  = "mudule_02/newsSingle/singleNews";
@@ -91,6 +94,9 @@ public class LocationConstant {
 	
 	public static String userinfor = "user/singepage";
 	public static String liveRoom="mudule_02/live/liveRoom";
+	 public static String LiveRoomList = "backStage/live/liveRoomList";
+	  public static String liveRoomAdd = "backStage/live/liveRoomAdd";
+	  public static String liveRoomUpdate = "backStage/live/liveRoomUpdate";
 	
 	
 	

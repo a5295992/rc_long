@@ -26,7 +26,7 @@
 					class="icon-caret-right"></span>栏目管理</a></li>
 			<li><a href="${base }/sys/back/video" target="right"><span
 					class="icon-caret-right"></span>视频管理</a></li>
-			<li><a href="${base }/www/html/column.html" target="right"><span
+			<li><a href="${base }/blive/find" target="right"><span
 					class="icon-caret-right"></span>直播管理</a></li>
 			<li><a href="${base }/sys/back/user" target="right"><span
 					class="icon-caret-right"></span>用户管理</a></li>

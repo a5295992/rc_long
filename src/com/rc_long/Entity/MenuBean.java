@@ -2,9 +2,12 @@ package com.rc_long.Entity;
 
 import java.util.List;
 
+import com.rc_long.utils.Pager;
+
 /**
  * 
  * @author 周湘龙
+ * @param <T>
  *
  */
 public class MenuBean extends EntitiBaseBean<MenuBean>{
@@ -13,6 +16,11 @@ public class MenuBean extends EntitiBaseBean<MenuBean>{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+
+	/**
+	 * 
+	 */
 	
 	
 	private String menu_name;
@@ -22,6 +30,20 @@ public class MenuBean extends EntitiBaseBean<MenuBean>{
 	
 	
 	private List<News> list;
+	
+	private Pager<LiveRoom> livelist;
+
+
+
+
+	public Pager<LiveRoom> getLivelist() {
+		return livelist;
+	}
+
+
+	public void setLivelist(Pager<LiveRoom> livelist) {
+		this.livelist = livelist;
+	}
 
 
 	public String getMenu_name() {
@@ -52,6 +74,10 @@ public class MenuBean extends EntitiBaseBean<MenuBean>{
 	public void setList(List<News> list) {
 		this.list = list;
 	}
+
+
+	
+
 
 
 	

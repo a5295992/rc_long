@@ -5,7 +5,7 @@ public class TableName {
 	// ChatLog
 	public static final String ChatLog = "chat_log";// 聊天日志
 
-	public static final String LiveRoom = "live_room";// 直播间
+	public static final String LiveRoom = "liveroom";// 直播间
 
 	public static final String ProgramaBean = "programa_bean";// 栏目
 

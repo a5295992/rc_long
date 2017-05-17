@@ -109,6 +109,14 @@ public class NewAnRequest {
 	public static final String toNewsMore = "/newst/more";
 	public static final String live = "live";
 	
+	  public static final String LiveRoom = "/blive";
+	  public static final String addLiveRoom = "/add";
+	  public static final String deleLiveRoom = "/dele";
+	  public static final String updateLiveRoom = "/update";
+	  public static final String findLiveRoom = "/find";
+	  public static final String toAddOrUpdate = "/toAddorUpdate";
+	  public static final String bliveupdate = "/update";
+	
 	
 	
 	

@@ -76,6 +76,7 @@
          <value>com.rc_long.Entity.ModuleMenu</value>
          <value>com.rc_long.Entity.News</value>
          <value>com.rc_long.Entity.RePlayImg</value>
+         <value>com.rc_long.Entity.LiveRoom</value>
     			</list>  
 			</property> 
 			

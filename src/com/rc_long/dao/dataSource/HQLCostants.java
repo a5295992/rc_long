@@ -2,12 +2,14 @@ package com.rc_long.dao.dataSource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Table;
 
 import org.springframework.core.annotation.AnnotationUtils;
 
 import com.mysql.jdbc.StringUtils;
+import com.rc_long.Entity.LiveRoom;
 import com.rc_long.Entity.SysVideo;
 
 public class HQLCostants {
@@ -164,6 +166,13 @@ public class HQLCostants {
 
 		queryCondition.setObj(object);
 		return sb.toString();
+	}
+
+	public static String updateById(Class<LiveRoom> class1, String string,
+			Map<String, Object> map) {
+		
+		
+		return null;
 	}
 
 }
